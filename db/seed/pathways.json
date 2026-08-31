@@ -1,0 +1,102 @@
+[
+  {
+    "state": "Andhra Pradesh",
+    "pathway_name": "Intermediate - MPC (Maths, Physics, Chemistry)",
+    "eligibility": "Pass Class 10 (SSC/CBSE/ICSE, any recognised board)",
+    "admission_route": "APOASIS portal, bieap.apcfss.in (Board of Intermediate Education, AP)",
+    "application_window": "Admissions opened 18 March 2026 for the 2026-27 cycle",
+    "duration": "2 years (Class 11 + 12)",
+    "leads_to": "Engineering (via AP EAPCET), Architecture (NATA), Defence (NDA), Merchant Navy, and other maths/science-based degrees",
+    "source": "brinto.in AP Intermediate admission guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "pathway_name": "Intermediate - BiPC (Biology, Physics, Chemistry)",
+    "eligibility": "Pass Class 10, any recognised board",
+    "admission_route": "APOASIS portal, bieap.apcfss.in",
+    "application_window": "Same cycle as MPC",
+    "duration": "2 years",
+    "leads_to": "Medicine/Dental (via NEET), Pharmacy, Nursing, Agriculture & Veterinary Sciences (via AP EAPCET - Agriculture stream)",
+    "source": "brinto.in AP Intermediate admission guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "pathway_name": "Intermediate - MEC (Maths, Economics, Commerce)",
+    "eligibility": "Pass Class 10, any recognised board",
+    "admission_route": "APOASIS portal, bieap.apcfss.in",
+    "application_window": "Same cycle as MPC",
+    "duration": "2 years",
+    "leads_to": "B.Com/BBA, CA/CS/CMA foundation, Economics & Statistics degrees, Banking careers",
+    "source": "brinto.in AP Intermediate admission guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "pathway_name": "Intermediate - CEC (Commerce, Economics, Civics)",
+    "eligibility": "Pass Class 10, any recognised board",
+    "admission_route": "APOASIS portal, bieap.apcfss.in",
+    "application_window": "Same cycle as MPC",
+    "duration": "2 years",
+    "leads_to": "B.Com, Law (via CLAT after 12th), Civil Services preparation track, Commerce degrees",
+    "source": "brinto.in AP Intermediate admission guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "pathway_name": "Intermediate - HEC (History, Economics, Civics)",
+    "eligibility": "Pass Class 10, any recognised board",
+    "admission_route": "APOASIS portal, bieap.apcfss.in",
+    "application_window": "Same cycle as MPC",
+    "duration": "2 years",
+    "leads_to": "BA Humanities, Civil Services (UPSC/APPSC) preparation track, Journalism, Law, Teaching (via B.Ed later)",
+    "source": "brinto.in AP Intermediate admission guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "pathway_name": "AP POLYCET - Polytechnic Diploma",
+    "eligibility": "Pass Class 10 from AP/Telangana board or equivalent, minimum 35% aggregate",
+    "admission_route": "polycetap.nic.in - Andhra Pradesh Polytechnic Common Entrance Test",
+    "application_window": "Applications 3 Mar-4 Apr 2026; exam held 25 May 2026; results June 2026",
+    "duration": "2, 3, or 3.5 years depending on the diploma",
+    "leads_to": "Direct diploma-holder jobs (aviation, automobile, construction, IT support etc.), OR lateral entry straight into 2nd year of a B.Tech programme",
+    "source": "collegedekho.com/exam/ap-polycet"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "pathway_name": "ITI - Engineering Trades",
+    "eligibility": "Pass Class 10 (any recognised board); age generally 14-40 years (relaxation for reserved categories)",
+    "admission_route": "NCVT/SCVT-affiliated Government and private ITIs in AP, via state ITI online counselling under the Directorate of Employment & Training",
+    "application_window": "Typically opens a few months after Class 10 results (broad national pattern: Jun-Aug); exact AP 2026 dates not verified",
+    "duration": "1-2 years depending on trade (e.g. Electrician/Fitter/COPA/Draughtsman ~2 years; Machinist/Mechanic Diesel ~1 year)",
+    "leads_to": "Direct trade employment (railways, power plants, private industry), apprenticeship (CITS/CTI), OR lateral entry into 2nd year of a Polytechnic Diploma",
+    "source": "collegedekho.com ITI courses after 10th guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "pathway_name": "ITI - Non-Engineering Trades",
+    "eligibility": "Pass Class 10 (any recognised board); age generally 14-40 years",
+    "admission_route": "NCVT/SCVT-affiliated Government and private ITIs in AP",
+    "application_window": "Same broad cycle as engineering trades - exact AP 2026 dates not verified",
+    "duration": "Mostly 1 year",
+    "leads_to": "Direct employment or self-employment in the trade; limited lateral-entry options compared to engineering trades",
+    "source": "collegedekho.com ITI courses after 10th guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "pathway_name": "NIOS Senior Secondary Course (Class 12 equivalent)",
+    "eligibility": "Passed Class 10 / Secondary (from NIOS or any other recognised board)",
+    "admission_route": "NIOS Regional Centre, Hyderabad (covers AP & Telangana)",
+    "application_window": "Two public-exam cycles/year (April-May and October-November); ODES available roughly monthly after the first attempt",
+    "duration": "Self-paced, typically completed in 2 years",
+    "leads_to": "Recognised at par with formal Intermediate/12th boards for degree admissions nationally; AP EAPCET counselling acceptance of NIOS Senior Secondary marksheets NOT independently verified",
+    "source": "rcdelhi.nios.ac.in NIOS FAQs; nios.ac.in official site"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "pathway_name": "Continuation at a Central/State residential school (JNV, Sainik, RMS, AP Gurukulam, EMRS) into Class 11-12",
+    "eligibility": "Already enrolled in the residential institution through Class 10 there; subject to internal promotion criteria",
+    "admission_route": "Internal continuation within the same institution (no fresh public entrance exam needed)",
+    "application_window": "N/A - internal promotion, not a public application cycle",
+    "duration": "2 years (Class 11 + 12)",
+    "leads_to": "Same downstream entrance exams as other Class 12 students of that board (AP EAPCET, NEET, JEE, CUET); Sainik/RMS cadets additionally groomed for NDA/NA",
+    "source": "Derived from the JNV/AISSEE/RMS/Gurukulam/EMRS sources cited in the school stage data"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  { "course_name": "B.Tech / Engineering", "category": "Engineering", "typical_duration": "4 years", "entry_via": "AP EAPCET", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "Polytechnic Diploma", "category": "Diploma", "typical_duration": "2-3.5 years", "entry_via": "AP POLYCET", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "MBBS", "category": "Medicine", "typical_duration": "5.5 years (incl. internship)", "entry_via": "NEET-UG", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "BDS", "category": "Medicine/Dental", "typical_duration": "5 years (incl. internship)", "entry_via": "NEET-UG", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "AYUSH (BAMS/BHMS/BUMS/BSMS)", "category": "Medicine/AYUSH", "typical_duration": "5.5 years", "entry_via": "NEET-UG", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "B.Sc Nursing", "category": "Medicine/Nursing", "typical_duration": "4 years", "entry_via": "NEET-UG", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "B.Pharm (Pharmacy)", "category": "Pharmacy", "typical_duration": "4 years", "entry_via": "AP EAPCET (Pharmacy stream)", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "Agriculture & Veterinary Sciences (BVSc & AH)", "category": "Agriculture", "typical_duration": "4-5 years", "entry_via": "AP EAPCET (Agriculture stream)", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "B.Com / BBA", "category": "Commerce", "typical_duration": "3-4 years", "entry_via": "Intermediate MEC/CEC", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "Chartered Accountancy (CA)", "category": "Commerce/Professional", "typical_duration": "~4-5 years (Foundation to Final)", "entry_via": "CA Foundation", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "Law (BA/BBA/B.Com LLB)", "category": "Law", "typical_duration": "5 years (integrated)", "entry_via": "CLAT", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "BA Humanities", "category": "Humanities", "typical_duration": "3 years", "entry_via": "Intermediate HEC", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "ITI Trade Certificate (Engineering trades)", "category": "Trade", "typical_duration": "1-2 years", "entry_via": "ITI counselling", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "ITI Trade Certificate (Non-Engineering trades)", "category": "Trade", "typical_duration": "1 year", "entry_via": "ITI counselling", "source": "Derived from AP Career Database Phase 2/3" },
+  { "course_name": "NDA / Naval Academy Officer Training", "category": "Defence", "typical_duration": "3 years academy + commissioning", "entry_via": "NDA exam (UPSC)", "source": "Derived from AP Career Database Phase 2/3" }
+]
