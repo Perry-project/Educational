@@ -80,6 +80,21 @@ CREATE TABLE IF NOT EXISTS courses (
   updated_at TIMESTAMP DEFAULT now()
 );
 
+-- Per-course syllabus/topic map, populated by the nightly 12am-2am "Course Grip"
+-- research routine: what a student needs to master for a strong foundation in
+-- each course, and what later courses/careers that foundation feeds into.
+CREATE TABLE IF NOT EXISTS course_topics (
+  id SERIAL PRIMARY KEY,
+  course_id INT REFERENCES courses(id) ON DELETE CASCADE,
+  topic_name TEXT NOT NULL,
+  sequence_order INT,             -- suggested study order within the course
+  why_it_matters TEXT,            -- why mastering this topic builds a strong grip
+  builds_toward TEXT,             -- future courses/careers/specializations this feeds into
+  source TEXT,
+  updated_at TIMESTAMP DEFAULT now(),
+  UNIQUE(course_id, topic_name)
+);
+
 -- Phase 4/5: career pipelines (not yet populated by the nightly job, table ready)
 CREATE TABLE IF NOT EXISTS careers (
   id SERIAL PRIMARY KEY,

@@ -6,13 +6,19 @@
 // Usage: node scripts/import-ap-database.mjs --file-id <driveFileId> --snapshot-date YYYY-MM-DD --title "AP Career Database - YYYY-MM-DD"
 // Seed JSON (transcribed from the Drive snapshot) lives in db/seed/*.json.
 
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import pg from "pg";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const seedDir = path.join(__dirname, "..", "db", "seed");
+const repoRoot = path.join(__dirname, "..");
+const seedDir = path.join(repoRoot, "db", "seed");
+
+const envPath = path.join(repoRoot, ".env");
+if (existsSync(envPath)) {
+  process.loadEnvFile(envPath);
+}
 
 function loadSeed(name) {
   return JSON.parse(readFileSync(path.join(seedDir, `${name}.json`), "utf-8"));
@@ -131,6 +137,32 @@ async function importCourses(client) {
   return rows.length;
 }
 
+async function importCourseTopics(client) {
+  const rows = loadSeed("course_topics");
+  let imported = 0;
+  for (const r of rows) {
+    const res = await client.query(`SELECT id FROM courses WHERE course_name = $1`, [r.course_name]);
+    if (res.rows.length === 0) {
+      console.warn(`Skipping topic "${r.topic_name}": no course named "${r.course_name}" in courses table`);
+      continue;
+    }
+    const courseId = res.rows[0].id;
+    await client.query(
+      `INSERT INTO course_topics (course_id, topic_name, sequence_order, why_it_matters, builds_toward, source, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6, now())
+       ON CONFLICT (course_id, topic_name) DO UPDATE SET
+         sequence_order = EXCLUDED.sequence_order,
+         why_it_matters = EXCLUDED.why_it_matters,
+         builds_toward = EXCLUDED.builds_toward,
+         source = EXCLUDED.source,
+         updated_at = now()`,
+      [courseId, r.topic_name, r.sequence_order ?? null, r.why_it_matters, r.builds_toward, r.source]
+    );
+    imported++;
+  }
+  return imported;
+}
+
 async function importColleges(client, stateCache) {
   const rows = loadSeed("colleges");
   for (const r of rows) {
@@ -145,6 +177,30 @@ async function importColleges(client, stateCache) {
          source = EXCLUDED.source,
          updated_at = now()`,
       [stateId, r.college_name, r.ownership, r.offers_courses, r.admission_route, r.source]
+    );
+  }
+  return rows.length;
+}
+
+async function importCareers(client, stateCache) {
+  const rows = loadSeed("careers");
+  for (const r of rows) {
+    const stateId = await getStateId(client, stateCache, r.state);
+    await client.query(
+      `INSERT INTO careers (state_id, career_name, category, entry_point, required_exams,
+         eligibility, govt_private_options, next_step, source, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9, now())
+       ON CONFLICT (state_id, career_name) DO UPDATE SET
+         category = EXCLUDED.category,
+         entry_point = EXCLUDED.entry_point,
+         required_exams = EXCLUDED.required_exams,
+         eligibility = EXCLUDED.eligibility,
+         govt_private_options = EXCLUDED.govt_private_options,
+         next_step = EXCLUDED.next_step,
+         source = EXCLUDED.source,
+         updated_at = now()`,
+      [stateId, r.career_name, r.category, r.entry_point, r.required_exams,
+       r.eligibility, r.govt_private_options, r.next_step, r.source]
     );
   }
   return rows.length;
@@ -187,10 +243,12 @@ async function main() {
     const pathwaysCount = await importPathways(client, stateCache);
     const examsCount = await importEntranceExams(client, stateCache);
     const coursesCount = await importCourses(client);
+    const topicsCount = await importCourseTopics(client);
     const collegesCount = await importColleges(client, stateCache);
+    const careersCount = await importCareers(client, stateCache);
     const progressCount = await importProgressTracker(client);
 
-    const totalRows = schoolsCount + pathwaysCount + examsCount + coursesCount + collegesCount + progressCount;
+    const totalRows = schoolsCount + pathwaysCount + examsCount + coursesCount + topicsCount + collegesCount + careersCount + progressCount;
 
     await client.query(
       `INSERT INTO import_log (source_file_id, source_title, snapshot_date, imported_at, rows_imported)
@@ -205,7 +263,7 @@ async function main() {
 
     await client.query("COMMIT");
 
-    console.log(`Imported: ${schoolsCount} schools, ${pathwaysCount} pathways, ${examsCount} entrance exams, ${coursesCount} courses, ${collegesCount} colleges, ${progressCount} progress-tracker rows.`);
+    console.log(`Imported: ${schoolsCount} schools, ${pathwaysCount} pathways, ${examsCount} entrance exams, ${coursesCount} courses, ${topicsCount} course topics, ${collegesCount} colleges, ${careersCount} careers, ${progressCount} progress-tracker rows.`);
   } catch (err) {
     await client.query("ROLLBACK");
     throw err;
