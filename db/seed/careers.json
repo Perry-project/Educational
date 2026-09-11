@@ -7,7 +7,139 @@
     "required_exams": "AP EAPCET (Engineering stream) for AP govt/private colleges; JEE Main + JEE Advanced for IITs/NITs/IIITs outside the state quota system; GATE later for M.Tech/PSU jobs",
     "eligibility": "Pass Intermediate MPC with ~45% aggregate (General) / ~40% (SC/ST) for AP EAPCET; JEE Main has no minimum-marks eligibility bar beyond passing Class 12 with Physics, Chemistry, Maths. Typical duration: 4 years.",
     "govt_private_options": "Govt: JNTU Kakinada/Anantapur/Gurajada Vizianagaram and their affiliated Govt colleges; IITs, NITs, IIITs (via JEE, outside AP EAPCET). Private: Large number of private engineering colleges across AP (Vignan's, KL University, VIT-AP, SRM-AP, Amrita, GITAM, etc.) admitting via AP EAPCET rank or their own management/NRI quota seats",
-    "next_step": "Campus placement into IT/core industry, GATE for M.Tech/PSU recruitment, MBA (via CAT/MAT) for management roles, or UPSC/APPSC for engineering services",
-    "source": "vedantu.com AP EAPCET 2026 guide (see Entrance Exams tab); JEE eligibility from NTA JEE Main information bulletin (conducting-body knowledge, exact 2026/27 dates not independently re-verified tonight)"
+    "next_step": "Campus placement into IT/core industry, GATE for M.Tech/PSU recruitment, MBA (via CAT/MAT) for management roles, or the UPSC Engineering Services Exam (ESE/IES - age 21-30, 33 with OBC relaxation) for Central govt technical services, or APPSC for state engineering posts",
+    "source": "vedantu.com AP EAPCET 2026 guide (see Entrance Exams tab); NTA JEE Main info bulletin; blog.madeeasy.in / pwonlyias.com UPSC ESE 2026 eligibility (verified Sept 2026)"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Medicine (MBBS)",
+    "category": "major",
+    "entry_point": "After Intermediate BiPC",
+    "required_exams": "NEET-UG (mandatory single entrance exam for all medical admissions in India)",
+    "eligibility": "Intermediate BiPC (Physics, Chemistry, Biology) pass; NEET minimum marks: 50th percentile General, 40th percentile SC/ST/OBC; minimum age 17 years",
+    "govt_private_options": "Govt: Govt medical colleges in AP (e.g. Andhra Medical College, Guntur/Kurnool/Siddhartha Medical Colleges) via NEET counselling - low fees, highly competitive seats. Private: Private medical colleges in AP (NRI/management quota seats carry substantially higher fees, often Rs 15-25 lakh/year) - admission still requires a valid NEET score",
+    "next_step": "Register with AP Medical Council to practice, OR pursue NEET-PG for MD/MS specialisation. NExT (National Exit Test), meant to eventually replace NEET-PG/FMGE as the licensing exam, has been postponed by the NMC to roughly 2028-2029 (mock tests are running in the meantime) - not yet a real near-term requirement as of Sept 2026",
+    "source": "dbuu.ac.in NEET UG 2026 guide; educationvibes.in / shiksha.com NExT postponement coverage (verified Sept 2026)"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Law (5-year integrated LLB)",
+    "category": "major",
+    "entry_point": "After Class 12 (any stream, incl. CEC/HEC/MEC)",
+    "required_exams": "CLAT (UG) for National Law Universities; AP LAWCET (Andhra Pradesh Law Common Entrance Test) for AP-based law colleges",
+    "eligibility": "Class 12 pass, any stream; no fixed minimum marks specified in CLAT notification (verify each cycle); AP LAWCET similarly requires Class 12 pass",
+    "govt_private_options": "Govt: National Law Universities (via CLAT, all-India) and Govt-run/university law colleges in AP (via AP LAWCET, conducted by Sri Padmavati Mahila Visvavidyalayam, Tirupati, on behalf of APSCHE). Private: Private law colleges in AP and elsewhere, many affiliated to state universities, admitting via LAWCET or management quota",
+    "next_step": "Enrol with the Bar Council, take the All India Bar Examination (AIBE) to practice, OR pursue judiciary exams (APJS - AP Judicial Services) OR corporate law / litigation / LLM & academia",
+    "source": "law.careers360.com CLAT 2027 guide; pw.live / collegeadmission.in AP LAWCET 2026 pages (verified Sept 2026 - conducting body confirmed as Sri Padmavati Mahila Visvavidyalayam)"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Civil Services (IAS/IPS/IFS - All India Services)",
+    "category": "major",
+    "entry_point": "After any Bachelor's degree",
+    "required_exams": "UPSC Civil Services Examination (CSE): Prelims (objective) -> Mains (descriptive) -> Personality Test/Interview",
+    "eligibility": "Graduate degree from a recognised university (final-year students may also apply); age 21-32 years as on 1 Aug of exam year (relaxation for SC/ST/OBC/PwBD/ex-servicemen); General category gets 6 attempts, OBC 9 attempts, SC/ST unlimited within the age window",
+    "govt_private_options": "Govt: Sole route: UPSC (Govt of India) - no private equivalent; coaching institutes (govt and private) only help with preparation, not the exam itself. Private: N/A (the exam itself has no private-sector equivalent); private coaching institutes (various, fees vary widely) support preparation",
+    "next_step": "Allocation to IAS/IPS/IFS or other Central Services based on rank and preference; posting, training at LBSNAA (Mussoorie) or respective service academies, then a career in public administration",
+    "source": "insightsonindia.com UPSC 2026 notification guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "State Civil Services (AP Group services via APPSC)",
+    "category": "major",
+    "entry_point": "After any Bachelor's degree",
+    "required_exams": "APPSC Group 1 (and Group 2/3/4) exams: Preliminary -> Main (multiple papers) -> Interview",
+    "eligibility": "Bachelor's degree (specific stream sometimes required depending on post, e.g. Commerce degree for Treasury posts); age limits vary by post (commonly 18-42 years for many Group 1 posts, narrower for specific technical/police posts, e.g. 21-28 for Assistant Commissioner)",
+    "govt_private_options": "Govt: Andhra Pradesh Public Service Commission (APPSC) - state government recruitment for Deputy Collector, DSP, Assistant Commissioner, Treasury Officer, and other state administrative posts. Private: N/A (state government exam; private coaching institutes support preparation only)",
+    "next_step": "Posting into AP state administrative, police, revenue, or allied services; promotion track within state cadre; some posts allow later transfer/promotion toward IAS/IPS via limited promotion quota",
+    "source": "adda247.com APPSC Group 1 2026 notification guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "School Teaching (Govt & Private schools)",
+    "category": "major",
+    "entry_point": "After Bachelor's degree (B.A./B.Sc./B.Com.) or Intermediate (for D.Ed route)",
+    "required_exams": "D.Ed (2-year Diploma in Elementary Education, for Classes 1-5) or B.Ed (1-year, for Classes 6-8 and above) -> AP TET (Teacher Eligibility Test) -> AP DSC (Departmental Selection Committee recruitment exam) for government posts",
+    "eligibility": "Primary teachers: Intermediate with ~45% marks + D.Ed (2-year), or ~50% marks + 4-year B.El.Ed; Upper-primary teachers: Bachelor's degree with ~45% marks + 1-year B.Ed",
+    "govt_private_options": "Govt: Government/ZP/Municipal schools in AP via AP DSC recruitment (AP TET score carries a 20% weightage in the final DSC merit list). Private: Private (unaided/CBSE/ICSE) schools recruit directly - AP TET/DSC not mandatory for most private-school posts, though many private schools still prefer TET-qualified candidates",
+    "next_step": "Government School Teacher / Secondary Grade Teacher (SGT) / School Assistant post via DSC; promotion track to Headmaster and further to educational officer cadre with seniority and further qualification (e.g. M.Ed)",
+    "source": "careerpower.in AP TET 2026 guide; teachersbadi.in AP DSC references"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Defence Services (Army/Navy/Air Force Officer)",
+    "category": "major",
+    "entry_point": "After Class 12 (via NDA) or after graduation (via CDS)",
+    "required_exams": "NDA (National Defence Academy exam, via UPSC) after Class 12, OR CDS (Combined Defence Services exam, via UPSC) after graduation - both followed by SSB Interview and medical tests",
+    "eligibility": "NDA: Class 12 pass (Army wing, any stream) or Class 12 with Physics & Maths (Air Force/Navy wings); age within a specific ~2-year window, max ~19.5 years, unmarried. CDS: Bachelor's degree, age typically 19-24 years depending on wing/entry",
+    "govt_private_options": "Govt: Sole route: Union Public Service Commission (UPSC) exams leading to National Defence Academy / Indian Military Academy / Naval Academy / Air Force Academy - no private equivalent. Private: N/A (defence commissioning has no private-sector equivalent); private coaching academies support preparation only",
+    "next_step": "Commission as an officer in the Indian Army, Navy, or Air Force; career progression through defence service ranks with promotions, further specialised training, and pension benefits on completion of service",
+    "source": "competition.careers360.com NDA eligibility guide (also see 'AP Post-Inter Entrance Exams' tab)"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Chartered Accountancy (CA)",
+    "category": "major",
+    "entry_point": "After Class 12 (Foundation route) or after graduation (Direct Entry route)",
+    "required_exams": "ICAI CA Foundation -> CA Intermediate -> 2-year Articleship (practical training) -> CA Final -> ICAI membership",
+    "eligibility": "Foundation: Class 12 pass (any stream, commerce preferred), minimum ~4 months' study period before the exam; Direct Entry (skips Foundation): Commerce graduate with ~55% marks, or non-commerce graduate with ~60% marks",
+    "govt_private_options": "Govt: N/A - CA is a professional qualification regulated by the Institute of Chartered Accountants of India (ICAI), a statutory govt-recognised body, not a college degree; both govt and private-sector jobs are open to qualified CAs. Private: Private coaching/CA classes (numerous institutes in AP, e.g. Vijayawada/Vizag/Guntur) support exam preparation; articleship is typically served under a private practising CA firm",
+    "next_step": "Enrol as a Chartered Accountant with ICAI; career as an independent practitioner, or in audit/tax/consulting firms, corporate finance (CFO track), or government roles (e.g. Indian Audit & Accounts Service via UPSC uses a related exam)",
+    "source": "pw.live CA Course Details 2026 guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Banking (Probationary Officer / Clerk)",
+    "category": "major",
+    "entry_point": "After any Bachelor's degree",
+    "required_exams": "IBPS PO/Clerk (for most public-sector banks) or SBI PO/Clerk (State Bank of India, separate exam) - Prelims -> Mains -> Interview (PO) or Prelims -> Mains (Clerk)",
+    "eligibility": "Bachelor's degree in any discipline from a recognised university; age 20-30 years for PO (relaxation for SC/ST/OBC/PwD/ex-servicemen)",
+    "govt_private_options": "Govt: Public-sector banks (SBI, Bank of Baroda, Canara Bank, Union Bank, etc.) via IBPS or bank-specific exams - the dominant govt-adjacent route for banking careers. Private: Private-sector banks (HDFC, ICICI, Axis, etc.) recruit via their own campus/lateral hiring processes, not through IBPS",
+    "next_step": "Posting as Probationary Officer/Clerk in a public-sector bank; promotion track through bank management grades (Officer -> Manager -> Senior Manager -> AGM and beyond) based on seniority, internal exams, and performance",
+    "source": "competition.careers360.com IBPS PO 2026 exam guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Architecture (B.Arch)",
+    "category": "major",
+    "entry_point": "After Intermediate/Class 12 (MPC with Maths, or equivalent with Maths)",
+    "required_exams": "NATA (National Aptitude Test in Architecture), conducted by the Council of Architecture (CoA) - some institutes also accept JEE Main Paper 2",
+    "eligibility": "Class 12 pass with Physics, Chemistry, Maths (PCM); minimum aggregate in PCM ~50% for General/OBC, ~45% for SC/ST (sources conflict on the exact current cutoff - CoA lowered it at some point but the reported figure varies 45-50% across trackers as of Sept 2026, re-verify on nata.in before applying); minimum age 17 years",
+    "govt_private_options": "Govt: Govt-run schools of architecture / architecture departments at state and central universities, admission via NATA/JEE counselling. Private: Numerous private architecture colleges across AP and nationally, admitting via NATA score",
+    "next_step": "Register with the Council of Architecture (COA) to practice as an architect; further options include M.Arch specialisation, urban planning, or independent practice/firm employment",
+    "source": "engineering.careers360.com NATA 2026 exam guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Pharmacy (B.Pharm)",
+    "category": "major",
+    "entry_point": "After Intermediate MPC or BiPC",
+    "required_exams": "AP EAPCET (Pharmacy stream)",
+    "eligibility": "Intermediate MPC or BiPC pass with Physics, Chemistry, and Maths/Biology; qualifying marks similar to other AP EAPCET streams (~45% General, ~40% SC/ST)",
+    "govt_private_options": "Govt: Govt/Govt-aided pharmacy colleges in AP via AP EAPCET counselling. Private: Numerous private pharmacy colleges across AP, admitting via AP EAPCET counselling or management quota",
+    "next_step": "Register with the Pharmacy Council of India/State Pharmacy Council to practice; career as a retail/hospital pharmacist, OR pursue M.Pharm/Pharm.D for clinical/research roles, OR roles in pharmaceutical manufacturing and drug regulatory affairs",
+    "source": "vedantu.com AP EAPCET 2026 guide (Pharmacy stream; also see 'AP Post-Inter Entrance Exams' tab) - unverified: exact AP EAPCET Pharmacy stream cutoff, needs follow-up"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Nursing (B.Sc Nursing)",
+    "category": "major",
+    "entry_point": "After Intermediate BiPC",
+    "required_exams": "NEET-UG (used for B.Sc Nursing admission at many institutions, alongside some state/institution-specific nursing entrance tests)",
+    "eligibility": "Intermediate BiPC pass with Physics, Chemistry, Biology; NEET minimum marks as per category (same as MBBS eligibility bar); minimum age typically 17 years",
+    "govt_private_options": "Govt: Govt nursing colleges attached to Govt medical colleges in AP, admission via NEET-based counselling. Private: Private nursing colleges across AP, admission via NEET score or institution-specific process",
+    "next_step": "Register with the Andhra Pradesh Nurses and Midwives Council (APNMC) to practice (mandatory, renewed every 5 years per Indian Nursing Council rules); career as a staff nurse in govt/private hospitals, OR pursue M.Sc Nursing for specialisation/teaching roles, OR opportunities in overseas nursing employment",
+    "source": "dbuu.ac.in NEET UG 2026 guide; hmis.ap.nic.in / bhavyagyan.in APNMC registration pages (verified Sept 2026 - council name and abbreviation confirmed as APNMC)"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Science / Research (Basic Sciences)",
+    "category": "major",
+    "entry_point": "After Intermediate MPC or BiPC",
+    "required_exams": "B.Sc (3 years) -> M.Sc (2 years) -> CSIR-NET or GATE (qualifying exams for research fellowships/PhD admission) -> PhD (typically 4-5 years)",
+    "eligibility": "Intermediate MPC/BiPC pass for B.Sc admission (institution-specific entrance or merit-based, varies by university); CSIR-NET requires a Master's degree (or final-year Master's students may apply provisionally) in the relevant science subject, with minimum 55% marks (General/EWS) or 50% (OBC-NCL/SC/ST/PwD/Third Gender); JRF applicants must be under 30 as of 1 July of the exam year",
+    "govt_private_options": "Govt: Govt universities and institutions (e.g. Andhra University, central universities, IISc/IITs for integrated programmes) offering B.Sc/M.Sc/PhD; CSIR-NET qualified candidates are eligible for Junior Research Fellowship (JRF) stipends at govt institutions. Private: Private universities/colleges also offer B.Sc/M.Sc programmes, generally with tuition fees (no direct private equivalent for CSIR-NET/JRF, which is a government fellowship route)",
+    "next_step": "Academic/research career as a Scientist (CSIR labs, ISRO, DRDO, and other govt research bodies) or Professor (after PhD, via qualifying exams like SET/NET for lectureship), OR private-sector R&D roles in pharma/biotech/IT",
+    "source": "CSIR-NET/GATE -> PhD pathway, general knowledge; pw.live / competitivecracker.com CSIR NET 2026 eligibility pages (verified Sept 2026 for marks/age criteria - category-specific relaxations can shift per notification, re-check before a real application)"
   }
 ]

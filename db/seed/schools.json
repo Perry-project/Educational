@@ -8,7 +8,7 @@
     "medium_of_instruction": "Telugu, English, Urdu (school-dependent)",
     "key_exam": "SSC Public Examination (Class 10 Board Exam)",
     "exam_window": "March (results typically by June)",
-    "passing_criteria": "Pass mark ~35% per subject; grading is now largely Grade-Point based under BSEAP",
+    "passing_criteria": "Pass mark 35/100 per subject (20/100 for the second language paper); grading is Grade-Point based (A1 highest down to E fail), with a minimum GPA of 3.0 (Grade D2) required to pass",
     "next_step": "Choose one: Intermediate (MPC/BiPC/CEC/MEC/HEC) via bieap.apcfss.in, AP POLYCET for a diploma, ITI for a trade certificate, or NIOS if unable to continue formal school",
     "approx_fee": "Free / nominal in government schools; govt-aided schools may charge small fees",
     "source": "shiksha.com/boards/bseap-board; jnanabhumiap.in"
@@ -49,11 +49,11 @@
     "classes_covered": "Classes 6-12 (main entry at Class 6; limited lateral entry at Class 9)",
     "medium_of_instruction": "Three-language formula: English, Hindi, and Telugu, shifting toward English/Hindi in later classes",
     "key_exam": "JNVST (Jawahar Navodaya Vidyalaya Selection Test)",
-    "exam_window": "Application ~Aug-Oct of preceding year; Phase-1 exam typically mid-January",
+    "exam_window": "Timeline has shifted earlier: for the 2027-28 admission cycle, the application form was released 6 Jul 2026 with the deadline extended to 10 Aug 2026 (correction window closed 12 Aug 2026), and the entrance exam itself is now scheduled 28 Nov 2026 - earlier than the older 'mid-January' pattern this row previously described. That window is already closed as of this data pull (Sept 2026); the next (2028-29) cycle's notification is not yet out",
     "passing_criteria": "Selection-test merit rank; 75% seats reserved for rural-area students, 33% for girls, plus SC/ST/EWS/PwD reservations",
     "next_step": "Continues within the same JNV to Class 11-12, then the same downstream entrance exams as other CBSE students (AP EAPCET, NEET, etc.)",
     "approx_fee": "Free (tuition, boarding, food, uniforms, books all provided at no cost)",
-    "source": "education.sakshi.com JNVST 2026 guide; en.wikipedia.org Jawahar Navodaya Vidyalaya"
+    "source": "school.careers360.com / education.sakshi.com JNVST 2027-28 application-form articles; en.wikipedia.org Jawahar Navodaya Vidyalaya (verified Sept 2026)"
   },
   {
     "state": "Andhra Pradesh",
@@ -63,11 +63,11 @@
     "classes_covered": "Classes 6-12 (entry at Class 6 and Class 9)",
     "medium_of_instruction": "English (CBSE English-medium), with NCC/military-style training alongside academics",
     "key_exam": "AISSEE (All India Sainik Schools Entrance Examination)",
-    "exam_window": "Application ~10-30 Oct; exam typically mid-January",
+    "exam_window": "Confirmed recurring pattern: for the AISSEE 2027 cycle, NTA is expected to open registration around Oct-Nov 2026 with the exam tentatively 17 Jan 2027 (results ~Feb 2027, counselling Mar-Jun 2027) - not yet open as of this data pull (Sept 2026)",
     "passing_criteria": "Age criteria per entry class; merit in AISSEE + medical fitness; girls admitted against ~10% reserved quota",
     "next_step": "Continues within Sainik School to Class 11-12 (Science stream common), preparing directly for the NDA/NA entrance exam after Class 12",
-    "approx_fee": "Approx. Rs 1.92 lakh/year at Sainik School Korukonda (AP), fees vary by category (SC/ST/OBC concessions apply)",
-    "source": "selectyouruniversity.com AISSEE 2026 exam details; ezyschooling.com Sainik School Korukonda profile"
+    "approx_fee": "Reported figures vary by source and are not from Sainik School Korukonda's own official page: aggregator fee-structure trackers cite an annual tuition around Rs 1.28 lakh (with ~10% yearly increase) plus one-time/annual extras (caution money ~Rs 3,000, clothing ~Rs 27,000, diet ~Rs 34,000/year); other sources have cited figures closer to Rs 1.9 lakh/year all-in. Treat as approximate until confirmed on the school's own site - fees vary by category (SC/ST/OBC concessions apply)",
+    "source": "school.careers360.com AISSEE 2027 tracker; ezyschooling.com / aissee.live Sainik School fee-structure pages (verified Sept 2026 - fee figures conflict between aggregators, flagged unverified)"
   },
   {
     "state": "Andhra Pradesh",
@@ -79,9 +79,9 @@
     "key_exam": "RMS CET (Common Entrance Test)",
     "exam_window": "Cycle broadly similar to other Central Govt defence-school CETs - exact 2026 AP-relevant dates not independently verified",
     "passing_criteria": "Age criteria per entry class; boys only; open to defence-personnel and civilian applicants",
-    "next_step": "No RMS is physically located in Andhra Pradesh (5 RMS at Ajmer, Bangalore, Belgaum, Chail, Dholpur); leads to Class 11-12 Science and NDA/NA preparation, same as Sainik Schools",
+    "next_step": "No RMS is physically located in Andhra Pradesh (5 RMS confirmed at Ajmer & Dholpur (Rajasthan), Belgaum & Bangalore (Karnataka), and Chail (Himachal Pradesh)); leads to Class 11-12 Science and NDA/NA preparation, same as Sainik Schools",
     "approx_fee": "Central Govt subsidised fees (lower than most CBSE private schools) - exact current figure not verified",
-    "source": "sainikcoaching.web.app Rashtriya Military Schools locations & admission guide"
+    "source": "sainikcoaching.web.app Rashtriya Military Schools locations & admission guide; rashtriyamilitaryschools.edu.in official prospectus (verified Sept 2026 - 5-school locations confirmed unchanged, none in AP)"
   },
   {
     "state": "Andhra Pradesh",
@@ -91,11 +91,11 @@
     "classes_covered": "Classes 5-12 (main entry at Class 5 via joint APGPCET; lateral entry at Classes 6-9 via society-specific CETs)",
     "medium_of_instruction": "Predominantly English medium",
     "key_exam": "APGPCET (joint 5th-class entrance test) or society-specific tests: APSWRS CET (SC), APTWRS CET (ST), APBCWRS CET (BC), APRS CET (general/open)",
-    "exam_window": "Notifications and entrance tests typically run Feb-Apr each academic year",
+    "exam_window": "Confirmed via the 2026 cycle: notification last week of Jan 2026, online applications through 31 Mar 2026, entrance exam 24 Apr 2026 - so the window runs Jan-Apr rather than Feb-Apr. Covers 185 Balayogi (SW) + 31 Tribal Welfare + 61 MJP BC Welfare residential schools (277 schools total). That cycle is closed; 2027 cycle notification not yet out as of this data pull (Sept 2026)",
     "passing_criteria": "Community-specific eligibility (SC/ST/BC/general); admission by merit rank in the relevant CET",
     "next_step": "Continues within the same society to Class 11-12 via RJC CET, then optionally RDC CET for degree-level admission inside the Gurukulam system, or external entrance exams after Class 12",
     "approx_fee": "Free or heavily subsidised for eligible community students",
-    "source": "teachersbadi.in AP Gurukulam CETs guide"
+    "source": "teachernews.in / teachersbadi.in / jnanabhumiap.in APGPCET 2026 notification pages (verified Sept 2026)"
   },
   {
     "state": "Andhra Pradesh",
@@ -105,11 +105,11 @@
     "classes_covered": "Classes 6-12 (main entry at Class 6; Class 7/8 entry only against backlog vacancies)",
     "medium_of_instruction": "English (CBSE English medium)",
     "key_exam": "AP EMRS CET",
-    "exam_window": "Notification/application typically Jan-Mar each year",
+    "exam_window": "Confirmed via the 2026-27 cycle: notification released ~Jan 2026, consistent with the Jan-Mar window. Covers 28 EMRS schools across AP, 1,680 Class-6 seats (840 boys/840 girls); selection via the EMRSST (2-hour test, no negative marking, Telugu/English medium)",
     "passing_criteria": "Open only to Scheduled Tribe (ST) students, priority to PVTG students in remote areas; merit rank in the CET",
     "next_step": "Continues to Class 12 within the EMRS (CBSE board), then the same downstream entrance-exam pathways as other CBSE students",
     "approx_fee": "Free (fully funded Central Govt scheme for ST students)",
-    "source": "teachersbadi.in AP EMRS CET guide"
+    "source": "apteachers.in / teachersbadi.in AP EMRS 2026-27 admissions notification (verified Sept 2026)"
   },
   {
     "state": "Andhra Pradesh",
