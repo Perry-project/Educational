@@ -11,6 +11,9 @@ export default function Header() {
           <Link href="/flow" className="hover:text-black dark:hover:text-white">
             Flow Explorer
           </Link>
+          <Link href="/pathfinder" className="hover:text-black dark:hover:text-white">
+            Pathfinder
+          </Link>
         </nav>
       </div>
     </header>

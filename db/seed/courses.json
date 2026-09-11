@@ -1,17 +1,172 @@
 [
-  { "course_name": "B.Tech / Engineering", "category": "Engineering", "typical_duration": "4 years", "entry_via": "AP EAPCET", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "Polytechnic Diploma", "category": "Diploma", "typical_duration": "2-3.5 years", "entry_via": "AP POLYCET", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "MBBS", "category": "Medicine", "typical_duration": "5.5 years (incl. internship)", "entry_via": "NEET-UG", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "BDS", "category": "Medicine/Dental", "typical_duration": "5 years (incl. internship)", "entry_via": "NEET-UG", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "AYUSH (BAMS/BHMS/BUMS/BSMS)", "category": "Medicine/AYUSH", "typical_duration": "5.5 years", "entry_via": "NEET-UG", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "B.Sc Nursing", "category": "Medicine/Nursing", "typical_duration": "4 years", "entry_via": "NEET-UG", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "B.Pharm (Pharmacy)", "category": "Pharmacy", "typical_duration": "4 years", "entry_via": "AP EAPCET (Pharmacy stream)", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "Agriculture & Veterinary Sciences (BVSc & AH)", "category": "Agriculture", "typical_duration": "4-5 years", "entry_via": "AP EAPCET (Agriculture stream)", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "B.Com / BBA", "category": "Commerce", "typical_duration": "3-4 years", "entry_via": "Intermediate MEC/CEC", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "Chartered Accountancy (CA)", "category": "Commerce/Professional", "typical_duration": "~4-5 years (Foundation to Final)", "entry_via": "CA Foundation", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "Law (BA/BBA/B.Com LLB)", "category": "Law", "typical_duration": "5 years (integrated)", "entry_via": "CLAT", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "BA Humanities", "category": "Humanities", "typical_duration": "3 years", "entry_via": "Intermediate HEC", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "ITI Trade Certificate (Engineering trades)", "category": "Trade", "typical_duration": "1-2 years", "entry_via": "ITI counselling", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "ITI Trade Certificate (Non-Engineering trades)", "category": "Trade", "typical_duration": "1 year", "entry_via": "ITI counselling", "source": "Derived from AP Career Database Phase 2/3" },
-  { "course_name": "NDA / Naval Academy Officer Training", "category": "Defence", "typical_duration": "3 years academy + commissioning", "entry_via": "NDA exam (UPSC)", "source": "Derived from AP Career Database Phase 2/3" }
+  {
+    "course_name": "B.Tech / Engineering",
+    "category": "Engineering",
+    "typical_duration": "4 years",
+    "entry_via": "AP EAPCET",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "Polytechnic Diploma",
+    "category": "Diploma",
+    "typical_duration": "3-3.5 years (engineering diplomas: 3 years; some non-engineering/sandwich courses: 3.5 years)",
+    "entry_via": "AP POLYCET",
+    "source": "collegedekho.com / education.sakshi.com AP POLYCET diploma-duration guides (verified Sept 2026 - corrected from an unsourced '2 years' figure; no current AP POLYCET diploma runs 2 years)",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "MBBS",
+    "category": "Medicine",
+    "typical_duration": "5.5 years (incl. internship)",
+    "entry_via": "NEET-UG",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "BDS",
+    "category": "Medicine/Dental",
+    "typical_duration": "5 years (incl. internship)",
+    "entry_via": "NEET-UG",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "AYUSH (BAMS/BHMS/BUMS/BSMS)",
+    "category": "Medicine/AYUSH",
+    "typical_duration": "5.5 years",
+    "entry_via": "NEET-UG",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "B.Sc Nursing",
+    "category": "Medicine/Nursing",
+    "typical_duration": "4 years",
+    "entry_via": "NEET-UG",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "B.Pharm (Pharmacy)",
+    "category": "Pharmacy",
+    "typical_duration": "4 years",
+    "entry_via": "AP EAPCET (Pharmacy stream)",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "Agriculture & Veterinary Sciences (BVSc & AH)",
+    "category": "Agriculture",
+    "typical_duration": "5.5 years (4.5 years academic + 1-year mandatory internship, per Veterinary Council of India norms)",
+    "entry_via": "AP EAPCET (Agriculture stream)",
+    "source": "kvasu.ac.in / shiksha.com BVSc & AH duration guides (verified Sept 2026 - corrected from an approximate '4-5 years' figure)",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "B.Com / BBA",
+    "category": "Commerce",
+    "typical_duration": "3-4 years",
+    "entry_via": "Intermediate MEC/CEC",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "Chartered Accountancy (CA)",
+    "category": "Commerce/Professional",
+    "typical_duration": "~4-5 years (Foundation to Final)",
+    "entry_via": "CA Foundation",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "Law (BA/BBA/B.Com LLB)",
+    "category": "Law",
+    "typical_duration": "5 years (integrated)",
+    "entry_via": "CLAT",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "BA Humanities",
+    "category": "Humanities",
+    "typical_duration": "3 years",
+    "entry_via": "Intermediate HEC",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "ITI Trade Certificate (Engineering trades)",
+    "category": "Trade",
+    "typical_duration": "1-2 years",
+    "entry_via": "ITI counselling",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "ITI Trade Certificate (Non-Engineering trades)",
+    "category": "Trade",
+    "typical_duration": "1 year",
+    "entry_via": "ITI counselling",
+    "source": "Derived from AP Career Database Phase 2/3",
+    "source_type": "unverified",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "NDA / Naval Academy Officer Training",
+    "category": "Defence",
+    "typical_duration": "3 years at NDA (joint Army/Navy/Air Force training + degree) + ~1 further year at IMA/Naval Academy/Air Force Academy before commissioning",
+    "entry_via": "NDA exam (UPSC)",
+    "source": "en.wikipedia.org National Defence Academy and Naval Academy Examination; slcacademy.in NDA training-duration guide (verified Sept 2026 - clarified the post-NDA service-academy year)",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "B.Arch (Architecture)",
+    "category": "Architecture",
+    "typical_duration": "5 years",
+    "entry_via": "NATA (or JEE Main Paper 2 at some institutes)",
+    "source": "pw.live / shapeverse.in B.Arch admission guides (verified Sept 2026) - added to close a gap: the careers table already lists an Architecture career with no course node to feed it",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "course_name": "B.Sc (Basic Sciences)",
+    "category": "Science",
+    "typical_duration": "3 years",
+    "entry_via": "Intermediate MPC or BiPC (merit-based or institution-specific entrance, varies by university)",
+    "source": "Derived from the Science/Research career pipeline's own entry-point text (Intermediate MPC/BiPC -> B.Sc -> M.Sc -> CSIR-NET/GATE -> PhD) - added to close a gap: the careers table already lists a Science/Research career with no course node to feed it",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  }
 ]

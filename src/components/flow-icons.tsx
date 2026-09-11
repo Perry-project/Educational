@@ -69,6 +69,16 @@ export function IconCourse() {
   );
 }
 
+// Career outcome — flag on a pole
+export function IconCareer() {
+  return (
+    <Icon>
+      <path d="M6 21V4" />
+      <path d="M6 4h12l-3 4 3 4H6" />
+    </Icon>
+  );
+}
+
 // Start of the flow
 export function IconStart() {
   return (

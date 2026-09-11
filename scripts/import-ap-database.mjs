@@ -102,8 +102,8 @@ async function importEntranceExams(client, stateCache) {
     const stateId = await getStateId(client, stateCache, r.state);
     await client.query(
       `INSERT INTO entrance_exams (state_id, exam_name, full_form_body, eligibility,
-         application_window, exam_date, admits_into, source, updated_at)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8, now())
+         application_window, exam_date, admits_into, source, source_type, data_tier, verified_date, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11, now())
        ON CONFLICT (state_id, exam_name) DO UPDATE SET
          full_form_body = EXCLUDED.full_form_body,
          eligibility = EXCLUDED.eligibility,
@@ -111,9 +111,13 @@ async function importEntranceExams(client, stateCache) {
          exam_date = EXCLUDED.exam_date,
          admits_into = EXCLUDED.admits_into,
          source = EXCLUDED.source,
+         source_type = EXCLUDED.source_type,
+         data_tier = EXCLUDED.data_tier,
+         verified_date = EXCLUDED.verified_date,
          updated_at = now()`,
       [stateId, r.exam_name, r.full_form_body, r.eligibility,
-       r.application_window, r.exam_date, r.admits_into, r.source]
+       r.application_window, r.exam_date, r.admits_into, r.source,
+       r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null]
     );
   }
   return rows.length;
@@ -123,15 +127,19 @@ async function importCourses(client) {
   const rows = loadSeed("courses");
   for (const r of rows) {
     await client.query(
-      `INSERT INTO courses (course_name, category, typical_duration, entry_via, source, updated_at)
-       VALUES ($1,$2,$3,$4,$5, now())
+      `INSERT INTO courses (course_name, category, typical_duration, entry_via, source, source_type, data_tier, verified_date, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8, now())
        ON CONFLICT (course_name) DO UPDATE SET
          category = EXCLUDED.category,
          typical_duration = EXCLUDED.typical_duration,
          entry_via = EXCLUDED.entry_via,
          source = EXCLUDED.source,
+         source_type = EXCLUDED.source_type,
+         data_tier = EXCLUDED.data_tier,
+         verified_date = EXCLUDED.verified_date,
          updated_at = now()`,
-      [r.course_name, r.category, r.typical_duration, r.entry_via, r.source]
+      [r.course_name, r.category, r.typical_duration, r.entry_via, r.source,
+       r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null]
     );
   }
   return rows.length;
@@ -168,18 +176,56 @@ async function importColleges(client, stateCache) {
   for (const r of rows) {
     const stateId = await getStateId(client, stateCache, r.state);
     await client.query(
-      `INSERT INTO colleges (state_id, college_name, ownership, offers_courses, admission_route, source, updated_at)
-       VALUES ($1,$2,$3,$4,$5,$6, now())
+      `INSERT INTO colleges (state_id, college_name, ownership, offers_courses, admission_route, source, source_type, data_tier, verified_date, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9, now())
        ON CONFLICT (state_id, college_name) DO UPDATE SET
          ownership = EXCLUDED.ownership,
          offers_courses = EXCLUDED.offers_courses,
          admission_route = EXCLUDED.admission_route,
          source = EXCLUDED.source,
+         source_type = EXCLUDED.source_type,
+         data_tier = EXCLUDED.data_tier,
+         verified_date = EXCLUDED.verified_date,
          updated_at = now()`,
-      [stateId, r.college_name, r.ownership, r.offers_courses, r.admission_route, r.source]
+      [stateId, r.college_name, r.ownership, r.offers_courses, r.admission_route, r.source,
+       r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null]
     );
   }
   return rows.length;
+}
+
+async function importCutoffs(client) {
+  const rows = loadSeed("cutoffs");
+  let imported = 0;
+  for (const r of rows) {
+    const collegeRes = await client.query(`SELECT id FROM colleges WHERE college_name = $1`, [r.college_name]);
+    const courseRes = await client.query(`SELECT id FROM courses WHERE course_name = $1`, [r.course_name]);
+    if (collegeRes.rows.length === 0 || courseRes.rows.length === 0) {
+      console.warn(`Skipping cutoff for "${r.college_name}" / "${r.course_name}": college or course not found`);
+      continue;
+    }
+    if (!r.source || !r.verified_date) {
+      console.warn(`Skipping cutoff for "${r.college_name}" / "${r.course_name}" / ${r.category} ${r.year}: missing required source or verified_date (tier_1_official only)`);
+      continue;
+    }
+    await client.query(
+      `INSERT INTO cutoffs (college_id, course_id, category, year, closing_rank, closing_marks,
+         source, source_type, verified_date, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9, now())
+       ON CONFLICT (college_id, course_id, category, year) DO UPDATE SET
+         closing_rank = EXCLUDED.closing_rank,
+         closing_marks = EXCLUDED.closing_marks,
+         source = EXCLUDED.source,
+         source_type = EXCLUDED.source_type,
+         verified_date = EXCLUDED.verified_date,
+         updated_at = now()`,
+      [collegeRes.rows[0].id, courseRes.rows[0].id, r.category, r.year,
+       r.closing_rank ?? null, r.closing_marks ?? null,
+       r.source, r.source_type ?? "government_notification", r.verified_date]
+    );
+    imported++;
+  }
+  return imported;
 }
 
 async function importCareers(client, stateCache) {
@@ -245,10 +291,11 @@ async function main() {
     const coursesCount = await importCourses(client);
     const topicsCount = await importCourseTopics(client);
     const collegesCount = await importColleges(client, stateCache);
+    const cutoffsCount = await importCutoffs(client);
     const careersCount = await importCareers(client, stateCache);
     const progressCount = await importProgressTracker(client);
 
-    const totalRows = schoolsCount + pathwaysCount + examsCount + coursesCount + topicsCount + collegesCount + careersCount + progressCount;
+    const totalRows = schoolsCount + pathwaysCount + examsCount + coursesCount + topicsCount + collegesCount + cutoffsCount + careersCount + progressCount;
 
     await client.query(
       `INSERT INTO import_log (source_file_id, source_title, snapshot_date, imported_at, rows_imported)
@@ -263,7 +310,7 @@ async function main() {
 
     await client.query("COMMIT");
 
-    console.log(`Imported: ${schoolsCount} schools, ${pathwaysCount} pathways, ${examsCount} entrance exams, ${coursesCount} courses, ${topicsCount} course topics, ${collegesCount} colleges, ${careersCount} careers, ${progressCount} progress-tracker rows.`);
+    console.log(`Imported: ${schoolsCount} schools, ${pathwaysCount} pathways, ${examsCount} entrance exams, ${coursesCount} courses, ${topicsCount} course topics, ${collegesCount} colleges, ${cutoffsCount} cutoffs, ${careersCount} careers, ${progressCount} progress-tracker rows.`);
   } catch (err) {
     await client.query("ROLLBACK");
     throw err;

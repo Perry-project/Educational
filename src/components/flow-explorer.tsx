@@ -3,16 +3,18 @@
 import { useCallback, useMemo, useState, type ComponentType, type CSSProperties } from "react";
 import "./flow-explorer.css";
 import type { FlowGraph, FlowNode, FlowNodeType, Stream } from "@/lib/flow-data";
-import { IconScience, IconCommerce, IconHumanities, IconVocational, IconExam, IconCourse } from "./flow-icons";
+import { IconScience, IconCommerce, IconHumanities, IconVocational, IconExam, IconCourse, IconCareer } from "./flow-icons";
+import { TierBadge } from "./tier-badge";
 
 const TYPE_LABEL: Record<FlowNodeType, string> = {
   root: "Start",
   pathway: "Pathway",
   exam: "Entrance exam",
   course: "Course",
+  career: "Career",
 };
 
-const COLUMN_LABEL = ["Pathway", "Leads to", "Course"];
+const COLUMN_LABEL = ["Pathway", "Leads to", "Course", "Career"];
 
 const STREAMS: Stream[] = ["Science", "Commerce", "Humanities", "Vocational"];
 
@@ -38,6 +40,7 @@ type ChildItem = { node: FlowNode; secondary: boolean };
 function cardIcon(node: FlowNode) {
   if (node.type === "pathway" && node.stream) return STREAM_ICON[node.stream];
   if (node.type === "exam") return IconExam;
+  if (node.type === "career") return IconCareer;
   return IconCourse;
 }
 
@@ -180,6 +183,11 @@ export default function FlowExplorer({ graph }: { graph: FlowGraph }) {
           {TYPE_LABEL[focusNode.type]}
         </div>
         <h2 className="mt-1 text-base font-semibold">{focusNode.label}</h2>
+        {focusNode.tier && (
+          <div className="mt-2">
+            <TierBadge tier={focusNode.tier} />
+          </div>
+        )}
         <dl className="mt-3 grid gap-3 sm:grid-cols-2">
           {focusNode.facts.length > 0 ? (
             focusNode.facts.map((f) => (

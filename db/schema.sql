@@ -1,6 +1,17 @@
 -- Perry education database schema
 -- Separates schools, pathways, entrance exams, colleges, courses, and careers
 -- so each list can be queried/filtered independently (per user request).
+--
+-- Data-trust tiers (see CLAUDE.md "Data safety tiers"): every row that carries
+-- a data_tier column must be one of:
+--   tier_1_official   - primary government/official-portal source, ready to
+--                        show a student as fact (exam dates, cutoffs, syllabus)
+--   tier_2_reported   - self-reported figures (placement rates) shown only as
+--                        a sourced range with corroborating sources
+--   tier_3_advisory   - AI-assisted guidance, always labeled as such
+--   pending_review     - not yet checked against a tier-1 source; the default
+--                        for anything transcribed from a secondary aggregator
+-- No UI may present a pending_review or tier_2_reported row as settled fact.
 
 CREATE TABLE IF NOT EXISTS states (
   id SERIAL PRIMARY KEY,
@@ -52,9 +63,19 @@ CREATE TABLE IF NOT EXISTS entrance_exams (
   exam_date TEXT,
   admits_into TEXT,
   source TEXT,
+  source_type TEXT,             -- government_notification / official_portal / secondary_aggregator / unverified
+  data_tier TEXT NOT NULL DEFAULT 'pending_review'
+    CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review')),
+  verified_date DATE,
   updated_at TIMESTAMP DEFAULT now(),
   UNIQUE(state_id, exam_name)
 );
+ALTER TABLE entrance_exams ADD COLUMN IF NOT EXISTS source_type TEXT;
+ALTER TABLE entrance_exams ADD COLUMN IF NOT EXISTS data_tier TEXT NOT NULL DEFAULT 'pending_review';
+ALTER TABLE entrance_exams ADD COLUMN IF NOT EXISTS verified_date DATE;
+ALTER TABLE entrance_exams DROP CONSTRAINT IF EXISTS entrance_exams_data_tier_check;
+ALTER TABLE entrance_exams ADD CONSTRAINT entrance_exams_data_tier_check
+  CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review'));
 
 -- college list (separate from exams/courses; enriched as Phase 4/5 data arrives)
 CREATE TABLE IF NOT EXISTS colleges (
@@ -65,9 +86,19 @@ CREATE TABLE IF NOT EXISTS colleges (
   offers_courses TEXT,
   admission_route TEXT,
   source TEXT,
+  source_type TEXT,
+  data_tier TEXT NOT NULL DEFAULT 'pending_review'
+    CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review')),
+  verified_date DATE,
   updated_at TIMESTAMP DEFAULT now(),
   UNIQUE(state_id, college_name)
 );
+ALTER TABLE colleges ADD COLUMN IF NOT EXISTS source_type TEXT;
+ALTER TABLE colleges ADD COLUMN IF NOT EXISTS data_tier TEXT NOT NULL DEFAULT 'pending_review';
+ALTER TABLE colleges ADD COLUMN IF NOT EXISTS verified_date DATE;
+ALTER TABLE colleges DROP CONSTRAINT IF EXISTS colleges_data_tier_check;
+ALTER TABLE colleges ADD CONSTRAINT colleges_data_tier_check
+  CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review'));
 
 -- course list (degrees/diplomas/trades a pathway or exam admits into)
 CREATE TABLE IF NOT EXISTS courses (
@@ -77,8 +108,18 @@ CREATE TABLE IF NOT EXISTS courses (
   typical_duration TEXT,
   entry_via TEXT,
   source TEXT,
+  source_type TEXT,
+  data_tier TEXT NOT NULL DEFAULT 'pending_review'
+    CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review')),
+  verified_date DATE,
   updated_at TIMESTAMP DEFAULT now()
 );
+ALTER TABLE courses ADD COLUMN IF NOT EXISTS source_type TEXT;
+ALTER TABLE courses ADD COLUMN IF NOT EXISTS data_tier TEXT NOT NULL DEFAULT 'pending_review';
+ALTER TABLE courses ADD COLUMN IF NOT EXISTS verified_date DATE;
+ALTER TABLE courses DROP CONSTRAINT IF EXISTS courses_data_tier_check;
+ALTER TABLE courses ADD CONSTRAINT courses_data_tier_check
+  CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review'));
 
 -- Per-course syllabus/topic map, populated by the nightly 12am-2am "Course Grip"
 -- research routine: what a student needs to master for a strong foundation in
@@ -93,6 +134,28 @@ CREATE TABLE IF NOT EXISTS course_topics (
   source TEXT,
   updated_at TIMESTAMP DEFAULT now(),
   UNIQUE(course_id, topic_name)
+);
+
+-- Phase 2 (roadmap): category-wise admission cutoffs, keyed college x course x
+-- reservation category x year. Empty until sourced from official DOST/EAPCET
+-- counseling records (db/seed/cutoffs.json) - see CLAUDE.md data-safety tiers.
+-- Every row must be tier_1_official; there is no lower-tier use for a cutoff mark.
+CREATE TABLE IF NOT EXISTS cutoffs (
+  id SERIAL PRIMARY KEY,
+  college_id INT REFERENCES colleges(id) ON DELETE CASCADE,
+  course_id INT REFERENCES courses(id) ON DELETE CASCADE,
+  category TEXT NOT NULL,        -- OC / BC-A / BC-B / BC-C / BC-D / BC-E / SC / ST / EWS
+  year INT NOT NULL,
+  closing_rank INT,
+  closing_marks NUMERIC,
+  source TEXT NOT NULL,          -- link to the official counseling/GO document
+  source_type TEXT NOT NULL DEFAULT 'government_notification'
+    CHECK (source_type IN ('government_notification','official_portal')),
+  data_tier TEXT NOT NULL DEFAULT 'tier_1_official'
+    CHECK (data_tier = 'tier_1_official'),
+  verified_date DATE NOT NULL,
+  updated_at TIMESTAMP DEFAULT now(),
+  UNIQUE(college_id, course_id, category, year)
 );
 
 -- Phase 4/5: career pipelines (not yet populated by the nightly job, table ready)

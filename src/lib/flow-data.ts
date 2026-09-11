@@ -1,10 +1,22 @@
 import { pool } from "./db";
 
-export type FlowNodeType = "root" | "pathway" | "exam" | "course";
+export type FlowNodeType = "root" | "pathway" | "exam" | "course" | "career";
 
 export type FlowFact = { label: string; value: string };
 
 export type Stream = "Science" | "Commerce" | "Humanities" | "Vocational";
+
+// Mirrors db/schema.sql's data_tier values (see CLAUDE.md "Data safety tiers").
+// Only carried on node types whose underlying table actually has these columns
+// (exam, course, college) — undefined elsewhere, never guessed.
+export type DataTier = "tier_1_official" | "tier_2_reported" | "tier_3_advisory" | "pending_review";
+
+export type NodeTier = {
+  dataTier: DataTier;
+  sourceType: string | null;
+  verifiedDate: string | null;
+  source: string | null;
+};
 
 export type FlowNode = {
   id: string;
@@ -13,6 +25,7 @@ export type FlowNode = {
   sub: string;
   facts: FlowFact[];
   stream?: Stream;
+  tier?: NodeTier;
 };
 
 export type FlowEdge = {
@@ -41,6 +54,10 @@ type ExamRow = {
   eligibility: string | null;
   exam_date: string | null;
   admits_into: string | null;
+  source: string | null;
+  source_type: string | null;
+  data_tier: DataTier;
+  verified_date: string | null;
 };
 
 type CourseRow = {
@@ -48,6 +65,19 @@ type CourseRow = {
   category: string | null;
   typical_duration: string | null;
   entry_via: string | null;
+  source: string | null;
+  source_type: string | null;
+  data_tier: DataTier;
+  verified_date: string | null;
+};
+
+type CareerRow = {
+  career_name: string;
+  entry_point: string | null;
+  required_exams: string | null;
+  eligibility: string | null;
+  govt_private_options: string | null;
+  next_step: string | null;
 };
 
 // Maps a graph node id to the exact `pathway_name` / `exam_name` / `course_name`
@@ -87,6 +117,9 @@ const EXAM_IDS: Record<string, string> = {
   clat: "CLAT (UG)",
   nda: "NDA (National Defence Academy exam)",
   cuet: "CUET-UG",
+  "jee-main": "JEE Main",
+  "jee-advanced": "JEE Advanced",
+  nata: "NATA",
 };
 
 const COURSE_IDS: Record<string, string> = {
@@ -105,6 +138,27 @@ const COURSE_IDS: Record<string, string> = {
   "iti-cert-eng": "ITI Trade Certificate (Engineering trades)",
   "iti-cert-noneng": "ITI Trade Certificate (Non-Engineering trades)",
   "nda-training": "NDA / Naval Academy Officer Training",
+  barch: "B.Arch (Architecture)",
+  "bsc-basic": "B.Sc (Basic Sciences)",
+};
+
+// Careers table has no foreign key to courses (free-text on both sides), so
+// this mapping — like PATHWAY_IDS/EXAM_IDS/COURSE_IDS above — is the static
+// topology layer.
+const CAREER_IDS: Record<string, string> = {
+  engineering: "Engineering (B.Tech / B.E.)",
+  medicine: "Medicine (MBBS)",
+  nursing: "Nursing (B.Sc Nursing)",
+  pharmacy: "Pharmacy (B.Pharm)",
+  "ca-career": "Chartered Accountancy (CA)",
+  "law-career": "Law (5-year integrated LLB)",
+  defence: "Defence Services (Army/Navy/Air Force Officer)",
+  banking: "Banking (Probationary Officer / Clerk)",
+  "civil-services": "Civil Services (IAS/IPS/IFS - All India Services)",
+  "state-civil-services": "State Civil Services (AP Group services via APPSC)",
+  teaching: "School Teaching (Govt & Private schools)",
+  architecture: "Architecture (B.Arch)",
+  "science-research": "Science / Research (Basic Sciences)",
 };
 
 // Primary route (solid) unless marked secondary (dashed — an alternate or
@@ -113,7 +167,15 @@ const EDGES: Omit<FlowEdge, "id">[] = [
   ...Object.keys(PATHWAY_IDS).map((id) => ({ source: "root", target: id })),
   { source: "mpc", target: "eapcet" },
   { source: "mpc", target: "nda" },
+  { source: "mpc", target: "jee-main", secondary: true },
+  { source: "mpc", target: "jee-advanced", secondary: true },
   { source: "mpc", target: "cuet", secondary: true },
+  { source: "mpc", target: "nata" },
+  { source: "jee-main", target: "btech", secondary: true },
+  { source: "jee-advanced", target: "btech", secondary: true },
+  { source: "nata", target: "barch" },
+  { source: "jee-main", target: "barch", secondary: true },
+  { source: "cuet", target: "bsc-basic" },
   { source: "bipc", target: "neet" },
   { source: "bipc", target: "eapcet" },
   { source: "bipc", target: "cuet", secondary: true },
@@ -141,24 +203,46 @@ const EDGES: Omit<FlowEdge, "id">[] = [
   { source: "ca-foundation", target: "ca" },
   { source: "clat", target: "law" },
   { source: "nda", target: "nda-training" },
+  { source: "btech", target: "engineering" },
+  { source: "btech", target: "civil-services", secondary: true },
+  { source: "btech", target: "state-civil-services", secondary: true },
+  { source: "mbbs", target: "medicine" },
+  { source: "bsc-nursing", target: "nursing" },
+  { source: "bpharm", target: "pharmacy" },
+  { source: "ca", target: "ca-career" },
+  { source: "law", target: "law-career" },
+  { source: "nda-training", target: "defence" },
+  { source: "bcom-bba", target: "banking" },
+  { source: "bcom-bba", target: "ca-career", secondary: true },
+  { source: "bcom-bba", target: "civil-services", secondary: true },
+  { source: "bcom-bba", target: "state-civil-services", secondary: true },
+  { source: "ba-hum", target: "civil-services" },
+  { source: "ba-hum", target: "state-civil-services", secondary: true },
+  { source: "ba-hum", target: "teaching", secondary: true },
+  { source: "barch", target: "architecture" },
+  { source: "bsc-basic", target: "science-research" },
 ];
 
 export async function getFlowGraph(): Promise<FlowGraph> {
-  const [{ rows: pathways }, { rows: exams }, { rows: courses }] = await Promise.all([
+  const [{ rows: pathways }, { rows: exams }, { rows: courses }, { rows: careers }] = await Promise.all([
     pool.query<PathwayRow>(
       "SELECT pathway_name, eligibility, admission_route, duration, leads_to FROM pathways"
     ),
     pool.query<ExamRow>(
-      "SELECT exam_name, full_form_body, eligibility, exam_date, admits_into FROM entrance_exams"
+      "SELECT exam_name, full_form_body, eligibility, exam_date, admits_into, source, source_type, data_tier, verified_date::text FROM entrance_exams"
     ),
     pool.query<CourseRow>(
-      "SELECT course_name, category, typical_duration, entry_via FROM courses"
+      "SELECT course_name, category, typical_duration, entry_via, source, source_type, data_tier, verified_date::text FROM courses"
+    ),
+    pool.query<CareerRow>(
+      "SELECT career_name, entry_point, required_exams, eligibility, govt_private_options, next_step FROM careers"
     ),
   ]);
 
   const pathwayByName = new Map<string, PathwayRow>(pathways.map((r) => [r.pathway_name, r]));
   const examByName = new Map<string, ExamRow>(exams.map((r) => [r.exam_name, r]));
   const courseByName = new Map<string, CourseRow>(courses.map((r) => [r.course_name, r]));
+  const careerByName = new Map<string, CareerRow>(careers.map((r) => [r.career_name, r]));
 
   const nodes: FlowNode[] = [];
 
@@ -205,6 +289,9 @@ export async function getFlowGraph(): Promise<FlowGraph> {
             { label: "Admits into", value: row.admits_into ?? "—" },
           ]
         : [],
+      tier: row
+        ? { dataTier: row.data_tier, sourceType: row.source_type, verifiedDate: row.verified_date, source: row.source }
+        : undefined,
     });
   }
 
@@ -220,6 +307,28 @@ export async function getFlowGraph(): Promise<FlowGraph> {
             { label: "Category", value: row.category ?? "—" },
             { label: "Duration", value: row.typical_duration ?? "—" },
             { label: "Entry via", value: row.entry_via ?? "—" },
+          ]
+        : [],
+      tier: row
+        ? { dataTier: row.data_tier, sourceType: row.source_type, verifiedDate: row.verified_date, source: row.source }
+        : undefined,
+    });
+  }
+
+  for (const [id, name] of Object.entries(CAREER_IDS)) {
+    const row = careerByName.get(name);
+    nodes.push({
+      id,
+      type: "career",
+      label: name,
+      sub: row?.entry_point ?? "",
+      facts: row
+        ? [
+            { label: "Entry point", value: row.entry_point ?? "—" },
+            { label: "Required exams", value: row.required_exams ?? "—" },
+            { label: "Eligibility", value: row.eligibility ?? "—" },
+            { label: "Govt / Private options", value: row.govt_private_options ?? "—" },
+            { label: "Next step", value: row.next_step ?? "—" },
           ]
         : [],
     });

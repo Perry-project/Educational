@@ -18,6 +18,33 @@ At the start of a session in this folder:
 Do not import files from `Desktop/Perry`, `Desktop/Project`, or `perry-site.zip` into
 this project. This is a fresh build — those are reference-only, not a source to port from.
 
+## Data safety tiers
+
+Perry gives students information they'll make real admission decisions on, so every
+fact carries a `data_tier` (see `db/schema.sql` for the enforced column/values):
+
+- `tier_1_official` — exam dates, syllabus, cutoff marks, reservation-category cutoffs.
+  Primary source only: an official government notification or official exam/counseling
+  portal. Never AI-estimated or sourced from a secondary aggregator (careers360,
+  shiksha, collegedekho, etc.) — those sites can inform research but the row only
+  moves to `tier_1_official` once backed by the primary document itself.
+- `tier_2_reported` — placement rates, college outcome claims. Self-reported and
+  unreliable industry-wide; show only as a sourced range with the reporting source
+  named, ideally with a second, independent corroborating source. Never a bare
+  point figure presented as fact.
+- `tier_3_advisory` — AI-assisted guidance (course topics, "why it matters," interest
+  discovery). Always labeled as AI-assisted, never presented as settled fact. The
+  nightly "Course Grip" routine below writes exclusively at this tier.
+- `pending_review` — the default for anything not yet checked against a tier-1
+  source, including all seed rows transcribed from secondary aggregators to date.
+  Do not present a `pending_review` row to a student as verified.
+
+Rules that apply regardless of tier: no guessing where the record is missing (say
+"not yet available" instead of estimating a cutoff or date); stale tier-1 data older
+than one admission cycle gets an expiry flag, not silent reuse; every tier-1 fact
+keeps a `source` reference a student can follow themselves. See the published
+roadmap for the phased plan to bring existing data up to `tier_1_official`.
+
 ## Nightly "Course Grip" research routine (12:00 AM – 2:00 AM)
 
 A second nightly cloud routine, separate from the Drive-based import above, runs every
