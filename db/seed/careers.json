@@ -141,5 +141,93 @@
     "govt_private_options": "Govt: Govt universities and institutions (e.g. Andhra University, central universities, IISc/IITs for integrated programmes) offering B.Sc/M.Sc/PhD; CSIR-NET qualified candidates are eligible for Junior Research Fellowship (JRF) stipends at govt institutions. Private: Private universities/colleges also offer B.Sc/M.Sc programmes, generally with tuition fees (no direct private equivalent for CSIR-NET/JRF, which is a government fellowship route)",
     "next_step": "Academic/research career as a Scientist (CSIR labs, ISRO, DRDO, and other govt research bodies) or Professor (after PhD, via qualifying exams like SET/NET for lectureship), OR private-sector R&D roles in pharma/biotech/IT",
     "source": "CSIR-NET/GATE -> PhD pathway, general knowledge; pw.live / competitivecracker.com CSIR NET 2026 eligibility pages (verified Sept 2026 for marks/age criteria - category-specific relaxations can shift per notification, re-check before a real application)"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Information Technology / Software Engineering",
+    "category": "major",
+    "entry_point": "After Intermediate - MPC (B.Tech route) or after Class 12 any stream with Maths (BCA route)",
+    "required_exams": "AP EAPCET (Engineering - CSE/IT/AI-ML/Data Science branches) for B.Tech; university/college-specific merit or entrance test for BCA",
+    "eligibility": "B.Tech route: Intermediate MPC pass, same AP EAPCET qualifying marks as core Engineering (~45% General, ~40% SC/ST); BCA route: Class 12 pass with Mathematics, usually merit-based. Typical duration: B.Tech: 4 years; BCA: 3 years (often followed by MCA, 2 years, for those without a B.Tech)",
+    "govt_private_options": "Govt: JNTU-affiliated Govt/Govt-aided engineering colleges (CSE/IT/AI&DS) via AP EAPCET counselling; a small number of Govt degree colleges offer BCA. Private: Very large number of private engineering colleges across AP offer CSE/IT/AI-ML/Data Science branches; private colleges/universities also offer BCA (3 years) as a non-engineering alternative into software roles",
+    "next_step": "Campus placement into IT services/product companies, OR further study (M.Tech/MS abroad), OR govt IT cadre via UPSC/APPSC technical posts, OR entrepreneurship; BCA graduates often pursue MCA before core software roles",
+    "source": "aurogroup.ac B.Tech CSE 2026 guide; ritroorkee.com Career Opportunities After B.Tech CSE 2026 guide - unverified: BCA-specific AP admission body name, needs follow-up"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Agriculture & Veterinary Sciences",
+    "category": "major",
+    "entry_point": "After Intermediate - BiPC (or MPC for some Agricultural Engineering seats)",
+    "required_exams": "ICAR AIEEA (UG) for ICAR/all-India seats, and/or AP EAPCET - Agriculture stream for AP state-quota seats",
+    "eligibility": "Intermediate BiPC (or MPC for B.Tech Agricultural Engineering) pass; ICAR AIEEA minimum marks ~50% General, ~45% SC/ST. Typical duration: 4 years for B.Sc (Hons) Agriculture/Horticulture/Forestry and B.Tech Agricultural Engineering; B.V.Sc & AH (Veterinary) typically 5.5 years including internship (exact AP-specific duration not independently verified)",
+    "govt_private_options": "Govt: Acharya N.G. Ranga Agricultural University (ANGRAU) and Sri Venkateswara Veterinary University (SVVU) Govt colleges in AP, via AP EAPCET-Agriculture and/or ICAR AIEEA counselling. Private: A smaller number of private agriculture/veterinary colleges affiliated to state agricultural universities also exist, admitting via the same entrance exams",
+    "next_step": "Govt jobs in state Agriculture/Horticulture/Animal Husbandry departments, ICAR research institutes, or agricultural extension services; OR private sector roles in agribusiness/agro-processing/veterinary practice; OR further study (M.Sc/PhD)",
+    "source": "collegedekho.com ICAR AIEEA 2026 guide - unverified: ANGRAU/SVVU AP-specific seat matrix and B.V.Sc duration, needs follow-up"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Design (Fashion / Product / Communication Design)",
+    "category": "major",
+    "entry_point": "After Class 12 (any stream) for UG design programmes",
+    "required_exams": "NIFT Entrance Exam (B.Des/B.FTech at National Institute of Fashion Technology) or NID DAT (National Institute of Design Entrance Exam)",
+    "eligibility": "Completed or appearing Class 12; maximum age 24 years as of 1 August for NIFT UG programmes. Typical duration: NIFT: B.Des and B.FTech typically 4 years each (exact programme-wise duration split not independently verified); NID UG programmes also typically 4 years",
+    "govt_private_options": "Govt: NIFT (20 campuses nationwide, a statutory Institute of National Importance) and NID (Ahmedabad and other campuses) - both Central Government design institutes. Private: Numerous private design colleges/universities across India (and a smaller number in AP) admit via their own entrance tests or accept NIFT/NID scores",
+    "next_step": "Placement into fashion/apparel/product design houses and brands, OR further study (M.Des), OR entrepreneurship (own design label/studio)",
+    "source": "design.careers360.com NIFT 2026 guide - unverified: exact B.Des/B.FTech duration breakdown and NID DAT 2026-specific dates, needs follow-up"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Company Secretary (CS)",
+    "category": "major",
+    "entry_point": "After Class 12 (CSEET route) or after graduation (direct Executive entry)",
+    "required_exams": "ICSI CSEET -> CS Executive Programme -> CS Professional Programme -> ~21 months practical training -> ICSI membership",
+    "eligibility": "CSEET: Class 12 pass, any stream; CS Executive: pass CSEET, OR graduates/post-graduates may enter directly without CSEET by paying an exemption fee. Typical duration: Approximately 4-5 years total from Class 12 (CSEET + Executive ~8 months + Professional ~8 months + 21 months practical training), depending on exam attempts",
+    "govt_private_options": "Govt: N/A - CS is a professional qualification regulated by ICSI, a statutory govt-recognised body, not a college degree. Private: Private coaching institutes support CSEET/Executive/Professional exam prep; practical training typically served under a practising CS or a corporate secretarial department",
+    "next_step": "Enrol as a Company Secretary with ICSI; career in corporate compliance/governance roles, as an independent practising CS, or in-house company secretarial departments of listed companies",
+    "source": "admitkard.com Company Secretary (CS) Course 2026 guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Cost & Management Accountant (CMA)",
+    "category": "major",
+    "entry_point": "After Class 12 (Foundation route) or after graduation (direct Intermediate entry)",
+    "required_exams": "ICMAI CMA Foundation -> CMA Intermediate (2 groups, 8 papers) -> CMA Final -> practical training -> ICMAI membership",
+    "eligibility": "Foundation: Class 12 pass, any stream; Intermediate: pass Foundation, OR bachelor's degree in any discipline except Fine Arts, OR pass ICSI Executive/ICAI Intermediate. Typical duration: CMA Intermediate alone takes ~8-10 months of dedicated study; total duration from Class 12 to full qualification (incl. Foundation, Final, practical training) not fully specified in the source - unverified, needs follow-up",
+    "govt_private_options": "Govt: N/A - CMA is a professional qualification regulated by ICMAI, a statutory govt-recognised body, not a college degree. Private: Private coaching institutes support Foundation/Intermediate/Final exam prep across AP",
+    "next_step": "Enrol as a Cost & Management Accountant with ICMAI; career in cost/management accounting, corporate finance, or govt roles (e.g. Indian Cost Accounts Service)",
+    "source": "mileseducation.com CMA Intermediate Course guide - unverified: exact total duration and practical training length, needs follow-up"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Government Jobs - SSC CGL & Railways (RRB)",
+    "category": "major",
+    "entry_point": "After Class 12 (RRB NTPC UG posts) or after graduation (SSC CGL and RRB NTPC Graduate posts)",
+    "required_exams": "SSC CGL: Tier-I -> Tier-II (Papers I/II/III, final merit); RRB NTPC: CBT 1 -> CBT 2 -> Typing Skill Test (where applicable) -> Document Verification -> Medical Exam",
+    "eligibility": "SSC CGL: Bachelor's degree (some posts have subject-specific requirements); age 18-27 to 18-32 years depending on post. RRB NTPC (UG posts): Class 12 pass, age 18-30 years (category-wise relaxation). Typical duration: SSC CGL: Tier-I typically Aug-Sep, Tier-II typically Dec, of the same recruitment year; RRB NTPC: CBT stages spread across several months per cycle",
+    "govt_private_options": "Govt: Ministries/departments of the Govt of India (Finance, Intelligence Bureau, Defence, Communications, enforcement agencies, via SSC CGL) and Indian Railways zonal railways (via RRB NTPC) - both exclusively government routes. Private: N/A (government recruitment exams with no private-sector equivalent); private coaching institutes support preparation only",
+    "next_step": "Posting as Inspector/Auditor/Accountant (SSC CGL) or Commercial-cum-Ticket Clerk/Accounts Clerk/Junior Clerk/Trains Clerk (RRB NTPC UG); promotion through departmental seniority, internal exams, further qualification",
+    "source": "oliveboard.in SSC CGL Eligibility 2026 guide; testbook.com RRB NTPC UG 2026 guide"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Hotel Management (BSc Hospitality & Hotel Administration)",
+    "category": "major",
+    "entry_point": "After Class 12 (any stream, with English as a core subject)",
+    "required_exams": "NCHMCT JEE (National Council for Hotel Management and Catering Technology Joint Entrance Examination)",
+    "eligibility": "Passed or appearing in Class 12 with English as a core/compulsory subject; no upper age limit under the New Education Policy. Typical duration: 3 years (BSc HHA)",
+    "govt_private_options": "Govt: 21 Central/State Institutes of Hotel Management (IHMs) via NCHMCT JEE counselling - includes IHM Hyderabad, the nearest Govt IHM serving AP students. Private: NCHMCT-affiliated private hotel management institutes also admit via the same NCHMCT JEE score",
+    "next_step": "Placement into hotel chains (govt-linked ITDC properties or private chains like Taj/Oberoi/Marriott) as management trainee, OR further study (MSc/MBA in Hospitality), OR entrepreneurship",
+    "source": "adda247.com NCHMCT JEE guide (2025-cycle dates cited; 2026-specific dates and govt-vs-private placement split unverified, needs follow-up)"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "career_name": "Psychology / Counselling",
+    "category": "major",
+    "entry_point": "After Intermediate (any stream, though MEC/CEC/HEC/BiPC commonly chosen)",
+    "required_exams": "BA/BSc Psychology (3 years, merit-based) -> MA/MSc Psychology (2 years) -> for clinical practice: M.Phil Clinical Psychology (2 years) via an RCI-recognised entrance exam (e.g. NIMHANS or CIP Ranchi)",
+    "eligibility": "UG: Intermediate pass, any stream, merit-based admission (no dedicated national entrance exam identified); Clinical specialisation: Master's degree in Psychology required before M.Phil Clinical Psychology entrance. Typical duration: BA/BSc 3 years + MA/MSc 2 years (5 years for a Master's); +2 years M.Phil Clinical Psychology for licensed clinical practice",
+    "govt_private_options": "Govt: Government universities/institutes offering BA/MA Psychology (e.g. Andhra University); premier govt clinical-psychology institutes include NIMHANS Bangalore, IHBAS Delhi, CIP Ranchi. Private: Numerous private colleges/universities offer BA/MA Psychology; private practice common after RCI registration, alongside corporate HR and school-counsellor roles (growing under NEP 2020)",
+    "next_step": "Without RCI registration, a psychology graduate cannot legally practice clinical assessment/therapy in India; RCI-registered psychologists work in govt hospitals, private practice, schools, or corporate HR; PhD enables academic/senior clinical roles",
+    "source": "brighttutorials.in How to Become a Psychologist in India (2026) guide - unverified: AP-specific psychology/counselling entrance exam or state licensing body, needs follow-up"
   }
 ]
