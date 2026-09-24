@@ -15,7 +15,7 @@ project publishes. Older `AP Career Database - YYYY-MM-DD` Sheets/.xlsx files ar
 legacy format and are already imported.
 
 At the start of a session in this folder:
-1. Search Google Drive (`title contains 'AP Career Database' and title contains 'delta'`) for deltas, newest by `createdTime`.
+1. Search Google Drive for deltas from both routines, newest by `createdTime`: `title contains 'AP Career Database' and title contains 'delta'` and `title contains 'Course Grip' and title contains 'delta'`.
 2. Check the local `import_log` table (`SELECT * FROM import_log ORDER BY snapshot_date DESC LIMIT 1`) to see which have already been imported.
 3. For each not-yet-imported delta date (oldest first; if a date has several checkpoints, only its newest): get the exact file from the Google Drive for desktop folder `G:/My Drive/<title>` (or `download_file_content` and base64-decode it), run `npm run db:merge-delta -- --file <path>`, then `npm run db:import -- --file-id <driveFileId> --snapshot-date <YYYY-MM-DD> --title "<file title>"`. Review anything the merge reports as skipped tier_1 rows.
 4. After importing (or after any other seed change, e.g. manual verification), run `npm run db:index` to publish a fresh INDEX to `G:/My Drive` so the next nightly run sees the current state.
@@ -76,6 +76,13 @@ Each run:
    - `source`
 3. Run `npm run db:import` to merge the updated seed into Postgres (safe to re-run;
    `course_topics` upserts on `(course_id, topic_name)`).
+
+The cloud routine ("Course Grip - Nightly Topic Research") has no git checkout, so it
+can't edit the seed directly: it reads the course list and existing topics from the
+newest `AP Career Database - INDEX` file and saves new topics to Drive as
+`Course Grip - YYYY-MM-DD - delta.txt` (`upserts.course_topics`). A local session merges
+those with `npm run db:merge-delta` like any other delta (see the session steps above).
+The steps below also apply when doing Course Grip by hand in a local session.
 4. If every course already has solid topic coverage, do a pass improving depth/accuracy
    on the thinnest existing course instead of stopping early.
 

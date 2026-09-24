@@ -32,7 +32,15 @@ const index = {
     entrance_exams: loadSeed("entrance_exams").map((r) =>
       r.exam_name + (r.data_tier === "tier_1_official" ? "  [tier_1_official - do not modify]" : "")),
     careers: loadSeed("careers").map((r) => `${r.career_name} (${r.category})`),
+    courses: loadSeed("courses").map((r) => r.course_name),
   },
+  // Topic names per course, for the nightly Course Grip routine (every course listed,
+  // including ones with no topics yet, so it can pick the least-covered).
+  course_topics: Object.fromEntries(loadSeed("courses").map((c) => [
+    c.course_name,
+    loadSeed("course_topics").filter((t) => t.course_name === c.course_name)
+      .sort((a, b) => a.sequence_order - b.sequence_order).map((t) => t.topic_name),
+  ])),
   progress_tracker: loadSeed("progress_tracker"),
 };
 

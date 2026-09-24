@@ -1,5 +1,6 @@
-// Merges one nightly "AP Career Database - YYYY-MM-DD - delta.txt" file (JSON written
-// by the nightly Drive routine) into db/seed/*.json. Run `npm run db:import` afterwards
+// Merges one nightly delta file ("AP Career Database - YYYY-MM-DD - delta.txt" or
+// "Course Grip - YYYY-MM-DD - delta.txt", JSON written by the nightly Drive routines)
+// into db/seed/*.json. Run `npm run db:import` afterwards
 // to push the seeds into Postgres, then `npm run db:index` to publish a fresh INDEX.
 //
 // Usage: node scripts/merge-drive-delta.mjs --file <path to delta .txt/.json>
@@ -77,6 +78,23 @@ for (const [table, key] of Object.entries(KEYS)) {
   }
   writeFileSync(seedPath(table), JSON.stringify(rows, null, 2) + "\n");
   summary.push(`${table}: +${added} new, ${updated} updated` + (skipped.length ? `, skipped tier_1 rows: ${skipped.join("; ")}` : ""));
+}
+
+// Course Grip deltas: course_topics upsert on (course_name, topic_name), matching the
+// table's (course_id, topic_name) unique key. course_name must exist in courses.json.
+const topics = delta.upserts?.course_topics ?? [];
+if (topics.length) {
+  const courseNames = new Set(loadSeed("courses").map((c) => c.course_name));
+  const rows = loadSeed("course_topics");
+  let added = 0, updated = 0;
+  for (const r of topics) {
+    if (!courseNames.has(r.course_name)) throw new Error(`course_topics row has unknown course_name: ${r.course_name}`);
+    const existing = rows.find((x) => x.course_name === r.course_name && x.topic_name === r.topic_name);
+    if (existing) { Object.assign(existing, r); updated++; }
+    else { rows.push(r); added++; }
+  }
+  writeFileSync(seedPath("course_topics"), "[\n" + rows.map((r) => "  " + JSON.stringify(r)).join(",\n") + "\n]\n");
+  summary.push(`course_topics: +${added} new, ${updated} updated`);
 }
 
 if (delta.progress_tracker?.length) {
