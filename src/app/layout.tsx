@@ -33,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col overflow-x-hidden">
         <div className="site-glow" aria-hidden />
         <SiteNav />
-        <main className="relative z-10 flex-1">{children}</main>
+        <main className="relative flex-1">{children}</main>
         <Footer />
       </body>
     </html>

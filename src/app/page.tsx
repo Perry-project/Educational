@@ -1,14 +1,24 @@
 import Link from "next/link";
-import { CAREERS, NODES } from "@/lib/class10-flow-data";
+import { pool } from "@/lib/db";
 
-const count = (c: number) => NODES.filter((n) => n.col === c).length;
+// Counts come from the database so they grow with each nightly import.
+export const dynamic = "force-dynamic";
 
-const STEPS = [
+async function getCounts() {
+  const { rows } = await pool.query(
+    `SELECT (SELECT count(*) FROM pathways)::int AS pathways, (SELECT count(*) FROM entrance_exams)::int AS exams,
+            (SELECT count(*) FROM courses)::int AS courses, (SELECT count(*) FROM careers)::int AS careers,
+            (SELECT count(*) FROM colleges)::int AS colleges`
+  );
+  return rows[0] as Record<"pathways" | "exams" | "courses" | "careers" | "colleges", number>;
+}
+
+const steps = (n: Awaited<ReturnType<typeof getCounts>>) => [
   { n: 1, label: "Class 10 pass", sub: "SSC · CBSE · ICSE", color: "bg-slate-200 text-gray-900" },
-  { n: 2, label: "After Class 10", sub: `${count(2)} pathways · Intermediate, Polytechnic, ITI…`, color: "bg-blue-500/15 text-blue-200 border border-blue-400/30" },
-  { n: 3, label: "Entrance exams", sub: `${count(3)} exams · EAPCET, NEET, JEE…`, color: "bg-orange-500/15 text-orange-200 border border-orange-400/30" },
-  { n: 4, label: "Courses", sub: `${count(4)} courses · B.Tech, MBBS, B.Com…`, color: "bg-teal-500/15 text-teal-200 border border-teal-400/30" },
-  { n: 5, label: "Careers", sub: `${CAREERS.length} careers in 7 fields`, color: "bg-pink-500/15 text-pink-200 border border-pink-400/30" },
+  { n: 2, label: "After Class 10", sub: `${n.pathways} pathways · Intermediate, Polytechnic, ITI…`, color: "bg-blue-500/15 text-blue-200 border border-blue-400/30" },
+  { n: 3, label: "Entrance exams", sub: `${n.exams} exams · EAPCET, NEET, JEE…`, color: "bg-orange-500/15 text-orange-200 border border-orange-400/30" },
+  { n: 4, label: "Courses", sub: `${n.courses} courses · ${n.colleges} AP colleges`, color: "bg-teal-500/15 text-teal-200 border border-teal-400/30" },
+  { n: 5, label: "Careers", sub: `${n.careers} careers`, color: "bg-pink-500/15 text-pink-200 border border-pink-400/30" },
 ];
 
 const AUDIENCE = [
@@ -22,7 +32,8 @@ const primaryBtn =
   "inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-violet-500 px-8 py-4 text-lg font-semibold text-white shadow-xl transition hover:from-blue-600 hover:to-violet-600";
 const card = "rounded-2xl border border-gray-700 bg-gray-800/80 p-6";
 
-export default function Home() {
+export default async function Home() {
+  const STEPS = steps(await getCounts());
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <section className="site-fade-up flex min-h-[calc(100svh-var(--nav-h))] flex-col items-center justify-center py-16 text-center">
