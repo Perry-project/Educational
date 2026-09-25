@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
+/* Perry is dark-only: `dark:` utilities (used by Pathfinder) follow the
+   `dark` class on <html> instead of the OS setting. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #111827;
+  --foreground: #f3f4f6;
+  --site-surface: #1f2937;
+  --site-border: #374151;
+  --site-muted: #9ca3af;
+  --site-accent: #60a5fa;
+  --site-accent-2: #a78bfa;
+  --site-heading: #a5b4fc;
+  --nav-h: 64px;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -12,15 +24,39 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Soft blue light spilling down from the top of every page. Pure CSS, so it
+   costs nothing on low-end phones. */
+.site-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 45% at 50% -8%, rgba(0, 170, 255, 0.22), transparent 70%),
+    radial-gradient(30% 30% at 50% 0%, rgba(96, 165, 250, 0.18), transparent 70%),
+    conic-gradient(from 180deg at 50% -10%, transparent 150deg, rgba(0, 170, 255, 0.05) 170deg, transparent 180deg,
+      rgba(0, 170, 255, 0.05) 190deg, transparent 210deg);
+}
+
+.brand-gradient {
+  background: linear-gradient(90deg, var(--site-accent), var(--site-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes site-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+.site-fade-up { animation: site-fade-up 0.6s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .site-fade-up { animation: none; }
 }

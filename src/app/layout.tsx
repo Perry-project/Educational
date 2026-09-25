@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
+import SiteNav from "@/components/site-nav";
 import Footer from "@/components/footer";
 
 const geistSans = Geist({
@@ -16,18 +16,24 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Perry",
-  description: "Personalized educational guidance platform",
+  description: "See every route from Class 10 to a career, clearly and step by step.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#111827",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
+      <body className="flex min-h-full flex-col overflow-x-hidden">
+        <div className="site-glow" aria-hidden />
+        <SiteNav />
+        <main className="relative z-10 flex-1">{children}</main>
         <Footer />
       </body>
     </html>
