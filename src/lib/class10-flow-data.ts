@@ -77,6 +77,33 @@ export const NODES: FlowNode[] = [
 export const byId: Record<string, FlowNode> = {};
 NODES.forEach((n) => (byId[n.id] = n));
 
+// The chart covers one state at a time (?state=ts). Telangana reuses the same
+// steps under its own names and rows; a card mapped to null has no Telangana
+// row yet and is left off that chart rather than showing AP details.
+export type StateKey = "ap" | "ts";
+export const STATES: Record<StateKey, { name: string; short: string }> = {
+  ap: { name: "Andhra Pradesh", short: "AP" },
+  ts: { name: "Telangana", short: "Telangana" },
+};
+export const stateOf = (v: unknown): StateKey => (v === "ts" ? "ts" : "ap");
+
+const TS_NODES: Record<string, Partial<FlowNode> | null> = {
+  start: { sub: "SSC · Telangana Board" },
+  polycet: { label: "TS POLYCET", db: "TS POLYCET - Polytechnic Diploma" },
+  res: null,
+  eapcet: { label: "TG EAPCET", db: "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)" },
+  ecet: { label: "TS ECET", db: "TS ECET (Telangana State Engineering Common Entrance Test)" },
+  icet: { label: "TS ICET", db: "TS ICET (Telangana State Integrated Common Entrance Test)" },
+};
+
+export const nodesFor = (state: StateKey): FlowNode[] =>
+  state === "ap"
+    ? NODES
+    : NODES.flatMap((n) => {
+        const o = TS_NODES[n.id];
+        return o === null ? [] : [{ ...n, ...o }];
+      });
+
 // Solid = main route, dashed = alternate / lateral. `only` restricts which
 // courses a route continues to through that exam (e.g. MPC → EAPCET only
 // leads on to B.Tech and B.Pharm, not Agri).
@@ -185,6 +212,17 @@ export const CAREER_LINKS: Record<string, { cl: string; from: string[] }> = {
   "Sports Coaching": { cl: "cl_skl", from: [] },
 };
 
+// Telangana careers that stand in for an AP-specific career on the Telangana
+// chart (same cluster and links). Other careers have no Telangana row yet.
+export const TS_COUNTERPARTS: Record<string, string> = {
+  "State Civil Services (Telangana Group services via TSPSC) (major)": "State Civil Services (AP Group services via APPSC)",
+  "Government Group-D/Constable-Level Jobs - Telangana (TS Police Constable via TSLPRB, TSPSC Group-4) (major)":
+    "Government Group-D / Constable-Level Jobs (SSC GD Constable, SSC MTS, AP Police Constable)",
+  "School Teaching - Telangana (TS TET & TG DSC via Telangana School Education Dept) (major)": "School Teaching (Govt & Private schools)",
+  "Forestry / Forest Range Officer - Telangana (TSPSC FRO & Forest Beat Officer) (niche)": "Forestry / Forest Range Officer",
+};
+for (const [ts, ap] of Object.entries(TS_COUNTERPARTS)) CAREER_LINKS[ts] = CAREER_LINKS[ap];
+
 export const col = (id: string) => (byId[id] ? byId[id].col : 5);
 
 export type Career = { id: string; label: string; from: string[]; cl: Cluster; st: StreamKey[] };
@@ -194,6 +232,7 @@ export type DrawEdge = { f: string; t: string; dash: boolean; cl?: Cluster };
 
 export type FlowGraph = {
   CL: Cluster[];
+  nodeById: Record<string, FlowNode>;
   crById: Record<string, Career>;
   clById: Record<string, Cluster>;
   kids: Record<string, Link[]>;
@@ -204,18 +243,20 @@ export type FlowGraph = {
 };
 
 // Career label shown on the chart: the database name without its trailing
-// "(...)" detail, which the details panel shows in full.
-const shortName = (name: string) => name.replace(/\s*\([^)]*\)\s*$/, "") || name;
+// "(...)" details, which the details panel shows in full.
+const shortName = (name: string) => name.replace(/(\s*\([^)]*\))+\s*$/, "") || name;
 
 // Builds the career clusters and the full route graph from the careers in
-// the database (career id = its careers.id).
-export function buildGraph(careers: { id: number; name: string }[]): FlowGraph {
+// the database (career id = its careers.id), over one state's cards.
+export function buildGraph(careers: { id: number; name: string }[], nodes: FlowNode[]): FlowGraph {
+  const nodeById: Record<string, FlowNode> = {};
+  nodes.forEach((n) => (nodeById[n.id] = n));
   const clById: Record<string, Cluster> = {};
   const CL: Cluster[] = CLUSTER_DEFS.map((d) => (clById[d.id] = { id: d.id, name: d.name, items: [] }));
   const crById: Record<string, Career> = {};
   for (const row of careers) {
     const link = CAREER_LINKS[row.name] ?? { cl: "cl_oth", from: [] };
-    const from = link.from.filter((f) => byId[f]);
+    const from = link.from.filter((f) => nodeById[f]);
     const cl = clById[link.cl];
     const st = from.length ? [...new Set(from.flatMap((f) => byId[f].st))] : A4;
     const c: Career = { id: `career_${row.id}`, label: shortName(row.name), from, cl, st };
@@ -230,13 +271,14 @@ export function buildGraph(careers: { id: number; name: string }[]): FlowGraph {
     (kids[e.f] = kids[e.f] || []).push(e);
     (pars[e.t] = pars[e.t] || []).push(e);
   };
-  EDGES.forEach(link);
+  const edges = EDGES.filter((e) => nodeById[e.f] && nodeById[e.t]);
+  edges.forEach(link);
   Object.values(crById).forEach((c) => c.from.forEach((f) => link({ f, t: c.id, dash: col(f) === 3 })));
 
   // Lines drawn on the chart: node-to-node edges plus one line from each
   // source card into the career cluster card (careers live inside it).
   const DRAW: DrawEdge[] = [
-    ...EDGES,
+    ...edges,
     ...clusters.flatMap((cl) =>
       [...new Set(cl.items.flatMap((c) => c.from))].map((f) => ({ f, t: cl.id, dash: col(f) === 3, cl }))
     ),
@@ -289,7 +331,7 @@ export function buildGraph(careers: { id: number; name: string }[]): FlowGraph {
     return out;
   };
 
-  const nameOf = (id: string) => (byId[id] ? byId[id].label : crById[id] ? crById[id].label : clById[id].name);
+  const nameOf = (id: string) => (nodeById[id] ? nodeById[id].label : crById[id] ? crById[id].label : clById[id].name);
 
-  return { CL: clusters, crById, clById, kids, pars, DRAW, routeSet, nameOf };
+  return { CL: clusters, nodeById, crById, clById, kids, pars, DRAW, routeSet, nameOf };
 }

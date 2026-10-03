@@ -55,9 +55,11 @@ function Fact({ text }: { text: string }) {
 }
 
 export default function DetailsPanel({
-  panel, stacked, shareUrl, onClose, onPick, nameOf,
+  panel, region, stacked, shareUrl, onClose, onPick, nameOf,
 }: {
   panel: Panel;
+  // State the chart shows, for the colleges heading ("AP", "Telangana").
+  region: string;
   stacked: boolean;
   shareUrl: string;
   onClose: () => void;
@@ -173,6 +175,7 @@ export default function DetailsPanel({
           {panel.full && <p style={{ margin: 0, color: "var(--muted)", fontSize: 14, lineHeight: 1.4 }}>{panel.full}</p>}
         </div>
 
+        {panel.note && <p style={{ ...muted, textWrap: "pretty" }}>{panel.note}</p>}
         {panel.rows.length > 0 && (
           <dl style={{ margin: 0, display: "flex", flexDirection: "column" }}>
             {panel.rows.map(([k, v]) => (
@@ -185,11 +188,10 @@ export default function DetailsPanel({
             ))}
           </dl>
         )}
-        {panel.note && <p style={{ ...muted, textWrap: "pretty" }}>{panel.note}</p>}
 
         {panel.isCourse && (
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {sectionHead(`Colleges in AP${panel.colleges.length ? ` · ${panel.colleges.length}` : ""}`)}
+            {sectionHead(`Colleges in ${region}${panel.colleges.length ? ` · ${panel.colleges.length}` : ""}`)}
             {panel.colleges.length ? (
               <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 6 }}>
                 {panel.colleges.map((c) => (
@@ -204,7 +206,7 @@ export default function DetailsPanel({
                 ))}
               </ul>
             ) : (
-              <p style={muted}>No AP colleges listed for this course yet.</p>
+              <p style={muted}>No {region} colleges listed for this course yet.</p>
             )}
           </div>
         )}

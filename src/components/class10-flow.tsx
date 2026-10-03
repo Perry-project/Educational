@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import "./class10-flow.css";
 import {
-  buildGraph, byId, col, NODES,
-  type FlowNode, type StreamKey,
+  buildGraph, col, nodesFor, STATES,
+  type FlowNode, type StateKey, type StreamKey,
 } from "@/lib/class10-flow-data";
 import type { FlowchartData } from "@/lib/flowchart-db";
 import DetailsPanel, { type Panel } from "./flowchart-panel";
@@ -24,7 +24,8 @@ import FlowchartSearch, { type SearchItem } from "./flowchart-search";
 // Picking a step highlights every route through it. In focus mode (the
 // default) steps off those routes are hidden, so the whole route fits on
 // screen; on wide screens "Show all steps" dims them instead. The selected
-// step is kept in the URL (?step=btech) so a route can be shared.
+// step is kept in the URL (?step=btech) so a route can be shared, and the
+// state switch reloads the chart for Andhra Pradesh or Telangana (?state=ts).
 
 const KIND: Record<number, string> = { 1: "Starting point", 2: "Pathway after Class 10", 3: "Entrance exam", 4: "Course" };
 const CHIPS: [StreamKey | null, string][] = [
@@ -58,8 +59,10 @@ export default function Class10Flow({
   fontFamily: string;
   initialStep: string | null;
 }) {
-  const { CL, clById, crById, DRAW, kids, pars, nameOf, routeSet } = useMemo(() => buildGraph(data.careers), [data.careers]);
-  const known = (id: string | null) => !!id && (!!byId[id] || !!crById[id] || !!clById[id]);
+  const nodes = useMemo(() => nodesFor(data.state), [data.state]);
+  const { CL, nodeById, clById, crById, DRAW, kids, pars, nameOf, routeSet } = useMemo(
+    () => buildGraph(data.careers, nodes), [data.careers, nodes]);
+  const known = (id: string | null) => !!id && (!!nodeById[id] || !!crById[id] || !!clById[id]);
   const firstStep = known(initialStep) ? initialStep : null;
 
   const [sel, setSel] = useState<string | null>(firstStep);
@@ -212,7 +215,7 @@ export default function Class10Flow({
 
   const renderCards = (k: 2 | 3 | 4) => {
     let shown = 0;
-    const els = NODES.filter((n) => n.col === k).map((n) => {
+    const els = nodes.filter((n) => n.col === k).map((n) => {
       const cs = cardState(n);
       // With a route selected, columns count the steps on it.
       if (!cs.hidden && (!set || set.has(n.id))) shown++;
@@ -292,11 +295,11 @@ export default function Class10Flow({
     rows: detail?.rows ?? [], source: detail?.source ?? null,
     colleges: detail?.colleges ?? [], topics: detail?.topics ?? [],
   };
-  if (sel && byId[sel]) {
-    const n = byId[sel];
+  if (sel && nodeById[sel]) {
+    const n = nodeById[sel];
     panel = {
       kind: KIND[n.col], label: n.label, full: n.full, accent: `var(--c${n.col})`, ...fromDb, isCourse: n.col === 4,
-      note: detail ? "" : "Details for this step haven’t been added yet.",
+      note: detail ? detail.note ?? "" : "Details for this step haven’t been added yet.",
       from: (pars[sel] || []).map((e) => ({ id: e.f, dash: e.dash })),
       to: (kids[sel] || []).map((e) => ({ id: e.t, dash: e.dash })),
       fromTitle: "Comes from", toTitle: n.col === 4 ? "Careers" : "Leads to",
@@ -307,7 +310,10 @@ export default function Class10Flow({
       kind: "Career · " + c.cl.name, label: c.label, full: "", accent: "var(--c5)", ...fromDb, isCourse: false,
       // Drop the full-name row when it only repeats the heading.
       rows: fromDb.rows.filter(([k, v]) => k !== "Full name" || v !== c.label),
-      note: c.from.length ? "" : "No single course on this chart leads here. See “When to start” and “Exams” above for the route.",
+      note: [
+        detail?.note,
+        c.from.length ? "" : "No single course on this chart leads here. See “When to start” and “Exams” below for the route.",
+      ].filter(Boolean).join(" "),
       from: c.from.map((f) => ({ id: f, dash: col(f) === 3 })), to: [],
       fromTitle: "Reached through", toTitle: "",
     };
@@ -326,7 +332,7 @@ export default function Class10Flow({
     const kinds: Record<number, string> = { 1: "Start", 2: "After Class 10", 3: "Entrance exam", 4: "Course" };
     const careerName = new Map(data.careers.map((c) => [`career_${c.id}`, c.name]));
     return [
-      ...NODES.map((n) => ({
+      ...nodes.map((n) => ({
         id: n.id, label: n.label, kind: kinds[n.col], color: `var(--c${n.col})`,
         text: [n.label, n.sub, n.full, n.db ?? ""].join(" ").toLowerCase(),
       })),
@@ -336,7 +342,7 @@ export default function Class10Flow({
       })),
       ...CL.map((cl) => ({ id: cl.id, label: cl.name, kind: "Career field", color: "var(--c5)", text: cl.name.toLowerCase() })),
     ];
-  }, [data.careers, crById, CL]);
+  }, [data.careers, nodes, crById, CL]);
 
   const colHeads: [number, string, number | null][] = [[1, "Start", null], [2, "After Class 10", counts.p], [3, "Entrance exams", counts.e], [4, "Courses", counts.c], [5, "Careers", counts.k]];
   const stackedHead = (n: number) => {
@@ -357,8 +363,17 @@ export default function Class10Flow({
   };
   const colWrap: CSSProperties = { position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: 10, minWidth: 0 };
   const listCols = stacked ? "repeat(auto-fill,minmax(min(150px,100%),1fr))" : "minmax(0,1fr)";
-  const start = cardState(byId.start);
-  const shareUrl = typeof window === "undefined" || !sel ? "" : `${window.location.origin}/flowchart?step=${encodeURIComponent(sel)}`;
+  const start = cardState(nodeById.start);
+  const stateParam = data.state === "ap" ? "" : `state=${data.state}&`;
+  const shareUrl = typeof window === "undefined" || !sel ? "" : `${window.location.origin}/flowchart?${stateParam}step=${encodeURIComponent(sel)}`;
+  // The other state's chart, keeping the selected step where it exists there.
+  const stateHref = (k: StateKey) => {
+    const q = new URLSearchParams();
+    if (k !== "ap") q.set("state", k);
+    if (sel) q.set("step", sel);
+    const qs = q.toString();
+    return qs ? `/flowchart?${qs}` : "/flowchart";
+  };
 
   return (
     <div ref={rootRef} className="c10" style={{ color: "var(--ink)", fontFamily }}>
@@ -370,12 +385,43 @@ export default function Class10Flow({
       >
         <header style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 20 }}>
           <span style={{ color: "var(--muted)", fontSize: 13, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
-            Career flowchart · Andhra Pradesh
+            Career flowchart · {STATES[data.state].name}
           </span>
           <h1 style={{ margin: 0, fontSize: "clamp(30px,4vw,42px)", lineHeight: 1.05, fontWeight: 800, letterSpacing: "-0.02em" }}>Class 10 to Career</h1>
           <p style={{ margin: 0, color: "var(--muted)", fontSize: 15, lineHeight: 1.45, maxWidth: 560, textWrap: "pretty" }}>
             Tap any step to see every route through it, from Class 10 to the careers it opens.
           </p>
+          <div
+            role="group"
+            aria-label="State"
+            style={{ display: "inline-flex", alignSelf: "flex-start", marginTop: 6, padding: 3, gap: 2, borderRadius: 999, border: "1px solid var(--line)", background: "var(--surface)" }}
+          >
+            {(Object.keys(STATES) as StateKey[]).map((k) => {
+              const a = data.state === k;
+              return (
+                // A full page load: the chart's own ?step= syncing confuses the
+                // router's soft navigation, and every detail changes anyway.
+                <a
+                  key={k}
+                  href={stateHref(k)}
+                  aria-current={a ? "page" : undefined}
+                  className="c10-pill"
+                  style={{
+                    display: "flex", alignItems: "center", height: 34, padding: "0 16px", borderRadius: 999, whiteSpace: "nowrap",
+                    background: a ? "var(--ink)" : "transparent", color: a ? "var(--bg)" : "var(--ink)",
+                    fontSize: 14, fontWeight: 600, textDecoration: "none", transition: "background .15s,color .15s",
+                  }}
+                >
+                  {STATES[k].name}
+                </a>
+              );
+            })}
+          </div>
+          {data.state === "ts" && (
+            <p style={{ margin: 0, color: "var(--muted)", fontSize: 13, lineHeight: 1.5, maxWidth: 640, textWrap: "pretty" }}>
+              Telangana is newly added. Steps without Telangana details yet are left off or show Andhra Pradesh details, labelled as such.
+            </p>
+          )}
         </header>
 
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 20px", marginBottom: 16 }}>
@@ -494,7 +540,7 @@ export default function Class10Flow({
                   }}
                 >
                   <span style={{ fontWeight: 800, fontSize: 16, lineHeight: 1.2 }}>Class 10 Pass</span>
-                  <span style={{ fontSize: 12, opacity: 0.8, lineHeight: 1.3 }}>SSC · AP Board</span>
+                  <span style={{ fontSize: 12, opacity: 0.8, lineHeight: 1.3 }}>{nodeById.start.sub}</span>
                 </button>
               </div>
 
@@ -580,6 +626,7 @@ export default function Class10Flow({
       {panel && panelOpen && (
         <DetailsPanel
           panel={panel}
+          region={STATES[data.state].short}
           stacked={stacked}
           shareUrl={shareUrl}
           onClose={() => setPanelOpen(false)}

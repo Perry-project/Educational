@@ -1,6 +1,7 @@
 import { Figtree } from "next/font/google";
 import Class10Flow from "@/components/class10-flow";
 import { getFlowchartData } from "@/lib/flowchart-db";
+import { stateOf } from "@/lib/class10-flow-data";
 
 const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
 
@@ -17,8 +18,11 @@ export default async function FlowPage({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const [data, { step }] = await Promise.all([getFlowchartData(), searchParams]);
+  const { step, state } = await searchParams;
+  // ?state=ts shows the Telangana chart; Andhra Pradesh otherwise.
+  const data = await getFlowchartData(stateOf(state));
   // ?step=btech opens the chart with that step selected (shared links).
   const initialStep = typeof step === "string" ? step : null;
-  return <Class10Flow data={data} fontFamily={figtree.style.fontFamily} initialStep={initialStep} />;
+  // Keyed by state so switching states starts the chart afresh.
+  return <Class10Flow key={data.state} data={data} fontFamily={figtree.style.fontFamily} initialStep={initialStep} />;
 }
