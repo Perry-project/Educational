@@ -49,13 +49,18 @@ const COLLEGE_MATCH: Record<string, RegExp> = {
 const courseItems = (offers: string | null) =>
   (offers ?? "").split(/,(?![^(]*\))/).map((item) => item.trim());
 
+// The flowchart is the Andhra Pradesh route. Other states' rows (Telangana
+// since 2026-09) reuse the same pathway names, so state-scoped tables are
+// filtered here rather than matched on name alone.
+const AP = "state_id = (SELECT id FROM states WHERE name = 'Andhra Pradesh')";
+
 export async function getFlowchartData(): Promise<FlowchartData> {
   const [pathways, exams, courses, careers, colleges, topics] = await Promise.all([
-    pool.query("SELECT pathway_name, eligibility, admission_route, application_window, duration, leads_to, source FROM pathways"),
-    pool.query("SELECT exam_name, full_form_body, eligibility, application_window, exam_date, admits_into, source FROM entrance_exams"),
+    pool.query(`SELECT pathway_name, eligibility, admission_route, application_window, duration, leads_to, source FROM pathways WHERE ${AP}`),
+    pool.query(`SELECT exam_name, full_form_body, eligibility, application_window, exam_date, admits_into, source FROM entrance_exams WHERE ${AP}`),
     pool.query("SELECT id, course_name, category, typical_duration, entry_via, source FROM courses"),
-    pool.query("SELECT id, career_name, entry_point, required_exams, eligibility, govt_private_options, next_step, source FROM careers ORDER BY id"),
-    pool.query("SELECT college_name, ownership, offers_courses FROM colleges ORDER BY ownership, college_name"),
+    pool.query(`SELECT id, career_name, entry_point, required_exams, eligibility, govt_private_options, next_step, source FROM careers WHERE ${AP} ORDER BY id`),
+    pool.query(`SELECT college_name, ownership, offers_courses FROM colleges WHERE ${AP} ORDER BY ownership, college_name`),
     pool.query("SELECT course_id, topic_name, sequence_order, why_it_matters, builds_toward FROM course_topics ORDER BY course_id, sequence_order"),
   ]);
 

@@ -180,5 +180,44 @@
     "source_type": "government_notification",
     "data_tier": "tier_1_official",
     "verified_date": "2026-09-11"
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "full_form_body": "Telangana State Engineering, Agriculture and Pharmacy Common Entrance Test; conducted by JNTU Hyderabad on behalf of the Telangana State Council of Higher Education (TSCHE)",
+    "eligibility": "Pass in Intermediate/10+2 (or equivalent) with Mathematics, Physics, Chemistry (Engineering stream) or Biology/Botany & Zoology (Agriculture & Pharmacy stream) from a recognized board; minimum age typically 16 years for most Engineering/Pharmacy courses",
+    "application_window": "2026 cycle: registration opened Feb 19, 2026, applications accepted till Apr 4, 2026 (with late-fee extensions reported by aggregator sources)",
+    "exam_date": "2026: Agriculture & Pharmacy stream May 4-5, 2026; Engineering stream May 9-11, 2026 (computer-based test, separate papers per stream)",
+    "admits_into": "B.Tech/B.E. (Engineering), B.Pharm (Pharmacy), and Agriculture-stream degree programs (BSc Agriculture etc.) at govt and private colleges in Telangana",
+    "source": "testbook.com TG EAPCET 2026 registration notice; collegepravesh.com TG EAPCET 2026 exam dates; eapcet.tgche.ac.in (official portal named in sources)",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ECET (Telangana State Engineering Common Entrance Test)",
+    "full_form_body": "Telangana State Engineering Common Entrance Test - lateral-entry exam for Diploma holders and B.Sc. graduates",
+    "eligibility": "Diploma recognized by the Telangana government in relevant Engineering discipline, OR B.Sc. with Mathematics as a subject and minimum 45% marks; final-year/appearing candidates also eligible",
+    "application_window": "2026 cycle: application opened Feb 9, 2026; last date without late fee Apr 18, 2026; late-fee window Apr 24 - May 12, 2026",
+    "exam_date": "May 15, 2026 (computer-based test)",
+    "admits_into": "Lateral entry into 2nd year of B.E./B.Tech and B.Pharmacy degree programs in Telangana (skipping 1st year)",
+    "source": "engineering.careers360.com TS ECET 2026; testbook.com TG ECET Notification 2026",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ICET (Telangana State Integrated Common Entrance Test)",
+    "full_form_body": "Telangana State Integrated Common Entrance Test for MBA and MCA admissions, conducted for TSCHE",
+    "eligibility": "Bachelor's degree in any discipline with minimum 50% marks (45% for reserved categories); for MCA, Mathematics required at 10+2 or degree level; final-year degree students also eligible; local/non-local status rules of Telangana apply",
+    "application_window": "2026 cycle: registration Feb 12 - Mar 16, 2026, with late-fee window extending to May 2, 2026",
+    "exam_date": "May 13-14, 2026 (computer-based test, 3 sessions, 200 questions across Analytical/Mathematical/Communication Ability, 150 minutes)",
+    "admits_into": "MBA and MCA programs at govt and private management/computer-applications colleges in Telangana",
+    "source": "collegedekho.com TS ICET 2026 exam date and registration; news.careers360.com TS ICET 2026 registration and exam date report",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
   }
 ]

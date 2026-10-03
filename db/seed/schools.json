@@ -432,5 +432,19 @@
     "next_step": "Continue through to Class 12 within the KV system, or transition to Intermediate/other board",
     "approx_fee": "Low, government-prescribed tuition fee (largely free for girls and SC/ST students per KVS policy) - exact current fee slab unverified, needs follow-up",
     "source": "rohyderabad.kvs.gov.in (KVS Regional Office Hyderabad administers KVs across both Andhra Pradesh and Telangana, 85 KVs total in the region); newsonair.gov.in (Telangana state to reach 39 KVs after 4 new ones sanctioned, as of Oct 2025)"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "school_type": "Kasturba Gandhi Balika Vidyalaya (KGBV)",
+    "board_authority": "AP Samagra Shiksha / AP Society for Welfare of Tribal & BC Girls (Gurukulam); state board (BSEAP) curriculum",
+    "ownership": "Government (residential, girls-only)",
+    "classes_covered": "Classes 6-10 (Type-I/II/III KGBVs); some KGBVs upgraded to also offer Intermediate (Classes 11-12)",
+    "medium_of_instruction": "Telugu, English (school-dependent)",
+    "key_exam": "SSC Public Examination (Class 10, same as State Board); Intermediate exams (BIEAP) where upgraded to Class 11-12",
+    "exam_window": "Same as BSEAP SSC calendar (March exams); admissions for Class 6 and Intermediate 1st year open annually, 2026-27 cycle notified by AP Samagra Shiksha",
+    "passing_criteria": "Same as BSEAP SSC (minimum ~35% per subject)",
+    "next_step": "Continue at KGBV into Intermediate where upgraded, or transition to Intermediate (MPC/BiPC/MEC/CEC/HEC)/AP POLYCET/ITI like other Class 10 completers",
+    "approx_fee": "Free education, hostel accommodation, textbooks, uniforms and meals for admitted girls (govt-funded residential scheme)",
+    "source": "apkgbv.apcfss.in; education.sakshi.com KGBV admissions 2025/2026 notices; samagra.education.gov.in KGBV scheme page (national scheme, AP implementation via AP Samagra Shiksha); eligibility: girls aged 10-18 from SC/ST/OBC/Minority/BPL families, minimum 75% seats reserved for SC/ST/OBC/Minority, in Educationally Backward Blocks"
   }
 ]

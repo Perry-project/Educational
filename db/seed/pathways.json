@@ -98,5 +98,95 @@
     "duration": "2 years (Class 11 + 12)",
     "leads_to": "Same downstream entrance exams as other Class 12 students of that board (AP EAPCET, NEET, JEE, CUET); Sainik/RMS cadets additionally groomed for NDA/NA",
     "source": "Derived from the JNV/AISSEE/RMS/Gurukulam/EMRS sources cited in the school stage data"
+  },
+  {
+    "state": "Telangana",
+    "pathway_name": "Intermediate - MPC (Maths, Physics, Chemistry)",
+    "eligibility": "Pass in SSC (Class 10) from BSE Telangana or equivalent recognized board; MPC expects good performance in SSC Maths and Science (no fixed official minimum percentage found)",
+    "admission_route": "Online application via TGBIE/TSBIE portal (tgbie.cgg.gov.in / tsbie.cgg.gov.in), college and stream choice entered with SSC hall ticket number and Aadhaar; admission by merit/seat availability across govt and private junior colleges",
+    "application_window": "2026-27 cycle: Phase 1 admissions opened ~May 8-12, 2026; applications accepted through May 31, 2026; classes commence June 1, 2026 (multiple phases typically run through July for late admissions)",
+    "duration": "2 years (Class 11-12 / Intermediate 1st & 2nd year)",
+    "leads_to": "AP EAPCET-equivalent (TS EAMCET/TG EAPCET) for engineering/pharmacy, JEE Main/Advanced, NDA, and other engineering/science-track entrance exams and careers",
+    "source": "school.careers360.com/boards/tsbie (TGBIE Telangana Inter Admission 2026 schedule); education.sakshi.com TGBIE Intermediate Admissions 2026-27 schedule; tgbie.cgg.gov.in"
+  },
+  {
+    "state": "Telangana",
+    "pathway_name": "Intermediate - BiPC (Biology, Physics, Chemistry)",
+    "eligibility": "Pass in SSC (Class 10) from BSE Telangana or equivalent recognized board; BiPC expects good performance in SSC Science subjects (no fixed official minimum percentage found)",
+    "admission_route": "Online application via TGBIE/TSBIE portal, same process as MPC",
+    "application_window": "Same 2026-27 cycle as MPC: Phase 1 ~May 8-12 to May 31, 2026; classes from June 1, 2026",
+    "duration": "2 years (Intermediate 1st & 2nd year)",
+    "leads_to": "NEET-UG for MBBS/BDS/AYUSH, ICAR AIEEA for agriculture/veterinary sciences, and other life-science entrance exams and careers",
+    "source": "school.careers360.com/boards/tsbie; education.sakshi.com TGBIE Intermediate Admissions 2026-27 schedule; tgbie.cgg.gov.in"
+  },
+  {
+    "state": "Telangana",
+    "pathway_name": "Intermediate - MEC (Maths, Economics, Commerce)",
+    "eligibility": "Pass in SSC (Class 10); MEC expects basic Maths competency along with aptitude for Commerce/Economics",
+    "admission_route": "Online application via TGBIE/TSBIE portal, same process as MPC/BiPC",
+    "application_window": "Same 2026-27 cycle: Phase 1 ~May 8-12 to May 31, 2026; classes from June 1, 2026",
+    "duration": "2 years (Intermediate 1st & 2nd year)",
+    "leads_to": "B.Com/BBA, CA/CS/CMA foundation-level entry, banking and commerce-track careers",
+    "source": "school.careers360.com/boards/tsbie; tgbie.cgg.gov.in"
+  },
+  {
+    "state": "Telangana",
+    "pathway_name": "Intermediate - CEC (Commerce, Economics, Civics)",
+    "eligibility": "Pass in SSC (Class 10); CEC expects basic Maths/Social Studies competency",
+    "admission_route": "Online application via TGBIE/TSBIE portal, same process as MPC/BiPC",
+    "application_window": "Same 2026-27 cycle: Phase 1 ~May 8-12 to May 31, 2026; classes from June 1, 2026",
+    "duration": "2 years (Intermediate 1st & 2nd year)",
+    "leads_to": "CLAT/law entrance exams, B.Com/BA, civil services preparation track, CUET-UG for central universities",
+    "source": "school.careers360.com/boards/tsbie; tgbie.cgg.gov.in"
+  },
+  {
+    "state": "Telangana",
+    "pathway_name": "Intermediate - HEC (History, Economics, Civics)",
+    "eligibility": "Pass in SSC (Class 10); HEC and Humanities streams open to all SSC-pass candidates",
+    "admission_route": "Online application via TGBIE/TSBIE portal, same process as MPC/BiPC",
+    "application_window": "Same 2026-27 cycle: Phase 1 ~May 8-12 to May 31, 2026; classes from June 1, 2026",
+    "duration": "2 years (Intermediate 1st & 2nd year)",
+    "leads_to": "CUET-UG for BA Humanities at central universities, civil services preparation track, CLAT",
+    "source": "school.careers360.com/boards/tsbie (lists MPC/BiPC/MEC/CEC/HEC and vocational MLT as TSBIE's six main 2026 streams); tgbie.cgg.gov.in"
+  },
+  {
+    "state": "Telangana",
+    "pathway_name": "TS POLYCET - Polytechnic Diploma",
+    "eligibility": "Pass in SSC exam held by BSE Andhra Pradesh/Telangana with minimum aggregate 35% marks and Mathematics as one subject; no age limit; must be resident of Telangana (AP residents also eligible per reciprocal arrangement)",
+    "admission_route": "State-level common entrance test conducted by the State Board of Technical Education and Training (SBTET) Telangana; online application, exam, then counselling/seat allotment for Diploma-level engineering and non-engineering polytechnic courses",
+    "application_window": "2026 cycle: applications Feb 2 - Apr 20, 2026 (without late fee), until Apr 22, 2026 with late fee; exam held May 13, 2026",
+    "duration": "3 years (Diploma)",
+    "leads_to": "Diploma certificate; lateral entry into 2nd year of B.Tech via ECET, or direct employment in technical/para-engineering roles",
+    "source": "education.sakshi.com TG POLYCET 2026 notification; engineering.careers360.com/exams/ts-polycet; polycet.sbtet.telangana.gov.in"
+  },
+  {
+    "state": "Telangana",
+    "pathway_name": "ITI - Engineering Trades",
+    "eligibility": "Pass in SSC (Class 10) from BSE Telangana or equivalent recognized board (CBSE/ICSE/NIOS/TOSS/APOSS); minimum age 14 years as of Aug 1, 2026; no upper age limit",
+    "admission_route": "Online application via iti.telangana.gov.in; admission to NCVT-pattern trades (65 Advanced Technology Centres, 63 Govt ITIs, 230 Private ITIs) purely on SSC merit; a separate notification covers the remaining 10 Govt ITIs under the SCVT pattern",
+    "application_window": "2026-27 admission notification released by Director of Employment & Training, Telangana; application fee Rs.100; exact 2026 date window not confirmed from a single authoritative page - unverified, needs follow-up",
+    "duration": "6 months to 2 years depending on trade (typically 1-2 years for engineering trades)",
+    "leads_to": "NCVT/SCVT Trade Certificate; apprenticeship, ITI-based lateral entry to Diploma/B.Tech, or direct employment as a skilled tradesperson",
+    "source": "iti.telangana.gov.in; pratibha.eenadu.net TG ITI Admissions 2026 notification; engineering.careers360.com TS ITI Admission 2026"
+  },
+  {
+    "state": "Telangana",
+    "pathway_name": "ITI - Non-Engineering Trades",
+    "eligibility": "Pass in SSC (Class 10) or, for some specified trades, a minimum of Class 8 pass; minimum age 14 years as of Aug 1, 2026 (16 years for Drone Technology trade)",
+    "admission_route": "Same iti.telangana.gov.in online application and SSC-merit-based selection process as Engineering Trades, covering the non-engineering trades among the 47 total trades offered (41 in regular ITIs, 6 in Advanced Technology Centres)",
+    "application_window": "2026-27 admission notification released by Director of Employment & Training, Telangana; application fee Rs.100; exact 2026 date window not confirmed from a single authoritative page - unverified, needs follow-up",
+    "duration": "6 months to 2 years depending on trade",
+    "leads_to": "NCVT/SCVT Trade Certificate; direct employment or self-employment in the specific trade",
+    "source": "iti.telangana.gov.in; pratibha.eenadu.net TG ITI Admissions 2026 notification"
+  },
+  {
+    "state": "Telangana",
+    "pathway_name": "NIOS Senior Secondary Course (Class 12 equivalent)",
+    "eligibility": "Minimum age 15 years; open to students who cannot continue in a formal Class 11-12 junior college in Telangana (dropouts, working students, those needing flexible schedule)",
+    "admission_route": "Registration through NIOS Study Centres (Accredited Institutions) located across Telangana, or online via nios.ac.in; on-demand and fixed admission cycles both available",
+    "application_window": "Two admission cycles per year nationally (typically Apr-Sep for the main session and Sep-Mar for the second session); exact Telangana-specific study-centre calendar not separately confirmed - unverified, needs follow-up",
+    "duration": "Minimum 1 year, up to 5 years to complete (credit accumulation system), same as NIOS Secondary Course structure",
+    "leads_to": "Recognized Class 12 equivalent certificate; eligible for CUET-UG, state entrance exams, and undergraduate admission same as regular Intermediate pass",
+    "source": "nios.ac.in (national NIOS structure, applies uniformly across states including Telangana)"
   }
 ]
