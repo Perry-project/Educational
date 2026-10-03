@@ -1,0 +1,30 @@
+/* The metro flowchart's palette (Claude Design canvas "Perry Flowchart
+   Mobile Redesign", option B). The variable names are the ones
+   flowchart-search.tsx reads. */
+.metro {
+  --bg: #0e1320;
+  --surface: #1a2133;
+  --panel: #141b2c;
+  --ink: #eef1f6;
+  --muted: #9aa3b2;
+  --line: #2a3348;
+  --rule: #222a3c;
+  --accent: #a9b4ff;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.c10-search::placeholder { color: var(--muted); opacity: 1; }
+.c10-search:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+
+.metro :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (hover: hover) {
+  .metro-chip:hover { color: var(--ink) !important; background: var(--surface) !important; }
+  .metro-row:hover { background: var(--surface); }
+}
+
+/* The phone details sheet slides up. */
+@keyframes metro-sheet-in { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.metro-sheet { animation: metro-sheet-in 0.2s ease-out; }
+@media (prefers-reduced-motion: reduce) { .metro-sheet { animation: none; } }
