@@ -1,8 +1,0 @@
-<!doctype html><meta charset="utf-8"><title>mobile check</title>
-<style>html,body{margin:0;background:#333}iframe{display:block;width:390px;height:844px;border:0;background:#fff}</style>
-<iframe id="f"></iframe>
-<script>
-const q=new URLSearchParams(location.search),f=document.getElementById('f');
-f.onload=()=>setTimeout(()=>{const w=f.contentWindow,s=q.get('s');if(s)w.scrollTo(0,+s);const c=q.get('click');if(c){const b=[...w.document.querySelectorAll('button,a')].find(e=>e.textContent.includes(c));b&&b.click();setTimeout(()=>{const s2=q.get('s2');if(s2)w.scrollTo(0,+s2);},800);}},1500);
-f.src=q.get('p')||'/';
-</script>
