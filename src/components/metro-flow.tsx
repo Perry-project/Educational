@@ -17,8 +17,10 @@ import { ICON, PointSection } from "./fact-points";
 // course). Routes come from the chart's real connections (metro-routes.ts)
 // and every detail from Postgres (flowchart-db.ts).
 //
-// Phones (< lg): a "Pick your line" start screen, then the route top to
-// bottom; a stop's details open in a bottom sheet.
+// Every screen size opens on "Pick your line": no route is shown until the
+// student chooses a career.
+// Phones (< lg): the route top to bottom; a stop's details open in a bottom
+// sheet.
 // Desktop (lg+): dropdown menus across the top (flow-menus.ts), the route top to bottom in a
 // left column that stays in view, and the selected stop's full details on
 // the right.
@@ -94,7 +96,8 @@ export default function MetroFlow({
   const [showAll, setShowAll] = useState(false);
   const panelRef = useRef<HTMLElement>(null);
 
-  // Desktop always shows a line; phones start on "Pick your line".
+  // Until a line is picked, the start screen shows; `active` falls back to
+  // the first featured line only so the line view's values stay defined.
   const active = careerById[careerId ?? ""] ?? featured[0] ?? careers[0];
   const routes = useMemo(() => (active ? routesTo(active.id, active.name, nodes) : []), [active, nodes]);
   const route = pickRoute(routes, via);
@@ -287,7 +290,7 @@ export default function MetroFlow({
                   key={c.id}
                   onClick={() => openLine(c.id)}
                   className="metro-chip min-h-11 cursor-pointer rounded-full border-0 bg-transparent px-3 text-left text-[15px] font-medium"
-                  style={{ color: c.id === active?.id ? "var(--ink)" : "#c9d0dc", fontFamily: "inherit" }}
+                  style={{ color: c.id === careerId ? "var(--ink)" : "#c9d0dc", fontFamily: "inherit" }}
                 >
                   {c.label}
                 </button>
@@ -365,11 +368,14 @@ export default function MetroFlow({
 
   // ---------- phone ----------
 
-  const phoneStart = (
-    <div className="flex flex-col gap-8 px-6 pt-8 pb-12 lg:hidden">
+  const start = (
+    <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-8 px-6 pt-8 pb-12 lg:px-12 lg:pt-12">
+      <div className="hidden lg:block">
+        <FlowMenuBar menus={menus} current={new Set()} onChoose={(id) => (careerById[id] ? openLine(id) : openStep(id))} />
+      </div>
       <div className="flex flex-col gap-3">
-        <h1 className="m-0 text-[38px] leading-[1.05] font-extrabold tracking-tight" style={{ fontFamily: display }}>Pick your line.</h1>
-        <p className="m-0 max-w-[320px] text-base leading-relaxed" style={{ color: "var(--muted)" }}>
+        <h1 className="m-0 text-[38px] leading-[1.05] font-extrabold tracking-tight lg:text-[52px]" style={{ fontFamily: display }}>Pick your line.</h1>
+        <p className="m-0 max-w-[320px] text-base leading-relaxed lg:max-w-xl lg:text-lg" style={{ color: "var(--muted)" }}>
           Every career is a line from Class 10. Follow one to see its stops.
         </p>
       </div>
@@ -377,7 +383,7 @@ export default function MetroFlow({
       <div className="flex">
         <FlowchartSearch items={searchIndex} onChoose={openLine} />
       </div>
-      <nav aria-label="Career lines" className="-mx-2 flex flex-col gap-1">
+      <nav aria-label="Career lines" className="-mx-2 grid gap-1 lg:grid-cols-2 lg:gap-2 xl:grid-cols-3">
         {featured.map((c) => {
           const r = routesTo(c.id, c.name, nodes)[0];
           const mid = r ? r.stops.filter((s) => s !== "start" && !careerById[s]).map(nameOf) : [];
@@ -480,6 +486,14 @@ export default function MetroFlow({
   const desktop = active && (
     <div className="mx-auto hidden max-w-[1440px] flex-col gap-8 px-12 pt-4 pb-16 lg:flex">
       <nav aria-label="Flowchart menus" className="flex flex-wrap items-center gap-x-6 gap-y-3 pb-5" style={{ borderBottom: "1px solid #1f2738" }}>
+        <button
+          onClick={() => { setCareerId(null); setVia(null); setStop(null); }}
+          className="metro-chip inline-flex h-10 cursor-pointer items-center gap-2 rounded-full border-0 bg-transparent px-3 text-sm font-semibold"
+          style={{ color: "var(--muted)", fontFamily: "inherit" }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+          All lines
+        </button>
         <FlowMenuBar menus={menus} current={new Set(stops)} onChoose={(id) => (careerById[id] ? openLine(id) : openStep(id))} />
         <FlowchartSearch items={searchIndex} onChoose={openLine} />
       </nav>
@@ -577,10 +591,9 @@ export default function MetroFlow({
 
   return (
     <div className="metro min-h-[calc(100vh-var(--nav-h))]" style={rootStyle}>
-      {careerId ? phoneRoute : phoneStart}
-      {desktop}
+      {careerId ? <>{phoneRoute}{desktop}</> : start}
       {phoneSheet}
-      <p className="mx-auto max-w-[1440px] px-6 pb-10 text-[13px] leading-relaxed lg:px-12" style={{ color: "var(--muted)" }}>
+      <p className={`mx-auto px-6 pb-10 text-[13px] leading-relaxed lg:px-12 ${careerId ? "max-w-[1440px]" : "max-w-[1100px]"}`} style={{ color: "var(--muted)" }}>
         Dates are from the most recent official notices. Always check the current notification before applying.
       </p>
     </div>
