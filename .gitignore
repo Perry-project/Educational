@@ -32,9 +32,12 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
+# This project's own Vercel login (kept apart from other Vercel accounts on this PC)
+.vercel-cli
 
 # typescript
 *.tsbuildinfo

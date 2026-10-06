@@ -51,8 +51,9 @@ async function importSchools(client, stateCache) {
     const stateId = await getStateId(client, stateCache, r.state);
     await client.query(
       `INSERT INTO schools (state_id, school_type, board_authority, ownership, classes_covered,
-         medium_of_instruction, key_exam, exam_window, passing_criteria, next_step, approx_fee, source, updated_at)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12, now())
+         medium_of_instruction, key_exam, exam_window, passing_criteria, next_step, approx_fee, source,
+         source_type, data_tier, verified_date, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15, now())
        ON CONFLICT (state_id, school_type) DO UPDATE SET
          board_authority = EXCLUDED.board_authority,
          ownership = EXCLUDED.ownership,
@@ -64,10 +65,13 @@ async function importSchools(client, stateCache) {
          next_step = EXCLUDED.next_step,
          approx_fee = EXCLUDED.approx_fee,
          source = EXCLUDED.source,
+         source_type = EXCLUDED.source_type,
+         data_tier = EXCLUDED.data_tier,
+         verified_date = EXCLUDED.verified_date,
          updated_at = now()`,
       [stateId, r.school_type, r.board_authority, r.ownership, r.classes_covered,
        r.medium_of_instruction, r.key_exam, r.exam_window, r.passing_criteria,
-       r.next_step, r.approx_fee, r.source]
+       r.next_step, r.approx_fee, r.source, r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null]
     );
   }
   return rows.length;
@@ -79,8 +83,8 @@ async function importPathways(client, stateCache) {
     const stateId = await getStateId(client, stateCache, r.state);
     await client.query(
       `INSERT INTO pathways (state_id, pathway_name, eligibility, admission_route,
-         application_window, duration, leads_to, source, updated_at)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8, now())
+         application_window, duration, leads_to, source, source_type, data_tier, verified_date, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11, now())
        ON CONFLICT (state_id, pathway_name) DO UPDATE SET
          eligibility = EXCLUDED.eligibility,
          admission_route = EXCLUDED.admission_route,
@@ -88,9 +92,12 @@ async function importPathways(client, stateCache) {
          duration = EXCLUDED.duration,
          leads_to = EXCLUDED.leads_to,
          source = EXCLUDED.source,
+         source_type = EXCLUDED.source_type,
+         data_tier = EXCLUDED.data_tier,
+         verified_date = EXCLUDED.verified_date,
          updated_at = now()`,
       [stateId, r.pathway_name, r.eligibility, r.admission_route,
-       r.application_window, r.duration, r.leads_to, r.source]
+       r.application_window, r.duration, r.leads_to, r.source, r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null]
     );
   }
   return rows.length;
@@ -102,9 +109,17 @@ async function importEntranceExams(client, stateCache) {
     const stateId = await getStateId(client, stateCache, r.state);
     await client.query(
       `INSERT INTO entrance_exams (state_id, exam_name, full_form_body, eligibility,
-         application_window, exam_date, admits_into, source, source_type, data_tier, verified_date, updated_at)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11, now())
+         application_window, exam_date, admits_into, source, source_type, data_tier, verified_date,
+         scope, stage, category, body_type, conducting_body, official_website, exam_pattern, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18, now())
        ON CONFLICT (state_id, exam_name) DO UPDATE SET
+         scope = EXCLUDED.scope,
+         stage = EXCLUDED.stage,
+         category = EXCLUDED.category,
+         body_type = EXCLUDED.body_type,
+         conducting_body = EXCLUDED.conducting_body,
+         official_website = EXCLUDED.official_website,
+         exam_pattern = EXCLUDED.exam_pattern,
          full_form_body = EXCLUDED.full_form_body,
          eligibility = EXCLUDED.eligibility,
          application_window = EXCLUDED.application_window,
@@ -117,7 +132,9 @@ async function importEntranceExams(client, stateCache) {
          updated_at = now()`,
       [stateId, r.exam_name, r.full_form_body, r.eligibility,
        r.application_window, r.exam_date, r.admits_into, r.source,
-       r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null]
+       r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null,
+       r.scope ?? null, r.stage ?? null, r.category ?? null, r.body_type ?? null,
+       r.conducting_body ?? null, r.official_website ?? null, r.exam_pattern ?? null]
     );
   }
   return rows.length;
@@ -234,8 +251,8 @@ async function importCareers(client, stateCache) {
     const stateId = await getStateId(client, stateCache, r.state);
     await client.query(
       `INSERT INTO careers (state_id, career_name, category, entry_point, required_exams,
-         eligibility, govt_private_options, next_step, source, updated_at)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9, now())
+         eligibility, govt_private_options, next_step, source, source_type, data_tier, verified_date, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12, now())
        ON CONFLICT (state_id, career_name) DO UPDATE SET
          category = EXCLUDED.category,
          entry_point = EXCLUDED.entry_point,
@@ -244,12 +261,120 @@ async function importCareers(client, stateCache) {
          govt_private_options = EXCLUDED.govt_private_options,
          next_step = EXCLUDED.next_step,
          source = EXCLUDED.source,
+         source_type = EXCLUDED.source_type,
+         data_tier = EXCLUDED.data_tier,
+         verified_date = EXCLUDED.verified_date,
          updated_at = now()`,
       [stateId, r.career_name, r.category, r.entry_point, r.required_exams,
-       r.eligibility, r.govt_private_options, r.next_step, r.source]
+       r.eligibility, r.govt_private_options, r.next_step, r.source, r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null]
     );
   }
   return rows.length;
+}
+
+// Exam rows are keyed by (state, exam_name); a seed row whose exam isn't in
+// entrance_exams is skipped with a warning rather than failing the import.
+async function examIdOf(client, stateCache, state, examName) {
+  const stateId = await getStateId(client, stateCache, state);
+  const res = await client.query(`SELECT id FROM entrance_exams WHERE state_id = $1 AND exam_name = $2`, [stateId, examName]);
+  return res.rows[0]?.id ?? null;
+}
+
+function optionalSeed(name) {
+  return existsSync(path.join(seedDir, `${name}.json`)) ? loadSeed(name) : [];
+}
+
+async function importExamSubjects(client, stateCache) {
+  let imported = 0;
+  for (const r of optionalSeed("exam_subjects")) {
+    const examId = await examIdOf(client, stateCache, r.state, r.exam_name);
+    if (!examId) {
+      console.warn(`Skipping subject "${r.subject}": exam "${r.exam_name}" (${r.state}) not found`);
+      continue;
+    }
+    await client.query(
+      `INSERT INTO exam_subjects (exam_id, subject, topics, sequence_order, source, source_type, data_tier, verified_date, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8, now())
+       ON CONFLICT (exam_id, subject) DO UPDATE SET
+         topics = EXCLUDED.topics,
+         sequence_order = EXCLUDED.sequence_order,
+         source = EXCLUDED.source,
+         source_type = EXCLUDED.source_type,
+         data_tier = EXCLUDED.data_tier,
+         verified_date = EXCLUDED.verified_date,
+         updated_at = now()`,
+      [examId, r.subject, r.topics ?? null, r.sequence_order ?? null, r.source ?? null,
+       r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null]
+    );
+    imported++;
+  }
+  return imported;
+}
+
+async function importExamCutoffs(client, stateCache) {
+  let imported = 0;
+  for (const r of optionalSeed("exam_cutoffs")) {
+    if (!r.source || !r.verified_date) {
+      console.warn(`Skipping exam cutoff "${r.exam_name}" / ${r.category} ${r.year}: missing required source or verified_date (tier_1_official only)`);
+      continue;
+    }
+    const examId = await examIdOf(client, stateCache, r.state, r.exam_name);
+    if (!examId) {
+      console.warn(`Skipping exam cutoff: exam "${r.exam_name}" (${r.state}) not found`);
+      continue;
+    }
+    await client.query(
+      `INSERT INTO exam_cutoffs (exam_id, year, category, kind, value, note, source, source_type, verified_date, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9, now())
+       ON CONFLICT (exam_id, year, category, kind) DO UPDATE SET
+         value = EXCLUDED.value,
+         note = EXCLUDED.note,
+         source = EXCLUDED.source,
+         source_type = EXCLUDED.source_type,
+         verified_date = EXCLUDED.verified_date,
+         updated_at = now()`,
+      [examId, r.year, r.category, r.kind, r.value, r.note ?? null, r.source,
+       r.source_type ?? "government_notification", r.verified_date]
+    );
+    imported++;
+  }
+  return imported;
+}
+
+async function importSecondChance(client) {
+  // Routes back into education or work for /second-chance (see
+  // scripts/second-chance-research/build-second-chance.py).
+  let imported = 0;
+  for (const r of optionalSeed("second_chance_routes")) {
+    await client.query(
+      `INSERT INTO second_chance_routes (stopped_at, route_name, scope, kind, conducting_body, official_website, summary,
+                                         who_can, how_to_apply, next_dates, leads_to, related_exam, sequence_order,
+                                         source, source_type, data_tier, verified_date, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17, now())
+       ON CONFLICT (stopped_at, route_name, scope) DO UPDATE SET
+         kind = EXCLUDED.kind,
+         conducting_body = EXCLUDED.conducting_body,
+         official_website = EXCLUDED.official_website,
+         summary = EXCLUDED.summary,
+         who_can = EXCLUDED.who_can,
+         how_to_apply = EXCLUDED.how_to_apply,
+         next_dates = EXCLUDED.next_dates,
+         leads_to = EXCLUDED.leads_to,
+         related_exam = EXCLUDED.related_exam,
+         sequence_order = EXCLUDED.sequence_order,
+         source = EXCLUDED.source,
+         source_type = EXCLUDED.source_type,
+         data_tier = EXCLUDED.data_tier,
+         verified_date = EXCLUDED.verified_date,
+         updated_at = now()`,
+      [r.stopped_at, r.route_name, r.scope, r.kind ?? null, r.conducting_body ?? null, r.official_website ?? null,
+       r.summary ?? null, r.who_can ?? null, r.how_to_apply ?? null, r.next_dates ?? null, r.leads_to ?? null,
+       r.related_exam ?? null, r.sequence_order ?? null, r.source ?? null, r.source_type ?? null,
+       r.data_tier ?? "pending_review", r.verified_date ?? null]
+    );
+    imported++;
+  }
+  return imported;
 }
 
 async function importProgressTracker(client) {
@@ -294,8 +419,12 @@ async function main() {
     const cutoffsCount = await importCutoffs(client);
     const careersCount = await importCareers(client, stateCache);
     const progressCount = await importProgressTracker(client);
+    const subjectsCount = await importExamSubjects(client, stateCache);
+    const examCutoffsCount = await importExamCutoffs(client, stateCache);
+    const secondChanceCount = await importSecondChance(client);
 
-    const totalRows = schoolsCount + pathwaysCount + examsCount + coursesCount + topicsCount + collegesCount + cutoffsCount + careersCount + progressCount;
+    const totalRows = schoolsCount + pathwaysCount + examsCount + coursesCount + topicsCount + collegesCount + cutoffsCount + careersCount + progressCount
+      + subjectsCount + examCutoffsCount + secondChanceCount;
 
     await client.query(
       `INSERT INTO import_log (source_file_id, source_title, snapshot_date, imported_at, rows_imported)
@@ -310,7 +439,7 @@ async function main() {
 
     await client.query("COMMIT");
 
-    console.log(`Imported: ${schoolsCount} schools, ${pathwaysCount} pathways, ${examsCount} entrance exams, ${coursesCount} courses, ${topicsCount} course topics, ${collegesCount} colleges, ${cutoffsCount} cutoffs, ${careersCount} careers, ${progressCount} progress-tracker rows.`);
+    console.log(`Imported: ${schoolsCount} schools, ${pathwaysCount} pathways, ${examsCount} entrance exams, ${coursesCount} courses, ${topicsCount} course topics, ${collegesCount} colleges, ${cutoffsCount} cutoffs, ${careersCount} careers, ${progressCount} progress-tracker rows, ${subjectsCount} exam subjects, ${examCutoffsCount} exam cutoffs, ${secondChanceCount} second-chance routes.`);
   } catch (err) {
     await client.query("ROLLBACK");
     throw err;

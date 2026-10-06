@@ -53,7 +53,7 @@ export const NODES: FlowNode[] = [
   {id:'nda',col:3,label:'NDA',sub:'Army, Navy & Air Force wings',st:A3,full:'National Defence Academy & Naval Academy Examination',db:'NDA (National Defence Academy exam)'},
   {id:'ecet',col:3,label:'AP ECET',sub:'Diploma → B.Tech 2nd year',st:[V],full:'Engineering Common Entrance Test (lateral entry)',db:'AP ECET'},
   {id:'icet',col:3,label:'AP ICET',sub:'MBA / MCA, after a degree',st:[C,S],full:'Integrated Common Entrance Test',db:'AP ICET'},
-  {id:'icar',col:3,label:'ICAR AIEEA',sub:'Agri universities, ICAR quota',st:[S],full:'ICAR All India Entrance Examination for Admission',db:'ICAR AIEEA'},
+  {id:'icar',col:3,label:'ICAR AIEEA (PG)',sub:'Agri master’s, after a degree',st:[S],full:'ICAR All India Entrance Examination for Admission',db:'ICAR AIEEA'},
   {id:'cds',col:3,label:'CDS',sub:'Officer entry after a degree',st:A3,full:'Combined Defence Services Examination',db:'CDS (Combined Defence Services exam)'},
   {id:'afcat',col:3,label:'AFCAT',sub:'Air Force officer entry',st:[S],full:'Air Force Common Admission Test',db:'AFCAT'},
   {id:'btech',col:4,label:'B.Tech',sub:'Engineering degree',st:[S,V],full:'Bachelor of Technology',db:'B.Tech / Engineering'},
@@ -113,7 +113,7 @@ const s = (f: string, ts: string[], only?: string[]) => ts.forEach((t) => EDGES.
 const d = (f: string, ts: string[], only?: string[]) => ts.forEach((t) => EDGES.push({ f, t, dash: true, only }));
 s('start',['mpc','bipc','mec','cec','hec','polycet','iti_eng','iti_non','nios','res']);
 s('mpc',['eapcet'],['btech','bpharm']);s('mpc',['jeemain','jeeadv','nata','nda']);d('mpc',['cuet','clat','cafnd','bsc']);
-s('bipc',['eapcet'],['bpharm','agri']);s('bipc',['neet']);d('bipc',['icar','cuet','bsc','nda']);
+s('bipc',['eapcet'],['bpharm','agri']);s('bipc',['neet']);d('bipc',['cuet','bsc','nda']);
 s('mec',['cafnd','cuet']);d('mec',['clat','nda','bcom']);
 s('cec',['clat','cafnd','cuet']);d('cec',['nda','bcom']);
 s('hec',['clat','cuet']);d('hec',['nda','ba']);
@@ -122,9 +122,11 @@ d('nios',['neet','jeemain','eapcet','cuet','clat','nda','cafnd']);
 s('res',['nda']);d('res',['jeemain','neet','cuet','eapcet']);
 s('eapcet',['btech','bpharm','agri']);s('neet',['mbbs','bds','ayush','nursing']);d('neet',['agri']);
 s('jeemain',['btech']);d('jeemain',['barch']);s('jeeadv',['btech']);s('nata',['barch']);
-s('cuet',['bcom','ba','bsc']);d('cuet',['llb','agri']);s('clat',['llb']);s('cafnd',['ca']);s('nda',['ndatrain']);d('icar',['agri']);
+s('cuet',['bcom','ba','bsc']);d('cuet',['llb','agri']);s('clat',['llb']);s('cafnd',['ca']);s('nda',['ndatrain']);
 d('diploma',['ecet']);d('ecet',['btech']);
-d('btech',['icet','afcat']);d('bcom',['icet']);d('ba',['cds']);d('bsc',['cds','afcat']);
+// ICAR AIEEA is PG-only since its UG paper moved into CUET-UG, so it comes
+// after an agriculture degree, not after Intermediate.
+d('btech',['icet','afcat']);d('agri',['icar']);d('bcom',['icet']);d('ba',['cds']);d('bsc',['cds','afcat']);
 
 export const CLUSTER_DEFS: { id: string; name: string }[] = [
   { id: "cl_eng", name: "Engineering & Tech" },
@@ -199,7 +201,7 @@ export const CAREER_LINKS: Record<string, { cl: string; from: string[] }> = {
 
   "Science / Research (Basic Sciences)": { cl: "cl_sci", from: ["bsc"] },
   "Agriculture & Veterinary Sciences": { cl: "cl_sci", from: ["agri"] },
-  "Dairy & Fisheries Science": { cl: "cl_sci", from: ["icar"] },
+  "Dairy & Fisheries Science": { cl: "cl_sci", from: ["agri"] },
   "Veterinary Assistant / Livestock Inspector (Diploma route)": { cl: "cl_sci", from: ["start"] },
   "Forestry / Forest Range Officer": { cl: "cl_sci", from: ["bsc", "agri"] },
   "Wildlife Biology / Wildlife Conservation": { cl: "cl_sci", from: ["bsc"] },

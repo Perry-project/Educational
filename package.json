@@ -9,7 +9,8 @@
     "lint": "eslint",
     "db:import": "node scripts/import-ap-database.mjs",
     "db:merge-delta": "node scripts/merge-drive-delta.mjs",
-    "db:index": "node scripts/write-drive-index.mjs"
+    "db:index": "node scripts/write-drive-index.mjs",
+    "vercel": "vercel --global-config .vercel-cli"
   },
   "dependencies": {
     "next": "16.3.3",

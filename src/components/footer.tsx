@@ -1,16 +1,29 @@
 import Link from "next/link";
 
+const LINKS = [
+  { href: "/about", label: "About" },
+  { href: "/flowchart", label: "Flowchart" },
+  { href: "/exams", label: "Exams" },
+  { href: "/second-chance", label: "Second Chance" },
+  { href: "/pathfinder", label: "Pathfinder" },
+  { href: "/disclaimer", label: "Disclaimer" },
+  { href: "/privacy", label: "Privacy" },
+];
+
 export default function Footer() {
   return (
     <footer className="relative border-t border-gray-800">
-      <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-8 text-sm text-gray-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <p>
-          <span className="brand-gradient font-bold">PERRY</span> · Career guidance for students in Andhra Pradesh.
-        </p>
-        <nav className="flex gap-5">
-          <Link href="/about" className="hover:text-white">About</Link>
-          <Link href="/flowchart" className="hover:text-white">Flowchart</Link>
-          <Link href="/pathfinder" className="hover:text-white">Pathfinder</Link>
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-gray-400 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:px-8">
+        <div className="flex flex-col gap-1.5">
+          <p>
+            <span className="brand-gradient font-bold">PERRY</span> · Career guidance for students in Andhra Pradesh and Telangana.
+          </p>
+          <p className="text-xs text-gray-500">Not a government website. Always confirm dates and rules on the official notice.</p>
+        </div>
+        <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2">
+          {LINKS.map((l) => (
+            <Link key={l.href} href={l.href} className="hover:text-white">{l.label}</Link>
+          ))}
         </nav>
       </div>
     </footer>

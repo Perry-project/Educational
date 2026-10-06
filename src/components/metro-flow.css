@@ -21,10 +21,14 @@
 
 @media (hover: hover) {
   .metro-chip:hover { color: var(--ink) !important; background: var(--surface) !important; }
-  .metro-row:hover { background: var(--surface); }
+  .metro-row:hover { background: var(--surface) !important; }
+  .metro-alt:hover { background: var(--surface); border-style: solid !important; }
 }
 
 /* The phone details sheet slides up. */
 @keyframes metro-sheet-in { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
 .metro-sheet { animation: metro-sheet-in 0.2s ease-out; }
 @media (prefers-reduced-motion: reduce) { .metro-sheet { animation: none; } }
+
+/* The desktop line column scrolls on its own when it's taller than the window. */
+.metro-scroll { scrollbar-width: thin; scrollbar-color: var(--line) transparent; }

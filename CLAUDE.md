@@ -15,9 +15,9 @@ project publishes. Older `AP Career Database - YYYY-MM-DD` Sheets/.xlsx files ar
 legacy format and are already imported.
 
 At the start of a session in this folder:
-1. Search Google Drive for deltas from both routines, newest by `createdTime`: `title contains 'AP Career Database' and title contains 'delta'` and `title contains 'Course Grip' and title contains 'delta'`.
+1. Search Google Drive for deltas from all three routines, newest by `createdTime`: `title contains 'AP Career Database' and title contains 'delta'`, `title contains 'Course Grip' and title contains 'delta'` and `title contains 'Second Chance' and title contains 'delta'`.
 2. Check the local `import_log` table (`SELECT * FROM import_log ORDER BY snapshot_date DESC LIMIT 1`) to see which have already been imported.
-3. For each not-yet-imported delta date (oldest first; if a date has several checkpoints, only its newest): get the exact file from the Google Drive for desktop folder `G:/My Drive/<title>` (or `download_file_content` and base64-decode it), run `npm run db:merge-delta -- --file <path>`, then `npm run db:import -- --file-id <driveFileId> --snapshot-date <YYYY-MM-DD> --title "<file title>"`. Review anything the merge reports as skipped tier_1 rows.
+3. For each not-yet-imported delta date (oldest first; if a date has several checkpoints, only its newest): get the exact file from the Google Drive for desktop folder `G:/My Drive/<title>` (or `download_file_content` and base64-decode it), run `npm run db:merge-delta -- --file <path>`, then `npm run db:import -- --file-id <driveFileId> --snapshot-date <YYYY-MM-DD> --title "<file title>"`. Review anything the merge reports as skipped tier_1 rows. A Second Chance delta is not merged into the seed: the merge saves its proposals to `db/review/second-chance-<date>.json`; check each against its cited official document, then add it to `scripts/second-chance-research/build-second-chance.py` (`route()`/`verify()`) and rebuild.
 4. After importing (or after any other seed change, e.g. manual verification), run `npm run db:index` to publish a fresh INDEX to `G:/My Drive` so the next nightly run sees the current state.
 5. If nothing new exists, say so briefly and move on — don't re-run the import needlessly.
 
@@ -50,6 +50,15 @@ Rules that apply regardless of tier: no guessing where the record is missing (sa
 than one admission cycle gets an expiry flag, not silent reuse; every tier-1 fact
 keeps a `source` reference a student can follow themselves. See the published
 roadmap for the phased plan to bring existing data up to `tier_1_official`.
+
+## Nightly "Second Chance" route check (3:30 AM IST)
+
+A third cloud routine, "Second Chance - Nightly Route Check" (trig_01TSNP8jQZkatXXrqxGZKDtv,
+cron `0 22 * * *` UTC), keeps the /second-chance page (`second_chance_routes`) current. It
+reads the routes from the newest INDEX (`second_chance_routes` list), refreshes dates that
+are open/closing/passed, researches pending routes from official sources only, and saves
+`Second Chance - YYYY-MM-DD - delta.txt` (`upserts.second_chance_routes`, plus `not_found`).
+Its findings go live only after a local session verifies them (see session step 3).
 
 ## Nightly "Course Grip" research routine (12:00 AM – 2:00 AM)
 

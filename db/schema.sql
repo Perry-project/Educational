@@ -33,9 +33,20 @@ CREATE TABLE IF NOT EXISTS schools (
   next_step TEXT,
   approx_fee TEXT,
   source TEXT,
+  source_type TEXT,
+  data_tier TEXT NOT NULL DEFAULT 'pending_review'
+    CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review')),
+  verified_date DATE,
   updated_at TIMESTAMP DEFAULT now(),
   UNIQUE(state_id, school_type)
 );
+
+ALTER TABLE schools ADD COLUMN IF NOT EXISTS source_type TEXT;
+ALTER TABLE schools ADD COLUMN IF NOT EXISTS data_tier TEXT NOT NULL DEFAULT 'pending_review';
+ALTER TABLE schools ADD COLUMN IF NOT EXISTS verified_date DATE;
+ALTER TABLE schools DROP CONSTRAINT IF EXISTS schools_data_tier_check;
+ALTER TABLE schools ADD CONSTRAINT schools_data_tier_check
+  CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review'));
 
 -- Phase 2: post-10th pathways (Intermediate streams, POLYCET, ITI, NIOS, etc.)
 CREATE TABLE IF NOT EXISTS pathways (
@@ -48,9 +59,20 @@ CREATE TABLE IF NOT EXISTS pathways (
   duration TEXT,
   leads_to TEXT,
   source TEXT,
+  source_type TEXT,
+  data_tier TEXT NOT NULL DEFAULT 'pending_review'
+    CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review')),
+  verified_date DATE,
   updated_at TIMESTAMP DEFAULT now(),
   UNIQUE(state_id, pathway_name)
 );
+
+ALTER TABLE pathways ADD COLUMN IF NOT EXISTS source_type TEXT;
+ALTER TABLE pathways ADD COLUMN IF NOT EXISTS data_tier TEXT NOT NULL DEFAULT 'pending_review';
+ALTER TABLE pathways ADD COLUMN IF NOT EXISTS verified_date DATE;
+ALTER TABLE pathways DROP CONSTRAINT IF EXISTS pathways_data_tier_check;
+ALTER TABLE pathways ADD CONSTRAINT pathways_data_tier_check
+  CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review'));
 
 -- Phase 3: entrance exams list
 CREATE TABLE IF NOT EXISTS entrance_exams (
@@ -170,9 +192,20 @@ CREATE TABLE IF NOT EXISTS careers (
   govt_private_options TEXT,
   next_step TEXT,
   source TEXT,
+  source_type TEXT,
+  data_tier TEXT NOT NULL DEFAULT 'pending_review'
+    CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review')),
+  verified_date DATE,
   updated_at TIMESTAMP DEFAULT now(),
   UNIQUE(state_id, career_name)
 );
+
+ALTER TABLE careers ADD COLUMN IF NOT EXISTS source_type TEXT;
+ALTER TABLE careers ADD COLUMN IF NOT EXISTS data_tier TEXT NOT NULL DEFAULT 'pending_review';
+ALTER TABLE careers ADD COLUMN IF NOT EXISTS verified_date DATE;
+ALTER TABLE careers DROP CONSTRAINT IF EXISTS careers_data_tier_check;
+ALTER TABLE careers ADD CONSTRAINT careers_data_tier_check
+  CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review'));
 
 -- Mirrors the "Progress Tracker" tab from the nightly Drive workbook
 CREATE TABLE IF NOT EXISTS progress_tracker (
@@ -194,4 +227,82 @@ CREATE TABLE IF NOT EXISTS import_log (
   snapshot_date DATE,
   imported_at TIMESTAMP DEFAULT now(),
   rows_imported INT
+);
+
+-- Exams tab (/exams): every exam a student in AP or Telangana may sit, from
+-- Class 1-10 scholarship and admission tests to entrance exams and government
+-- job exams. The entrance_exams table holds them all; these columns sort them.
+ALTER TABLE entrance_exams ADD COLUMN IF NOT EXISTS scope TEXT;            -- National / Andhra Pradesh / Telangana
+ALTER TABLE entrance_exams ADD COLUMN IF NOT EXISTS stage TEXT;            -- school / after_10 / after_12 / after_degree / jobs
+ALTER TABLE entrance_exams ADD COLUMN IF NOT EXISTS category TEXT;         -- Engineering, Medical, Scholarship, Defence, Teaching jobs ...
+ALTER TABLE entrance_exams ADD COLUMN IF NOT EXISTS body_type TEXT;        -- Government / Private
+ALTER TABLE entrance_exams ADD COLUMN IF NOT EXISTS conducting_body TEXT;
+ALTER TABLE entrance_exams ADD COLUMN IF NOT EXISTS official_website TEXT;
+ALTER TABLE entrance_exams ADD COLUMN IF NOT EXISTS exam_pattern TEXT;     -- questions, marks, duration, negative marking
+
+-- Subjects an exam tests, with the topics its official syllabus lists.
+CREATE TABLE IF NOT EXISTS exam_subjects (
+  id SERIAL PRIMARY KEY,
+  exam_id INT REFERENCES entrance_exams(id) ON DELETE CASCADE,
+  subject TEXT NOT NULL,
+  topics TEXT,
+  sequence_order INT,
+  source TEXT,
+  source_type TEXT,
+  data_tier TEXT NOT NULL DEFAULT 'pending_review'
+    CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review')),
+  verified_date DATE,
+  updated_at TIMESTAMP DEFAULT now(),
+  UNIQUE(exam_id, subject)
+);
+
+-- Category-wise qualifying marks / cutoffs for an exam (not a college's
+-- closing rank: that is the cutoffs table). Tier-1 only, like cutoffs: a
+-- row needs the official document it came from.
+CREATE TABLE IF NOT EXISTS exam_cutoffs (
+  id SERIAL PRIMARY KEY,
+  exam_id INT REFERENCES entrance_exams(id) ON DELETE CASCADE,
+  year INT NOT NULL,
+  category TEXT NOT NULL,         -- General / EWS / OBC-NCL / BC / SC / ST / PwD ...
+  kind TEXT NOT NULL,             -- qualifying_marks / qualifying_percentile / cutoff_score / eligibility_marks / seat_reservation
+  value TEXT NOT NULL,            -- e.g. "50 of 200 (25%)", "93.10 percentile", "No minimum"
+  note TEXT,
+  source TEXT NOT NULL,
+  source_type TEXT NOT NULL DEFAULT 'government_notification'
+    CHECK (source_type IN ('government_notification','official_portal')),
+  data_tier TEXT NOT NULL DEFAULT 'tier_1_official'
+    CHECK (data_tier = 'tier_1_official'),
+  verified_date DATE NOT NULL,
+  updated_at TIMESTAMP DEFAULT now(),
+  UNIQUE(exam_id, year, category, kind)
+);
+
+-- Second Chance tab (/second-chance): official routes back into education or
+-- work for a student who stopped somewhere — failed or left Class 10,
+-- Intermediate or a degree, didn't clear an entrance exam, or is already
+-- working. Same rule as the exams: a route's details reach a student only
+-- once checked against its official notification (tier_1_official); until
+-- then only its name, body and official website are shown.
+CREATE TABLE IF NOT EXISTS second_chance_routes (
+  id SERIAL PRIMARY KEY,
+  stopped_at TEXT NOT NULL,       -- class_10 / intermediate / degree / entrance_exam / working
+  route_name TEXT NOT NULL,
+  scope TEXT NOT NULL,            -- National / Andhra Pradesh / Telangana
+  kind TEXT,                      -- Retake exam / Open school / Skill training / Diploma / Degree / Rule
+  conducting_body TEXT,
+  official_website TEXT,
+  summary TEXT,                   -- what the route is, in a line
+  who_can TEXT,                   -- eligibility
+  how_to_apply TEXT,
+  next_dates TEXT,
+  leads_to TEXT,
+  related_exam TEXT,              -- entrance_exams.exam_name to link to on /exams, when the route is an exam
+  sequence_order INT,
+  source TEXT,
+  source_type TEXT,
+  data_tier TEXT NOT NULL DEFAULT 'pending_review'
+    CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review')),
+  verified_date DATE,
+  updated_at TIMESTAMP DEFAULT now(),
+  UNIQUE(stopped_at, route_name, scope)
 );

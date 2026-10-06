@@ -1,5 +1,5 @@
 import { pool } from "./db";
-import type { DataTier, NodeTier } from "./flow-data";
+import { IN_AP, type DataTier, type NodeTier } from "./flow-data";
 
 export type CollegeMatch = {
   collegeName: string;
@@ -28,7 +28,7 @@ export async function getCollegesForCourse(courseName: string): Promise<CollegeM
   const { rows } = await pool.query<CollegeRow>(
     `SELECT college_name, ownership, offers_courses, admission_route, source, source_type, data_tier, verified_date::text
      FROM colleges
-     WHERE offers_courses ILIKE '%' || $1 || '%'
+     WHERE offers_courses ILIKE '%' || $1 || '%' AND ${IN_AP}
      ORDER BY college_name`,
     [courseName]
   );

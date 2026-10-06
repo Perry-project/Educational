@@ -26,6 +26,8 @@ export type FlowNode = {
   facts: FlowFact[];
   stream?: Stream;
   tier?: NodeTier;
+  // careers.id / entrance_exams.id, for linking to /flowchart and /exams.
+  dbId?: number;
 };
 
 export type FlowEdge = {
@@ -49,6 +51,7 @@ type PathwayRow = {
 };
 
 type ExamRow = {
+  id: number;
   exam_name: string;
   full_form_body: string | null;
   eligibility: string | null;
@@ -72,6 +75,7 @@ type CourseRow = {
 };
 
 type CareerRow = {
+  id: number;
   career_name: string;
   entry_point: string | null;
   required_exams: string | null;
@@ -223,19 +227,23 @@ const EDGES: Omit<FlowEdge, "id">[] = [
   { source: "bsc-basic", target: "science-research" },
 ];
 
+// Telangana rows share names with AP ones ("Intermediate - MPC ..."), and
+// this graph is Andhra Pradesh's (national exams are stored under AP).
+export const IN_AP = "state_id = (SELECT id FROM states WHERE name = 'Andhra Pradesh')";
+
 export async function getFlowGraph(): Promise<FlowGraph> {
   const [{ rows: pathways }, { rows: exams }, { rows: courses }, { rows: careers }] = await Promise.all([
     pool.query<PathwayRow>(
-      "SELECT pathway_name, eligibility, admission_route, duration, leads_to FROM pathways"
+      `SELECT pathway_name, eligibility, admission_route, duration, leads_to FROM pathways WHERE ${IN_AP}`
     ),
     pool.query<ExamRow>(
-      "SELECT exam_name, full_form_body, eligibility, exam_date, admits_into, source, source_type, data_tier, verified_date::text FROM entrance_exams"
+      `SELECT id, exam_name, full_form_body, eligibility, exam_date, admits_into, source, source_type, data_tier, verified_date::text FROM entrance_exams WHERE ${IN_AP}`
     ),
     pool.query<CourseRow>(
       "SELECT course_name, category, typical_duration, entry_via, source, source_type, data_tier, verified_date::text FROM courses"
     ),
     pool.query<CareerRow>(
-      "SELECT career_name, entry_point, required_exams, eligibility, govt_private_options, next_step FROM careers"
+      `SELECT id, career_name, entry_point, required_exams, eligibility, govt_private_options, next_step FROM careers WHERE ${IN_AP}`
     ),
   ]);
 
@@ -281,6 +289,7 @@ export async function getFlowGraph(): Promise<FlowGraph> {
       id,
       type: "exam",
       label: name,
+      dbId: row?.id,
       sub: row?.exam_date ?? "",
       facts: row
         ? [
@@ -322,6 +331,7 @@ export async function getFlowGraph(): Promise<FlowGraph> {
       type: "career",
       label: name,
       sub: row?.entry_point ?? "",
+      dbId: row?.id,
       facts: row
         ? [
             { label: "Entry point", value: row.entry_point ?? "—" },

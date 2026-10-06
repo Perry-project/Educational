@@ -42,6 +42,14 @@ const index = {
       .sort((a, b) => a.sequence_order - b.sequence_order).map((t) => t.topic_name),
   ])),
   progress_tracker: loadSeed("progress_tracker"),
+  // Every /second-chance route with what's on the page now, for the nightly
+  // "Second Chance - Nightly Route Check" routine: it refreshes dates that have
+  // passed and researches the pending routes.
+  second_chance_routes: (existsSync(path.join(seedDir, "second_chance_routes.json")) ? loadSeed("second_chance_routes") : [])
+    .map((r) => ({
+      stopped_at: r.stopped_at, scope: r.scope, route_name: r.route_name, data_tier: r.data_tier,
+      official_website: r.official_website, next_dates: r.next_dates, verified_date: r.verified_date, source: r.source,
+    })),
 };
 
 const out = path.join(outDir, `AP Career Database - INDEX - ${today}.txt`);

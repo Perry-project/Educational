@@ -1,11 +1,15 @@
 "use client";
 
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import Link from "next/link";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import "./metro-flow.css";
 import { CLUSTER_DEFS, col, nodesFor, STATES, TS_COUNTERPARTS, type FlowNode, type StateKey } from "@/lib/class10-flow-data";
 import type { FlowchartData, NodeDetail } from "@/lib/flowchart-db";
 import { alternativesAt, careerCluster, CLUSTER_COLOR, fmtYears, pickRoute, routesTo, years } from "@/lib/metro-routes";
+import { GOVT_GROUPS, isComputing, STEP_MENUS } from "@/lib/flow-menus";
+import FlowMenuBar, { type BarMenu } from "./flow-menu-bar";
 import FlowchartSearch, { type SearchItem } from "./flowchart-search";
+import { ICON, PointSection } from "./fact-points";
 
 // The "metro" flowchart (/flowchart), from the Claude Design canvas "Perry
 // Flowchart Mobile Redesign", option B. Every career is a line from Class
@@ -15,8 +19,9 @@ import FlowchartSearch, { type SearchItem } from "./flowchart-search";
 //
 // Phones (< lg): a "Pick your line" start screen, then the route top to
 // bottom; a stop's details open in a bottom sheet.
-// Desktop (lg+): line buttons across the top, the route left to right, and
-// the selected stop's details in one wide panel underneath.
+// Desktop (lg+): dropdown menus across the top (flow-menus.ts), the route top to bottom in a
+// left column that stays in view, and the selected stop's full details on
+// the right.
 //
 // The URL keeps ?career=, ?stop= and ?via= so a route can be shared. The
 // state switch is a plain link (a full load): every detail changes anyway.
@@ -87,6 +92,7 @@ export default function MetroFlow({
   const [stop, setStop] = useState<string | null>(initial.stop ?? (initial.step && nodeById[initial.step] ? initial.step : null));
   const [sheetOpen, setSheetOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
+  const panelRef = useRef<HTMLElement>(null);
 
   // Desktop always shows a line; phones start on "Pick your line".
   const active = careerById[careerId ?? ""] ?? featured[0] ?? careers[0];
@@ -157,26 +163,78 @@ export default function MetroFlow({
     setSheetOpen(false);
     window.scrollTo({ top: 0 });
   };
+  // On desktop, a new stop's details start from their top, even if the
+  // last stop's long panel was scrolled past.
+  const toPanelTop = () => {
+    const top = panelRef.current?.getBoundingClientRect().top;
+    if (top !== undefined && top < 0) window.scrollBy({ top: top - 100 });
+  };
   const pickStop = (id: string, sheet: boolean) => {
     setStop(id);
     if (sheet) setSheetOpen(true);
+    else toPanelTop();
   };
   const changeTo = (id: string) => {
     setVia(id);
     setStop(id);
+    toPanelTop();
   };
+
+  const routesOf = useMemo(
+    () => Object.fromEntries(careers.map((c) => [c.id, routesTo(c.id, c.name, nodes)])),
+    [careers, nodes],
+  );
+
+  // A step from the menus opens a line through it (a featured one first),
+  // with that step's details showing.
+  const openStep = (id: string) => {
+    const through = (c: Career) => routesOf[c.id]?.some((r) => r.stops.includes(id));
+    const c = featured.find(through) ?? careers.find(through);
+    if (!c) return;
+    openLine(c.id);
+    setVia(id);
+    setStop(id);
+  };
+
+  // The desktop menus: steps by kind, careers by field, and government jobs
+  // again on their own. Steps with no career route through them are left out.
+  const menus = useMemo<BarMenu[]>(() => {
+    const reachable = new Set(Object.values(routesOf).flatMap((rs) => rs.flatMap((r) => r.stops)));
+    const careerItem = (c: Career) => ({ id: c.id, label: chipOf[c.id] ?? c.label });
+    const steps = STEP_MENUS.map((m) => ({
+      id: m.id, label: m.label,
+      groups: m.groups.map((g) => ({
+        title: g.title,
+        items: g.ids.filter((id) => nodeById[id] && reachable.has(id))
+          .map((id) => ({ id, label: nodeById[id].label, sub: nodeById[id].sub, color: STOP_COLOR[col(id)] })),
+      })).filter((g) => g.items.length),
+    }));
+    const byField = CLUSTER_DEFS.flatMap((d) => {
+      const list = careers.filter((c) => c.cl === d.id);
+      const color = CLUSTER_COLOR[d.id];
+      if (d.id === "cl_eng") return [
+        { title: "Computer & IT", color, items: list.filter((c) => isComputing(c.name)).map(careerItem) },
+        { title: "Core engineering", color, items: list.filter((c) => !isComputing(c.name)).map(careerItem) },
+      ];
+      return [{ title: d.name, color, items: list.map(careerItem) }];
+    }).filter((g) => g.items.length);
+    const govt = GOVT_GROUPS.map(([title, re]) => ({
+      title, items: careers.filter((c) => re.test(c.name)).map(careerItem),
+    })).filter((g) => g.items.length);
+    return [...steps, { id: "careers", label: "Careers", groups: byField }, { id: "govt", label: "Government jobs", groups: govt }];
+  }, [routesOf, careers, nodeById, chipOf]);
 
   // Search careers by name and by every stop on their routes, so "NEET"
   // finds the medical careers.
   const searchIndex = useMemo<SearchItem[]>(
     () => careers.map((c) => {
-      const onRoute = routesTo(c.id, c.name, nodes).flatMap((r) => r.stops).map((s) => nodeById[s]?.label ?? "");
+      const onRoute = routesOf[c.id].flatMap((r) => r.stops).map((s) => nodeById[s]?.label ?? "");
       return {
         id: c.id, label: c.label, kind: CLUSTER_DEFS.find((d) => d.id === c.cl)?.name ?? "Career", color: c.color,
         text: [c.name, ...new Set(onRoute)].join(" ").toLowerCase(),
       };
     }),
-    [careers, nodes, nodeById],
+    [careers, routesOf, nodeById],
   );
 
   const clusterName = (cl: string) => CLUSTER_DEFS.find((d) => d.id === cl)?.name ?? "Other routes";
@@ -271,7 +329,7 @@ export default function MetroFlow({
       >
         {clusterName(active.cl)} line
       </span>
-      <h1 className="m-0 text-[32px] leading-[1.08] font-extrabold tracking-tight lg:text-5xl" style={{ fontFamily: display, textWrap: "balance" }}>
+      <h1 className="m-0 text-[32px] leading-[1.08] font-extrabold tracking-tight lg:text-[44px]" style={{ fontFamily: display, textWrap: "balance" }}>
         Class 10 to {nameOf(active.id)}
       </h1>
       <p className="m-0 text-base lg:text-lg" style={{ color: "var(--muted)" }}>{meta}</p>
@@ -420,82 +478,100 @@ export default function MetroFlow({
   // ---------- desktop ----------
 
   const desktop = active && (
-    <div className="mx-auto hidden max-w-[1440px] flex-col gap-11 px-12 pt-4 pb-16 lg:flex">
-      <nav aria-label="Career lines" className="flex flex-wrap items-center gap-x-6 gap-y-3 pb-5" style={{ borderBottom: "1px solid #1f2738" }}>
-        <div className="flex min-w-0 flex-[999_1_640px] flex-wrap gap-1.5">
-          {featured.map((c) => {
-            const on = c.id === active.id;
-            return (
-              <button
-                key={c.id}
-                onClick={() => openLine(c.id)}
-                aria-current={on ? "true" : undefined}
-                className="metro-chip inline-flex h-11 cursor-pointer items-center gap-2.5 rounded-full border-0 pr-[18px] pl-3.5 text-[15px]"
-                style={{ background: on ? "var(--surface)" : "transparent", color: on ? "var(--ink)" : "var(--muted)", fontWeight: on ? 700 : 600, fontFamily: "inherit" }}
-              >
-                <span className="h-[22px] w-1.5 rounded-sm" style={{ background: c.color }} />
-                {c.chip}
-              </button>
-            );
-          })}
-          <button
-            onClick={() => setShowAll(!showAll)}
-            aria-expanded={showAll}
-            className="inline-flex h-11 cursor-pointer items-center border-0 bg-transparent px-3.5 text-[15px] font-semibold"
-            style={{ color: "var(--accent)", fontFamily: "inherit" }}
-          >
-            {showAll ? "Hide the full list" : `+ ${careers.length - featured.length} more`}
-          </button>
-        </div>
+    <div className="mx-auto hidden max-w-[1440px] flex-col gap-8 px-12 pt-4 pb-16 lg:flex">
+      <nav aria-label="Flowchart menus" className="flex flex-wrap items-center gap-x-6 gap-y-3 pb-5" style={{ borderBottom: "1px solid #1f2738" }}>
+        <FlowMenuBar menus={menus} current={new Set(stops)} onChoose={(id) => (careerById[id] ? openLine(id) : openStep(id))} />
         <FlowchartSearch items={searchIndex} onChoose={openLine} />
       </nav>
-      {allCareers}
 
       <section className="flex flex-wrap items-end justify-between gap-6">
         {lineHeader}
         {stateMenu}
       </section>
 
-      <ol aria-label="Stops" className="relative m-0 grid list-none gap-x-6 p-0" style={{ gridTemplateColumns: `repeat(${stops.length}, minmax(0, 1fr))` }}>
-        <span aria-hidden className="absolute top-[43px] h-2 rounded" style={{ left: `${50 / stops.length}%`, right: `${50 / stops.length}%`, background: lineColor }} />
-        {stops.map((s, i) => {
-          const isSel = s === selected;
-          return (
-            <li key={s} className="relative flex flex-col items-center gap-3 text-center">
-              <span className="text-sm font-semibold" style={{ color: isSel ? "var(--ink)" : "var(--muted)" }}>{timeline.labels[i]}</span>
-              <button
-                onClick={() => pickStop(s, false)}
-                aria-label={`${nameOf(s)} details`}
-                aria-pressed={isSel}
-                className="grid cursor-pointer place-items-center border-0 bg-transparent p-0"
-              >
-                <Station last={i === stops.length - 1} selected={isSel} color={lineColor} big />
-              </button>
-              <button
-                onClick={() => pickStop(s, false)}
-                className="cursor-pointer border-0 bg-transparent p-0 text-[22px] font-bold"
-                style={{ color: "var(--ink)", fontFamily: display }}
-              >
-                {nameOf(s)}
-              </button>
-              <span className="text-[15px] leading-relaxed" style={{ color: "var(--muted)", textWrap: "balance" }}>{subOf(s)}</span>
-              {changeLink(s)}
-            </li>
-          );
-        })}
-      </ol>
+      {/* The line runs down the left and stays in view; the selected stop's
+          full details fill the right. */}
+      <div className="grid grid-cols-[440px_minmax(0,1fr)] items-start gap-10 xl:grid-cols-[480px_minmax(0,1fr)]">
+        <aside className="metro-scroll sticky flex max-h-[calc(100vh-var(--nav-h)-48px)] flex-col gap-8 overflow-y-auto pr-1" style={{ top: "calc(var(--nav-h) + 24px)" }}>
+          <ol aria-label="Stops" className="m-0 flex list-none flex-col p-0">
+            {stops.map((s, i) => {
+              const last = i === stops.length - 1;
+              const isSel = s === selected;
+              const alts = route && s !== "start" && !careerById[s] ? alternativesAt(routes, route, s, 3) : [];
+              return (
+                <li key={s} className="grid grid-cols-[96px_36px_minmax(0,1fr)] gap-x-3">
+                  <span className="pt-3 text-right text-[13px] font-semibold" style={{ color: isSel ? "var(--ink)" : "var(--muted)" }}>{timeline.labels[i]}</span>
+                  <span className="relative flex justify-center pt-2.5">
+                    {/* The line runs from this station down to the next one. */}
+                    {!last && <span className="absolute bottom-0 w-2" style={{ top: i === 0 ? 22 : 0, background: lineColor }} />}
+                    {last && <span className="absolute top-0 h-6 w-2" style={{ background: lineColor }} />}
+                    <Station last={last} selected={isSel} color={lineColor} />
+                  </span>
+                  <div className={`flex min-w-0 flex-col items-stretch gap-2 ${last ? "" : "pb-5"}`}>
+                    <button
+                      onClick={() => pickStop(s, false)}
+                      aria-pressed={isSel}
+                      className="metro-row flex cursor-pointer flex-col items-start gap-0.5 rounded-xl border-0 px-3 py-2 text-left"
+                      style={{ background: isSel ? "var(--surface)" : "transparent", color: "var(--ink)", fontFamily: "inherit" }}
+                    >
+                      <span className="text-[19px] font-bold" style={{ fontFamily: display }}>{nameOf(s)}</span>
+                      <span className="text-sm leading-snug" style={{ color: "var(--muted)" }}>{subOf(s)}</span>
+                    </button>
+                    {alts.length > 0 && (
+                      <div className="flex flex-col items-start gap-1.5 pl-3">
+                        <span className="text-xs font-semibold" style={{ color: "var(--muted)" }}>Or instead of {nameOf(s)}:</span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {alts.map((a) => (
+                            <button
+                              key={a}
+                              onClick={() => changeTo(a)}
+                              title={`Switch the route to go through ${nameOf(a)}`}
+                              className="metro-alt inline-flex min-h-9 cursor-pointer items-center gap-1.5 rounded-full bg-transparent px-3 text-[13px] font-semibold"
+                              style={{ border: `1px dashed ${STOP_COLOR[col(a)]}`, color: STOP_COLOR[col(a)], fontFamily: "inherit" }}
+                            >
+                              {nameOf(a)}
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
 
-      {selected && (
-        <section aria-label={`${nameOf(selected)} details`} className="grid gap-10 rounded-[28px] px-10 py-9 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]" style={{ background: "var(--panel)" }}>
-          <StopDetails
-            key={selected} node={nodeById[selected]} detail={detail} title={nameOf(selected)}
-            careerKind={careerById[selected] ? `Career · ${clusterName(careerById[selected].cl)}` : null}
-            stopNo={stops.indexOf(selected) + 1} region={STATES[state].short} lineColor={lineColor} wide
-          />
-        </section>
-      )}
+          {otherRoutes.length > 0 && (
+            <section className="flex flex-col gap-2 pl-[120px]">
+              <h2 className="m-0 px-3 text-xs font-bold tracking-widest uppercase" style={{ color: "var(--muted)" }}>Other ways to get here</h2>
+              {otherRoutes.map((r) => {
+                const mid = r.stops.filter((s) => s !== "start" && !careerById[s]);
+                return (
+                  <button
+                    key={r.stops.join(">")}
+                    onClick={() => { setVia(mid.find((s) => !route?.stops.includes(s)) ?? null); setStop(null); }}
+                    className="metro-row cursor-pointer rounded-xl border-0 bg-transparent px-3 py-2 text-left text-sm leading-snug"
+                    style={{ color: "#c9d0dc", fontFamily: "inherit" }}
+                  >
+                    {mid.map(nameOf).join(" → ")}
+                  </button>
+                );
+              })}
+            </section>
+          )}
+        </aside>
 
-      {otherRoutesList}
+        {selected && (
+          <section ref={panelRef} aria-label={`${nameOf(selected)} details`} className="flex min-w-0 flex-col gap-8 rounded-[28px] px-10 py-9" style={{ background: "var(--panel)" }}>
+            <StopDetails
+              key={selected} node={nodeById[selected]} detail={detail} title={nameOf(selected)}
+              careerKind={careerById[selected] ? `Career · ${clusterName(careerById[selected].cl)}` : null}
+              stopNo={stops.indexOf(selected) + 1} region={STATES[state].short} lineColor={lineColor} wide
+            />
+          </section>
+        )}
+      </div>
     </div>
   );
 
@@ -540,10 +616,11 @@ function MiniLine({ stops, color, nameOf }: { stops: string[]; color: string; na
   );
 }
 
-// A long value shows its first sentence, with "Show more".
-function Fact({ text }: { text: string }) {
+// A long value shows its first sentence, with "Show more" (phones only;
+// the desktop panel has room for all of it).
+function Fact({ text, full }: { text: string; full?: boolean }) {
   const [open, setOpen] = useState(false);
-  if (text.length <= 220 || open) return <>{text}</>;
+  if (full || text.length <= 220 || open) return <>{text}</>;
   const cut = text.slice(0, text.lastIndexOf(" ", 200)) + "…";
   return (
     <>
@@ -555,6 +632,34 @@ function Fact({ text }: { text: string }) {
   );
 }
 
+// Which /second-chance group a flowchart stop leads to if a student stops
+// there. Leaving an ITI or polytechnic midway still leaves them with only
+// Class 10, so those stops point to the Class 10 routes.
+function stoppedAtOf(node: FlowNode) {
+  if (["polycet", "iti_eng", "iti_non", "diploma", "iticeng", "iticnon"].includes(node.id)) return "class_10";
+  return ({ 1: "class_10", 2: "intermediate", 3: "entrance_exam", 4: "degree" } as const)[node.col];
+}
+
+const TILE_KEYS = new Set(["Full name", "Duration", "Field", "Entry via", "When to start"]);
+const SECTION_ORDER = ["About", "Eligibility", "When to start", "Exams", "How to apply", "Applications", "Exam dates", "Admits into", "Leads to", "Govt / Private", "Next", "Next step", "Entry via"];
+const SECTION: Record<string, { title: string; icon: React.ReactNode }> = {
+  "About": { title: "About", icon: ICON.info },
+  "Eligibility": { title: "Who can apply", icon: ICON.person },
+  "When to start": { title: "When to start", icon: ICON.clock },
+  "Exams": { title: "Exams to take", icon: ICON.list },
+  "How to apply": { title: "How to apply", icon: ICON.pen },
+  "Applications": { title: "When to apply", icon: ICON.calendar },
+  "Exam dates": { title: "Exam dates", icon: ICON.calendar },
+  "Admits into": { title: "Gets you into", icon: ICON.arrow },
+  "Leads to": { title: "Where it leads", icon: ICON.arrow },
+  "Govt / Private": { title: "Government & private options", icon: ICON.building },
+  "Next": { title: "What comes next", icon: ICON.flag },
+  "Next step": { title: "After this", icon: ICON.flag },
+  "Duration": { title: "Duration", icon: ICON.clock },
+  "Field": { title: "Field", icon: ICON.list },
+  "Entry via": { title: "Entry via", icon: ICON.arrow },
+};
+
 function StopDetails({
   node, detail, title, careerKind, stopNo, region, lineColor, wide, onClose,
 }: {
@@ -564,6 +669,12 @@ function StopDetails({
   const kind = careerKind ?? (node ? KIND[node.col] : "");
   const rows = (detail?.rows ?? []).filter(([k, v]) => !(k === "Full name" && v === title));
   const isCourse = node?.col === 4;
+  // Short facts (duration, field...) become tiles across the top; the rest are
+  // sections of points, in the order a student asks about them.
+  const isTile = ([k, v]: [string, string]) => TILE_KEYS.has(k) && v.length <= 60;
+  const tiles = rows.filter(isTile);
+  const sections = rows.filter((r) => !isTile(r))
+    .sort((a, b) => (SECTION_ORDER.indexOf(a[0]) + 99) % 99 - (SECTION_ORDER.indexOf(b[0]) + 99) % 99);
   const intro = (
     <div className="flex flex-col gap-3">
       <div className="flex items-start gap-3">
@@ -580,6 +691,11 @@ function StopDetails({
       {node?.full && <p className="m-0 text-base leading-relaxed" style={{ color: "#c9d0dc" }}>{node.full}</p>}
       {detail?.note && <p className="m-0 rounded-xl px-4 py-3 text-sm leading-relaxed" style={{ background: "#2b2412", color: "#f0d9a0" }}>{detail.note}</p>}
       {!detail && <p className="m-0 text-sm" style={{ color: "var(--muted)" }}>Details for this stop haven’t been added yet.</p>}
+      {node && (
+        <Link href={`/second-chance?from=${stoppedAtOf(node)}`} className="inline-flex items-center gap-1.5 self-start text-[15px] font-semibold no-underline" style={{ color: "var(--accent)" }}>
+          If you stop here: ways back →
+        </Link>
+      )}
     </div>
   );
   const source = detail?.source && (
@@ -590,20 +706,28 @@ function StopDetails({
 
   const body = (
     <div className="flex min-w-0 flex-col gap-8">
-      {rows.length > 0 && (
-        <dl className={`m-0 grid gap-x-10 ${wide ? "lg:grid-cols-2" : ""}`}>
-          {rows.map(([k, v]) => (
-            <div key={k} className="flex flex-col gap-1 py-3" style={{ borderBottom: "1px solid var(--rule)" }}>
-              <dt className="flex flex-wrap items-center gap-2 text-sm font-bold">
-                {k}
-                {(k === "Applications" || k === "Exam dates") && NOT_ANNOUNCED.test(v) && (
-                  <span className="rounded-full px-2.5 py-0.5 text-xs font-bold" style={{ background: "#2b2412", color: "#f0c870" }}>Next dates not announced</span>
-                )}
-              </dt>
-              <dd className="m-0 text-[15px] leading-relaxed" style={{ color: "#c9d0dc", overflowWrap: "anywhere" }}><Fact text={v} /></dd>
+      {tiles.length > 0 && (
+        <dl className="m-0 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+          {tiles.map(([k, v]) => (
+            <div key={k} className="flex flex-col gap-1 rounded-2xl px-4 py-3" style={{ background: "var(--surface)" }}>
+              <dt className="text-[12px] font-bold tracking-wider uppercase" style={{ color: "var(--muted)" }}>{SECTION[k]?.title ?? k}</dt>
+              <dd className="m-0 text-[15px] leading-snug font-semibold" style={{ color: "var(--ink)" }}>{v}</dd>
             </div>
           ))}
         </dl>
+      )}
+      {sections.length > 0 && (
+        <div className={`grid gap-x-10 gap-y-7 ${wide ? "xl:grid-cols-2" : ""}`}>
+          {sections.map(([k, v]) => {
+            const s = SECTION[k] ?? { title: k, icon: ICON.info };
+            return (
+              <PointSection
+                key={k} title={s.title} icon={s.icon} color={lineColor} text={v}
+                badge={(k === "Applications" || k === "Exam dates") && NOT_ANNOUNCED.test(v) ? "Next dates not announced" : null}
+              />
+            );
+          })}
+        </div>
       )}
       {isCourse && (
         <section className="flex flex-col gap-3">

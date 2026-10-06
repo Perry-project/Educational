@@ -8,6 +8,8 @@ const LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/flowchart", label: "Flowchart" },
+  { href: "/exams", label: "Exams" },
+  { href: "/second-chance", label: "Second Chance" },
   { href: "/pathfinder", label: "Pathfinder" },
 ];
 
@@ -47,7 +49,7 @@ export default function SiteNav() {
                 <Link
                   href={href}
                   aria-current={active ? "page" : undefined}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors lg:px-4 ${
                     active ? "bg-white text-gray-900" : "text-gray-300 hover:bg-white/10 hover:text-white"
                   }`}
                 >
@@ -60,7 +62,7 @@ export default function SiteNav() {
 
         <Link
           href="/flowchart"
-          className="hidden rounded-lg bg-gradient-to-r from-blue-500 to-violet-500 px-4 py-2 text-sm font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-violet-600 md:inline-flex"
+          className="hidden whitespace-nowrap rounded-lg bg-gradient-to-r from-blue-500 to-violet-500 px-4 py-2 text-sm font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-violet-600 lg:inline-flex"
         >
           Explore paths
         </Link>

@@ -1,11 +1,18 @@
+import { Figtree, Sora } from "next/font/google";
 import Pathfinder from "@/components/pathfinder";
 import { getFlowGraph } from "@/lib/flow-data";
 import { getCollegesForCourse, type CollegeMatch } from "@/lib/decision-data";
 
+const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
+const sora = Sora({ subsets: ["latin"], weight: ["600", "700", "800"] });
+
 export const metadata = {
   title: "Pathfinder — Perry",
-  description: "Pick a career, or let Perry suggest a few — then see the exam, syllabus, and college steps to get there.",
+  description: "Pick a career, or let Perry suggest a few, then see the exam, course and college steps to get there.",
 };
+
+// Read the database on every request, so a nightly import shows up without a rebuild.
+export const dynamic = "force-dynamic";
 
 export default async function PathfinderPage() {
   const graph = await getFlowGraph();
@@ -17,15 +24,11 @@ export default async function PathfinderPage() {
   const collegesByCourse: Record<string, CollegeMatch[]> = Object.fromEntries(collegesByCourseEntries);
 
   return (
-    <div className="mx-auto max-w-[1100px] px-6 py-10">
-      <h1 className="text-2xl font-semibold tracking-tight">Find Your Path</h1>
-      <p className="mt-2 max-w-2xl text-sm text-black/60 dark:text-white/60">
-        Tell Perry what you&apos;re aiming for — or answer a few quick questions if you&apos;re not sure yet — and
-        see the real exams, syllabus focus, and colleges between here and there.
-      </p>
-      <div className="mt-6">
-        <Pathfinder graph={graph} collegesByCourse={collegesByCourse} />
-      </div>
-    </div>
+    <Pathfinder
+      graph={graph}
+      collegesByCourse={collegesByCourse}
+      bodyFont={figtree.style.fontFamily}
+      displayFont={sora.style.fontFamily}
+    />
   );
 }
