@@ -1,0 +1,8 @@
+# Never upload local secrets or this PC's Vercel login.
+.env
+.env.*
+!.env.example
+.vercel-cli
+.next
+node_modules
+db/review
