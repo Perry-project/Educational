@@ -24,9 +24,10 @@ export default async function FlowPage({
   const sp = await searchParams;
   // ?state=ts shows the Telangana chart; Andhra Pradesh otherwise.
   const data = await getFlowchartData(stateOf(sp.state));
-  // ?career=12&stop=eapcet&via=jeemain opens a shared route; ?step= links
+  // ?career=12&stop=eapcet&via=jeemain opens a shared route, ?field=cl_med a
+  // field on the start screen; ?step= links
   // from the old chart still open the matching line.
-  const initial = { career: param(sp.career), stop: param(sp.stop), via: param(sp.via), step: param(sp.step) };
+  const initial = { career: param(sp.career), stop: param(sp.stop), via: param(sp.via), step: param(sp.step), field: param(sp.field) };
   // Keyed by state so switching states starts the chart afresh.
   return (
     <MetroFlow

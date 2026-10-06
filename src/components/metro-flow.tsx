@@ -52,7 +52,7 @@ export default function MetroFlow({
   data, initial, bodyFont, displayFont,
 }: {
   data: FlowchartData;
-  initial: { career: string | null; stop: string | null; via: string | null; step: string | null };
+  initial: { career: string | null; stop: string | null; via: string | null; step: string | null; field: string | null };
   bodyFont: string;
   displayFont: string;
 }) {
@@ -93,7 +93,7 @@ export default function MetroFlow({
   const [via, setVia] = useState<string | null>(initial.via ?? (initial.step && nodeById[initial.step] ? initial.step : null));
   const [stop, setStop] = useState<string | null>(initial.stop ?? (initial.step && nodeById[initial.step] ? initial.step : null));
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [showAll, setShowAll] = useState(false);
+  const [field, setField] = useState<string | null>(initial.field);
   const panelRef = useRef<HTMLElement>(null);
 
   // Until a line is picked, the start screen shows; `active` falls back to
@@ -144,9 +144,10 @@ export default function MetroFlow({
     set("career", careerId ? careerId.replace("career_", "") : null);
     set("via", careerId ? via : null);
     set("stop", careerId ? stop : null);
+    set("field", careerId ? null : field);
     url.searchParams.delete("step");
     window.history.replaceState(window.history.state, "", url);
-  }, [careerId, via, stop]);
+  }, [careerId, via, stop, field]);
 
   // Escape closes the phone sheet.
   useEffect(() => {
@@ -162,7 +163,6 @@ export default function MetroFlow({
     setCareerId(id);
     setVia(null);
     setStop(null);
-    setShowAll(false);
     setSheetOpen(false);
     window.scrollTo({ top: 0 });
   };
@@ -273,34 +273,6 @@ export default function MetroFlow({
     </div>
   );
 
-  const allCareers = showAll && (
-    <div className="flex flex-col gap-6 rounded-3xl p-6" style={{ background: "var(--panel)" }}>
-      {CLUSTER_DEFS.map((d) => {
-        const list = careers.filter((c) => c.cl === d.id);
-        if (!list.length) return null;
-        return (
-          <section key={d.id} className="flex flex-col gap-2">
-            <h3 className="m-0 flex items-center gap-2 text-xs font-bold tracking-widest uppercase" style={{ color: "var(--muted)" }}>
-              <span className="h-2.5 w-2.5 rounded-full" style={{ background: CLUSTER_COLOR[d.id] }} />
-              {d.name}
-            </h3>
-            <div className="flex flex-wrap gap-x-1 gap-y-0">
-              {list.map((c) => (
-                <button
-                  key={c.id}
-                  onClick={() => openLine(c.id)}
-                  className="metro-chip min-h-11 cursor-pointer rounded-full border-0 bg-transparent px-3 text-left text-[15px] font-medium"
-                  style={{ color: c.id === careerId ? "var(--ink)" : "#c9d0dc", fontFamily: "inherit" }}
-                >
-                  {c.label}
-                </button>
-              ))}
-            </div>
-          </section>
-        );
-      })}
-    </div>
-  );
 
   const changeLink = (s: string) => {
     const alts = route ? alternativesAt(routes, route, s, 2) : [];
@@ -368,6 +340,34 @@ export default function MetroFlow({
 
   // ---------- phone ----------
 
+  // The start screen asks for a field first, then shows only that field's
+  // careers, the everyday-named featured ones first.
+  const fields = useMemo(() => {
+    const rank = (c: Career) => {
+      const i = featured.findIndex((f) => f.id === c.id);
+      return i < 0 ? featured.length : i;
+    };
+    return CLUSTER_DEFS.map((d) => ({
+      ...d,
+      color: CLUSTER_COLOR[d.id],
+      list: careers.filter((c) => c.cl === d.id).sort((a, b) => rank(a) - rank(b)),
+    })).filter((f) => f.list.length);
+  }, [careers, featured]);
+  const shownField = fields.find((f) => f.id === field) ?? null;
+  const revealField = useRef(false);
+  const chooseField = (id: string) => {
+    revealField.current = true;
+    setField(field === id ? null : id);
+  };
+  // On a phone the chosen field's careers render below the fold, so bring
+  // them into view once they're on the page (not on a shared ?field= link).
+  useEffect(() => {
+    if (!revealField.current) return;
+    revealField.current = false;
+    const el = document.getElementById("field-lines");
+    if (el && el.getBoundingClientRect().top > window.innerHeight * 0.6) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [field]);
+
   const start = (
     <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-8 px-6 pt-8 pb-12 lg:px-12 lg:pt-12">
       <div className="hidden lg:block">
@@ -376,42 +376,68 @@ export default function MetroFlow({
       <div className="flex flex-col gap-3">
         <h1 className="m-0 text-[38px] leading-[1.05] font-extrabold tracking-tight lg:text-[52px]" style={{ fontFamily: display }}>Pick your line.</h1>
         <p className="m-0 max-w-[320px] text-base leading-relaxed lg:max-w-xl lg:text-lg" style={{ color: "var(--muted)" }}>
-          Every career is a line from Class 10. Follow one to see its stops.
+          Every career is a line from Class 10. Pick a field, then follow a line to see its stops.
         </p>
       </div>
       {stateMenu}
       <div className="flex">
         <FlowchartSearch items={searchIndex} onChoose={openLine} />
       </div>
-      <nav aria-label="Career lines" className="-mx-2 grid gap-1 lg:grid-cols-2 lg:gap-2 xl:grid-cols-3">
-        {featured.map((c) => {
-          const r = routesTo(c.id, c.name, nodes)[0];
-          const mid = r ? r.stops.filter((s) => s !== "start" && !careerById[s]).map(nameOf) : [];
-          return (
-            <button
-              key={c.id}
-              onClick={() => openLine(c.id)}
-              className="metro-row flex min-h-16 cursor-pointer items-center gap-4 rounded-2xl border-0 bg-transparent px-2 py-1.5 text-left"
-              style={{ color: "var(--ink)", fontFamily: "inherit" }}
-            >
-              <span className="h-11 w-2 shrink-0 rounded" style={{ background: c.color }} />
-              <span className="flex flex-col gap-0.5">
-                <span className="text-lg font-bold">{c.chip}</span>
-                <span className="text-sm" style={{ color: "var(--muted)" }}>{mid.join(" · ")}</span>
-              </span>
-            </button>
-          );
-        })}
-      </nav>
-      <button
-        onClick={() => setShowAll(!showAll)}
-        aria-expanded={showAll}
-        className="inline-flex min-h-11 cursor-pointer items-center gap-2 self-start border-0 bg-transparent p-0 text-[15px] font-semibold"
-        style={{ color: "var(--accent)", fontFamily: "inherit" }}
-      >
-        {showAll ? "Hide the full list" : `All ${careers.length} careers`}
-      </button>
-      {allCareers}
+      <section aria-labelledby="field-q" className="flex flex-col gap-4">
+        <h2 id="field-q" className="m-0 text-xl font-extrabold lg:text-2xl" style={{ fontFamily: display }}>Which field interests you?</h2>
+        <div role="group" aria-labelledby="field-q" className="grid grid-cols-2 gap-2 lg:grid-cols-3">
+          {fields.map((f, i) => {
+            const on = f.id === field;
+            const lone = i === fields.length - 1 && fields.length % 2 === 1;
+            return (
+              <button
+                key={f.id}
+                onClick={() => chooseField(f.id)}
+                aria-pressed={on}
+                aria-controls="field-lines"
+                className={`metro-row flex min-h-[92px] cursor-pointer flex-col items-start gap-2 rounded-2xl px-4 py-3.5 text-left ${lone ? "col-span-2 lg:col-span-1" : ""}`}
+                style={{ background: on ? "var(--surface)" : "transparent", color: "var(--ink)", border: `1px solid ${on ? f.color : "var(--line)"}`, fontFamily: "inherit" }}
+              >
+                <span className="h-1.5 w-8 rounded-full" style={{ background: f.color }} />
+                <span className="text-[15px] leading-snug font-bold lg:text-base">{f.name}</span>
+                <span className="text-[13px]" style={{ color: "var(--muted)" }}>
+                  {f.list.length} {f.list.length === 1 ? "career" : "careers"}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+      {shownField && (
+        <section id="field-lines" aria-labelledby="field-h" className="flex flex-col gap-3" style={{ scrollMarginTop: "calc(var(--nav-h) + 16px)" }}>
+          <div className="flex flex-col gap-1">
+            <span className="text-xs font-bold tracking-widest uppercase" style={{ color: shownField.color }}>{shownField.list.length} lines</span>
+            <h2 id="field-h" className="m-0 text-2xl font-extrabold lg:text-[28px]" style={{ fontFamily: display }}>{shownField.name}</h2>
+          </div>
+          <nav aria-label={`${shownField.name} careers`} className="-mx-2 grid gap-1 lg:grid-cols-2 lg:gap-2 xl:grid-cols-3">
+            {shownField.list.map((c) => {
+              const r = routesOf[c.id]?.[0];
+              const mid = r ? r.stops.filter((s) => s !== "start" && !careerById[s]).map(nameOf) : [];
+              return (
+                <button
+                  key={c.id}
+                  onClick={() => openLine(c.id)}
+                  className="metro-row flex min-h-16 cursor-pointer items-center gap-4 rounded-2xl border-0 bg-transparent px-2 py-1.5 text-left"
+                  style={{ color: "var(--ink)", fontFamily: "inherit" }}
+                >
+                  <span className="h-11 w-2 shrink-0 rounded" style={{ background: c.color }} />
+                  <span className="flex min-w-0 flex-col gap-0.5">
+                    <span className="text-lg leading-snug font-bold">{chipOf[c.id] ?? c.label}</span>
+                    <span className="text-sm leading-snug" style={{ color: "var(--muted)" }}>
+                      {mid.length ? mid.join(" · ") : "Straight from Class 10"}
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
+          </nav>
+        </section>
+      )}
     </div>
   );
 
