@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import "./metro-flow.css";
 import type { FlowGraph, FlowNode } from "@/lib/flow-data";
 import { ADVISORY_QUIZ, pathsToCareer, scoreQuiz } from "@/lib/decision-logic";
@@ -45,10 +45,17 @@ export default function Pathfinder({
     setSuggested([]);
     setCareerId(null);
   };
+  // Each step replaces the page's content, so start it from the top (on a
+  // phone the button tapped is usually far down the previous step).
+  const step = `${mode}|${careerId}|${suggested.join()}`;
+  useEffect(() => {
+    if (window.scrollY > 0) window.scrollTo({ top: 0 });
+  }, [step]);
+
   const lineColor = (n: FlowNode) => CLUSTER_COLOR[careerCluster(n.label)];
 
   const rootStyle = { "--metro-body": bodyFont, "--metro-display": displayFont, fontFamily: bodyFont } as CSSProperties;
-  const quiet = "cursor-pointer border-0 bg-transparent p-0 text-[15px] font-semibold";
+  const quiet = "inline-flex min-h-10 cursor-pointer items-center border-0 bg-transparent p-0 text-[15px] font-semibold";
   const ai = (text: string) => (
     <span className="self-start rounded-full px-3 py-1 text-[12px] font-bold" style={{ background: "#1c2a44", color: "#9cc4ff" }}>{text}</span>
   );

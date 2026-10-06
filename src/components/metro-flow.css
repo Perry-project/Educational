@@ -32,3 +32,13 @@
 
 /* The desktop line column scrolls on its own when it's taller than the window. */
 .metro-scroll { scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+
+/* A sideways-scrolling chip row fades out at its right edge on phones and
+   tablets, so it's clear there's more to swipe to. */
+@media (max-width: 1023px) {
+  .metro-fade-x {
+    padding-right: 40px;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+  }
+}

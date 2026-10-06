@@ -34,7 +34,7 @@ export default function SiteNav() {
   return (
     <nav className="sticky top-0 z-[100] border-b border-gray-800 bg-gray-900/90 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="group flex items-center gap-2" aria-label="Perry home">
+        <Link href="/" className="group flex min-h-10 items-center gap-2" aria-label="Perry home">
           <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-blue-400 to-violet-400 text-sm font-extrabold text-gray-900 transition-transform duration-200 group-hover:scale-110">
             P
           </span>

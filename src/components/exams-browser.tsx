@@ -21,7 +21,8 @@ const STAGES: { id: string; label: string }[] = [
   { id: "jobs", label: "Government jobs" },
 ];
 const STATE_TABS = [
-  { id: "all", label: "AP & Telangana" },
+  // Phones show the short "AP & TS" so the three tabs fit on one line.
+  { id: "all", label: "AP & Telangana", short: "AP & TS" },
   { id: "ap", label: "Andhra Pradesh" },
   { id: "ts", label: "Telangana" },
 ];
@@ -103,6 +104,14 @@ export default function ExamsBrowser({
     window.history.replaceState(window.history.state, "", url);
   }, [selectedId, state, stage, type]);
 
+  // A shared ?exam= link opens that exam's details sheet on phones (desktop
+  // shows the details panel anyway).
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (initial.exam && !window.matchMedia("(min-width: 1024px)").matches) setSheetOpen(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     if (!sheetOpen) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setSheetOpen(false);
@@ -132,11 +141,11 @@ export default function ExamsBrowser({
   const filters = (
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <div role="group" aria-label="State" className="flex flex-wrap gap-1">
+        <div role="group" aria-label="State" className="flex gap-1">
           {STATE_TABS.map((t) => (
             <button key={t.id} onClick={() => setState(t.id)} aria-pressed={state === t.id}
               className="metro-chip h-11 cursor-pointer rounded-full border-0 px-4 text-sm font-semibold" style={chip(state === t.id)}>
-              {t.label}
+              {t.short ? <><span className="sm:hidden">{t.short}</span><span className="hidden sm:inline">{t.label}</span></> : t.label}
             </button>
           ))}
         </div>
@@ -161,7 +170,7 @@ export default function ExamsBrowser({
           />
         </div>
       </div>
-      <div role="group" aria-label="Stage" className="-mx-1 flex gap-1 overflow-x-auto pb-1">
+      <div role="group" aria-label="Stage" className="metro-fade-x -mx-1 flex gap-1 overflow-x-auto pb-1">
         <button onClick={() => setStage(null)} aria-pressed={!stage}
           className="metro-chip h-10 shrink-0 cursor-pointer rounded-full border-0 px-4 text-sm font-semibold" style={chip(!stage)}>
           All stages

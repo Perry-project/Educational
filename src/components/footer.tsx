@@ -20,9 +20,9 @@ export default function Footer() {
           </p>
           <p className="text-xs text-gray-500">Not a government website. Always confirm dates and rules on the official notice.</p>
         </div>
-        <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2">
+        <nav aria-label="Footer" className="-my-2 flex flex-wrap gap-x-5">
           {LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="hover:text-white">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="inline-flex min-h-10 items-center hover:text-white">{l.label}</Link>
           ))}
         </nav>
       </div>

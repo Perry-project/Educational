@@ -75,7 +75,7 @@ export default function About() {
 
       <p className="mt-16 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
         Ready to look around?{" "}
-        <Link href="/flowchart" className="font-medium text-blue-400 hover:text-blue-300">
+        <Link href="/flowchart" className="inline-block py-2 font-medium text-blue-400 hover:text-blue-300">
           Open the flowchart →
         </Link>
       </p>

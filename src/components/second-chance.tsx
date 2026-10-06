@@ -24,7 +24,8 @@ const LINE: Record<StopId, string> = {
   working: "#c39cf5",
 };
 const STATE_TABS = [
-  { id: "all", label: "AP & Telangana" },
+  // Phones show the short "AP & TS" so the three tabs fit on one line.
+  { id: "all", label: "AP & Telangana", short: "AP & TS" },
   { id: "ap", label: "Andhra Pradesh" },
   { id: "ts", label: "Telangana" },
 ];
@@ -78,9 +79,17 @@ export default function SecondChance({
     if (initialRoute) document.getElementById(`route-${initialRoute.id}`)?.scrollIntoView({ block: "center" });
   }, [initialRoute]);
 
+  // On a phone the routes appear below the fold, so bring them into view.
+  const reveal = (id: string) =>
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top > window.innerHeight * 0.6) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
   const choose = (id: StopId) => {
     setFrom(id);
     setOpenId(null);
+    reveal("routes-h");
   };
 
   const rootStyle = { "--metro-body": bodyFont, "--metro-display": displayFont, fontFamily: bodyFont } as CSSProperties;
@@ -127,11 +136,11 @@ export default function SecondChance({
               );
             })}
           </div>
-          <div role="group" aria-label="State" className="flex flex-wrap gap-1">
+          <div role="group" aria-label="State" className="flex gap-1">
             {STATE_TABS.map((t) => (
               <button key={t.id} onClick={() => setState(t.id)} aria-pressed={state === t.id}
                 className="metro-chip h-11 cursor-pointer rounded-full border-0 px-4 text-sm font-semibold" style={chip(state === t.id)}>
-                {t.label}
+                {t.short ? <><span className="sm:hidden">{t.short}</span><span className="hidden sm:inline">{t.label}</span></> : t.label}
               </button>
             ))}
           </div>
@@ -145,7 +154,7 @@ export default function SecondChance({
                 {openNow.map((r) => (
                   <li key={r.id}>
                     <button
-                      onClick={() => { setFrom(r.stoppedAt); setOpenId(r.id); }}
+                      onClick={() => { setFrom(r.stoppedAt); setOpenId(r.id); reveal(`route-${r.id}`); }}
                       className="metro-row flex w-full cursor-pointer items-start gap-3 rounded-xl border-0 px-3 py-2.5 text-left"
                       style={{ background: "transparent", color: "var(--ink)", fontFamily: "inherit" }}
                     >
@@ -164,7 +173,7 @@ export default function SecondChance({
           <section className="flex flex-col gap-6" aria-labelledby="routes-h">
             <div className="flex flex-col gap-1">
               <span className="text-xs font-bold tracking-widest uppercase" style={{ color }}>{stop.long}</span>
-              <h2 id="routes-h" className="m-0 text-2xl font-extrabold lg:text-[28px]" style={{ fontFamily: display }}>
+              <h2 id="routes-h" className="m-0 text-2xl font-extrabold lg:text-[28px]" style={{ fontFamily: display, scrollMarginTop: "calc(var(--nav-h) + 56px)" }}>
                 {shown.length} {shown.length === 1 ? "way" : "ways"} back
               </h2>
             </div>
@@ -206,7 +215,7 @@ function Station({
   );
 
   return (
-    <li id={`route-${r.id}`} className="grid grid-cols-[32px_minmax(0,1fr)] gap-x-4 sm:gap-x-5">
+    <li id={`route-${r.id}`} className="grid grid-cols-[32px_minmax(0,1fr)] gap-x-4 sm:gap-x-5" style={{ scrollMarginTop: "calc(var(--nav-h) + 16px)" }}>
       <span className="relative flex justify-center">
         {/* The line runs through every station, from the first to the last. */}
         {!(first && last) && (
