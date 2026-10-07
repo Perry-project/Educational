@@ -296,6 +296,46 @@ verify("Graduate and diploma apprenticeship (NATS)", IN, "2026-10-05", src,
     leads_to="Monthly stipend during training and a Government of India Certificate of Proficiency, registrable as work experience at employment exchanges",
 )
 
+# ---------- TS SSC Advanced Supplementary (June 2026) ----------
+src = "Directorate of Government Examinations, Telangana: 'Results - S.S.C Advanced Supplementary Examinations, June 2026' (bse.telangana.gov.in/SSCRESJUN26/frmLanding.aspx) and 'Fee Particulars for SSC Examinations' (bse.telangana.gov.in/ssc_fee.aspx)"
+verify("TS SSC Advanced Supplementary Exams", TS, "2026-10-07", src,
+    summary="A second sitting in June, soon after the March SSC results, for students who failed subjects. Pass them and you get your SSC certificate the same year.",
+    who_can="Students who failed subjects in the March SSC public exams, including private and Open School (OSSC) candidates",
+    how_to_apply="Pay the exam fee when the Directorate notifies it on bse.telangana.gov.in: Rs 110 for up to 3 subjects, Rs 125 for 6 subjects (late fee as notified). Private candidates also pay a Rs 650 attendance exemption fee",
+    next_dates="The 2026 exams were held in June 2026 and the results are out on bse.telangana.gov.in. 2027 dates not yet announced",
+    leads_to="SSC pass certificate, so you can join Intermediate, a polytechnic or an ITI",
+)
+
+# ---------- TGBIE: failed papers, IPASE ----------
+src = "Telangana Board of Intermediate Education: Annual Academic Calendar 2026-27, File No. TGBIE-ACAD/ADMN/1/2024-ACAD I dated 28-03-2026 (tgbienew.cgg.gov.in/scannedPhotos/Circulars/Academic_Calendar_for_the_Academic_Year_2026-27.pdf); circular File No. TSBIE-ERTW/OTH/8/2023-ERTW dated 05-12-2024 on backlog chances (tgbienew.cgg.gov.in/scannedPhotos/Circulars/English_-_Increased_chances_with_Old_QP_for_Backlog_students.pdf)"
+verify("TS Intermediate Advanced Supplementary Exams", TS, "2026-10-07", src,
+    summary="Failed Intermediate papers can be written again in the next public exams: either the Advanced Supplementary Exams (IPASE) in May or the regular exams (IPE) in February/March.",
+    who_can="1st and 2nd year students with failed (backlog) papers",
+    how_to_apply="Through your junior college, when TGBIE notifies the exam fee on tgbie.cgg.gov.in",
+    next_dates="Tentative, from the TGBIE 2026-27 calendar: IPE 2027 practicals in the last week of January 2027, theory exams in the last week of February 2027, and IPASE 2027 in the 3rd week of May 2027",
+    leads_to="Intermediate pass certificate, for degree courses, EAPCET and other entrance exams",
+)
+
+# ---------- NAPS ----------
+src = "Ministry of Skill Development and Entrepreneurship: Guidelines for Implementation of National Apprenticeship Promotion Scheme (msde.gov.in/static/uploads/2024/04/Guidelines-for-NAPS.pdf, section 8.2); PIB release 'Salient Features of Naps-2', 27 Jul 2026 (pib.gov.in PRID=2289894)"
+verify("Trade apprenticeship (NAPS)", IN, "2026-10-07", src,
+    summary="Paid on-the-job training in a real workplace under the Apprentices Act, 1961. Under NAPS-2 the Government pays part of your stipend straight into your bank account (DBT).",
+    who_can="At least 14 years old with the minimum education for the trade, and an Aadhaar number. Open to ITI pass-outs, PMKVY course completers, and freshers with no formal trade training",
+    how_to_apply="Register on apprenticeshipindia.gov.in, then apply to openings posted by establishments; a contract of apprenticeship is approved on the portal",
+    next_dates="Openings are posted on the portal throughout the year",
+    leads_to="A stipend during training and industry experience; apprenticeship is a common route into a full-time job",
+)
+
+# ---------- RPL (PMKVY 4.0) ----------
+src = "Ministry of Skill Development and Entrepreneurship: Guidelines for Pradhan Mantri Kaushal Vikas Yojana 4.0 (msde.gov.in/static/uploads/2024/02/PMKVY-4.0-Guidelines_final-copy.pdf: target group table, sections 1.2, 4.2 and 9); still in force per MSDE O.M. dated 23-12-2025 (PMKVY 4.0 Monitoring Guidelines)"
+verify("Certify skills you already have (Recognition of Prior Learning)", IN, "2026-10-07", src,
+    summary="If you already work in a trade but have no certificate, RPL tests what you know and gives you an official skill certificate, after a short orientation instead of a full course.",
+    who_can="Indian nationals aged 18-59 with a valid Aadhaar and prior experience in the job role you want certified",
+    how_to_apply="Register on Skill India Digital (skillindiadigital.gov.in) or its mobile app; a training partner pre-screens your skills, then you attend at least 30 hours of classroom orientation (up to 132 hours) before the assessment",
+    next_dates="Batches run through the year under PMKVY 4.0; there is no fixed application window",
+    leads_to="A graded Skill Certificate and marksheet at your NSQF level; you're told on your registered mobile/e-mail when it's generated",
+)
+
 
 # ---------- write ----------
 out = os.path.join(os.path.dirname(__file__), "..", "..", "db", "seed", "second_chance_routes.json")
