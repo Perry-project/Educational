@@ -1,0 +1,62 @@
+[
+ {
+  "stopped_at": "class_10",
+  "scope": "Telangana",
+  "route_name": "TS SSC Advanced Supplementary Exams",
+  "data_tier": "secondary_sourced - needs primary verification",
+  "official_website": "bse.telangana.gov.in",
+  "next_dates": "2026 cycle (most recent, already completed): registration 30 Apr - 14 May 2026; exam fee deadline 14 May 2026; admit cards last week of May 2026; exams 05-12 Jun 2026; results declared 25 Jun 2026. 2027 cycle dates not yet announced as of Oct 2026",
+  "verified_date": "2026-10-06",
+  "source": "unverified - needs follow-up for primary confirmation (bse.telangana.gov.in direct fetch blocked by this session's network egress policy); reported via Careers360 'Telangana SSC Exam Time Table 2026' and 'BSE Telangana SSC 10th Supplementary Result' pages, Physics Wallah 'TS SSC Supplementary Result 2026', and careerindia.com 'TS SSC Supplementary Result 2026 Declared'"
+ },
+ {
+  "stopped_at": "class_10",
+  "scope": "Andhra Pradesh",
+  "route_name": "ITI trades (Andhra Pradesh)",
+  "data_tier": "secondary_sourced - needs primary verification",
+  "official_website": "iti.ap.gov.in",
+  "next_dates": "2026-27 cycle: main admission notification issued 17-05-2026 by the Directorate of Skill Development, Employment & Training, AP, for the August 2026-27/28 training session (NCVT & SCVT pattern, Government/DLTC/Private/Minority ITIs, 6-month/1-year/2-year courses); second-phase online application deadline 10-08-2026, certificate verification 11-08-2026, second-phase counselling 12-08-2026. Applications are submitted via the online portal itiadmissions.ap.gov.in/iti",
+  "verified_date": "2026-10-06",
+  "source": "unverified - needs follow-up for primary confirmation (iti.ap.gov.in and itiadmissions.ap.gov.in direct fetch blocked by this session's network egress policy); reported via manabadi.co.in 'AP ITI Counselling 2026' page"
+ },
+ {
+  "stopped_at": "intermediate",
+  "scope": "Telangana",
+  "route_name": "TS Intermediate Advanced Supplementary Exams",
+  "data_tier": "secondary_sourced - needs primary verification",
+  "official_website": "tgbie.cgg.gov.in",
+  "next_dates": "2026 cycle (most recent, already completed): supplementary papers held 13-21 May 2026; results declared 11 Jun 2026 (1st year pass 68.84%, 2nd year pass 49.29%); marks reverification window expected 18-25 Jun 2026; migration certificates for cleared 2nd-year candidates available from mid-June 2026 via tgbie.cgg.gov.in. 2027 cycle dates not yet announced as of Oct 2026",
+  "verified_date": "2026-10-06",
+  "source": "unverified - needs follow-up for primary confirmation (tgbie.cgg.gov.in direct fetch blocked by this session's network egress policy); reported via findmycollege.com 'TS Inter Supplementary Result 2026', truejobs.co.in 'TS Inter Supplementary Result 2026 Guide', and sakshipost.com 'TG Inter Supplementary Results 2026 Released'"
+ },
+ {
+  "stopped_at": "intermediate",
+  "scope": "Andhra Pradesh",
+  "route_name": "Polytechnic diploma (AP POLYCET)",
+  "data_tier": "secondary_sourced - needs primary verification",
+  "official_website": "polycetap.ap.gov.in",
+  "next_dates": "2026 cycle (most recent, already completed): notification released 03-03-2026; registration closed 04-04-2026; exam held 25-04-2026; results declared 10-05-2026; web-option entry extended to 04-07-2026; Round 1 seat allotment 07-07-2026. 2027 cycle dates not yet announced as of Oct 2026",
+  "verified_date": "2026-10-06",
+  "source": "unverified - needs follow-up for primary confirmation (polycetap.ap.gov.in direct fetch blocked by this session's network egress policy); reported via Careers360 'AP POLYCET 2026', 'AP POLYCET Exam Dates' and 'AP POLYCET Counselling Date 2026', Sakshi Post 'AP POLYCET 2026 Registration Begins', and CollegeDekho 'AP POLYCET Exam Date 2026 Announced'"
+ },
+ {
+  "stopped_at": "working",
+  "scope": "National",
+  "route_name": "Trade apprenticeship (NAPS)",
+  "data_tier": "secondary_sourced - needs primary verification",
+  "official_website": "apprenticeshipindia.gov.in",
+  "next_dates": "Rolling/ongoing - no fixed annual cycle; employer-posted apprenticeship openings are published on the portal year-round",
+  "verified_date": "2026-10-06",
+  "source": "unverified - needs follow-up for primary confirmation (apprenticeshipindia.gov.in direct fetch blocked by this session's network egress policy); process and scheme details reported via myscheme.gov.in (Government of India scheme aggregator) 'National Apprenticeship Promotion Scheme (NAPS)' page and vikaspedia.in 'National Apprenticeship Promotion Scheme'. Candidates register on apprenticeshipindia.gov.in with Aadhaar, mobile number and email, then apply to establishment-posted openings under the Apprentices Act 1961; NAPS (launched 19-08-2016) reimburses establishments 25% of the prescribed stipend, capped at Rs 1,500 per apprentice per month"
+ },
+ {
+  "stopped_at": "working",
+  "scope": "National",
+  "route_name": "Certify skills you already have (Recognition of Prior Learning)",
+  "data_tier": "secondary_sourced - needs primary verification",
+  "official_website": "skillindiadigital.gov.in",
+  "next_dates": "Rolling/ongoing - no fixed annual cycle; candidates register anytime on the Skill India Digital Hub and are mobilised into batches as RPL opportunities open in their trade/sector",
+  "verified_date": "2026-10-06",
+  "source": "unverified - needs follow-up for primary confirmation (skillindiadigital.gov.in direct fetch blocked by this session's network egress policy); process reported via innovation.nsdcindia.org 'Recognition of Prior Learning' page and ficsi.in 'RPL Scheme' page, corroborated by a PIB (Press Information Bureau, Government of India) document on the scheme. Candidates need an Aadhaar card and Aadhaar-linked bank account plus prior relevant work experience; the process is Mobilization & Counselling, then Assessment (interview/written/practical/portfolio) against NSQF standards, leading to a PMKVY certification if passed"
+ }
+]

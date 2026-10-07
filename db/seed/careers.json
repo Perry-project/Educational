@@ -691,5 +691,33 @@
     "govt_private_options": "Government only, via the Telangana Forest Department under TSPSC recruitment",
     "next_step": "Clear the respective TSPSC selection process to be appointed as Forest Range Officer (gazetted, supervisory) or Forest Beat Officer (frontline field staff, with an internal promotion track toward Section Officer/Range Officer over a career)",
     "source": "testbook.com TSPSC FRO Eligibility Criteria; teachersbadi.in TSPSC Forest Range/Forest Section Officers recruitment; testbook.com / careerpower.in TSPSC Forest Beat Officer Notification 2026 (1,393 vacancies)"
+  },
+  {
+    "state": "Telangana",
+    "career_name": "Court Stenography / Interpreter - Telangana (Telangana High Court) (niche)",
+    "category": "niche",
+    "entry_point": "Direct recruitment via High Court for the State of Telangana (tshc.gov.in) recruitment notifications for Stenographer and allied posts; recruitment run independently of the Andhra Pradesh High Court since the two courts split in 2019",
+    "required_exams": "No common national/state entrance exam; selection is via the High Court's own written/skill test and document verification under each recruitment notification (e.g. Notification No. 1/2026 dated 19-01-2026 for Stenographer posts)",
+    "eligibility": "Bachelor's degree from a recognized university, plus English Shorthand (Higher Grade, 120 words per minute) and English Typewriting (Higher Grade, 45 words per minute), per the 2026 Stenographer notification",
+    "govt_private_options": "Primarily Government (Telangana judiciary); private-sector court reporting/legal transcription work also exists but is not the main pipeline",
+    "next_step": "Promotion track within Telangana High Court/District Courts (Stenographer Grade III to II to I); separate notifications cover Court Interpreter/Translator posts when vacancies arise",
+    "source": "unverified - needs follow-up for primary confirmation (tshc.gov.in direct fetch blocked by network egress policy this session); reported via Testbook 'Telangana High Court Stenographer 2026' and 'Telangana High Court Recruitment 2026 Notification Out For 859 Junior Assistant, Stenographer & Other Posts', and Sakshi Education 'Telangana District Court Notification 2026 Released for 859 Vacancies' (19-01-2026 Notification No. 1/2026, 36 Stenographer vacancies, pay scale Rs 32,810-96,890)",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "state": "Telangana",
+    "career_name": "Veterinary Assistant / Livestock Inspector - Telangana (PVNRTVU Diploma route) (niche)",
+    "category": "niche",
+    "entry_point": "Diploma in Animal Husbandry / Diploma in Fishery (Veterinary Polytechnic), admission via TS POLYCET rank with separate counseling conducted by P.V. Narasimha Rao Telangana Veterinary University (PVNRTVU/TSVU); from academic year 2026-27 PVNRTVU conducts this admission process independently and fully online",
+    "required_exams": "TS POLYCET",
+    "eligibility": "Pass SSC/10th standard with minimum 35% marks in the relevant subjects; age 15-22 years as on 31-08-2026",
+    "govt_private_options": "Government diploma colleges affiliated to PVNRTVU/SBTET Telangana; leads to Government posts (e.g. Livestock Inspector / Veterinary Field Assistant roles in the Telangana Animal Husbandry Dept, recruited via TSPSC when notified) as well as private dairy/veterinary-sector support jobs",
+    "next_step": "Apply for Telangana Animal Husbandry Dept / TSPSC recruitment of Livestock Inspector or Veterinary Field Assistant posts when notified; diploma holders may also pursue further study toward BVSc & AH via a separate university-specific lateral route",
+    "source": "unverified - needs follow-up for primary confirmation (tsvu.nic.in and pvnrtvu.ac.in direct fetch blocked by network egress policy this session); reported via Careers360 'TS POLYCET 2026 registration begins' and teachersbadi.in 'TG Veterinary Polytechnic Admission 2026 at tsvu.nic.in', corroborated by manabadi.co.in 'TG Veterinary Admission 2026 Released: Apply Online for PVNRTVU B.V.Sc. & A.H., B.F.Sc. Admissions'",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
   }
 ]
