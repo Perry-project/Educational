@@ -1,17 +1,18 @@
 import Link from "next/link";
 import { pool } from "@/lib/db";
+import { cached } from "@/lib/cache";
 
-// Counts come from the database so they grow with each nightly import.
+// Counts come from the database so they grow with each nightly import (cached for an hour).
 export const dynamic = "force-dynamic";
 
-async function getCounts() {
+const getCounts = cached(async () => {
   const { rows } = await pool.query(
     `SELECT (SELECT count(*) FROM pathways)::int AS pathways, (SELECT count(*) FROM entrance_exams)::int AS exams,
             (SELECT count(*) FROM courses)::int AS courses, (SELECT count(*) FROM careers)::int AS careers,
             (SELECT count(*) FROM colleges)::int AS colleges`
   );
   return rows[0] as Record<"pathways" | "exams" | "courses" | "careers" | "colleges", number>;
-}
+}, "home-counts");
 
 const steps = (n: Awaited<ReturnType<typeof getCounts>>) => [
   { n: 1, label: "Class 10 pass", sub: "SSC · CBSE · ICSE", color: "bg-slate-200 text-gray-900" },
