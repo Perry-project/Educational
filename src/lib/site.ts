@@ -10,4 +10,4 @@ export const SITE_NAME = "Perry";
 export const SITE_DESCRIPTION = "See every route from Class 10 to a career, clearly and step by step.";
 
 // Every public page, for the sitemap.
-export const PAGES = ["/", "/flowchart", "/exams", "/second-chance", "/pathfinder", "/about", "/disclaimer", "/privacy"];
+export const PAGES = ["/", "/flowchart", "/exams", "/second-chance", "/current-affairs", "/pathfinder", "/about", "/disclaimer", "/privacy"];

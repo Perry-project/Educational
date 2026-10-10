@@ -306,3 +306,24 @@ CREATE TABLE IF NOT EXISTS second_chance_routes (
   updated_at TIMESTAMP DEFAULT now(),
   UNIQUE(stopped_at, route_name, scope)
 );
+
+-- Current Affairs tab (/current-affairs): a daily news digest for exam
+-- aspirants. Filled automatically by the Vercel cron job
+-- (src/app/api/cron/current-affairs) from official feeds (RBI press
+-- releases: tier_1_official) and named news outlets (tier_2_reported, shown
+-- as "Reported by <outlet>"). Each row is a headline, a one-line summary and
+-- a link to the original; nothing is AI-written. Rows older than 60 days are
+-- pruned on each run.
+CREATE TABLE IF NOT EXISTS current_affairs (
+  id SERIAL PRIMARY KEY,
+  topic TEXT NOT NULL,            -- key from src/lib/current-affairs-feeds.ts TOPICS
+  title TEXT NOT NULL,
+  summary TEXT,
+  url TEXT NOT NULL UNIQUE,
+  source_name TEXT NOT NULL,      -- e.g. "Reserve Bank of India", "The Hindu"
+  published_at TIMESTAMPTZ NOT NULL,
+  fetched_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  data_tier TEXT NOT NULL DEFAULT 'tier_2_reported'
+    CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review'))
+);
+CREATE INDEX IF NOT EXISTS current_affairs_published_idx ON current_affairs (published_at DESC);
