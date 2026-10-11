@@ -1564,5 +1564,18 @@
     "source_type": "secondary_aggregator",
     "data_tier": "pending_review",
     "verified_date": null
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG PECET",
+    "full_form_body": "Telangana Physical Education Common Entrance Test; conducted by Satavahana University, Karimnagar, on behalf of the Telangana Council of Higher Education (TGCHE)",
+    "eligibility": "Reported to require a Bachelor's degree in any discipline for B.P.Ed admission and an Intermediate (10+2) pass for UG D.P.Ed admission, plus the test's own physical-efficiency and written components; exact official minimum-percentage/age criteria not confirmed from a primary source - unverified - needs follow-up",
+    "application_window": "2026 cycle (reported, not primary-confirmed): notification around 25 Feb 2026; registration without late fee to 05 May 2026, with late fee to 15 May 2026",
+    "exam_date": "2026 cycle: physical tests and written test held 31 May - 03 Jun 2026 at Satavahana University, Karimnagar; rank card reported available via pecet.tgche.ac.in with counselling expected from around Jul 2026. 2027 dates not yet announced",
+    "admits_into": "B.P.Ed (Bachelor of Physical Education) and UG D.P.Ed (Diploma in Physical Education) programmes at universities and colleges affiliated to Telangana state universities",
+    "source": "unverified - needs follow-up to confirm directly against the official site (direct WebFetch to pecet.tgche.ac.in blocked by this session's network egress policy tonight, 4th consecutive night); reported via teachersbadi.in 'TG PECET 2026 Notification & Schedule for UG D.P.Ed/B.P.Ed Entrance Test', admission.aglasem.com 'TG PECET', and manabadi.co.in TG PECET notification pages, which cite the official site pecet.tgche.ac.in and Satavahana University as the conducting body. This is the Telangana counterpart to the existing AP-scope 'AP PECET [tier_1_official - do not modify]' row, which had no Telangana equivalent previously recorded in the database",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
   }
 ]
