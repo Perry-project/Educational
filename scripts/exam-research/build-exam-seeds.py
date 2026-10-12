@@ -1186,6 +1186,36 @@ PATTERNS = {
     (AP, "AFCAT"): "Online, 2 hours, 100 objective questions, 300 marks, English only. +3 for each correct answer, -1 for each wrong answer, 0 for unattempted. Numerical Ability at Class 10 level; other sections at graduation level.",
 }
 
+# ---------- APPSC Group 2 (Notification 11/2023) ----------
+src = "APPSC Notification No.11/2023 dated 07/12/2023, Group-II Services, with Scheme and Syllabus (psc.ap.gov.in/Documents/NotificationDocuments/Notfn_ Group-II_2023 with Syllabus_112023_07122023.pdf) and detailed notification dated 20/12/2023 (Details for Group-II Notfn_No_11_2023_20122023.pdf); selection web note dated 27/01/2026 (Webnote_112023_28012026.pdf). No newer Group-II notification on portal-psc.ap.gov.in as of 12 Oct 2026"
+verify(AP, "APPSC Group 2", "2026-10-12", src,
+    eligibility="A Bachelor's degree from a recognised university (some posts need a specific degree, e.g. Law for ASO in the Law Department). Age 18-42 for most posts (20-42 for Sub-Registrar Gr-II), reckoned on 01.07.2023 for this notification; relaxations as per rules",
+    application_window="Last notification 11/2023 (897 posts): online 21 Dec 2023 - 17 Jan 2024 (closed; selection list declared 27 Jan 2026). No newer Group-II notification as of 12 Oct 2026. Fee: Rs 250 processing + Rs 80 exam (exam fee waived for exempted categories)",
+    exam_date="Not announced; watch psc.ap.gov.in for the next Group-II notification",
+    admits_into="AP state posts such as Deputy Tahsildar, Sub-Registrar Gr-II, Municipal Commissioner Gr-III, Assistant Section Officer (Secretariat), Senior Auditor, Senior Accountant, Extension Officer, Prohibition & Excise Sub-Inspector",
+)
+PATTERNS[(AP, "APPSC Group 2")] = "Screening test: General Studies & Mental Ability, 150 objective questions, 150 marks, 150 minutes (degree standard). Main exam: two objective papers of 150 questions, 150 marks, 150 minutes each (Paper I: social and cultural history of AP and the Indian Constitution; Paper II: Indian and AP economy, science and technology). 1/3 mark deducted for each wrong answer. Then a Computer Proficiency Test (qualifying)."
+
+# ---------- TG DSC (DSC-2024) ----------
+src = "Commissioner of School Education, Telangana: Information Bulletin to Notification 24/RC-1/TRT/DSC/2024 dated 29.02.2024 (tgdsc.aptonline.in/tgdsc/docs/Information Bulletin of TS DSC-2024.pdf). The TG DSC portal lists no newer DSC notification as of 12 Oct 2026"
+verify(TS, "TG DSC", "2026-10-12", src,
+    eligibility="The academic and training qualification set for each post in the bulletin, plus a pass in TSTET / APTET / CTET in the matching paper and subject (e.g. Paper-II for School Assistants). Age 18-46 (DSC-2024); relaxations as per rules",
+    application_window="Last notification DSC-2024 (11,062 posts): online 04 Mar - 02 Apr 2024 (closed), Rs 1,000 fee per post. No DSC 2026 notification on tgdsc.aptonline.in as of 12 Oct 2026",
+    exam_date="Not announced; watch tgdsc.aptonline.in and schooledu.telangana.gov.in for the next DSC",
+    admits_into="Teaching posts in Telangana government and local body schools: School Assistant, Secondary Grade Teacher, Language Pandit, Physical Education Teacher, Special Education Teacher",
+)
+PATTERNS[(TS, "TG DSC")] = "Computer Based Test. Final marks out of 100: 80 from the written test and 20 from the TET score (TSTET / APTET / CTET). For School Assistant (Physical Education) and PET, all 100 marks are from the written test."
+
+# ---------- TS Police Constable & SI 2026 ----------
+src = "TSLPRB press notes Rc Nos. 189, 225, 234 & 279/Rect./Rect.1, 2 & 3/2026 dated 01-08-2026 (application dates and fees), 08-09-2026 (last date extended to 16 Sep) and 17-09-2026 (applications closed; tentative PWT dates): tgprb.in/SI_PC_2026/"
+verify(TS, "TS Police Constable & SI", "2026-10-12", src,
+    eligibility="Educational qualification, age and physical standards are set in the four detailed notifications of 29 Jul 2026 on tgprb.in. For this recruitment the government added 7 years to the upper age limit for SI/ASI-level and PC (Driver) posts, and 10 years for other PC-level posts",
+    application_window="2026: 4 notifications dated 29 Jul 2026 for 7,437 posts (298 SI/ASI level, 7,139 PC level). Online 19 Aug - 16 Sep 2026 (closed). One-time fee Rs 1,500 for SI level / Rs 1,200 for PC level (Rs 750 / Rs 600 for SC/ST local candidates)",
+    exam_date="Preliminary Written Test tentatively 29 Nov 2026 (SI level) and 20 Dec 2026 (PC level); then PMT/PET and the final written exam",
+    admits_into="Police (Civil, AR, TGSP, SAR CPL) Sub-Inspectors and Constables, SPF, Fire (Station Fire Officer, Fire Fighter), Prisons (Deputy Jailor, Warder), ASI (Finger Print Bureau) and PC Driver/Mechanic posts in Telangana",
+)
+PATTERNS[(TS, "TS Police Constable & SI")] = "Preliminary Written Test (one 3-hour exam for PC level, one for SI level; none for technical posts) -> Physical Measurement / Efficiency Test -> trade or driving test for PC Mechanic/Driver -> final written exam (one 3-hour exam for PC level; four 3-hour papers incl. two descriptive for SI level) -> certificate verification."
+
 # ---------- write ----------
 root = os.path.join(os.path.dirname(__file__), "..", "..", "db", "seed")
 exams_path = os.path.join(root, "entrance_exams.json")
