@@ -893,5 +893,19 @@
     "source_type": "secondary_aggregator",
     "data_tier": "pending_review",
     "verified_date": null
+  },
+  {
+    "state": "Telangana",
+    "career_name": "Sports Coaching - Telangana (Sports Authority of Telangana State - SATS)",
+    "category": "major",
+    "entry_point": "After Intermediate or graduation: formal coaching qualifications via NIS Patiala coaching diploma/certificate courses, or a B.P.Ed/M.P.Ed degree; entry into government-side coaching roles via recruitment/engagement notifications issued by SATS-affiliated sports hostels and academies, or by allied bodies such as the Telangana State EMRS Society (part-time/outsourced coach postings)",
+    "required_exams": "No single statutory licensing exam for the profession; access is via NIS Patiala admission, university-level B.P.Ed/M.P.Ed admission processes, or direct recruitment/contract selection run by the hiring body (SATS-affiliated academies, TS EMRS Society, etc.) for specific vacancies",
+    "eligibility": "Varies by role and employer: Intermediate pass is typically sufficient for basic/part-time coaching engagements; a Bachelor's degree (often B.P.Ed) plus playing/coaching credentials is generally required for departmental or academy-level coaching posts. Exact criteria are set per notification.",
+    "govt_private_options": "Government: coaching posts/engagements under the Sports Authority of Telangana State (SATS) - Telangana's principal sports-policy body, constituted in January 2016 by adopting the (combined-state) Andhra Pradesh Sports Authorities Act, 1988 via a state G.O., and functioning under the Youth Advancement, Tourism & Culture (Sports) Department - at state-run sports hostels and academies, plus outsourced/contract coaching roles via bodies like the TS EMRS Society; separately, the national Sports Authority of India (SAI) also recruits coaches centrally and is open to candidates from Telangana. Private: private sports academies/clubs and school-level PET/coaching roles.",
+    "next_step": "Track SATS and the Telangana Youth Advancement, Tourism & Culture (Sports) Department for departmental coach recruitment notifications; pursue the NIS Patiala or B.P.Ed/M.P.Ed route for formal coaching credentials in parallel",
+    "source": "CAG (Comptroller and Auditor General of India) Audit Report No. 4 of 2018, Chapter 3 - General & Social Sector, Government of Telangana (cag.gov.in), confirming SATS was constituted in Jan 2016 under the adopted AP Sports Authorities Act, 1988, as Telangana's principal sports-policy body under the Sports Department; cross-checked against Telangana Today's recurring coverage of SATS-run sports-hostel selection trials (telanganatoday.com/tag/sats-sports-hostels) and Telangana State EMRS Society part-time outsourced coach recruitment notices (teachersbadi.in). Current (2026) departmental coach-recruitment vacancy specifics are unverified - needs follow-up directly with SATS/the Sports Department.",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
   }
 ]
