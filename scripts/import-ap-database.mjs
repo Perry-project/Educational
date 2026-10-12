@@ -251,8 +251,8 @@ async function importCareers(client, stateCache) {
     const stateId = await getStateId(client, stateCache, r.state);
     await client.query(
       `INSERT INTO careers (state_id, career_name, category, entry_point, required_exams,
-         eligibility, govt_private_options, next_step, source, source_type, data_tier, verified_date, updated_at)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12, now())
+         eligibility, govt_private_options, next_step, source, source_type, data_tier, verified_date, job_roles, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13, now())
        ON CONFLICT (state_id, career_name) DO UPDATE SET
          category = EXCLUDED.category,
          entry_point = EXCLUDED.entry_point,
@@ -264,9 +264,11 @@ async function importCareers(client, stateCache) {
          source_type = EXCLUDED.source_type,
          data_tier = EXCLUDED.data_tier,
          verified_date = EXCLUDED.verified_date,
+         job_roles = EXCLUDED.job_roles,
          updated_at = now()`,
       [stateId, r.career_name, r.category, r.entry_point, r.required_exams,
-       r.eligibility, r.govt_private_options, r.next_step, r.source, r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null]
+       r.eligibility, r.govt_private_options, r.next_step, r.source, r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null,
+       r.job_roles ?? null]
     );
   }
   return rows.length;
@@ -305,6 +307,28 @@ async function importExamSubjects(client, stateCache) {
          updated_at = now()`,
       [examId, r.subject, r.topics ?? null, r.sequence_order ?? null, r.source ?? null,
        r.source_type ?? null, r.data_tier ?? "pending_review", r.verified_date ?? null]
+    );
+    imported++;
+  }
+  return imported;
+}
+
+// Study focus is replaced in full each import: the seed is the whole list,
+// so a topic dropped from it disappears from the site too.
+async function importExamFocus(client, stateCache) {
+  const rows = optionalSeed("exam_focus");
+  if (!rows.length) return 0;
+  await client.query("DELETE FROM exam_focus");
+  let imported = 0;
+  for (const r of rows) {
+    const examId = await examIdOf(client, stateCache, r.state, r.exam_name);
+    if (!examId) {
+      console.warn(`Skipping focus "${r.topic}": exam "${r.exam_name}" (${r.state}) not found`);
+      continue;
+    }
+    await client.query(
+      `INSERT INTO exam_focus (exam_id, subject, topic, why, sequence_order) VALUES ($1,$2,$3,$4,$5)`,
+      [examId, r.subject, r.topic, r.why ?? null, r.sequence_order ?? null]
     );
     imported++;
   }
@@ -421,10 +445,11 @@ async function main() {
     const progressCount = await importProgressTracker(client);
     const subjectsCount = await importExamSubjects(client, stateCache);
     const examCutoffsCount = await importExamCutoffs(client, stateCache);
+    const focusCount = await importExamFocus(client, stateCache);
     const secondChanceCount = await importSecondChance(client);
 
     const totalRows = schoolsCount + pathwaysCount + examsCount + coursesCount + topicsCount + collegesCount + cutoffsCount + careersCount + progressCount
-      + subjectsCount + examCutoffsCount + secondChanceCount;
+      + subjectsCount + examCutoffsCount + focusCount + secondChanceCount;
 
     await client.query(
       `INSERT INTO import_log (source_file_id, source_title, snapshot_date, imported_at, rows_imported)
@@ -439,7 +464,7 @@ async function main() {
 
     await client.query("COMMIT");
 
-    console.log(`Imported: ${schoolsCount} schools, ${pathwaysCount} pathways, ${examsCount} entrance exams, ${coursesCount} courses, ${topicsCount} course topics, ${collegesCount} colleges, ${cutoffsCount} cutoffs, ${careersCount} careers, ${progressCount} progress-tracker rows, ${subjectsCount} exam subjects, ${examCutoffsCount} exam cutoffs, ${secondChanceCount} second-chance routes.`);
+    console.log(`Imported: ${schoolsCount} schools, ${pathwaysCount} pathways, ${examsCount} entrance exams, ${coursesCount} courses, ${topicsCount} course topics, ${collegesCount} colleges, ${cutoffsCount} cutoffs, ${careersCount} careers, ${progressCount} progress-tracker rows, ${subjectsCount} exam subjects, ${examCutoffsCount} exam cutoffs, ${focusCount} study-focus topics, ${secondChanceCount} second-chance routes.`);
   } catch (err) {
     await client.query("ROLLBACK");
     throw err;

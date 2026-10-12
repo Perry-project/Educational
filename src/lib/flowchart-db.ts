@@ -7,11 +7,18 @@ import { forStudents } from "./student-text";
 
 export type Topic = { name: string; why: string | null; buildsToward: string | null };
 export type CollegeRef = { name: string; ownership: string | null };
+export type FocusTopic = { topic: string; why: string | null };
+export type SubjectRef = { subject: string; topics: string | null; focus: FocusTopic[] };
 export type NodeDetail = {
   rows: [string, string][];
   source: string | null;
   colleges?: CollegeRef[];
   topics?: Topic[];
+  // Exam stops: the subjects it tests (official syllabus) and what to
+  // concentrate on in each (AI-assisted).
+  subjects?: SubjectRef[];
+  // Career stops: the jobs it leads to (AI-assisted).
+  jobs?: string | null;
   // Set when the details shown come from another state's row.
   note?: string;
 };
@@ -72,20 +79,46 @@ const START_ROWS: Record<StateKey, [string, string][]> = {
   ],
 };
 
+// Subjects by exam id, each with its study-focus topics. Shared with /exams.
+export function examSubjects(
+  subjects: { exam_id: number; subject: string; topics: string | null }[],
+  focus: { exam_id: number; subject: string; topic: string; why: string | null }[],
+): Map<number, SubjectRef[]> {
+  const focusOf = new Map<string, FocusTopic[]>();
+  for (const f of focus) {
+    const key = `${f.exam_id}|${f.subject}`;
+    focusOf.set(key, [...(focusOf.get(key) ?? []), { topic: f.topic, why: forStudents(f.why) }]);
+  }
+  const out = new Map<number, SubjectRef[]>();
+  for (const r of subjects) {
+    const t = forStudents(r.topics);
+    out.set(r.exam_id, [...(out.get(r.exam_id) ?? []), {
+      subject: r.subject,
+      topics: t && t.trim() ? t : null,
+      focus: focusOf.get(`${r.exam_id}|${r.subject}`) ?? [],
+    }]);
+  }
+  return out;
+}
+
 // Pathways from different states share names ("Intermediate - MPC ..."), so
 // rows are always picked by state as well as by name.
 export async function getFlowchartData(state: StateKey = "ap"): Promise<FlowchartData> {
   const stateName = STATES[state].name;
   const withState = (table: string, cols: string, order = "") =>
     pool.query(`SELECT ${cols}, s.name AS state FROM ${table} x JOIN states s ON s.id = x.state_id ${order}`);
-  const [pathways, exams, courses, careers, colleges, topics] = await Promise.all([
+  const [pathways, exams, courses, careers, colleges, topics, subjects, focus] = await Promise.all([
     withState("pathways", "pathway_name, eligibility, admission_route, application_window, duration, leads_to, x.source"),
-    withState("entrance_exams", "exam_name, full_form_body, eligibility, application_window, exam_date, admits_into, x.source"),
+    withState("entrance_exams", "x.id, exam_name, full_form_body, eligibility, application_window, exam_date, admits_into, x.source, x.data_tier"),
     pool.query("SELECT id, course_name, category, typical_duration, entry_via, source FROM courses"),
-    withState("careers", "x.id, career_name, entry_point, required_exams, eligibility, govt_private_options, next_step, x.source", "ORDER BY x.id"),
+    withState("careers", "x.id, career_name, entry_point, required_exams, eligibility, govt_private_options, next_step, x.job_roles, x.source", "ORDER BY x.id"),
     withState("colleges", "college_name, ownership, offers_courses", "ORDER BY ownership, college_name"),
     pool.query("SELECT course_id, topic_name, sequence_order, why_it_matters, builds_toward FROM course_topics ORDER BY course_id, sequence_order"),
+    pool.query(`SELECT exam_id, subject, topics FROM exam_subjects
+                WHERE data_tier = 'tier_1_official' ORDER BY exam_id, sequence_order NULLS LAST, subject`),
+    pool.query("SELECT exam_id, subject, topic, why FROM exam_focus ORDER BY exam_id, subject, sequence_order NULLS LAST, id"),
   ]);
+  const subjectsOf = examSubjects(subjects.rows, focus.rows);
 
   const inState = <T extends { state: string }>(rows: T[], name: string) => rows.filter((r) => r.state === name);
   const byName = <T extends Record<string, unknown>>(rows: T[], key: keyof T) =>
@@ -134,6 +167,7 @@ export async function getFlowchartData(state: StateKey = "ap"): Promise<Flowchar
         ]),
         source: forStudents(r.source),
         note: own ? undefined : NATIONAL_EXAM_NOTE,
+        subjects: r.data_tier === "tier_1_official" ? subjectsOf.get(r.id) ?? [] : [],
       };
     } else if (n.col === 4) {
       const r = courseRow.get(n.db);
@@ -178,6 +212,7 @@ export async function getFlowchartData(state: StateKey = "ap"): Promise<Flowchar
         ["Next step", r.next_step],
       ]),
       source: forStudents(r.source),
+      jobs: forStudents(r.job_roles),
     };
   }
 

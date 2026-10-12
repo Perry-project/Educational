@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import "./metro-flow.css";
 import type { Exam } from "@/lib/exams-db";
-import { Highlight, ICON, PointList, PointSection } from "./fact-points";
+import { Highlight, ICON, PointSection, SubjectList } from "./fact-points";
 
 // The /exams page: every exam a student in Andhra Pradesh or Telangana may
 // sit, from Class 1-10 scholarship and admission tests to government job
@@ -326,18 +326,7 @@ function ExamDetails({ exam, onClose }: { exam: Exam; onClose?: () => void }) {
           </div>
           {exam.pattern && <PointSection title="Exam pattern" icon={ICON.chart} color={color} text={exam.pattern} />}
           <PointSection title="Subjects & topics" icon={ICON.book} color={color}>
-            {exam.subjects.length ? (
-              <div className="flex flex-col gap-4">
-                {exam.subjects.map((sub) => (
-                  <div key={sub.subject} className="flex flex-col gap-2 rounded-2xl px-4 py-3.5" style={{ background: "var(--surface)" }}>
-                    <span className="text-[15px] font-bold">{sub.subject}</span>
-                    {sub.topics && <PointList text={sub.topics} color={color} limit={3} />}
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <p className="m-0 text-sm" style={{ color: "var(--muted)" }}>The syllabus for this exam hasn’t been added yet.</p>
-            )}
+            <SubjectList subjects={exam.subjects} color={color} empty="The syllabus for this exam hasn’t been added yet." />
           </PointSection>
           <PointSection title="Marks by category" icon={ICON.list} color={color}>
             {exam.cutoffs.length ? (

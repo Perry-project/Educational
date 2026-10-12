@@ -9,7 +9,7 @@ import { alternativesAt, careerCluster, CLUSTER_COLOR, fmtYears, pickRoute, rout
 import { GOVT_GROUPS, isComputing, STEP_MENUS } from "@/lib/flow-menus";
 import FlowMenuBar, { type BarMenu } from "./flow-menu-bar";
 import FlowchartSearch, { type SearchItem } from "./flowchart-search";
-import { ICON, PointSection } from "./fact-points";
+import { ICON, PointList, PointSection, SubjectList } from "./fact-points";
 
 // The "metro" flowchart (/flowchart), from the Claude Design canvas "Perry
 // Flowchart Mobile Redesign", option B. Every career is a line from Class
@@ -767,6 +767,17 @@ function StopDetails({
             );
           })}
         </div>
+      )}
+      {detail?.jobs && (
+        <PointSection title="Jobs you can do" icon={ICON.briefcase} color={lineColor}>
+          <PointList text={detail.jobs} color={lineColor} limit={6} />
+          <span className="text-xs" style={{ color: "var(--muted)" }}>Job list is AI-assisted guidance, not an official list.</span>
+        </PointSection>
+      )}
+      {node?.col === 3 && detail && (
+        <PointSection title="Subjects & what to focus on" icon={ICON.book} color={lineColor}>
+          <SubjectList subjects={detail.subjects ?? []} color={lineColor} empty="The syllabus for this exam hasn’t been added yet." />
+        </PointSection>
       )}
       {isCourse && (
         <section className="flex flex-col gap-3">

@@ -1216,6 +1216,247 @@ verify(TS, "TS Police Constable & SI", "2026-10-12", src,
 )
 PATTERNS[(TS, "TS Police Constable & SI")] = "Preliminary Written Test (one 3-hour exam for PC level, one for SI level; none for technical posts) -> Physical Measurement / Efficiency Test -> trade or driving test for PC Mechanic/Driver -> final written exam (one 3-hour exam for PC level; four 3-hour papers incl. two descriptive for SI level) -> certificate verification."
 
+# ---------- Subjects added 2026-10-12 ----------
+# Exams verified earlier whose subjects weren't listed yet. Each list is
+# read from the official document named; where that document gives only the
+# sections (not a topic list), the topics say no more than the document does.
+_SEED_EXAMS = {(r["state"], r["exam_name"]): r for r in json.load(open(
+    os.path.join(os.path.dirname(__file__), "..", "..", "db", "seed", "entrance_exams.json"), encoding="utf-8"))}
+
+
+def src_of(state, exam):
+    """The verified row's own source: the subjects come from the same document."""
+    return (VERIFIED_ROWS.get((state, exam)) or _SEED_EXAMS[(state, exam)])["source"]
+
+
+V = "2026-10-12"
+
+src = ("GATE 2027 Information Brochure (IIT Madras), General Aptitude syllabus: gate2027ib.iitm.ac.in/GATE2027-IB.pdf; "
+       "paper syllabi: gate2027.iitm.ac.in/exam_papers_and_syllabus (CE, ME, EE, EC, CS, CH); marks split: gate2027.iitm.ac.in/question_paper_pattern")
+subjects(AP, "GATE", src, V, [
+    ("General Aptitude (common to all 30 papers, 15 marks)",
+     "Verbal aptitude: basic English grammar, vocabulary in context, reading comprehension, narrative sequencing; "
+     "Quantitative aptitude: data interpretation from bar and pie charts, 2D and 3D plots, maps and tables, ratios, percentages, powers, exponents and logarithms, permutations and combinations, series, mensuration and geometry, elementary statistics and probability; "
+     "Analytical aptitude: deduction and induction, analogy, numerical relations and reasoning; "
+     "Spatial aptitude: translation, rotation, scaling, mirroring, assembling and grouping of shapes, paper folding, cutting and patterns in 2D and 3D"),
+    ("Engineering Mathematics (13 marks in most engineering papers; topics differ by paper)",
+     "Linear algebra (matrices, systems of equations, eigenvalues and eigenvectors); calculus (limits, continuity, mean value theorems, maxima and minima, definite integrals, partial derivatives, vector calculus); "
+     "differential equations; probability and statistics; numerical methods; complex variables in some papers; discrete mathematics (logic, sets, graphs, combinatorics) in the CS paper"),
+    ("Civil Engineering paper (CE)",
+     "Structural engineering (engineering and solid mechanics, structural analysis, concrete and steel structures); geotechnical engineering; water resources engineering; environmental engineering; transportation engineering; geomatics engineering; construction materials and management"),
+    ("Mechanical Engineering paper (ME)",
+     "Applied mechanics and design (engineering mechanics, mechanics of materials, theory of machines, vibrations, machine design); fluid mechanics and thermal sciences (fluid mechanics, heat transfer, thermodynamics, applications); materials, manufacturing and industrial engineering"),
+    ("Electrical Engineering paper (EE)",
+     "Electric circuits; electromagnetic fields; signals and systems; electrical machines; power systems; control systems; electrical and electronic measurements; analog and digital electronics; power electronics"),
+    ("Electronics & Communication Engineering paper (EC)",
+     "Networks, signals and systems; electronic devices; analog circuits; digital circuits; control systems; communications; electromagnetics"),
+    ("Computer Science & Information Technology paper (CS)",
+     "Digital logic; computer organisation and architecture; programming and data structures; algorithms; theory of computation; compiler design; operating systems; databases; computer networks"),
+    ("Chemical Engineering paper (CH)",
+     "Process calculations; thermodynamics; fluid mechanics and mechanical operations; heat transfer; mass transfer; chemical reaction engineering; instrumentation and process control; plant design and economics; chemical technology"),
+    ("Other papers (AE, AG, AR, BM, BT, CY, DA, ES, EY, GE, GG, IN, MA, MN, MT, NM, PE, PH, PI, RA, ST, XE, XH, XL)",
+     "Each has its own syllabus PDF on gate2027.iitm.ac.in/exam_papers_and_syllabus; most engineering papers also include the 13-mark Engineering Mathematics section"),
+])
+
+src = "CUET (UG) 2026 Information Bulletin (NTA), Broad features, Scheme of Examination and Appendix II: cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/01/202601031633478370.pdf (from cuet.nta.nic.in)"
+subjects(AP, "CUET-UG", src, V, [
+    ("Languages (13, including English, Hindi, Telugu, Tamil, Kannada and Urdu)",
+     "Reading comprehension of factual, literary and narrative passages; literary aptitude; vocabulary"),
+    ("Domain subjects (23; take the ones your university programme asks for)",
+     "Questions follow the NCERT Class 12 syllabus of the subject: Accountancy, Agriculture, Anthropology, Biology, Business Studies, Chemistry, Computer Science, Economics, Environmental Science, Fine Arts, Geography, History, Home Science, Knowledge Tradition, Mass Media, Mathematics / Applied Mathematics, Performing Arts, Physical Education, Physics, Political Science, Psychology, Sanskrit, Sociology"),
+    ("General Aptitude Test",
+     "General knowledge, current affairs, general mental ability, numerical ability, quantitative reasoning (arithmetic, algebra, geometry, mensuration, statistics), logical and analytical reasoning"),
+])
+
+src = ("ICAI Board of Studies, Foundation study material (new scheme, applicable for May 2026 exams onwards), chapter lists: "
+       "boslive.icai.org/study_material_new_paper_details.php?c=foundation and icai.org/post/19139 (Paper 3); papers 3 and 4 are 2 hours, papers 1 and 2 are 3 hours (ICAI Announcement 13-CA(EXAM)/2026)")
+subjects(AP, "CA Foundation", src, V, [
+    ("Paper 1: Accounting (3 hours)",
+     "Theoretical framework; accounting process; bank reconciliation statement; inventories; depreciation and amortisation; bills of exchange and promissory notes; final accounts of sole proprietors; not-for-profit organisations; accounts from incomplete records; partnership and LLP accounts; company accounts"),
+    ("Paper 2: Business Laws (3 hours)",
+     "Indian regulatory framework; Indian Contract Act, 1872; Sale of Goods Act, 1930; Indian Partnership Act, 1932; Limited Liability Partnership Act, 2008; Companies Act, 2013; Negotiable Instruments Act, 1881"),
+    ("Paper 3: Quantitative Aptitude (2 hours)",
+     "Part A Business Mathematics: ratio and proportion, indices, logarithms, equations, linear inequalities, mathematics of finance, permutations and combinations, sequences and series, sets, relations and functions, limits and continuity, differential and integral calculus in business; "
+     "Part B Logical Reasoning: number series, coding and decoding, odd man out, direction sense, seating arrangements, blood relations; "
+     "Part C Statistics: statistical description of data and sampling, central tendency and dispersion, probability, theoretical distributions, correlation and regression, index numbers"),
+    ("Paper 4: Business Economics (2 hours)",
+     "Nature and scope of business economics; demand and supply; production and cost; price determination in different markets; business cycles; national income; public finance; money market; international trade; Indian economy"),
+])
+
+src = "NATA 2026 Brochure (Council of Architecture), section 4 'Questions & Marks of Examination': nata.in/assets/pdf/Final-NATA-BROCHURE-2026.pdf"
+subjects(AP, "NATA", src, V, [
+    ("Part A: Drawing and Composition Test (offline, 90 minutes, 80 marks)",
+     "A1 Composition and colour (25 marks): compositions for given situations, rearranging shapes and colouring them; A2 Sketching and composition in black and white (25 marks): drawing buildings, people, environment and products with scale, proportion, texture, shade and shadow; A3 3D composition (30 marks) with the kit provided"),
+    ("Part B: MCQ and NCQ (computer-based adaptive, 90 minutes, 42 MCQs + 8 NCQs, 120 marks)",
+     "Visual reasoning (2D and 3D composition); logical derivation; general knowledge of architecture and design (important buildings, history, materials and construction technology, current issues); language interpretation and English grammar; design sensitivity and thinking; numerical ability (basic mathematics and geometry)"),
+])
+
+src = "ICAR AIEEA (PG)-2026 Information Bulletin (NTA), sections 2.1-2.4 and Annexure III: cdnbbsr.s3waas.gov.in/s388a839f2f6f1427879fc33ee4acf4f66/uploads/2026/05/202605091397132773.pdf"
+subjects(AP, "ICAR AIEEA", src, V, [
+    ("One Major Subject-Group paper (120 MCQs, 2 hours, +4 / -1)",
+     "Choose one of 20 Major Subject-Groups matching your degree: Plant Biotechnology, Plant Sciences, Physical Science, Entomology and Nematology, Agronomy, Social Sciences, Statistical Sciences, Horticulture, Forestry, Agricultural Engineering and Technology, Community Science, Animal Biotechnology, Veterinary Science, Animal Sciences, Fisheries Science, Dairy Science, Dairy Technology, Food Science Technology, Agri Business Management, Water Science and Technology. Syllabus for each on icar.org.in/node/21053"),
+])
+
+src = src_of(AP, "BITSAT") + "; syllabus: Annexure-1 of the same brochure"
+subjects(AP, "BITSAT", src, V, [
+    ("Physics (30 questions)",
+     "Units and measurement; kinematics; Newton's laws; impulse and momentum; work and energy; rotational motion; gravitation; mechanics of solids and fluids; oscillations; waves; heat and thermodynamics; electrostatics; current electricity; magnetic effect of current; electromagnetic induction; optics; modern physics; electronic devices"),
+    ("Chemistry (30 questions)",
+     "States of matter; atomic structure; periodicity and bonding; thermodynamics; physical and chemical equilibria; electrochemistry; chemical kinetics; hydrogen and s-block elements; p-, d- and f-block elements; principles of organic chemistry and hydrocarbons; stereochemistry; organic compounds with oxygen and nitrogen; biological, industrial and environmental chemistry; theoretical principles of experimental chemistry"),
+    ("English Proficiency (10) and Logical Reasoning (20)",
+     "Grammar; vocabulary; reading comprehension; composition; verbal reasoning; non-verbal reasoning"),
+    ("Mathematics (40 questions; Biology for B.Pharm and a few programmes)",
+     "Algebra; trigonometry; 2D and 3D coordinate geometry; differential calculus; integral calculus; ordinary differential equations; probability; vectors; statistics; linear programming"),
+])
+
+subjects(AP, "SRMJEEE", src_of(AP, "SRMJEEE"), V, [
+    ("Physics (35 questions)", "Class 11-12 physics"),
+    ("Chemistry (35 questions)", "Class 11-12 chemistry"),
+    ("Mathematics or Biology (40 questions)", "Class 11-12 mathematics, or biology for the biology-based programmes"),
+    ("English and Aptitude (20 questions)", "English usage and general aptitude"),
+])
+
+src = src_of(AP, "NCHM JEE") + "; section 4 Scheme of Examination"
+subjects(AP, "NCHM JEE", src, V, [
+    ("Numerical Ability and Analytical Aptitude (15 questions)", "Numerical ability and analytical aptitude"),
+    ("Reasoning and Logical Deduction (15)", "Reasoning and logical deduction"),
+    ("General Knowledge & Current Affairs (15)", "General knowledge and current affairs"),
+    ("English Language (45)", "English language"),
+    ("Aptitude for Service Sector (30)", "Aptitude for the hospitality and service sector"),
+])
+
+src = src_of(AP, "NIFT Entrance") + "; UG exam structure and GAT component descriptions"
+subjects(AP, "NIFT Entrance", src, V, [
+    ("General Ability Test (GAT, computer-based)",
+     "Quantitative ability: addition, multiplication, division, fractions, percentage, rate of interest, work and task, ratio and proportion, distance; "
+     "communication ability and English comprehension: synonyms, antonyms, word meanings, singular and plural, one-word substitutes, idioms and phrases, spellings, comprehension of a passage; "
+     "analytical and logical ability: inference and logic, creative and lateral thinking; general knowledge and current affairs"),
+    ("Creative Ability Test (CAT, pen and paper; B.Des only)",
+     "Intuitive ability, observation, concept development and design ability; creative use of colour and illustration"),
+    ("Situation Test (B.Des, shortlisted candidates)",
+     "Make a model from a given set of materials: judged on space visualisation, creative use of material, composition of elements and colour scheme"),
+])
+
+subjects(AP, "UCEED", src_of(AP, "UCEED"), V, [
+    ("Part A (computer-based, 200 marks, 2 hours)", "14 numerical-answer, 15 multiple-select and 28 multiple-choice questions on design aptitude"),
+    ("Part B (on paper, 100 marks, 1 hour)", "Two drawing and design aptitude questions; marked only for candidates shortlisted on Part A"),
+])
+
+subjects(AP, "CAT", src_of(AP, "CAT"), V, [
+    ("Verbal Ability & Reading Comprehension", "No fixed syllabus: reading comprehension passages and verbal ability questions"),
+    ("Data Interpretation & Logical Reasoning", "No fixed syllabus: data sets, charts and tables, and logical reasoning sets"),
+    ("Quantitative Ability", "No fixed syllabus: school-level mathematics applied to problems; on-screen calculator allowed"),
+])
+
+subjects(AP, "NSEJS (Junior Science Olympiad)", src_of(AP, "NSEJS (Junior Science Olympiad)"), V, [
+    ("Physics, Chemistry and Biology (equal emphasis)", "Broadly Class 10 CBSE level: all the basic subjects of science"),
+])
+
+subjects(TS, "TGCET (Telangana Gurukulam Class 5)", src_of(TS, "TGCET (Telangana Gurukulam Class 5)"), V, [
+    ("Class V entry: Telugu 20, English 25, Maths 25, EVS 20, Mental Ability 10", "100 objective questions"),
+    ("Class VI entry: Telugu 20, English 20, Maths 25, EVS 25, GK & current affairs 10", "100 objective questions"),
+    ("Class VII entry: English 20, Maths 25, Science 25, Social 20, GK 10", "100 objective questions"),
+    ("Classes VIII-IX entry: English 20, Maths 25, Physical Science 13, Biological Science 12, Social 20, GK 10", "100 objective questions"),
+])
+
+for _exam, _state in (("APRJC CET", AP), ("TGRJC CET", TS)):
+    subjects(_state, _exam, src_of(_state, _exam), V, [
+        ("English (50 marks, every group)", "Class 10 standard English"),
+        ("Mathematics (50 marks; MPC and MEC groups)", "Class 10 mathematics"),
+        ("Physical Science (50 marks; MPC and BPC groups)", "Class 10 physical science"),
+        ("Biological Science (50 marks; BPC group)", "Class 10 biological science"),
+        ("Social Studies (50 marks; MEC and CEC groups)", "Class 10 social studies"),
+    ])
+
+src = src_of(AP, "APPSC Group 1") + "; Scheme and Syllabus (G.O.Ms.No.158, GAD, 26-12-2018) in the same notification"
+subjects(AP, "APPSC Group 1", src, V, [
+    ("Screening Paper I: General Studies (120 questions, 120 marks)",
+     "A. History and culture (30); B. Constitution, polity, social justice and international relations (30); C. Indian and Andhra Pradesh economy and planning (30); D. Geography (30)"),
+    ("Screening Paper II: General Aptitude (120 questions, 120 marks)",
+     "A. General mental ability, administrative and psychological abilities (60); B(i) Science and technology (30); B(ii) Current events of regional, national and international importance (30)"),
+    ("Mains: Telugu and English papers (150 marks each, qualifying)", "Language papers that must be passed but don't count in the ranking"),
+    ("Mains Paper I: General Essay (150)", "Contemporary themes of regional, national and international importance"),
+    ("Mains Paper II: History, Culture and Geography of India and AP (150)", "History, culture and geography of India and Andhra Pradesh"),
+    ("Mains Paper III: Polity, Constitution, Governance, Law and Ethics (150)", "Polity, constitution, governance, law and ethics"),
+    ("Mains Paper IV: Economy and Development of India and AP (150)", "Economy and development of India and Andhra Pradesh"),
+    ("Mains Paper V: Science, Technology and Environmental Issues (150)", "Science, technology and environmental issues"),
+])
+
+subjects(AP, "APPSC Group 2", src_of(AP, "APPSC Group 2"), V, [
+    ("Screening: General Studies & Mental Ability (150 marks)", "Degree-standard general studies and mental ability"),
+    ("Mains Paper I (150 marks)", "Social and cultural history of Andhra Pradesh; the Indian Constitution"),
+    ("Mains Paper II (150 marks)", "Indian and Andhra Pradesh economy; science and technology"),
+])
+
+subjects(TS, "TGPSC Group 1", src_of(TS, "TGPSC Group 1"), V, [
+    ("Preliminary: General Studies & Mental Ability (150 marks)", "Screening test; 1:50 shortlisted for Mains"),
+    ("Mains: General English (qualifying)", "Must be passed; not counted in the ranking"),
+    ("Mains Paper I: General Essay (150)", "Essays"),
+    ("Mains Paper II: History, Culture and Geography (150)", "History, culture and geography"),
+    ("Mains Paper III: Indian Society, Constitution and Governance (150)", "Indian society, the Constitution and governance"),
+    ("Mains Paper IV: Economy and Development (150)", "Economy and development"),
+    ("Mains Paper V: Science, Technology and Data Interpretation (150)", "Science and technology; data interpretation"),
+    ("Mains Paper VI: Telangana Movement and State Formation (150)", "The Telangana movement and formation of the state"),
+])
+
+subjects(TS, "TGPSC Group 4", src_of(TS, "TGPSC Group 4"), V, [
+    ("Paper I: General Studies (150 questions)",
+     "Current affairs; international relations; everyday science; environment and disaster management; geography and economy of India and Telangana; Indian Constitution; Telangana history and movement"),
+    ("Paper II: Secretarial Abilities (150 questions)", "Secretarial abilities"),
+])
+
+subjects(AP, "IBPS PO", src_of(AP, "IBPS PO"), V, [
+    ("Prelims: English Language (30 questions)", "English language"),
+    ("Prelims: Quantitative Aptitude (35)", "Quantitative aptitude"),
+    ("Prelims: Reasoning Ability (35)", "Reasoning ability"),
+    ("Mains: Reasoning", "Reasoning"),
+    ("Mains: General / Economy / Banking / Digital / Financial Awareness", "Including RBI circulars"),
+    ("Mains: English Language", "English language"),
+    ("Mains: Data Analysis and Interpretation", "Data analysis and interpretation"),
+    ("Mains: Descriptive paper (25 marks, 30 minutes)", "Essay and comprehension"),
+])
+
+subjects(AP, "IBPS Clerk", src_of(AP, "IBPS Clerk"), V, [
+    ("Prelims: English (30), Numerical Ability (35), Reasoning (35)", "20 minutes per section, sectional cut-offs"),
+    ("Mains: General / Financial Awareness (40 questions, 50 marks)", "General and financial awareness"),
+    ("Mains: General English (40 questions, 40 marks)", "English"),
+    ("Mains: Reasoning Ability (40 questions, 60 marks)", "Reasoning"),
+    ("Mains: Quantitative Aptitude (40 questions, 50 marks)", "Quantitative aptitude"),
+])
+
+subjects(AP, "SBI PO", src_of(AP, "SBI PO"), V, [
+    ("Prelims: English (40), Quantitative Aptitude (30), Reasoning (30)", "20 minutes each, no sectional cut-off"),
+    ("Mains: Reasoning & Computer Aptitude (40 questions, 60 marks)", "Reasoning and computer aptitude"),
+    ("Mains: Data Analysis & Interpretation (30 questions, 60 marks)", "Data analysis and interpretation"),
+    ("Mains: General Awareness / Economy / Banking (60 questions, 60 marks)", "General, economy and banking awareness"),
+    ("Mains: English (40 questions, 20 marks)", "English"),
+    ("Mains: Descriptive (30 marks)", "Email, situation analysis, report or precis"),
+])
+
+subjects(AP, "AP Police Constable & SI", src_of(AP, "AP Police Constable & SI"), V, [
+    ("Constable: preliminary and final written tests (200 marks each)", "Objective questions"),
+    ("SI: Arithmetic & Reasoning (SSC standard)", "Arithmetic and reasoning"),
+    ("SI: General Studies (degree standard)", "General studies"),
+    ("SI final: English and Telugu/Urdu (descriptive)", "Language papers"),
+])
+
+for _exam, _state in (("AP PGECET", AP), ("TS PGECET", TS)):
+    subjects(_state, _exam, src_of(_state, _exam), V, [
+        ("Your branch's test paper (120 questions)", "One paper in your B.Tech / B.Pharm branch, from that branch's degree syllabus; each paper's syllabus is on the official website"),
+    ])
+subjects(TS, "TS CPGET", src_of(TS, "TS CPGET"), V, [
+    ("The subject of the M.A. / M.Sc / M.Com you want (100 questions)", "Questions only from that subject's degree syllabus"),
+    ("Shared life-science test (Biochemistry, Environmental Science, Forensic Science, Genetics, Microbiology)", "Part A Chemistry (40) + Part B one B.Sc optional (60)"),
+    ("M.Sc Biotechnology test", "Chemistry (40) + Biotechnology (60)"),
+])
+subjects(AP, "AP PGCET", src_of(AP, "AP PGCET"), V, [
+    ("The subject of the PG course you want (100 questions)", "From that subject's degree syllabus; M.P.Ed: B.P.Ed syllabus test plus 100 marks for sports achievements"),
+])
+subjects(AP, "AP PECET", src_of(AP, "AP PECET"), V, [
+    ("Physical Efficiency Test (400 marks)", "Men: 100 m run, shot put (6 kg), 800 m run, long or high jump; women: 100 m run, shot put (4 kg), 400 m run, long or high jump (100 marks each)"),
+    ("Skill Test in one game (100 marks)", "Ball badminton, basketball, cricket, football, handball, hockey, kabaddi, kho-kho, shuttle badminton, tennis or volleyball"),
+])
+
 # ---------- write ----------
 root = os.path.join(os.path.dirname(__file__), "..", "..", "db", "seed")
 exams_path = os.path.join(root, "entrance_exams.json")

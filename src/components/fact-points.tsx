@@ -96,6 +96,8 @@ export const ICON = {
   book: <><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" /><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5" /></>,
   chart: <><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></>,
   link: <><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1" /><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" /></>,
+  target: <><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1" /></>,
+  briefcase: <><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18" /></>,
 };
 
 // One heading-with-icon section of points: the details panels on the
@@ -182,6 +184,53 @@ export function PointList({ text, color, limit = 4, full }: { text: string; colo
         <button onClick={() => setOpen(!open)} className="self-start cursor-pointer border-0 bg-transparent p-0 pl-6 text-[14px] font-semibold" style={{ color: "var(--accent)", fontFamily: "inherit" }}>
           {open ? "Show less" : `Show ${points.length - limit} more`}
         </button>
+      )}
+    </div>
+  );
+}
+
+// An exam's subjects: each with its official syllabus topics and, when
+// added, the topics to concentrate on first (AI-assisted, labelled so).
+// Used on /exams and on the flowchart's exam stops.
+export function SubjectList({
+  subjects, color, empty,
+}: {
+  subjects: { subject: string; topics: string | null; focus: { topic: string; why: string | null }[] }[];
+  color: string; empty: string;
+}) {
+  if (!subjects.length) return <p className="m-0 text-sm" style={{ color: "var(--muted)" }}>{empty}</p>;
+  const anyFocus = subjects.some((s) => s.focus.length);
+  return (
+    <div className="flex flex-col gap-4">
+      {subjects.map((sub) => (
+        <div key={sub.subject} className="flex flex-col gap-3 rounded-2xl px-4 py-3.5" style={{ background: "var(--surface)" }}>
+          <span className="text-[15px] font-bold">{sub.subject}</span>
+          {sub.topics && <PointList text={sub.topics} color={color} limit={3} />}
+          {sub.focus.length > 0 && (
+            <div className="flex flex-col gap-2 border-t pt-3" style={{ borderColor: "var(--line)" }}>
+              <span className="flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase" style={{ color }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>{ICON.target}</svg>
+                Concentrate on
+              </span>
+              <ol className="m-0 flex list-none flex-col gap-2.5 p-0">
+                {sub.focus.map((f, i) => (
+                  <li key={f.topic} className="grid grid-cols-[18px_minmax(0,1fr)] gap-x-2 text-[15px] leading-relaxed">
+                    <span className="font-extrabold" style={{ color }}>{i + 1}</span>
+                    <span style={{ overflowWrap: "anywhere" }}>
+                      <span className="font-semibold" style={{ color: "var(--ink)" }}>{f.topic}</span>
+                      {f.why && <span className="block text-[14px]" style={{ color: "#aeb6c4" }}>{f.why}</span>}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+        </div>
+      ))}
+      {anyFocus && (
+        <span className="text-xs" style={{ color: "var(--muted)" }}>
+          “Concentrate on” is AI-assisted study guidance built from the official syllabus, not official marks weightage. Always check the latest official syllabus.
+        </span>
       )}
     </div>
   );

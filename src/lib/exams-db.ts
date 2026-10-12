@@ -1,5 +1,6 @@
 import { pool } from "./db";
 import { forStudents } from "./student-text";
+import { examSubjects, type SubjectRef } from "./flowchart-db";
 
 // Everything the /exams page shows, read from Postgres: every exam in the
 // entrance_exams table, with the subjects it tests (exam_subjects) and its
@@ -9,7 +10,7 @@ import { forStudents } from "./student-text";
 // exam still pending_review is listed by name, body and official website,
 // with its dates, syllabus and marks left out until they're checked.
 
-export type ExamSubject = { subject: string; topics: string | null };
+export type ExamSubject = SubjectRef;
 export type ExamCutoff = { year: number; category: string; kind: string; value: string; note: string | null };
 export type Exam = {
   id: number;
@@ -36,7 +37,7 @@ const clean = (v: string | null) => {
 };
 
 export async function getExams(): Promise<Exam[]> {
-  const [exams, subjects, cutoffs] = await Promise.all([
+  const [exams, subjects, cutoffs, focus] = await Promise.all([
     pool.query(
       `SELECT x.id, exam_name, full_form_body, eligibility, application_window, exam_date, admits_into,
               source, data_tier, verified_date::text, scope, stage, category, body_type, conducting_body,
@@ -49,14 +50,10 @@ export async function getExams(): Promise<Exam[]> {
        WHERE data_tier = 'tier_1_official' ORDER BY exam_id, sequence_order NULLS LAST, subject`,
     ),
     pool.query(`SELECT exam_id, year, category, kind, value, note FROM exam_cutoffs ORDER BY exam_id, year DESC, id`),
+    pool.query("SELECT exam_id, subject, topic, why FROM exam_focus ORDER BY exam_id, subject, sequence_order NULLS LAST, id"),
   ]);
 
-  const subjectsOf = new Map<number, ExamSubject[]>();
-  for (const r of subjects.rows) {
-    const list = subjectsOf.get(r.exam_id) ?? [];
-    list.push({ subject: r.subject, topics: clean(r.topics) });
-    subjectsOf.set(r.exam_id, list);
-  }
+  const subjectsOf = examSubjects(subjects.rows, focus.rows);
   const cutoffsOf = new Map<number, ExamCutoff[]>();
   for (const r of cutoffs.rows) {
     const list = cutoffsOf.get(r.exam_id) ?? [];

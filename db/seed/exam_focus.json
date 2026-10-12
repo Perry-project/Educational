@@ -1,0 +1,3074 @@
+[
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Mathematics (Engineering stream: 80 questions)",
+    "topic": "Calculus: limits, differentiation and its applications, integration, definite integrals",
+    "why": "The biggest single block of the Maths syllabus, and differential equations build on it, so time spent here pays across many questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Mathematics (Engineering stream: 80 questions)",
+    "topic": "Coordinate geometry: straight lines, circles, parabola, ellipse, hyperbola, 3D",
+    "why": "A long list of chapters that all use the same formulas and methods; practise them together.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Mathematics (Engineering stream: 80 questions)",
+    "topic": "Algebra: matrices, complex numbers, quadratic expressions, permutations and combinations, binomial theorem",
+    "why": "Formula-based chapters where quick, accurate working wins easy marks.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Mathematics (Engineering stream: 80 questions)",
+    "topic": "Vectors and probability",
+    "why": "Shorter chapters with standard question types: learn the formulas and the common problem patterns.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Mathematics (Engineering stream: 80 questions)",
+    "topic": "Trigonometry: identities, equations and properties of triangles",
+    "why": "Used everywhere else in the paper (calculus and coordinate geometry), so weak trigonometry costs marks in other chapters too.",
+    "sequence_order": 5
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Physics (40 questions)",
+    "topic": "Mechanics: laws of motion, work-energy, rotational motion, gravitation",
+    "why": "The first-year foundation: most later chapters reuse these ideas and equations.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Physics (40 questions)",
+    "topic": "Electricity and magnetism: electrostatics, current electricity, magnetism, electromagnetic induction, AC",
+    "why": "A large connected block of the second-year syllabus.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Physics (40 questions)",
+    "topic": "Modern physics: dual nature, atoms, nuclei, semiconductor electronics",
+    "why": "Short chapters with direct, formula-based questions: high return for little time.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Physics (40 questions)",
+    "topic": "Optics and waves",
+    "why": "Standard ray-optics and wave-optics problems repeat in pattern; practise the sign conventions.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Chemistry (40 questions)",
+    "topic": "Organic chemistry: basics, hydrocarbons, haloalkanes, compounds with C, H, O and nitrogen",
+    "why": "Many syllabus chapters share the same reaction logic; learn named reactions and conversions together.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Chemistry (40 questions)",
+    "topic": "Physical chemistry: stoichiometry, thermodynamics, equilibrium, electrochemistry, kinetics, solutions",
+    "why": "Numerical chapters where practice turns into sure marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Chemistry (40 questions)",
+    "topic": "Inorganic chemistry: periodicity, chemical bonding, p-, d- and f-block elements, coordination compounds",
+    "why": "Memory-based: revise from the textbook tables repeatedly rather than once.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EAPCET",
+    "subject": "Chemistry (40 questions)",
+    "topic": "Atomic structure and chemical bonding",
+    "why": "The base for the whole subject; gaps here show up in every other chapter.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Mathematics (Engineering stream: 80 questions)",
+    "topic": "Calculus: limits, differentiation and its applications, integration, definite integrals",
+    "why": "The biggest single block of the Maths syllabus, and differential equations build on it, so time spent here pays across many questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Mathematics (Engineering stream: 80 questions)",
+    "topic": "Coordinate geometry: straight lines, circles, parabola, ellipse, hyperbola, 3D",
+    "why": "A long list of chapters that all use the same formulas and methods; practise them together.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Mathematics (Engineering stream: 80 questions)",
+    "topic": "Algebra: matrices, complex numbers, quadratic expressions, permutations and combinations, binomial theorem",
+    "why": "Formula-based chapters where quick, accurate working wins easy marks.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Mathematics (Engineering stream: 80 questions)",
+    "topic": "Vectors and probability",
+    "why": "Shorter chapters with standard question types: learn the formulas and the common problem patterns.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Mathematics (Engineering stream: 80 questions)",
+    "topic": "Trigonometry: identities, equations and properties of triangles",
+    "why": "Used everywhere else in the paper (calculus and coordinate geometry), so weak trigonometry costs marks in other chapters too.",
+    "sequence_order": 5
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Physics (40 questions in each stream)",
+    "topic": "Mechanics: laws of motion, work-energy, rotational motion, gravitation",
+    "why": "The first-year foundation: most later chapters reuse these ideas and equations.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Physics (40 questions in each stream)",
+    "topic": "Electricity and magnetism: electrostatics, current electricity, magnetism, electromagnetic induction, AC",
+    "why": "A large connected block of the second-year syllabus.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Physics (40 questions in each stream)",
+    "topic": "Modern physics: dual nature, atoms, nuclei, semiconductor electronics",
+    "why": "Short chapters with direct, formula-based questions: high return for little time.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Physics (40 questions in each stream)",
+    "topic": "Optics and waves",
+    "why": "Standard ray-optics and wave-optics problems repeat in pattern; practise the sign conventions.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Chemistry (40 questions in each stream)",
+    "topic": "Organic chemistry: basics, hydrocarbons, haloalkanes, compounds with C, H, O and nitrogen",
+    "why": "Many syllabus chapters share the same reaction logic; learn named reactions and conversions together.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Chemistry (40 questions in each stream)",
+    "topic": "Physical chemistry: stoichiometry, thermodynamics, equilibrium, electrochemistry, kinetics, solutions",
+    "why": "Numerical chapters where practice turns into sure marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Chemistry (40 questions in each stream)",
+    "topic": "Inorganic chemistry: periodicity, chemical bonding, p-, d- and f-block elements, coordination compounds",
+    "why": "Memory-based: revise from the textbook tables repeatedly rather than once.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Chemistry (40 questions in each stream)",
+    "topic": "Atomic structure and chemical bonding",
+    "why": "The base for the whole subject; gaps here show up in every other chapter.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Botany (Agriculture & Pharmacy stream)",
+    "topic": "Plant physiology",
+    "why": "Process-based chapters (photosynthesis, respiration, growth) that are asked in detail.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Botany (Agriculture & Pharmacy stream)",
+    "topic": "Genetics, molecular biology and biotechnology",
+    "why": "Concept-heavy chapters with problem-style questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Botany (Agriculture & Pharmacy stream)",
+    "topic": "Cell structure and function",
+    "why": "Basic to both Botany and Zoology.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Botany (Agriculture & Pharmacy stream)",
+    "topic": "Reproduction in plants and plant systematics",
+    "why": "Fact-rich chapters: revise diagrams and examples.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Zoology (Agriculture & Pharmacy stream)",
+    "topic": "Human anatomy and physiology I-IV",
+    "why": "Four syllabus units on one theme: the largest block of Zoology.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Zoology (Agriculture & Pharmacy stream)",
+    "topic": "Genetics and organic evolution",
+    "why": "Concepts and problem questions that overlap with Botany genetics.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Zoology (Agriculture & Pharmacy stream)",
+    "topic": "Human reproduction",
+    "why": "Detailed, diagram-based chapter.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TG EAPCET (Telangana State Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "subject": "Zoology (Agriculture & Pharmacy stream)",
+    "topic": "Animal diversity and structural organisation",
+    "why": "Classification facts: revise with tables.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Mathematics (20 MCQ + 5 numerical)",
+    "topic": "Calculus: limits, continuity, differentiability, integral calculus, differential equations",
+    "why": "The largest part of the syllabus, and it ties into coordinate geometry and other chapters.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Mathematics (20 MCQ + 5 numerical)",
+    "topic": "Coordinate geometry and 3D geometry with vectors",
+    "why": "Many chapters solved with the same tools; strong algebra makes them fast.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Mathematics (20 MCQ + 5 numerical)",
+    "topic": "Algebra: complex numbers, quadratic equations, matrices and determinants, sequences and series, binomial theorem, permutations and combinations",
+    "why": "Broad algebra base used throughout the paper.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Mathematics (20 MCQ + 5 numerical)",
+    "topic": "Probability and statistics",
+    "why": "Tricky but scoring once the counting methods are clear.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Physics (20 MCQ + 5 numerical)",
+    "topic": "Mechanics: kinematics, laws of motion, work-energy, rotational motion, gravitation",
+    "why": "The foundation for almost every other chapter.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Physics (20 MCQ + 5 numerical)",
+    "topic": "Electrostatics, current electricity, magnetism and electromagnetic induction",
+    "why": "A large, connected block of the syllabus.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Physics (20 MCQ + 5 numerical)",
+    "topic": "Modern physics: dual nature, atoms and nuclei, electronic devices",
+    "why": "Short chapters with direct questions.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Physics (20 MCQ + 5 numerical)",
+    "topic": "Optics, waves and thermodynamics",
+    "why": "Standard problem types that repeat.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Chemistry (20 MCQ + 5 numerical)",
+    "topic": "Organic chemistry: basic principles, hydrocarbons, compounds containing halogens, oxygen and nitrogen",
+    "why": "Reaction mechanisms link the chapters: understand them instead of memorising each reaction.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Chemistry (20 MCQ + 5 numerical)",
+    "topic": "Physical chemistry: thermodynamics, equilibrium, electrochemistry, kinetics, solutions",
+    "why": "Numerical, so practice converts directly into marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Chemistry (20 MCQ + 5 numerical)",
+    "topic": "Inorganic chemistry: chemical bonding, coordination compounds, p-, d- and f-block elements",
+    "why": "Read the NCERT textbook line by line: questions are often taken straight from it.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Main",
+    "subject": "Chemistry (20 MCQ + 5 numerical)",
+    "topic": "Atomic structure and some basic concepts (mole concept)",
+    "why": "Used in every numerical in the subject.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Advanced",
+    "subject": "Mathematics",
+    "topic": "Calculus: limits, continuity, differentiability, integral calculus, differential equations",
+    "why": "The largest part of the syllabus, and it ties into coordinate geometry and other chapters.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Advanced",
+    "subject": "Mathematics",
+    "topic": "Coordinate geometry and 3D geometry with vectors",
+    "why": "Many chapters solved with the same tools; strong algebra makes them fast.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Advanced",
+    "subject": "Mathematics",
+    "topic": "Algebra and matrices",
+    "why": "Concepts are tested deeply and combined with other chapters.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Advanced",
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "why": "A frequent source of multi-concept questions.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Advanced",
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "why": "Deep, multi-step problems are built on it; it is also the base for the rest of the paper.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Advanced",
+    "subject": "Physics",
+    "topic": "Electricity and magnetism",
+    "why": "A large part of the syllabus with challenging problems.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Advanced",
+    "subject": "Physics",
+    "topic": "Modern physics and optics",
+    "why": "Concept-heavy chapters that reward clear understanding.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Advanced",
+    "subject": "Physics",
+    "topic": "Thermal physics",
+    "why": "Thermodynamics and heat transfer problems that combine with other topics.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Advanced",
+    "subject": "Chemistry",
+    "topic": "Organic chemistry: mechanisms and conversions",
+    "why": "Questions test reasoning through reaction steps, not memory alone.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Advanced",
+    "subject": "Chemistry",
+    "topic": "Physical chemistry: equilibrium, electrochemistry, kinetics, thermodynamics",
+    "why": "Numerical-heavy, high-precision questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JEE Advanced",
+    "subject": "Chemistry",
+    "topic": "Inorganic chemistry: bonding, coordination compounds, qualitative analysis",
+    "why": "Conceptual questions drawn closely from the textbook.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "VITEEE",
+    "subject": "Mathematics or Biology (40 questions)",
+    "topic": "Calculus and coordinate geometry (Maths route)",
+    "why": "The largest parts of the Class 11-12 Maths syllabus.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "VITEEE",
+    "subject": "Mathematics or Biology (40 questions)",
+    "topic": "Algebra, vectors and probability (Maths route)",
+    "why": "Formula-based chapters for quick marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "VITEEE",
+    "subject": "Mathematics or Biology (40 questions)",
+    "topic": "Genetics, human physiology and biotechnology (Biology route)",
+    "why": "Core Class 12 biology chapters.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "VITEEE",
+    "subject": "Physics (35)",
+    "topic": "Mechanics and electricity & magnetism",
+    "why": "The two biggest blocks of Class 11-12 physics.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "VITEEE",
+    "subject": "Physics (35)",
+    "topic": "Modern physics and semiconductors",
+    "why": "Short chapters with direct questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "VITEEE",
+    "subject": "Chemistry (35)",
+    "topic": "Organic chemistry",
+    "why": "A large share of Class 12 chemistry.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "VITEEE",
+    "subject": "Chemistry (35)",
+    "topic": "Physical chemistry numericals",
+    "why": "Practice turns these into sure marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "VITEEE",
+    "subject": "English (5) and Aptitude (10)",
+    "topic": "Reading comprehension and grammar",
+    "why": "English and aptitude are a small part of the paper: aim for full marks with light, steady practice.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Biology: Botany & Zoology (90 questions)",
+    "topic": "Human physiology",
+    "why": "A large Class 11 block; questions come directly from NCERT text and diagrams.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Biology: Botany & Zoology (90 questions)",
+    "topic": "Genetics and evolution",
+    "why": "A major Class 12 unit with both concept and problem questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Biology: Botany & Zoology (90 questions)",
+    "topic": "Reproduction",
+    "why": "Plant and human reproduction together form a big, NCERT-based part.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Biology: Botany & Zoology (90 questions)",
+    "topic": "Ecology and environment",
+    "why": "Fact-based and quick to revise: scoring for most students.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Biology: Botany & Zoology (90 questions)",
+    "topic": "Biotechnology and its applications",
+    "why": "Short unit with direct NCERT questions.",
+    "sequence_order": 5
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Biology: Botany & Zoology (90 questions)",
+    "topic": "Cell structure and function, and plant physiology",
+    "why": "Basic chapters that support the rest of Biology.",
+    "sequence_order": 6
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Physics (45 questions)",
+    "topic": "Mechanics: kinematics, laws of motion, work-energy, rotational motion",
+    "why": "The foundation for the whole subject.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Physics (45 questions)",
+    "topic": "Electrostatics, current electricity and magnetism",
+    "why": "A large connected block of Class 12.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Physics (45 questions)",
+    "topic": "Modern physics: dual nature, atoms and nuclei, electronic devices",
+    "why": "Short chapters with formula-based questions: quick marks.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Physics (45 questions)",
+    "topic": "Optics",
+    "why": "Standard ray-optics questions repeat; practise sign conventions.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Chemistry (45 questions)",
+    "topic": "Organic chemistry: basic principles, hydrocarbons, compounds with halogens, oxygen and nitrogen",
+    "why": "Reaction-based questions, often straight from NCERT.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Chemistry (45 questions)",
+    "topic": "Inorganic chemistry: chemical bonding, coordination compounds, p-, d- and f-block elements",
+    "why": "Read NCERT line by line: many questions come word for word.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NEET-UG",
+    "subject": "Chemistry (45 questions)",
+    "topic": "Physical chemistry: mole concept, equilibrium, thermodynamics, electrochemistry, kinetics",
+    "why": "Numerical chapters: practice makes them reliable marks.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ECET",
+    "subject": "Mathematics (engineering stream, 50 marks)",
+    "topic": "Calculus (differentiation, integration, differential equations)",
+    "why": "The core of diploma-level engineering maths.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ECET",
+    "subject": "Mathematics (engineering stream, 50 marks)",
+    "topic": "Matrices, trigonometry and complex numbers",
+    "why": "Formula-based topics for sure marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ECET",
+    "subject": "Physics (engineering stream, 25 marks)",
+    "topic": "Units, mechanics and heat",
+    "why": "Basic diploma physics that most questions draw on.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ECET",
+    "subject": "Physics (engineering stream, 25 marks)",
+    "topic": "Modern physics and electricity basics",
+    "why": "Short, direct topics.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ECET",
+    "subject": "Chemistry (engineering stream, 25 marks)",
+    "topic": "Fundamentals: atomic structure, bonding, solutions, acids and bases",
+    "why": "The base of diploma chemistry.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ECET",
+    "subject": "Chemistry (engineering stream, 25 marks)",
+    "topic": "Electrochemistry, corrosion, water treatment and polymers",
+    "why": "Applied engineering-chemistry topics.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ECET",
+    "subject": "Engineering paper (100 marks)",
+    "topic": "Your own branch's core subjects from the diploma syllabus",
+    "why": "The branch paper carries half the total marks, so revise your diploma core subjects most.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ECET",
+    "subject": "Engineering paper (100 marks)",
+    "topic": "Numerical problems from those subjects",
+    "why": "Practise solving, not just reading.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ECET (Telangana State Engineering Common Entrance Test)",
+    "subject": "Mathematics (diploma candidates, 50 marks)",
+    "topic": "Calculus (differentiation, integration, differential equations)",
+    "why": "The core of diploma-level engineering maths.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ECET (Telangana State Engineering Common Entrance Test)",
+    "subject": "Mathematics (diploma candidates, 50 marks)",
+    "topic": "Matrices, trigonometry and complex numbers",
+    "why": "Formula-based topics for sure marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ECET (Telangana State Engineering Common Entrance Test)",
+    "subject": "Physics (diploma candidates, 25 marks)",
+    "topic": "Units, mechanics and heat",
+    "why": "Basic diploma physics that most questions draw on.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ECET (Telangana State Engineering Common Entrance Test)",
+    "subject": "Physics (diploma candidates, 25 marks)",
+    "topic": "Modern physics and electricity basics",
+    "why": "Short, direct topics.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ECET (Telangana State Engineering Common Entrance Test)",
+    "subject": "Chemistry (diploma candidates, 25 marks)",
+    "topic": "Fundamentals: atomic structure, bonding, solutions, acids and bases",
+    "why": "The base of diploma chemistry.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ECET (Telangana State Engineering Common Entrance Test)",
+    "subject": "Chemistry (diploma candidates, 25 marks)",
+    "topic": "Electrochemistry, corrosion, water treatment and polymers",
+    "why": "Applied engineering-chemistry topics.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ECET (Telangana State Engineering Common Entrance Test)",
+    "subject": "Engineering paper (diploma candidates, 100 marks)",
+    "topic": "Your own branch's core subjects from the diploma syllabus",
+    "why": "The branch paper carries half the total marks, so revise your diploma core subjects most.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ECET (Telangana State Engineering Common Entrance Test)",
+    "subject": "Engineering paper (diploma candidates, 100 marks)",
+    "topic": "Numerical problems from those subjects",
+    "why": "Practise solving, not just reading.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ICET",
+    "subject": "Section A: Analytical Ability (75 questions)",
+    "topic": "Problem solving: series, coding-decoding, analogies, arrangements",
+    "why": "The larger part of the section: speed comes from practice.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ICET",
+    "subject": "Section A: Analytical Ability (75 questions)",
+    "topic": "Data sufficiency",
+    "why": "A fixed block of questions with a learnable method.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ICET",
+    "subject": "Section A: Analytical Ability (75 questions)",
+    "topic": "Data analysis from tables and graphs",
+    "why": "Quick marks with careful reading.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ICET (Telangana State Integrated Common Entrance Test)",
+    "subject": "Section A: Analytical Ability (75 questions)",
+    "topic": "Problem solving: series, coding-decoding, analogies, arrangements",
+    "why": "The larger part of the section: speed comes from practice.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ICET (Telangana State Integrated Common Entrance Test)",
+    "subject": "Section A: Analytical Ability (75 questions)",
+    "topic": "Data sufficiency",
+    "why": "A fixed block of questions with a learnable method.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ICET (Telangana State Integrated Common Entrance Test)",
+    "subject": "Section A: Analytical Ability (75 questions)",
+    "topic": "Data analysis from tables and graphs",
+    "why": "Quick marks with careful reading.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ICET",
+    "subject": "Section B: Communication Ability (70 questions)",
+    "topic": "Reading comprehension",
+    "why": "Several passages: regular reading improves speed.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ICET",
+    "subject": "Section B: Communication Ability (70 questions)",
+    "topic": "Functional grammar and vocabulary",
+    "why": "Learnable rules and word lists.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ICET",
+    "subject": "Section B: Communication Ability (70 questions)",
+    "topic": "Business and computer terminology",
+    "why": "Memory-based: revise standard term lists.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ICET",
+    "subject": "Section C: Mathematical Ability (55 questions)",
+    "topic": "Arithmetic: percentages, profit and loss, ratio, time and work, time and distance",
+    "why": "The largest block of the section.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ICET",
+    "subject": "Section C: Mathematical Ability (55 questions)",
+    "topic": "Algebra and geometry",
+    "why": "Standard school-level formulas.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP ICET",
+    "subject": "Section C: Mathematical Ability (55 questions)",
+    "topic": "Statistics",
+    "why": "A small block that is easy to score.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ICET (Telangana State Integrated Common Entrance Test)",
+    "subject": "Section B: Mathematical Ability (75 questions)",
+    "topic": "Arithmetic: percentages, profit and loss, ratio, time and work, time and distance",
+    "why": "The largest block of the section.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ICET (Telangana State Integrated Common Entrance Test)",
+    "subject": "Section B: Mathematical Ability (75 questions)",
+    "topic": "Algebra and geometry",
+    "why": "Standard school-level formulas.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ICET (Telangana State Integrated Common Entrance Test)",
+    "subject": "Section B: Mathematical Ability (75 questions)",
+    "topic": "Statistics",
+    "why": "A small block that is easy to score.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ICET (Telangana State Integrated Common Entrance Test)",
+    "subject": "Section C: Communication Ability (50 questions)",
+    "topic": "Reading comprehension",
+    "why": "Several passages: regular reading improves speed.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ICET (Telangana State Integrated Common Entrance Test)",
+    "subject": "Section C: Communication Ability (50 questions)",
+    "topic": "Functional grammar and vocabulary",
+    "why": "Learnable rules and word lists.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS ICET (Telangana State Integrated Common Entrance Test)",
+    "subject": "Section C: Communication Ability (50 questions)",
+    "topic": "Business and computer terminology",
+    "why": "Memory-based: revise standard term lists.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CLAT (UG)",
+    "subject": "Legal Reasoning (28-32 questions, about 25%)",
+    "topic": "Applying a given legal principle to facts",
+    "why": "About a quarter of the paper: answer from the principle given, not from outside knowledge.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CLAT (UG)",
+    "subject": "Legal Reasoning (28-32 questions, about 25%)",
+    "topic": "Reading current legal news (constitutional, criminal, contract and tort themes)",
+    "why": "Passages are built on topical legal issues.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CLAT (UG)",
+    "subject": "Current Affairs including General Knowledge (28-32 questions, about 25%)",
+    "topic": "Last 12 months of national and international news",
+    "why": "About a quarter of the paper: read a daily newspaper and monthly summaries.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CLAT (UG)",
+    "subject": "Current Affairs including General Knowledge (28-32 questions, about 25%)",
+    "topic": "Background of major events (history, organisations, awards, reports)",
+    "why": "Questions ask about the context around the news passage.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CLAT (UG)",
+    "subject": "English Language (22-26 questions, about 20%)",
+    "topic": "Reading speed and comprehension of 450-word passages",
+    "why": "Every English question is passage-based.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CLAT (UG)",
+    "subject": "English Language (22-26 questions, about 20%)",
+    "topic": "Inference and the main idea",
+    "why": "Most questions test understanding, not grammar rules.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CLAT (UG)",
+    "subject": "Logical Reasoning (22-26 questions, about 20%)",
+    "topic": "Arguments: premises, conclusions, assumptions, strengthen and weaken",
+    "why": "The core of the section.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CLAT (UG)",
+    "subject": "Logical Reasoning (22-26 questions, about 20%)",
+    "topic": "Inference and analogies",
+    "why": "Practise with timed passages.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CLAT (UG)",
+    "subject": "Quantitative Techniques (10-14 questions, about 10%)",
+    "topic": "Ratios, percentages and data interpretation from short sets",
+    "why": "About 10% of the paper at Class 10 level: aim for full marks.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP LAWCET",
+    "subject": "Part C: Aptitude for the Study of Law (60)",
+    "topic": "The Constitution of India: fundamental rights, directive principles, Parliament, judiciary",
+    "why": "The base of the law-aptitude part, the largest of the three.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP LAWCET",
+    "subject": "Part C: Aptitude for the Study of Law (60)",
+    "topic": "Basic principles of law: contracts, torts, crimes",
+    "why": "Elementary legal principles are asked directly.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP LAWCET",
+    "subject": "Part C: Aptitude for the Study of Law (60)",
+    "topic": "Legal comprehension passages",
+    "why": "Read the principle and apply it to the facts given.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP LAWCET",
+    "subject": "Part B: Current Affairs (30)",
+    "topic": "Current affairs of the last year: national, state and international",
+    "why": "Read a newspaper daily and revise monthly summaries.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP LAWCET",
+    "subject": "Part A: General Knowledge and Mental Ability (30)",
+    "topic": "General knowledge (static GK) and mental ability (reasoning)",
+    "why": "Reasoning is quick to improve with practice; static GK needs steady revision.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS LAWCET",
+    "subject": "Part C: Aptitude for the Study of Law (60)",
+    "topic": "The Constitution of India: fundamental rights, directive principles, Parliament, judiciary",
+    "why": "The base of the law-aptitude part, the largest of the three.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS LAWCET",
+    "subject": "Part C: Aptitude for the Study of Law (60)",
+    "topic": "Basic principles of law: contracts, torts, crimes",
+    "why": "Elementary legal principles are asked directly.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS LAWCET",
+    "subject": "Part C: Aptitude for the Study of Law (60)",
+    "topic": "Legal comprehension passages",
+    "why": "Read the principle and apply it to the facts given.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS LAWCET",
+    "subject": "Part B: Current Affairs (30)",
+    "topic": "Current affairs of the last year: national, state and international",
+    "why": "Read a newspaper daily and revise monthly summaries.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS LAWCET",
+    "subject": "Part A: General Knowledge and Mental Ability (30)",
+    "topic": "General knowledge (static GK) and mental ability (reasoning)",
+    "why": "Reasoning is quick to improve with practice; static GK needs steady revision.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NDA (National Defence Academy exam)",
+    "subject": "Paper I: Mathematics (300 marks)",
+    "topic": "Calculus: differential and integral calculus, differential equations",
+    "why": "Large share of the Class 11-12 syllabus tested.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NDA (National Defence Academy exam)",
+    "subject": "Paper I: Mathematics (300 marks)",
+    "topic": "Algebra, matrices and determinants",
+    "why": "Formula-based and fast to score.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NDA (National Defence Academy exam)",
+    "subject": "Paper I: Mathematics (300 marks)",
+    "topic": "Trigonometry",
+    "why": "Asked directly and used in other chapters.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NDA (National Defence Academy exam)",
+    "subject": "Paper I: Mathematics (300 marks)",
+    "topic": "Analytical geometry (2D and 3D) and vectors",
+    "why": "Standard problem types.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NDA (National Defence Academy exam)",
+    "subject": "Paper I: Mathematics (300 marks)",
+    "topic": "Statistics and probability",
+    "why": "Short, scoring chapters.",
+    "sequence_order": 5
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NDA (National Defence Academy exam)",
+    "subject": "Paper II: General Ability Test, Part A English (200 marks)",
+    "topic": "Grammar and usage, vocabulary",
+    "why": "Spotting errors, synonyms and antonyms make up much of the section.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NDA (National Defence Academy exam)",
+    "subject": "Paper II: General Ability Test, Part A English (200 marks)",
+    "topic": "Comprehension",
+    "why": "Regular reading improves speed and accuracy.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NDA (National Defence Academy exam)",
+    "subject": "Paper II: General Ability Test, Part B General Knowledge (400 marks)",
+    "topic": "Physics",
+    "why": "The largest share of General Knowledge (about 25%, per the notice).",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NDA (National Defence Academy exam)",
+    "subject": "Paper II: General Ability Test, Part B General Knowledge (400 marks)",
+    "topic": "History and freedom movement, and geography",
+    "why": "About 20% each, per the notice.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NDA (National Defence Academy exam)",
+    "subject": "Paper II: General Ability Test, Part B General Knowledge (400 marks)",
+    "topic": "Chemistry and general science",
+    "why": "Together about 25%: Class 10-level concepts.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NDA (National Defence Academy exam)",
+    "subject": "Paper II: General Ability Test, Part B General Knowledge (400 marks)",
+    "topic": "Current events",
+    "why": "About 10%: follow the news for the past year.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CDS (Combined Defence Services exam)",
+    "subject": "English (100 marks)",
+    "topic": "Spotting errors, sentence improvement, synonyms and antonyms, comprehension",
+    "why": "The standard question types of the paper.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CDS (Combined Defence Services exam)",
+    "subject": "General Knowledge (100 marks)",
+    "topic": "Current events and defence news",
+    "why": "Asked every year.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CDS (Combined Defence Services exam)",
+    "subject": "General Knowledge (100 marks)",
+    "topic": "Indian history and geography",
+    "why": "Named in the syllabus.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CDS (Combined Defence Services exam)",
+    "subject": "General Knowledge (100 marks)",
+    "topic": "Everyday science",
+    "why": "Class 10-level science applied to daily life.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CDS (Combined Defence Services exam)",
+    "subject": "Elementary Mathematics (100 marks; IMA, INA and AFA only)",
+    "topic": "Arithmetic: percentages, ratios, time and work, interest",
+    "why": "Class 10-level, a large part of the paper.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CDS (Combined Defence Services exam)",
+    "subject": "Elementary Mathematics (100 marks; IMA, INA and AFA only)",
+    "topic": "Algebra, geometry and mensuration",
+    "why": "Formula-based chapters.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CDS (Combined Defence Services exam)",
+    "subject": "Elementary Mathematics (100 marks; IMA, INA and AFA only)",
+    "topic": "Trigonometry and statistics",
+    "why": "Short, scoring topics.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AFCAT",
+    "subject": "Numerical Ability (Class 10 level)",
+    "topic": "Percentage, ratio, profit and loss, time and work, speed and distance",
+    "why": "Class 10-level arithmetic that most questions use.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AFCAT",
+    "subject": "Numerical Ability (Class 10 level)",
+    "topic": "Simplification and number series",
+    "why": "Quick marks with practice.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AFCAT",
+    "subject": "Reasoning and Military Aptitude",
+    "topic": "Non-verbal reasoning: figures, patterns, spatial ability",
+    "why": "A distinctive part of AFCAT; practise with past-style figure questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AFCAT",
+    "subject": "Reasoning and Military Aptitude",
+    "topic": "Verbal reasoning: analogies, series, coding",
+    "why": "Standard reasoning types.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AFCAT",
+    "subject": "English",
+    "topic": "Vocabulary: synonyms, antonyms, idioms, one-word substitution",
+    "why": "Many of the questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AFCAT",
+    "subject": "English",
+    "topic": "Comprehension and error detection",
+    "why": "Regular reading helps.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AFCAT",
+    "subject": "General Awareness",
+    "topic": "Defence and current affairs",
+    "why": "Named in the syllabus and asked often.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AFCAT",
+    "subject": "General Awareness",
+    "topic": "History, geography, polity and basic science",
+    "why": "Static general knowledge: revise steadily.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CGL",
+    "subject": "Tier-I: Quantitative Aptitude (25, 50 marks)",
+    "topic": "Arithmetic: percentages, ratio, profit and loss, interest, time and work, speed and distance",
+    "why": "The bulk of the quantitative questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CGL",
+    "subject": "Tier-I: Quantitative Aptitude (25, 50 marks)",
+    "topic": "Geometry, mensuration and trigonometry",
+    "why": "Formula-based; learn the standard results.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CGL",
+    "subject": "Tier-I: Quantitative Aptitude (25, 50 marks)",
+    "topic": "Data interpretation (bar and pie charts)",
+    "why": "Quick marks with careful reading.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CGL",
+    "subject": "Tier-I: General Intelligence and Reasoning (25 questions, 50 marks)",
+    "topic": "Analogies, classification, series, coding-decoding",
+    "why": "The most common question types.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CGL",
+    "subject": "Tier-I: General Intelligence and Reasoning (25 questions, 50 marks)",
+    "topic": "Non-verbal: paper folding, embedded figures, mirror images",
+    "why": "Easy once practised.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CGL",
+    "subject": "Tier-I: General Awareness (25, 50 marks)",
+    "topic": "Current affairs of the last 6-12 months",
+    "why": "Asked every year.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CGL",
+    "subject": "Tier-I: General Awareness (25, 50 marks)",
+    "topic": "Static GK: history, geography, polity, economy",
+    "why": "Revise steadily with short notes.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CGL",
+    "subject": "Tier-I: General Awareness (25, 50 marks)",
+    "topic": "Everyday science",
+    "why": "Class 10-level biology, physics and chemistry.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CGL",
+    "subject": "Tier-I: English Comprehension (25, 50 marks)",
+    "topic": "Error spotting, fill in the blanks, sentence improvement",
+    "why": "Grammar rules apply across many questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CGL",
+    "subject": "Tier-I: English Comprehension (25, 50 marks)",
+    "topic": "Vocabulary: synonyms, antonyms, idioms, one-word substitution",
+    "why": "Build a word list and revise it.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CGL",
+    "subject": "Tier-I: English Comprehension (25, 50 marks)",
+    "topic": "Comprehension and cloze test",
+    "why": "Regular reading improves speed.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CHSL",
+    "subject": "Tier-I: Quantitative Aptitude (25, 50 marks)",
+    "topic": "Arithmetic: percentages, ratio, profit and loss, interest, time and work, speed and distance",
+    "why": "The bulk of the quantitative questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CHSL",
+    "subject": "Tier-I: Quantitative Aptitude (25, 50 marks)",
+    "topic": "Geometry, mensuration and trigonometry",
+    "why": "Formula-based; learn the standard results.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CHSL",
+    "subject": "Tier-I: Quantitative Aptitude (25, 50 marks)",
+    "topic": "Data interpretation (bar and pie charts)",
+    "why": "Quick marks with careful reading.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CHSL",
+    "subject": "Tier-I: General Intelligence (25, 50 marks)",
+    "topic": "Analogies, classification, series, coding-decoding",
+    "why": "The most common question types.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CHSL",
+    "subject": "Tier-I: General Intelligence (25, 50 marks)",
+    "topic": "Non-verbal: paper folding, embedded figures, mirror images",
+    "why": "Easy once practised.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CHSL",
+    "subject": "Tier-I: General Awareness (25, 50 marks)",
+    "topic": "Current affairs of the last 6-12 months",
+    "why": "Asked every year.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CHSL",
+    "subject": "Tier-I: General Awareness (25, 50 marks)",
+    "topic": "Static GK: history, geography, polity, economy",
+    "why": "Revise steadily with short notes.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CHSL",
+    "subject": "Tier-I: General Awareness (25, 50 marks)",
+    "topic": "Everyday science",
+    "why": "Class 10-level biology, physics and chemistry.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CHSL",
+    "subject": "Tier-I: English Language (25 questions, 50 marks)",
+    "topic": "Error spotting, fill in the blanks, sentence improvement",
+    "why": "Grammar rules apply across many questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CHSL",
+    "subject": "Tier-I: English Language (25 questions, 50 marks)",
+    "topic": "Vocabulary: synonyms, antonyms, idioms, one-word substitution",
+    "why": "Build a word list and revise it.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC CHSL",
+    "subject": "Tier-I: English Language (25 questions, 50 marks)",
+    "topic": "Comprehension and cloze test",
+    "why": "Regular reading improves speed.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC GD Constable",
+    "subject": "Elementary Mathematics (20, 40 marks)",
+    "topic": "Arithmetic: percentages, ratio, profit and loss, interest, time and work, speed and distance",
+    "why": "The bulk of the quantitative questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC GD Constable",
+    "subject": "Elementary Mathematics (20, 40 marks)",
+    "topic": "Number system and simplification",
+    "why": "Basic and quick to score.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC GD Constable",
+    "subject": "General Intelligence and Reasoning (20 questions, 40 marks)",
+    "topic": "Analogies, classification, series, coding-decoding",
+    "why": "The most common question types.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC GD Constable",
+    "subject": "General Intelligence and Reasoning (20 questions, 40 marks)",
+    "topic": "Non-verbal: paper folding, embedded figures, mirror images",
+    "why": "Easy once practised.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC GD Constable",
+    "subject": "General Knowledge and General Awareness (20, 40 marks)",
+    "topic": "Current affairs of the last 6-12 months",
+    "why": "Asked every year.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC GD Constable",
+    "subject": "General Knowledge and General Awareness (20, 40 marks)",
+    "topic": "Static GK: history, geography, polity, economy",
+    "why": "Revise steadily with short notes.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC GD Constable",
+    "subject": "General Knowledge and General Awareness (20, 40 marks)",
+    "topic": "Everyday science",
+    "why": "Class 10-level biology, physics and chemistry.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SSC GD Constable",
+    "subject": "English / Hindi (20, 40 marks)",
+    "topic": "Basic comprehension, grammar and vocabulary",
+    "why": "School-level language: steady practice is enough.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB Group D (Level 1)",
+    "subject": "Mathematics (25 questions)",
+    "topic": "Arithmetic: percentages, ratio, interest, profit and loss, time and work, time and distance",
+    "why": "Most of the maths questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB Group D (Level 1)",
+    "subject": "Mathematics (25 questions)",
+    "topic": "Number system, simplification (BODMAS), LCM and HCF",
+    "why": "Fast marks with practice.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB Group D (Level 1)",
+    "subject": "Mathematics (25 questions)",
+    "topic": "Mensuration, geometry and trigonometry",
+    "why": "Standard formulas.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB Group D (Level 1)",
+    "subject": "General Intelligence & Reasoning (30 questions)",
+    "topic": "Series, analogies, coding-decoding, classification",
+    "why": "The common question types.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB Group D (Level 1)",
+    "subject": "General Intelligence & Reasoning (30 questions)",
+    "topic": "Syllogism, Venn diagrams, puzzles and seating arrangements",
+    "why": "Practise to gain speed.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB Group D (Level 1)",
+    "subject": "General Science (25 questions)",
+    "topic": "Class 10 Physics, Chemistry and Biology (NCERT/CBSE)",
+    "why": "The syllabus is stated as Class 10 CBSE level: revise those textbooks.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB Group D (Level 1)",
+    "subject": "General Awareness & Current Affairs (20 questions)",
+    "topic": "Current affairs: science, sports, culture, economy, politics",
+    "why": "Follow the news for the past year.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB NTPC",
+    "subject": "Mathematics",
+    "topic": "Arithmetic: percentages, ratio, interest, profit and loss, time and work, time and distance",
+    "why": "Most of the maths questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB NTPC",
+    "subject": "Mathematics",
+    "topic": "Number system, simplification (BODMAS), LCM and HCF",
+    "why": "Fast marks with practice.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB NTPC",
+    "subject": "Mathematics",
+    "topic": "Mensuration, geometry and trigonometry",
+    "why": "Standard formulas.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB NTPC",
+    "subject": "General Intelligence & Reasoning",
+    "topic": "Series, analogies, coding-decoding, classification",
+    "why": "The common question types.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB NTPC",
+    "subject": "General Intelligence & Reasoning",
+    "topic": "Syllogism, Venn diagrams, puzzles and seating arrangements",
+    "why": "Practise to gain speed.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB NTPC",
+    "subject": "General Awareness",
+    "topic": "Current events and government schemes",
+    "why": "Named first in the syllabus.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB NTPC",
+    "subject": "General Awareness",
+    "topic": "Indian history, geography, polity and economy",
+    "why": "Static GK revised steadily.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "RRB NTPC",
+    "subject": "General Awareness",
+    "topic": "General science up to Class 10 and basics of computers",
+    "why": "Named in the syllabus.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "UPSC Civil Services Examination",
+    "subject": "Prelims GS Paper I (200 marks)",
+    "topic": "Indian polity and governance",
+    "why": "Asked every year; read the Constitution's key parts and current issues.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "UPSC Civil Services Examination",
+    "subject": "Prelims GS Paper I (200 marks)",
+    "topic": "Economy and environment",
+    "why": "Large, current-affairs-linked areas.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "UPSC Civil Services Examination",
+    "subject": "Prelims GS Paper I (200 marks)",
+    "topic": "History (modern India and the national movement first)",
+    "why": "A steady source of questions.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "UPSC Civil Services Examination",
+    "subject": "Prelims GS Paper I (200 marks)",
+    "topic": "Current events",
+    "why": "Integrated across every subject.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "UPSC Civil Services Examination",
+    "subject": "Prelims GS Paper II / CSAT (200 marks, qualifying 33%)",
+    "topic": "Comprehension and basic numeracy",
+    "why": "The paper only needs 33% to qualify, but don't neglect it: many candidates fail here.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "UPSC Civil Services Examination",
+    "subject": "Mains GS II (250)",
+    "topic": "Constitution, governance and international relations",
+    "why": "Answer-writing practice with current examples matters most.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "UPSC Civil Services Examination",
+    "subject": "Mains GS III (250)",
+    "topic": "Economy, environment, science and technology, security",
+    "why": "Link static topics to current developments.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "UPSC Civil Services Examination",
+    "subject": "Mains GS IV (250)",
+    "topic": "Ethics case studies",
+    "why": "Practise structured answers to case studies.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 2",
+    "subject": "Paper I: General Studies and General Abilities",
+    "topic": "Telangana: geography, society, culture, heritage and state policies",
+    "why": "Telangana-specific topics run through every paper.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 2",
+    "subject": "Paper I: General Studies and General Abilities",
+    "topic": "Current affairs and general science",
+    "why": "Asked every year.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 2",
+    "subject": "Paper I: General Studies and General Abilities",
+    "topic": "Logical reasoning and data interpretation",
+    "why": "Practice-based, scoring part.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 2",
+    "subject": "Paper II: History, Polity and Society",
+    "topic": "Indian Constitution and politics",
+    "why": "A core block.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 2",
+    "subject": "Paper II: History, Polity and Society",
+    "topic": "Socio-cultural history of India and Telangana",
+    "why": "Fact-heavy: revise with notes.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 2",
+    "subject": "Paper III: Economy and Development",
+    "topic": "Economy and development of Telangana",
+    "why": "State economy and schemes are emphasised.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 2",
+    "subject": "Paper III: Economy and Development",
+    "topic": "Indian economy: issues and challenges",
+    "why": "Link to current data.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 2",
+    "subject": "Paper IV: Telangana Movement and State Formation",
+    "topic": "The three phases of the Telangana movement (1948-2014)",
+    "why": "The whole paper: learn the timeline, people and events of each phase.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper I: Child Development and Pedagogy (30)",
+    "topic": "Learning theories (Piaget, Vygotsky, Kohlberg) and individual differences",
+    "why": "The most-asked part of child development.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper I: Child Development and Pedagogy (30)",
+    "topic": "Inclusive education and the learning process",
+    "why": "Applied questions on classroom situations.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper I: Mathematics (30)",
+    "topic": "Classes I-V content: numbers, fractions, measurement, geometry",
+    "why": "24 of the 30 questions are content.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper I: Mathematics (30)",
+    "topic": "Mathematics pedagogy",
+    "why": "6 questions: how children learn maths.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper I: Environmental Studies (30)",
+    "topic": "Classes I-V EVS content",
+    "why": "24 of the 30 questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper I: Environmental Studies (30)",
+    "topic": "EVS pedagogy",
+    "why": "6 questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper I: Language I (30)",
+    "topic": "Comprehension and grammar",
+    "why": "Most of the section.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper I: Language I (30)",
+    "topic": "Language pedagogy",
+    "why": "6 questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper I: Language II - English (30)",
+    "topic": "Comprehension and grammar",
+    "why": "Most of the section.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper I: Language II - English (30)",
+    "topic": "English pedagogy",
+    "why": "6 questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper II: Mathematics and Science (60)",
+    "topic": "Classes VI-VIII maths content",
+    "why": "24 questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper II: Mathematics and Science (60)",
+    "topic": "Physical and biological science content",
+    "why": "12 questions each.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper II: Mathematics and Science (60)",
+    "topic": "Pedagogy of maths and science",
+    "why": "6 questions each.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper II: Social Studies (60)",
+    "topic": "History, geography, civics and economics of Classes VI-VIII",
+    "why": "48 content questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS TET",
+    "subject": "Paper II: Social Studies (60)",
+    "topic": "Social studies pedagogy",
+    "why": "12 questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EdCET",
+    "subject": "Part A: General English",
+    "topic": "Comprehension, grammar and vocabulary",
+    "why": "School-to-degree-level English.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EdCET",
+    "subject": "Part B: General Knowledge and Teaching Aptitude",
+    "topic": "Teaching aptitude and current events",
+    "why": "Teaching aptitude questions test how you'd handle classroom situations.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP EdCET",
+    "subject": "Part C: one methodology subject (degree level)",
+    "topic": "Your chosen methodology subject at degree level",
+    "why": "The largest part: revise your degree syllabus in that subject.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS EdCET",
+    "subject": "Subject content up to Class 10, Telangana curriculum (60)",
+    "topic": "Class 10 maths, science and social studies (Telangana curriculum)",
+    "why": "60 marks: the biggest part.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS EdCET",
+    "subject": "General Knowledge and Educational Issues (30)",
+    "topic": "Current issues in education and general knowledge",
+    "why": "30 marks.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS POLYCET",
+    "subject": "Mathematics (60 questions)",
+    "topic": "The Telangana SSC Class 10 Mathematics textbook, chapter by chapter",
+    "why": "The exam follows the Class 10 syllabus: solve every textbook exercise and example. Maths is the largest subject (60 questions).",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS POLYCET",
+    "subject": "Physics (30 questions)",
+    "topic": "The Telangana SSC Class 10 Physics textbook, chapter by chapter",
+    "why": "The exam follows the Class 10 syllabus: solve every textbook exercise and example.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TS POLYCET",
+    "subject": "Chemistry (30 questions)",
+    "topic": "The Telangana SSC Class 10 Chemistry textbook, chapter by chapter",
+    "why": "The exam follows the Class 10 syllabus: solve every textbook exercise and example.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP SSC Public Examinations",
+    "subject": "Mathematics (100 marks, 33 questions)",
+    "topic": "Probability (13 marks) and statistics (12 marks)",
+    "why": "The two highest-mark chapters in the official blueprint.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP SSC Public Examinations",
+    "subject": "Mathematics (100 marks, 33 questions)",
+    "topic": "Pair of linear equations (11) and coordinate geometry (10)",
+    "why": "Next highest in the blueprint.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP SSC Public Examinations",
+    "subject": "Mathematics (100 marks, 33 questions)",
+    "topic": "Real numbers (9), polynomials, quadratic equations and trigonometry (7 each)",
+    "why": "Steady marks from formula-based chapters.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP SSC Public Examinations",
+    "subject": "Physical Science, General Science Paper I (50 marks, 17 questions)",
+    "topic": "Carbon and its compounds, light, electricity (11 marks each)",
+    "why": "The highest-mark chapters in the official blueprint.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP SSC Public Examinations",
+    "subject": "Physical Science, General Science Paper I (50 marks, 17 questions)",
+    "topic": "Acids, bases and salts (10)",
+    "why": "Next highest.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP SSC Public Examinations",
+    "subject": "Biological Science, General Science Paper II (50 marks, 17 questions)",
+    "topic": "Life processes (14 marks)",
+    "why": "The highest-mark chapter in the official blueprint.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP SSC Public Examinations",
+    "subject": "Biological Science, General Science Paper II (50 marks, 17 questions)",
+    "topic": "How organisms reproduce, heredity, our environment (10 each)",
+    "why": "Together 30 marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP SSC Public Examinations",
+    "subject": "Social Studies (100 marks: 25 each)",
+    "topic": "All four parts equally: geography, history, civics, economics",
+    "why": "Each carries 25 marks in the official pattern: don't skip any.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP SSC Public Examinations",
+    "subject": "Social Studies (100 marks: 25 each)",
+    "topic": "Map work (India map)",
+    "why": "Practise locating the places in the textbook lists.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP SSC Public Examinations",
+    "subject": "English (100 marks, 37 questions)",
+    "topic": "Reading comprehension and creative expression (30 marks each)",
+    "why": "The two biggest sections.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP SSC Public Examinations",
+    "subject": "English (100 marks, 37 questions)",
+    "topic": "Grammar and vocabulary (20 marks each)",
+    "why": "Rule-based, so practice gives sure marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JNVST (Navodaya Class 6)",
+    "subject": "Section 1a: Mental Ability Test (questions 1-20)",
+    "topic": "Figure series, pattern completion, mirror and water images, embedded figures",
+    "why": "Non-verbal: practise many figure questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JNVST (Navodaya Class 6)",
+    "subject": "Section 2: Arithmetic (20 questions)",
+    "topic": "Fractions, factors and multiples, LCM and HCF",
+    "why": "Core Class 5 arithmetic.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JNVST (Navodaya Class 6)",
+    "subject": "Section 2: Arithmetic (20 questions)",
+    "topic": "Measurement, perimeter and area, data from tables",
+    "why": "Applied word problems.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JNVST (Navodaya Class 6)",
+    "subject": "Section 3: Language (20 questions)",
+    "topic": "Reading passages",
+    "why": "All 20 questions come from 4 passages: read short stories and practise answering.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JNVST (Navodaya Class 6)",
+    "subject": "Section 1b: Environmental Studies (questions 21-40)",
+    "topic": "Human body, natural world and science in daily life",
+    "why": "Class 5 EVS topics named in the syllabus.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JNVST (Navodaya Class 9 lateral entry)",
+    "subject": "Mathematics (35 marks)",
+    "topic": "Class 8 maths: algebra, linear equations, comparing quantities, mensuration",
+    "why": "35 marks: the largest section with science.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JNVST (Navodaya Class 9 lateral entry)",
+    "subject": "General Science (35 marks)",
+    "topic": "Class 8 science chapters listed in the prospectus",
+    "why": "35 marks.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "JNVST (Navodaya Class 9 lateral entry)",
+    "subject": "English (15 marks)",
+    "topic": "Comprehension and grammar (tenses, reported speech, prepositions)",
+    "why": "15 marks.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AISSEE (Sainik Schools Class 6 & 9)",
+    "subject": "Class 6: Mathematics (50 questions, 150 marks)",
+    "topic": "Fractions, decimals, LCM and HCF, percentages, profit and loss",
+    "why": "Maths carries 150 of the 300 marks for Class 6 (3 marks a question).",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AISSEE (Sainik Schools Class 6 & 9)",
+    "subject": "Class 6: Mathematics (50 questions, 150 marks)",
+    "topic": "Area, perimeter, angles and volume",
+    "why": "Geometry and measurement questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AISSEE (Sainik Schools Class 6 & 9)",
+    "subject": "Class 9: Mathematics (50 questions, 200 marks)",
+    "topic": "Class 8 maths: algebra, linear equations, percentages, interest, mensuration",
+    "why": "Maths carries 200 of the 400 marks for Class 9 (4 marks a question).",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AISSEE (Sainik Schools Class 6 & 9)",
+    "subject": "Class 9: Mathematics (50 questions, 200 marks)",
+    "topic": "Geometry: triangles, quadrilaterals, Pythagoras theorem",
+    "why": "Frequent topics in the syllabus list.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AISSEE (Sainik Schools Class 6 & 9)",
+    "subject": "Class 6: Intelligence (25 questions, 50 marks)",
+    "topic": "Analogies, series, classification and patterns",
+    "why": "Practice-based and quick to improve.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AISSEE (Sainik Schools Class 6 & 9)",
+    "subject": "Class 9: Intelligence (25 questions, 50 marks)",
+    "topic": "Analogies, series, classification and patterns",
+    "why": "Practice-based and quick to improve.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "General Aptitude (common to all 30 papers, 15 marks)",
+    "topic": "Quantitative aptitude and data interpretation",
+    "why": "General Aptitude is 15 of the 100 marks in every paper, and it's school-level: aim for nearly full marks here.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "General Aptitude (common to all 30 papers, 15 marks)",
+    "topic": "Verbal aptitude: grammar and vocabulary in context",
+    "why": "Short questions that are quick to answer with regular practice.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "General Aptitude (common to all 30 papers, 15 marks)",
+    "topic": "Spatial aptitude: rotation, mirroring, paper folding",
+    "why": "Unfamiliar at first, but a few hours of practice makes these easy.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Engineering Mathematics (13 marks in most engineering papers; topics differ by paper)",
+    "topic": "Linear algebra (eigenvalues, systems of equations)",
+    "why": "Asked in almost every engineering paper's 13-mark maths section.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Engineering Mathematics (13 marks in most engineering papers; topics differ by paper)",
+    "topic": "Calculus and differential equations",
+    "why": "Used again inside the core subject questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Engineering Mathematics (13 marks in most engineering papers; topics differ by paper)",
+    "topic": "Probability and statistics",
+    "why": "Short, formula-based questions.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Civil Engineering paper (CE)",
+    "topic": "Structural engineering (solid mechanics, structural analysis, RCC and steel)",
+    "why": "The biggest section of the CE syllabus.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Civil Engineering paper (CE)",
+    "topic": "Geotechnical engineering",
+    "why": "A large, numerical section.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Civil Engineering paper (CE)",
+    "topic": "Environmental and transportation engineering",
+    "why": "Formula-based: quick marks once the IS-code methods are learnt.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Mechanical Engineering paper (ME)",
+    "topic": "Thermodynamics and heat transfer",
+    "why": "Core of the thermal sciences section.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Mechanical Engineering paper (ME)",
+    "topic": "Strength of materials and theory of machines",
+    "why": "Core of applied mechanics and design.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Mechanical Engineering paper (ME)",
+    "topic": "Manufacturing and industrial engineering",
+    "why": "Many direct, formula-based questions.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Electrical Engineering paper (EE)",
+    "topic": "Electric circuits and electrical machines",
+    "why": "Basics that the rest of the paper builds on.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Electrical Engineering paper (EE)",
+    "topic": "Power systems and power electronics",
+    "why": "Large, numerical sections.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Electrical Engineering paper (EE)",
+    "topic": "Control systems and signals and systems",
+    "why": "Standard methods that repeat.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Electronics & Communication Engineering paper (EC)",
+    "topic": "Networks, signals and systems",
+    "why": "The base of the whole EC paper.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Electronics & Communication Engineering paper (EC)",
+    "topic": "Analog and digital circuits",
+    "why": "Large sections with numerical questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Electronics & Communication Engineering paper (EC)",
+    "topic": "Communications",
+    "why": "Formula-based and scoring.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Computer Science & Information Technology paper (CS)",
+    "topic": "Algorithms and data structures",
+    "why": "Core of the paper; also what job interviews test.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Computer Science & Information Technology paper (CS)",
+    "topic": "Operating systems, databases and computer networks",
+    "why": "Three large, concept-plus-numerical sections.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Computer Science & Information Technology paper (CS)",
+    "topic": "Theory of computation and digital logic",
+    "why": "Precise topics that reward practice.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Computer Science & Information Technology paper (CS)",
+    "topic": "Discrete mathematics",
+    "why": "Part of CS's own maths section.",
+    "sequence_order": 4
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Chemical Engineering paper (CH)",
+    "topic": "Mass transfer and heat transfer",
+    "why": "Big, numerical sections.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Chemical Engineering paper (CH)",
+    "topic": "Chemical reaction engineering and thermodynamics",
+    "why": "Core theory used throughout the paper.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "GATE",
+    "subject": "Chemical Engineering paper (CH)",
+    "topic": "Fluid mechanics and process control",
+    "why": "Standard problem types.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CA Foundation",
+    "subject": "Paper 1: Accounting (3 hours)",
+    "topic": "Final accounts, partnership and company accounts",
+    "why": "Long practical questions that carry big marks.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CA Foundation",
+    "subject": "Paper 1: Accounting (3 hours)",
+    "topic": "Accounting process, depreciation and inventories",
+    "why": "The basics behind every other chapter.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CA Foundation",
+    "subject": "Paper 2: Business Laws (3 hours)",
+    "topic": "Indian Contract Act, 1872",
+    "why": "The largest and most basic law in the paper; other laws build on it.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CA Foundation",
+    "subject": "Paper 2: Business Laws (3 hours)",
+    "topic": "Companies Act and Sale of Goods Act",
+    "why": "Frequently asked, with case-based questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CA Foundation",
+    "subject": "Paper 2: Business Laws (3 hours)",
+    "topic": "Writing answers with the section and a conclusion",
+    "why": "This paper is descriptive: practise structured answers.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CA Foundation",
+    "subject": "Paper 3: Quantitative Aptitude (2 hours)",
+    "topic": "Statistics (Part C)",
+    "why": "A large part of the paper with standard methods.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CA Foundation",
+    "subject": "Paper 3: Quantitative Aptitude (2 hours)",
+    "topic": "Business mathematics: mathematics of finance, permutations and combinations, sequences, calculus",
+    "why": "Formula-based chapters for sure marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CA Foundation",
+    "subject": "Paper 3: Quantitative Aptitude (2 hours)",
+    "topic": "Logical reasoning (Part B)",
+    "why": "Quick to master with practice.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CA Foundation",
+    "subject": "Paper 4: Business Economics (2 hours)",
+    "topic": "Demand and supply, production and cost, price determination in markets",
+    "why": "Core microeconomics chapters.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CA Foundation",
+    "subject": "Paper 4: Business Economics (2 hours)",
+    "topic": "National income, money market and the Indian economy",
+    "why": "Macroeconomics chapters with factual questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CUET-UG",
+    "subject": "Domain subjects (23; take the ones your university programme asks for)",
+    "topic": "The NCERT Class 12 textbook of each domain subject you choose",
+    "why": "The syllabus is the NCERT Class 12 syllabus: questions follow the textbook closely.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CUET-UG",
+    "subject": "Domain subjects (23; take the ones your university programme asks for)",
+    "topic": "Choosing subjects",
+    "why": "Pick the subjects your target university programme requires: check the university's list before applying.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CUET-UG",
+    "subject": "General Aptitude Test",
+    "topic": "Quantitative reasoning and logical reasoning",
+    "why": "Practice-based and quick to improve.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CUET-UG",
+    "subject": "General Aptitude Test",
+    "topic": "Current affairs and general knowledge",
+    "why": "Follow the news for the past year.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CUET-UG",
+    "subject": "Languages (13, including English, Hindi, Telugu, Tamil, Kannada and Urdu)",
+    "topic": "Reading comprehension",
+    "why": "Most language questions come from passages.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CUET-UG",
+    "subject": "Languages (13, including English, Hindi, Telugu, Tamil, Kannada and Urdu)",
+    "topic": "Vocabulary",
+    "why": "Build a word list and revise it.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NATA",
+    "subject": "Part A: Drawing and Composition Test (offline, 90 minutes, 80 marks)",
+    "topic": "3D composition (30 marks)",
+    "why": "The highest-mark drawing question: practise building models with simple kits.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NATA",
+    "subject": "Part A: Drawing and Composition Test (offline, 90 minutes, 80 marks)",
+    "topic": "Sketching with scale, proportion, shade and shadow",
+    "why": "Draw buildings, people and street scenes from life regularly.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NATA",
+    "subject": "Part A: Drawing and Composition Test (offline, 90 minutes, 80 marks)",
+    "topic": "Composition and colour",
+    "why": "Practise arranging shapes and colouring them neatly within the time.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NATA",
+    "subject": "Part B: MCQ and NCQ (computer-based adaptive, 90 minutes, 42 MCQs + 8 NCQs, 120 marks)",
+    "topic": "Visual reasoning and 2D/3D composition",
+    "why": "A distinctive part of the paper.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NATA",
+    "subject": "Part B: MCQ and NCQ (computer-based adaptive, 90 minutes, 42 MCQs + 8 NCQs, 120 marks)",
+    "topic": "Architecture general knowledge: famous buildings, architects, materials",
+    "why": "Read about well-known Indian and world buildings.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NATA",
+    "subject": "Part B: MCQ and NCQ (computer-based adaptive, 90 minutes, 42 MCQs + 8 NCQs, 120 marks)",
+    "topic": "Basic mathematics and geometry",
+    "why": "Class 10-12 level numerical ability.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "BITSAT",
+    "subject": "Physics (30 questions)",
+    "topic": "Mechanics: laws of motion, work-energy, rotational motion, gravitation",
+    "why": "The first-year foundation: most later chapters reuse these ideas and equations.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "BITSAT",
+    "subject": "Physics (30 questions)",
+    "topic": "Electricity and magnetism: electrostatics, current electricity, magnetism, electromagnetic induction, AC",
+    "why": "A large connected block of the second-year syllabus.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "BITSAT",
+    "subject": "Physics (30 questions)",
+    "topic": "Modern physics: dual nature, atoms, nuclei, semiconductor electronics",
+    "why": "Short chapters with direct, formula-based questions: high return for little time.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "BITSAT",
+    "subject": "Chemistry (30 questions)",
+    "topic": "Organic chemistry: basics, hydrocarbons, haloalkanes, compounds with C, H, O and nitrogen",
+    "why": "Many syllabus chapters share the same reaction logic; learn named reactions and conversions together.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "BITSAT",
+    "subject": "Chemistry (30 questions)",
+    "topic": "Physical chemistry: stoichiometry, thermodynamics, equilibrium, electrochemistry, kinetics, solutions",
+    "why": "Numerical chapters where practice turns into sure marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "BITSAT",
+    "subject": "Chemistry (30 questions)",
+    "topic": "Inorganic chemistry: periodicity, chemical bonding, p-, d- and f-block elements, coordination compounds",
+    "why": "Memory-based: revise from the textbook tables repeatedly rather than once.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "BITSAT",
+    "subject": "Mathematics (40 questions; Biology for B.Pharm and a few programmes)",
+    "topic": "Calculus and coordinate geometry",
+    "why": "Large parts of the Maths syllabus (40 questions, the biggest section).",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "BITSAT",
+    "subject": "Mathematics (40 questions; Biology for B.Pharm and a few programmes)",
+    "topic": "Algebra, probability and vectors",
+    "why": "Formula-based chapters for quick marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "BITSAT",
+    "subject": "English Proficiency (10) and Logical Reasoning (20)",
+    "topic": "Logical reasoning (20 questions)",
+    "why": "Twice the questions of English: practise verbal and non-verbal reasoning.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "BITSAT",
+    "subject": "English Proficiency (10) and Logical Reasoning (20)",
+    "topic": "Grammar and vocabulary",
+    "why": "Short questions that are quick to answer.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SRMJEEE",
+    "subject": "Mathematics or Biology (40 questions)",
+    "topic": "Class 11-12 calculus, algebra and coordinate geometry (or Class 12 biology)",
+    "why": "The largest section: 40 of the 130 questions. There's no negative marking, so answer every question.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CAT",
+    "subject": "Verbal Ability & Reading Comprehension",
+    "topic": "Reading comprehension",
+    "why": "Most of this section is passage-based: read editorials and long-form articles daily.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CAT",
+    "subject": "Verbal Ability & Reading Comprehension",
+    "topic": "Para-jumbles and para-summary",
+    "why": "Typed-answer questions with no negative marking: always attempt them.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CAT",
+    "subject": "Data Interpretation & Logical Reasoning",
+    "topic": "Solving complete sets",
+    "why": "Questions come in sets: choose the sets you can finish and solve them fully.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CAT",
+    "subject": "Data Interpretation & Logical Reasoning",
+    "topic": "Arrangements, tables and charts",
+    "why": "The common set types.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CAT",
+    "subject": "Quantitative Ability",
+    "topic": "Arithmetic: percentages, ratios, time-speed-distance, time and work",
+    "why": "A large share of the section.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CAT",
+    "subject": "Quantitative Ability",
+    "topic": "Algebra: equations, inequalities, functions",
+    "why": "The other big block.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "CAT",
+    "subject": "Quantitative Ability",
+    "topic": "Geometry and number systems",
+    "why": "Fewer questions but regular.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NCHM JEE",
+    "subject": "English Language (45)",
+    "topic": "Grammar, vocabulary and comprehension",
+    "why": "The biggest section: 45 of 120 questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NCHM JEE",
+    "subject": "Aptitude for Service Sector (30)",
+    "topic": "Hospitality situations and customer service judgement",
+    "why": "30 questions: think about how a hotel professional should respond.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NIFT Entrance",
+    "subject": "General Ability Test (GAT, computer-based)",
+    "topic": "Communication ability and English comprehension",
+    "why": "Usually the largest GAT section in NIFT's own breakdowns.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NIFT Entrance",
+    "subject": "General Ability Test (GAT, computer-based)",
+    "topic": "Quantitative ability (percentages, interest, ratio, work, distance)",
+    "why": "School-level arithmetic.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "NIFT Entrance",
+    "subject": "Creative Ability Test (CAT, pen and paper; B.Des only)",
+    "topic": "Drawing, colouring and visual ideas",
+    "why": "Practise sketching and illustrating ideas within a time limit.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "ICAR AIEEA",
+    "subject": "One Major Subject-Group paper (120 MCQs, 2 hours, +4 / -1)",
+    "topic": "Your degree's core subjects for the group you choose",
+    "why": "The whole paper is in one subject group: revise your B.Sc / B.Tech syllabus in that area.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS PO",
+    "subject": "Prelims: English Language (30 questions)",
+    "topic": "Reading comprehension",
+    "why": "Usually the largest part of the English section.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS PO",
+    "subject": "Prelims: English Language (30 questions)",
+    "topic": "Error spotting, fillers and para-jumbles",
+    "why": "Grammar practice gives sure marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS PO",
+    "subject": "Prelims: Quantitative Aptitude (35)",
+    "topic": "Data interpretation: tables, bar, line and pie charts",
+    "why": "A large share of the quant questions, especially in Mains.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS PO",
+    "subject": "Prelims: Quantitative Aptitude (35)",
+    "topic": "Simplification, approximation and number series",
+    "why": "Quick marks in Prelims.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS PO",
+    "subject": "Prelims: Quantitative Aptitude (35)",
+    "topic": "Arithmetic: percentage, profit and loss, interest, time and work",
+    "why": "Used in word problems and data interpretation.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS PO",
+    "subject": "Prelims: Reasoning Ability (35)",
+    "topic": "Puzzles and seating arrangements",
+    "why": "The biggest block of reasoning questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS PO",
+    "subject": "Prelims: Reasoning Ability (35)",
+    "topic": "Syllogism, inequalities, coding-decoding, blood relations",
+    "why": "Short questions for quick marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS PO",
+    "subject": "Mains: General / Economy / Banking / Digital / Financial Awareness",
+    "topic": "Banking and financial awareness: RBI, monetary policy, banking terms",
+    "why": "Named in the syllabus and asked often.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS PO",
+    "subject": "Mains: General / Economy / Banking / Digital / Financial Awareness",
+    "topic": "Current affairs of the last 6 months",
+    "why": "The bulk of general awareness.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS PO",
+    "subject": "Mains: Data Analysis and Interpretation",
+    "topic": "Data interpretation: tables, bar, line and pie charts",
+    "why": "A large share of the quant questions, especially in Mains.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS Clerk",
+    "subject": "Prelims: English (30), Numerical Ability (35), Reasoning (35)",
+    "topic": "Simplification, approximation and number series",
+    "why": "Quick marks in Prelims.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS Clerk",
+    "subject": "Prelims: English (30), Numerical Ability (35), Reasoning (35)",
+    "topic": "Puzzles and seating arrangements",
+    "why": "The biggest block of reasoning questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS Clerk",
+    "subject": "Prelims: English (30), Numerical Ability (35), Reasoning (35)",
+    "topic": "Reading comprehension",
+    "why": "Usually the largest part of the English section.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS Clerk",
+    "subject": "Mains: General / Financial Awareness (40 questions, 50 marks)",
+    "topic": "Banking and financial awareness: RBI, monetary policy, banking terms",
+    "why": "Named in the syllabus and asked often.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS Clerk",
+    "subject": "Mains: General / Financial Awareness (40 questions, 50 marks)",
+    "topic": "Current affairs of the last 6 months",
+    "why": "The bulk of general awareness.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS Clerk",
+    "subject": "Mains: Reasoning Ability (40 questions, 60 marks)",
+    "topic": "Puzzles and seating arrangements",
+    "why": "The biggest block of reasoning questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS Clerk",
+    "subject": "Mains: Reasoning Ability (40 questions, 60 marks)",
+    "topic": "Syllogism, inequalities, coding-decoding, blood relations",
+    "why": "Short questions for quick marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS Clerk",
+    "subject": "Mains: Quantitative Aptitude (40 questions, 50 marks)",
+    "topic": "Data interpretation: tables, bar, line and pie charts",
+    "why": "A large share of the quant questions, especially in Mains.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS Clerk",
+    "subject": "Mains: Quantitative Aptitude (40 questions, 50 marks)",
+    "topic": "Simplification, approximation and number series",
+    "why": "Quick marks in Prelims.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "IBPS Clerk",
+    "subject": "Mains: Quantitative Aptitude (40 questions, 50 marks)",
+    "topic": "Arithmetic: percentage, profit and loss, interest, time and work",
+    "why": "Used in word problems and data interpretation.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SBI PO",
+    "subject": "Prelims: English (40), Quantitative Aptitude (30), Reasoning (30)",
+    "topic": "Simplification, approximation and number series",
+    "why": "Quick marks in Prelims.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SBI PO",
+    "subject": "Prelims: English (40), Quantitative Aptitude (30), Reasoning (30)",
+    "topic": "Puzzles and seating arrangements",
+    "why": "The biggest block of reasoning questions.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SBI PO",
+    "subject": "Prelims: English (40), Quantitative Aptitude (30), Reasoning (30)",
+    "topic": "Reading comprehension",
+    "why": "Usually the largest part of the English section.",
+    "sequence_order": 3
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SBI PO",
+    "subject": "Mains: Reasoning & Computer Aptitude (40 questions, 60 marks)",
+    "topic": "Puzzles and seating arrangements",
+    "why": "The biggest block of reasoning questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SBI PO",
+    "subject": "Mains: Reasoning & Computer Aptitude (40 questions, 60 marks)",
+    "topic": "Syllogism, inequalities, coding-decoding, blood relations",
+    "why": "Short questions for quick marks.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SBI PO",
+    "subject": "Mains: Data Analysis & Interpretation (30 questions, 60 marks)",
+    "topic": "Data interpretation: tables, bar, line and pie charts",
+    "why": "A large share of the quant questions, especially in Mains.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SBI PO",
+    "subject": "Mains: General Awareness / Economy / Banking (60 questions, 60 marks)",
+    "topic": "Banking and financial awareness: RBI, monetary policy, banking terms",
+    "why": "Named in the syllabus and asked often.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "SBI PO",
+    "subject": "Mains: General Awareness / Economy / Banking (60 questions, 60 marks)",
+    "topic": "Current affairs of the last 6 months",
+    "why": "The bulk of general awareness.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 1",
+    "subject": "Screening Paper I: General Studies (120 questions, 120 marks)",
+    "topic": "All four parts equally: history and culture, polity, economy, geography",
+    "why": "Each part carries 30 of the 120 marks.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 1",
+    "subject": "Screening Paper I: General Studies (120 questions, 120 marks)",
+    "topic": "Andhra Pradesh economy and planning",
+    "why": "AP-specific questions sit inside part C.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 1",
+    "subject": "Screening Paper II: General Aptitude (120 questions, 120 marks)",
+    "topic": "Mental ability, administrative and psychological abilities",
+    "why": "Half the paper (60 marks): practice-based and scoring.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 1",
+    "subject": "Screening Paper II: General Aptitude (120 questions, 120 marks)",
+    "topic": "Current events and science and technology",
+    "why": "30 marks each.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 2",
+    "subject": "Screening: General Studies & Mental Ability (150 marks)",
+    "topic": "General studies and mental ability",
+    "why": "Mental ability questions reward practice; general studies needs steady revision.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 2",
+    "subject": "Mains Paper I (150 marks)",
+    "topic": "Social and cultural history of Andhra Pradesh",
+    "why": "AP-specific history is the core of this paper.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 2",
+    "subject": "Mains Paper I (150 marks)",
+    "topic": "The Indian Constitution",
+    "why": "The other half of the paper.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 2",
+    "subject": "Mains Paper II (150 marks)",
+    "topic": "Indian and AP economy",
+    "why": "Link facts to current budgets and schemes.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 2",
+    "subject": "Mains Paper II (150 marks)",
+    "topic": "Science and technology",
+    "why": "The other half of the paper.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 1",
+    "subject": "Mains Paper VI: Telangana Movement and State Formation (150)",
+    "topic": "The three phases of the Telangana movement",
+    "why": "A full paper on its own: learn the timeline, people and events.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 4",
+    "subject": "Paper I: General Studies (150 questions)",
+    "topic": "Telangana history, movement, geography and economy",
+    "why": "Telangana topics run through the paper.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 4",
+    "subject": "Paper I: General Studies (150 questions)",
+    "topic": "Current affairs and everyday science",
+    "why": "Asked every year.",
+    "sequence_order": 2
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 4",
+    "subject": "Paper II: Secretarial Abilities (150 questions)",
+    "topic": "Secretarial abilities: reasoning, comprehension, arranging and filing",
+    "why": "The whole second paper: practise with past-style questions.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APRJC CET",
+    "subject": "Mathematics (50 marks; MPC and MEC groups)",
+    "topic": "Your Class 10 maths textbook exercises",
+    "why": "50 marks: every chapter of the Class 10 syllabus can be asked.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APRJC CET",
+    "subject": "Physical Science (50 marks; MPC and BPC groups)",
+    "topic": "Class 10 physics and chemistry chapters",
+    "why": "50 marks for MPC and BPC groups.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APRJC CET",
+    "subject": "English (50 marks, every group)",
+    "topic": "Grammar and reading comprehension",
+    "why": "50 marks in every group.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGRJC CET",
+    "subject": "Mathematics (50 marks; MPC and MEC groups)",
+    "topic": "Your Class 10 maths textbook exercises",
+    "why": "50 marks: every chapter of the Class 10 syllabus can be asked.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGRJC CET",
+    "subject": "Physical Science (50 marks; MPC and BPC groups)",
+    "topic": "Class 10 physics and chemistry chapters",
+    "why": "50 marks for MPC and BPC groups.",
+    "sequence_order": 1
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGRJC CET",
+    "subject": "English (50 marks, every group)",
+    "topic": "Grammar and reading comprehension",
+    "why": "50 marks in every group.",
+    "sequence_order": 1
+  }
+]

@@ -203,6 +203,9 @@ CREATE TABLE IF NOT EXISTS careers (
 ALTER TABLE careers ADD COLUMN IF NOT EXISTS source_type TEXT;
 ALTER TABLE careers ADD COLUMN IF NOT EXISTS data_tier TEXT NOT NULL DEFAULT 'pending_review';
 ALTER TABLE careers ADD COLUMN IF NOT EXISTS verified_date DATE;
+-- Jobs a career leads to: AI-assisted guidance (tier 3) even on a verified
+-- row, so the site labels it separately from the row's checked facts.
+ALTER TABLE careers ADD COLUMN IF NOT EXISTS job_roles TEXT;
 ALTER TABLE careers DROP CONSTRAINT IF EXISTS careers_data_tier_check;
 ALTER TABLE careers ADD CONSTRAINT careers_data_tier_check
   CHECK (data_tier IN ('tier_1_official','tier_2_reported','tier_3_advisory','pending_review'));
@@ -275,6 +278,23 @@ CREATE TABLE IF NOT EXISTS exam_cutoffs (
   verified_date DATE NOT NULL,
   updated_at TIMESTAMP DEFAULT now(),
   UNIQUE(exam_id, year, category, kind)
+);
+
+-- What to concentrate on within each subject an exam tests (exam_subjects),
+-- as study guidance a student reads next to the official syllabus. Always
+-- AI-assisted (tier_3_advisory), never an official weightage: the site
+-- labels it so. Replaced in full from db/seed/exam_focus.json on import.
+CREATE TABLE IF NOT EXISTS exam_focus (
+  id SERIAL PRIMARY KEY,
+  exam_id INT REFERENCES entrance_exams(id) ON DELETE CASCADE,
+  subject TEXT NOT NULL,          -- matches exam_subjects.subject
+  topic TEXT NOT NULL,
+  why TEXT,
+  sequence_order INT,
+  data_tier TEXT NOT NULL DEFAULT 'tier_3_advisory'
+    CHECK (data_tier = 'tier_3_advisory'),
+  updated_at TIMESTAMP DEFAULT now(),
+  UNIQUE(exam_id, subject, topic)
 );
 
 -- Second Chance tab (/second-chance): official routes back into education or
