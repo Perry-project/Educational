@@ -31,6 +31,25 @@ const clean = (v: string | null) => {
   return t && t.trim() ? t : null;
 };
 
+const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
+// An "OPEN" route stays open through the last full date in its text
+// ("OPEN until 12 Oct 2026", "... 30 Oct - 10 Nov 2026 (OPEN)"), so the badge
+// drops by itself the day after a deadline instead of waiting for a data fix.
+function isOpen(dates: string | null): boolean {
+  if (!dates || !/\bOPEN\b/.test(dates)) return false;
+  let last = "";
+  for (const m of dates.matchAll(/\b(\d{1,2}) ([A-Z][a-z]{2})[a-z]* (\d{4})\b/g)) {
+    const month = MONTHS.indexOf(m[2].toLowerCase());
+    if (month < 0) continue;
+    const iso = `${m[3]}-${String(month + 1).padStart(2, "0")}-${m[1].padStart(2, "0")}`;
+    if (iso > last) last = iso;
+  }
+  if (!last) return true;
+  const todayIst = new Date(Date.now() + 5.5 * 3600 * 1000).toISOString().slice(0, 10);
+  return todayIst <= last;
+}
+
 export async function getSecondChanceRoutes(): Promise<Route[]> {
   const { rows } = await pool.query(
     `SELECT r.id, r.stopped_at, r.route_name, r.scope, r.kind, r.conducting_body, r.official_website,
@@ -62,7 +81,7 @@ export async function getSecondChanceRoutes(): Promise<Route[]> {
             ["Leads to", clean(r.leads_to)],
           ].filter((p): p is [string, string] => !!p[1]))
         : [],
-      open: !!dates && /\bOPEN\b/.test(dates),
+      open: isOpen(dates),
       examId: r.exam_id,
       source: verified ? clean(r.source) : null,
     };

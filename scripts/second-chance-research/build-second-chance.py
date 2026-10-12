@@ -103,50 +103,50 @@ verify("AP SSC Advanced Supplementary Exams", AP, "2026-10-05", src,
 )
 
 # ---------- APOSS SSC and Intermediate (2026-27) ----------
-src = "AP Open School Society: SSC Prospectus 2026-27 and Intermediate Prospectus 2026-27 (apopenschool.ap.gov.in/pdf/Prospectus_SSC_2026-27.pdf, .../Prospectus_Inter_2026-27.pdf); late-fee admission proceedings RC No. 3251023/ADMIN/2026 dated 28-09-2026 (apopenschool.ap.gov.in/pdf/Admissions_2026_27_NEW_2.pdf)"
-verify("AP Open School (APOSS) - SSC", AP, "2026-10-05", src,
+src = "AP Open School Society: SSC Prospectus 2026-27 and Intermediate Prospectus 2026-27 (apopenschool.ap.gov.in/pdf/Prospectus_SSC_2026-27.pdf, .../Prospectus_Inter_2026-27.pdf); extension proceedings RC No. 3251023/ADMIN/2026 dated 10-10-2026, admissions extended to 31-10-2026 without fine (apopenschool.ap.gov.in/pdf/Admissions_2026_27_NEW_3.pdf)"
+verify("AP Open School (APOSS) - SSC", AP, "2026-10-12", src,
     summary="Study Class 10 from home or work through a study centre and write public exams twice a year. The APOSS SSC certificate is equivalent to the regular SSC for higher studies and jobs (G.O.Rt.No. 723, 2008).",
     who_can="Anyone at least 14 years old on 31 August of the admission year; no upper age limit. Not for students currently studying or already passed SSC in any board",
     how_to_apply="Online on apopenschool.ap.gov.in, then submit certificates at your chosen study centre (Accredited Institution). Women, SC, ST, BC, minorities, PH, transgender and ex-servicemen get a fee concession",
-    next_dates="2026-27 admissions: 12 Jun - 30 Jul 2026, late fee to 15 Aug, then a last window 26-30 Sep 2026 with Rs 200 late fee (closed). Exams every March/April and May/June",
+    next_dates="2026-27 admissions OPEN again: extended to 31 Oct 2026 without fine (the first window ran 12 Jun - 30 Jul 2026). Exams every March/April and May/June",
     leads_to="SSC-equivalent certificate. Pass five subjects; up to 9 exam chances in 5 years, and up to 2 subjects already passed elsewhere can be carried over",
 )
-verify("AP Open School (APOSS) - Intermediate", AP, "2026-10-05", src,
+verify("AP Open School (APOSS) - Intermediate", AP, "2026-10-12", src,
     summary="Complete Intermediate through a study centre at your own pace. The certificate is equivalent to the BIEAP Intermediate for higher studies and jobs (G.O.Rt.No. 170, 2010); MPC/BiPC students can sit JEE and NEET.",
     who_can="SSC pass, at least 15 years old on 31 August of the admission year; no upper age limit. Science groups need Maths and Science in Class 10. There must be a two-year gap between SSC and the Intermediate certificate",
     how_to_apply="Online on apopenschool.ap.gov.in, then certificate verification at the study centre",
-    next_dates="2026-27 admissions: 12 Jun - 30 Jul 2026, late fee to 15 Aug, last window 26-30 Sep 2026 (closed). Exams every March/April and May/June",
+    next_dates="2026-27 admissions OPEN again: extended to 31 Oct 2026 without fine. Exams every March/April and May/June",
     leads_to="Intermediate-equivalent certificate for degree courses (B.A., B.Com., B.Sc.), D.Ed., and entrance exams. Up to 9 exam chances in 5 years",
 )
 
 # ---------- TOSS SSC and Intermediate (2026-27) ----------
-src = "Telangana Open School Society: Prospectus 2026-27 (English) telanganaopenschool.org/pdfs/EM_Prospectus26_27TOSS.pdf; extension proceedings Rc.No.915/B1/TOSS/2026 dated 30-09-2026 (telanganaopenschool.org/PDFS/Toss Admissions Extended 2026-27_3.pdf)"
-verify("Telangana Open School (TOSS) - SSC", TS, "2026-10-05", src,
+src = "Telangana Open School Society: Prospectus 2026-27 (English) telanganaopenschool.org/pdfs/EM_Prospectus26_27TOSS.pdf; extension proceedings Rc.No.915/B1/TOSS/2026 dated 30-09-2026 (telanganaopenschool.org/PDFS/Toss Admissions Extended 2026-27_3.pdf); rechecked 12-10-2026, no later extension posted"
+verify("Telangana Open School (TOSS) - SSC", TS, "2026-10-12", src,
     summary="Study Class 10 through a study centre in Telugu, English, Urdu or Hindi medium. The TOSS SSC certificate is equivalent to the regular SSC (G.O.Rt.No. 723, 2008).",
     who_can="Anyone at least 14 years old on 31 August of the admission year; no upper age limit",
     how_to_apply="Online at toss.aptonline.in (link on telanganaopenschool.org), or at TG Online / MeeSeva centres; admission is through an Accredited Institution (study centre)",
     next_dates="2026-27 admissions OPEN: extended to 12 Oct 2026 with the normal fee. Exams usually April/May and October/November; first exam after one academic year",
     leads_to="SSC-equivalent certificate. Up to 9 exam chances in 5 years; up to 2 subjects passed in another board in the last 5 years can be carried over",
 )
-verify("Telangana Open School (TOSS) - Intermediate", TS, "2026-10-05", src,
+verify("Telangana Open School (TOSS) - Intermediate", TS, "2026-10-12", src,
     summary="Complete Intermediate through a study centre (science students at science junior colleges). The certificate is equivalent to the TGBIE Intermediate (G.O.Ms.No. 170, 2012).",
     who_can="SSC pass, at least 15 years old on 31 August of the admission year; no upper age limit. Science groups need the matching SSC subjects. A two-year gap from passing SSC is required for the certificate",
     how_to_apply="Online at toss.aptonline.in (link on telanganaopenschool.org), or at TG Online / MeeSeva centres",
     next_dates="2026-27 admissions OPEN: extended to 12 Oct 2026 with the normal fee",
     leads_to="Intermediate-equivalent certificate for degree courses and entrance exams. Up to 9 exam chances in 5 years; English is compulsory",
 )
-verify("Telangana Open School (TOSS) - SSC", TS, "2026-10-05", src, stopped_at="working",
+verify("Telangana Open School (TOSS) - SSC", TS, "2026-10-12", src, stopped_at="working",
     summary="Finish Class 10 while working: study at a centre near you and write exams when ready. No upper age limit.",
     who_can="Anyone at least 14 years old; no upper age limit",
     how_to_apply="Online at toss.aptonline.in or at a MeeSeva centre",
     next_dates="2026-27 admissions OPEN until 12 Oct 2026",
     leads_to="SSC-equivalent certificate, then Intermediate through TOSS, an ITI or a polytechnic",
 )
-verify("AP Open School (APOSS) - SSC", AP, "2026-10-05", "AP Open School Society SSC Prospectus 2026-27: apopenschool.ap.gov.in/pdf/Prospectus_SSC_2026-27.pdf", stopped_at="working",
+verify("AP Open School (APOSS) - SSC", AP, "2026-10-12", "AP Open School Society SSC Prospectus 2026-27: apopenschool.ap.gov.in/pdf/Prospectus_SSC_2026-27.pdf; extension proceedings RC No. 3251023/ADMIN/2026 dated 10-10-2026 (apopenschool.ap.gov.in/pdf/Admissions_2026_27_NEW_3.pdf)", stopped_at="working",
     summary="Finish Class 10 while working: study at a centre near you and write exams twice a year. No upper age limit.",
     who_can="Anyone at least 14 years old; no upper age limit",
     how_to_apply="Online on apopenschool.ap.gov.in, then the study centre",
-    next_dates="2026-27 admissions closed on 30 Sep 2026; the next round opens around June 2027",
+    next_dates="2026-27 admissions OPEN until 31 Oct 2026 without fine",
     leads_to="SSC-equivalent certificate, then Intermediate through APOSS, an ITI or a polytechnic",
 )
 
@@ -199,9 +199,9 @@ verify("Exit and rejoin a degree (Academic Bank of Credits)", IN, "2026-10-05", 
 )
 
 # ---------- BRAOU (2026-27) ----------
-src = "Dr. B.R. Ambedkar Open University, Admission Notification 2026-27 (version 8, 30-09-2026): braouonline.in/Admissions_2026/AdmissionNotification2026-Version8_30092026_6PM.pdf (from braouonline.in/MISC/AdmissionLinks.htm)"
+src = "Dr. B.R. Ambedkar Open University, Admission Notification 2026-27 (version 8, 30-09-2026): braouonline.in/Admissions_2026/AdmissionNotification2026-Version8_30092026_6PM.pdf (from braouonline.in/MISC/AdmissionLinks.htm); braou.ac.in home page 12-10-2026: UG/PG first-year admission registration \"Last date extended upto 13-10-2026\""
 for stop in ("degree", "working"):
-    verify("Dr. B.R. Ambedkar Open University (BRAOU) degree", TS, "2026-10-05", src, stopped_at=stop,
+    verify("Dr. B.R. Ambedkar Open University (BRAOU) degree", TS, "2026-10-12", src, stopped_at=stop,
         summary="A state open university in Hyderabad offering B.A., B.Com. and B.Sc. by distance learning in English, Telugu and Urdu medium, with study centres across Telangana. Useful if you left a regular degree or need to work while studying.",
         who_can="Intermediate or equivalent, NIOS Class 12, a 3-year polytechnic diploma, or a 2-year diploma or ITI (B.Sc. needs Intermediate with science subjects)",
         how_to_apply="Online at braouonline.in, then certificate verification at your study centre. Tuition about Rs 3,200 in year 1 and Rs 3,000 in years 2 and 3 (plus lab fees for science subjects). Students who ran out of time can seek re-admission at the university",
