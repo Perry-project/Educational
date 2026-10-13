@@ -1580,5 +1580,57 @@
     "source_type": "secondary_aggregator",
     "data_tier": "pending_review",
     "verified_date": null
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 3",
+    "full_form_body": "Andhra Pradesh Public Service Commission (APPSC) - Group III Services (General Recruitment)",
+    "eligibility": "Past notifications (2018-19 cycle) required a Degree from a recognized university (any discipline) and age 18-42 years as on the notified cutoff date, with relaxations for SC/ST/BC (5 years) and PwD (10 years); Indian citizenship required. Exact 2026-cycle eligibility not yet confirmed - unverified, needs follow-up.",
+    "application_window": "No official 2026 notification found as of 12-10-2026; some secondary sites describe it as 'expected shortly' with no confirmed date - unverified, needs follow-up",
+    "exam_date": "Not announced for a 2026 cycle. Past structure: Screening Test (150 objective questions, 1 mark each) followed by a Mains exam (Papers I and II, 300 marks total) for those who qualify - unverified whether this structure still applies, needs follow-up",
+    "admits_into": "Group III state government posts under APPSC, historically including Panchayat Secretary, Village Revenue Officer (VRO), Mandal Parishad Extension Officer (Horticulture), and Assistant Statistical Officer",
+    "source": "Cross-checked 12-10-2026 via onlineresult.in 'APPSC Group 3', getmyuni.com 'APPSC Group 3 Exam', freejobalert.com 'Group 3 Eligibility', and cracku.in 'APPSC Group-3 Notification 2019' (secondary/aggregator sources only - official psc.ap.gov.in could not be fetched this session, getaddrinfo ENOTFOUND, consistent with the egress block reported every night since 2026-10-06)",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 4",
+    "full_form_body": "Andhra Pradesh Public Service Commission (APPSC) - Group IV Services",
+    "eligibility": "Conflicting across sources - the most detailed past notification (2022 cycle) required a Bachelor's Degree for Junior Assistant / Junior Assistant-cum-Typist / Typist / Junior Stenographer posts, while some aggregator pages state Intermediate (10+2) is sufficient for Group IV generally; exact per-post qualification is unverified, needs follow-up. Age 18-42 years as on the notified cutoff date in the 2022 cycle, with standard SC/ST/BC/PwD relaxations.",
+    "application_window": "No official 2026 notification found as of 12-10-2026 - unverified, needs follow-up",
+    "exam_date": "Not announced for a 2026 cycle. 2022-cycle structure: Computer-Based Recruitment Test with 2 papers (General Studies & Mental Ability; General English & General Telugu), negative marking of 1/3 mark per wrong answer; some posts also required a separate Computer Proficiency qualifying test",
+    "admits_into": "Group IV state government clerical/ministerial posts under various AP departments, e.g. Junior Assistant, Junior Assistant-cum-Typist, Typist, Junior Stenographer",
+    "source": "Cross-checked 12-10-2026 via scroll.in 'APPSC Group 4 recruitment 2022' notification report, Careers360 'APPSC Group 4' exam pages, and aglasem.com 2021 notification summary (secondary sources only - official psc.ap.gov.in could not be fetched this session, same egress block as above)",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 3",
+    "full_form_body": "Telangana (Gazetted/State) Public Service Commission (TGPSC, formerly TSPSC) - Group III Services (General Recruitment)",
+    "eligibility": "Conflicting across sources on exact minimum qualification (Intermediate vs Degree depending on post) and age limit (one source gives 18-44 years, another gives up to 36 years with a 5-year relaxation for existing state government employees) for the most recent documented (2023) cycle - unverified, needs follow-up. No Panchayat Secretary post found under this Telangana exam (unlike its AP counterpart); covers general-recruitment posts including Village Revenue Officer (VRO) among others.",
+    "application_window": "No 2026-cycle notification found this session; most recent documented cycle is 2023 - unverified, needs follow-up",
+    "exam_date": "Not confirmed for a 2026 cycle",
+    "admits_into": "Group III state government posts under TGPSC (general recruitment covering various administrative/revenue posts, including VRO)",
+    "source": "Cross-checked 12-10-2026 via fithindi.thequint.com 'TSPSC Group 3 Recruitment 2023', cracku.in 'TSPSC Recruitment 2023 Group 3 (General Recruitment)', and collegedekho.com 'TSPSC Recruitment 2023 for Group 3 posts' (secondary sources only, 2023-cycle vacancy figures already conflict 1363 vs 1365 vs 1395 across these - official tgpsc.gov.in could not be fetched this session, same egress block as above)",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "AP Grama/Ward Sachivalayam Recruitment",
+    "full_form_body": "Andhra Pradesh Village (Grama) and Ward Secretariat Recruitment - direct recruitment to Grama/Ward Secretariat posts, run via District/Municipal-level Selection Committees (not conducted by APPSC)",
+    "eligibility": "Varies by post. The 2019 mega-drive (~1.26-1.6 lakh posts, figures vary by source) required age 18-42 years as on 1 July 2019, with the minimum qualification ranging from SSC/Class 10 pass up to a graduate degree depending on the specific secretariat post; some technical posts (e.g. Ward Amenities Secretary) required a polytechnic diploma in Civil/Mechanical Engineering or above. Current (2026) per-post eligibility is unverified, needs follow-up.",
+    "application_window": "No 2026-cycle notification found this session; most recent large-scale drive documented is 2019-2020 (a 2020 notice listed 16,207 posts) - unverified whether a new drive is open or planned for 2026, needs follow-up",
+    "exam_date": "Not confirmed for a 2026 cycle. Past process: a written exam followed by an interview and document verification (selection committees typically include the MPDO/Tahsildar/Executive Officer for Panchayats, or the Municipal Commissioner/Tahsildar/MEPMA Project Officer for urban local bodies)",
+    "admits_into": "Grama Secretariat (rural) and Ward Secretariat (urban) posts under the AP Panchayat Raj & Rural Development and Municipal Administration & Urban Development departments - e.g. Panchayat Secretary, Ward Education Secretary, Ward Amenities Secretary, Ward Welfare & Development Secretary",
+    "source": "Cross-checked 12-10-2026 via results.amarujala.com 'AP Grama Sachivalayam Recruitment 2019' report, career.aglasem.com 'AP Grama Sachivalayam Ward Amenities Secretary Recruitment', cracku.in '1.26 Lakh+ Vacancies' notification summary, and toprankers.com 'AP Grama Sachivalayam Recruitment 2020' (secondary sources only, vacancy figures already conflict 1.2 vs 1.26 vs 1.6 lakh across these for the 2019 drive alone - official gramasachivalayam.ap.gov.in could not be fetched this session, egress blocked, consistent with the block reported every night since 2026-10-06)",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
   }
 ]
