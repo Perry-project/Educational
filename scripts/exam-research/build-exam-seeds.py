@@ -1224,6 +1224,62 @@ _SEED_EXAMS = {(r["state"], r["exam_name"]): r for r in json.load(open(
     os.path.join(os.path.dirname(__file__), "..", "..", "db", "seed", "entrance_exams.json"), encoding="utf-8"))}
 
 
+# ---------- APPSC Group 4 (latest: Notification 22/2025) ----------
+src = "APPSC Notification No.22/2025 dated 24.09.2025, Junior Office Assistant in A.P. Director General of Prisons and Correctional Services under Group-IV Services, with Annexure-II Scheme & Syllabus and CPT scheme (psc.ap.gov.in/Documents/NotificationDocuments/JrOfficeAsst_Notification_222025_24092025.pdf); final key and marks list published 07/05/2026. Latest Group-IV notification on portal-psc.ap.gov.in as of 13 Oct 2026"
+verify(AP, "APPSC Group 4", "2026-10-13", src,
+    eligibility="A Bachelor's degree from any university in India recognised by the UGC, or equivalent. Age 18-42 on 01.07.2025 for this notification (G.O.Ms.No.36, 04.03.2025); relaxations as per rules (e.g. SC/ST/BC/EWS 5 years). Must also pass the Computer Proficiency Test before appointment",
+    application_window="Last notification 22/2025 (1 district post, Prisons Dept): online 25 Sep - 15 Oct 2025 (closed; final key and marks list published 07 May 2026). Earlier: 06/2022 and 23/2021 (Junior Assistant cum Computer Assistant, Revenue). No newer Group-IV notification as of 13 Oct 2026. Fee: Rs 250 processing + Rs 80 exam (exam fee waived for SC, ST, BC, PBD and ex-servicemen)",
+    exam_date="Not announced; watch psc.ap.gov.in for the next Group-IV notification",
+    admits_into="Group-IV clerical posts in AP government departments, e.g. Junior Assistant, Junior Assistant cum Computer Assistant, Junior Office Assistant, Typist. District cadre: the District Selection Committee selects from the Commission's district ranking list",
+)
+PATTERNS[(AP, "APPSC Group 4")] = "Written exam (objective, OMR): Paper I General Studies & Mental Ability (degree standard) and Paper II General English & General Telugu (SSC standard, 75 marks each), 150 questions, 150 marks, 150 minutes each, total 300. 1/3 mark deducted for each wrong answer. Shortlisted candidates then take a Computer Proficiency Test (practical, 60 minutes, 100 marks; qualifying)."
+subjects(AP, "APPSC Group 4", src, "2026-10-13", [
+    ("Paper I: General Studies & Mental Ability (150 marks)", "Current events (international, national, AP); general science and contemporary developments in science, technology and IT; history of India with a focus on AP and the national movement; geography of India with focus on AP; Indian polity and governance; Indian economy and planning; sustainable development and environmental protection; disaster management; logical reasoning and analytical ability; data analysis and interpretation"),
+    ("Paper II: General English & General Telugu (150 marks)", "English: comprehension, usage and idioms, vocabulary and punctuation, logical re-arrangement of sentences, grammar. Telugu: synonyms and vocabulary, grammar, Telugu-English and English-Telugu meanings, usage and idiom"),
+    ("Computer Proficiency Test (qualifying, 100 marks)", "Introduction to computers, software types, operating systems, Windows; office automation tasks in MS Word, MS Excel and MS PowerPoint"),
+])
+cutoffs(AP, "APPSC Group 4", 2025, src, "2026-10-13", [
+    ("OC / Ex-Servicemen / EWS", "40% aggregate in the written exam", "Minimum to qualify"),
+    ("BC", "35% aggregate in the written exam", "Minimum to qualify"),
+    ("SC / ST / PBD", "30% aggregate in the written exam", "Minimum to qualify"),
+    ("OC (CPT)", "40 of 100", "Computer Proficiency Test, qualifying"),
+    ("BC (CPT)", "35 of 100", "Computer Proficiency Test, qualifying"),
+    ("SC / ST / PBD (CPT)", "30 of 100", "Computer Proficiency Test, qualifying"),
+])
+
+# ---------- APPSC Group 3 (scheme only; no current notification) ----------
+src = "APPSC Group-III Services, Scheme and Syllabus for recruitment to the post of Panchayat Secretary (Grade-IV), A.P. Panchayat Raj Subordinate Service, dated 15.11.2016 (psc.ap.gov.in/Documents/Syllabus1/Group-III Panchayat Raj Secretary 15.11.2016.PDF). No Group-III notification on the recruitment notifications list at portal-psc.ap.gov.in as of 13 Oct 2026"
+verify(AP, "APPSC Group 3", "2026-10-13", src,
+    eligibility="Not yet available: set in each notification, and there is no current Group-III notification",
+    application_window="No Group-III notification on psc.ap.gov.in as of 13 Oct 2026",
+    exam_date="Not announced",
+    admits_into="Panchayat Secretary (Grade-IV), A.P. Panchayat Raj Subordinate Service (the post covered by the last published Group-III scheme)",
+)
+PATTERNS[(AP, "APPSC Group 3")] = "2016 scheme (degree standard, objective): Screening test of 150 questions, 150 marks, 150 minutes. Main exam: Paper 1 General Studies & Mental Ability and Paper 2 Rural Development and Problems in Rural Areas with special reference to AP, 150 questions, 150 marks, 150 minutes each, total 300. The scheme in a future notification may differ."
+
+# ---------- TGPSC Group 3 (latest: Notification 29/2022) ----------
+src = "TSPSC (now TGPSC) Notification No.29/2022 dated 30/12/2022, Group-III Services (General Recruitment), with Annexure-III Scheme and Syllabus, and Addendum web note (Feb 2023) adding 12 posts to Post Code 15 (websitenew.tgpsc.gov.in/directRecruitment). Latest Group-III notification listed as of 13 Oct 2026"
+verify(TS, "TGPSC Group 3", "2026-10-13", src,
+    scope=TS, stage="jobs", category="State services", body_type="Government",
+    conducting_body="Telangana Public Service Commission", official_website="websitenew.tgpsc.gov.in",
+    eligibility="A degree from a recognised university for almost all posts; a few need more (e.g. computers as a subject for some posts, a typewriting pass for typist posts). Age 18-44 on 01.07.2022 for this notification; relaxations as per rules",
+    application_window="Last notification 29/2022 (1,363 posts across 105 post codes, plus 12 added by addendum): online 24 Jan - 23 Feb 2023 (closed). No newer Group-III notification on tgpsc.gov.in as of 13 Oct 2026. Fee: Rs 200 application + Rs 80 exam (exam fee waived for unemployed applicants)",
+    exam_date="Not announced; watch websitenew.tgpsc.gov.in for the next Group-III notification",
+    admits_into="Telangana state posts such as Senior Accountant, Auditor, Senior Auditor, Assistant Auditor, Junior Assistant and Junior Assistant cum Typist across government departments and HODs",
+    exam_pattern="Written, objective (CBRT/OMR): three papers of 150 questions, 150 marks, 2½ hours each, total 450. Paper I General Studies & General Abilities; Paper II History, Polity & Society; Paper III Economy & Development. Selection on written marks, then certificate verification. In English, Telugu and Urdu.",
+)
+subjects(TS, "TGPSC Group 3", src, "2026-10-13", [
+    ("Paper I: General Studies and General Abilities", "Current affairs; international relations and events; general science and India's achievements in science and technology; environmental issues and disaster management; world, Indian and Telangana geography; history and cultural heritage of India; society, culture, heritage, arts and literature of Telangana; policies of Telangana State; social exclusion, rights issues and inclusive policies; logical reasoning, analytical ability and data interpretation; basic English (8th class standard)"),
+    ("Paper II: History, Polity and Society", "Socio-cultural history of Telangana and formation of Telangana State; overview of the Indian Constitution and politics; social structure, issues and public policies"),
+    ("Paper III: Economy and Development", "Indian economy: issues and challenges; economy and development of Telangana; issues of development and change"),
+])
+cutoffs(TS, "TGPSC Group 3", 2023, src, "2026-10-13", [
+    ("OC / Sportsmen / Ex-servicemen / EWS", "40% in the written exam", "Minimum to qualify"),
+    ("BC", "35% in the written exam", "Minimum to qualify"),
+    ("SC / ST / PH", "30% in the written exam", "Minimum to qualify"),
+])
+
+
 def src_of(state, exam):
     """The verified row's own source: the subjects come from the same document."""
     return (VERIFIED_ROWS.get((state, exam)) or _SEED_EXAMS[(state, exam)])["source"]

@@ -1464,6 +1464,72 @@
   },
   {
     "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 4",
+    "subject": "Paper I: General Studies & Mental Ability (150 marks)",
+    "topics": "Current events (international, national, AP); general science and contemporary developments in science, technology and IT; history of India with a focus on AP and the national movement; geography of India with focus on AP; Indian polity and governance; Indian economy and planning; sustainable development and environmental protection; disaster management; logical reasoning and analytical ability; data analysis and interpretation",
+    "sequence_order": 1,
+    "source": "APPSC Notification No.22/2025 dated 24.09.2025, Junior Office Assistant in A.P. Director General of Prisons and Correctional Services under Group-IV Services, with Annexure-II Scheme & Syllabus and CPT scheme (psc.ap.gov.in/Documents/NotificationDocuments/JrOfficeAsst_Notification_222025_24092025.pdf); final key and marks list published 07/05/2026. Latest Group-IV notification on portal-psc.ap.gov.in as of 13 Oct 2026",
+    "source_type": "government_notification",
+    "data_tier": "tier_1_official",
+    "verified_date": "2026-10-13"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 4",
+    "subject": "Paper II: General English & General Telugu (150 marks)",
+    "topics": "English: comprehension, usage and idioms, vocabulary and punctuation, logical re-arrangement of sentences, grammar. Telugu: synonyms and vocabulary, grammar, Telugu-English and English-Telugu meanings, usage and idiom",
+    "sequence_order": 2,
+    "source": "APPSC Notification No.22/2025 dated 24.09.2025, Junior Office Assistant in A.P. Director General of Prisons and Correctional Services under Group-IV Services, with Annexure-II Scheme & Syllabus and CPT scheme (psc.ap.gov.in/Documents/NotificationDocuments/JrOfficeAsst_Notification_222025_24092025.pdf); final key and marks list published 07/05/2026. Latest Group-IV notification on portal-psc.ap.gov.in as of 13 Oct 2026",
+    "source_type": "government_notification",
+    "data_tier": "tier_1_official",
+    "verified_date": "2026-10-13"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Group 4",
+    "subject": "Computer Proficiency Test (qualifying, 100 marks)",
+    "topics": "Introduction to computers, software types, operating systems, Windows; office automation tasks in MS Word, MS Excel and MS PowerPoint",
+    "sequence_order": 3,
+    "source": "APPSC Notification No.22/2025 dated 24.09.2025, Junior Office Assistant in A.P. Director General of Prisons and Correctional Services under Group-IV Services, with Annexure-II Scheme & Syllabus and CPT scheme (psc.ap.gov.in/Documents/NotificationDocuments/JrOfficeAsst_Notification_222025_24092025.pdf); final key and marks list published 07/05/2026. Latest Group-IV notification on portal-psc.ap.gov.in as of 13 Oct 2026",
+    "source_type": "government_notification",
+    "data_tier": "tier_1_official",
+    "verified_date": "2026-10-13"
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 3",
+    "subject": "Paper I: General Studies and General Abilities",
+    "topics": "Current affairs; international relations and events; general science and India's achievements in science and technology; environmental issues and disaster management; world, Indian and Telangana geography; history and cultural heritage of India; society, culture, heritage, arts and literature of Telangana; policies of Telangana State; social exclusion, rights issues and inclusive policies; logical reasoning, analytical ability and data interpretation; basic English (8th class standard)",
+    "sequence_order": 1,
+    "source": "TSPSC (now TGPSC) Notification No.29/2022 dated 30/12/2022, Group-III Services (General Recruitment), with Annexure-III Scheme and Syllabus, and Addendum web note (Feb 2023) adding 12 posts to Post Code 15 (websitenew.tgpsc.gov.in/directRecruitment). Latest Group-III notification listed as of 13 Oct 2026",
+    "source_type": "government_notification",
+    "data_tier": "tier_1_official",
+    "verified_date": "2026-10-13"
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 3",
+    "subject": "Paper II: History, Polity and Society",
+    "topics": "Socio-cultural history of Telangana and formation of Telangana State; overview of the Indian Constitution and politics; social structure, issues and public policies",
+    "sequence_order": 2,
+    "source": "TSPSC (now TGPSC) Notification No.29/2022 dated 30/12/2022, Group-III Services (General Recruitment), with Annexure-III Scheme and Syllabus, and Addendum web note (Feb 2023) adding 12 posts to Post Code 15 (websitenew.tgpsc.gov.in/directRecruitment). Latest Group-III notification listed as of 13 Oct 2026",
+    "source_type": "government_notification",
+    "data_tier": "tier_1_official",
+    "verified_date": "2026-10-13"
+  },
+  {
+    "state": "Telangana",
+    "exam_name": "TGPSC Group 3",
+    "subject": "Paper III: Economy and Development",
+    "topics": "Indian economy: issues and challenges; economy and development of Telangana; issues of development and change",
+    "sequence_order": 3,
+    "source": "TSPSC (now TGPSC) Notification No.29/2022 dated 30/12/2022, Group-III Services (General Recruitment), with Annexure-III Scheme and Syllabus, and Addendum web note (Feb 2023) adding 12 posts to Post Code 15 (websitenew.tgpsc.gov.in/directRecruitment). Latest Group-III notification listed as of 13 Oct 2026",
+    "source_type": "government_notification",
+    "data_tier": "tier_1_official",
+    "verified_date": "2026-10-13"
+  },
+  {
+    "state": "Andhra Pradesh",
     "exam_name": "GATE",
     "subject": "General Aptitude (common to all 30 papers, 15 marks)",
     "topics": "Verbal aptitude: basic English grammar, vocabulary in context, reading comprehension, narrative sequencing; Quantitative aptitude: data interpretation from bar and pie charts, 2D and 3D plots, maps and tables, ratios, percentages, powers, exponents and logarithms, permutations and combinations, series, mensuration and geometry, elementary statistics and probability; Analytical aptitude: deduction and induction, analogy, numerical relations and reasoning; Spatial aptitude: translation, rotation, scaling, mirroring, assembling and grouping of shapes, paper folding, cutting and patterns in 2D and 3D",
