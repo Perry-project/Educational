@@ -62,13 +62,18 @@ for (const [table, key] of Object.entries(KEYS)) {
   const skipped = [];
   for (const r of incoming) {
     if (!r[key]) throw new Error(`${table} row missing "${key}": ${JSON.stringify(r).slice(0, 120)}`);
-    const existing = rows.find((x) => x[key] === r[key] && x.state === r.state);
+    // The INDEX lists names without their state, so the routine may guess a
+    // different state: national exams are filed under Andhra Pradesh, so a
+    // "National" row whose name is held by exactly one row is that row.
+    const sameName = rows.filter((x) => x[key] === r[key]);
+    const existing = sameName.find((x) => x.state === r.state)
+      ?? (r.state === "National" && sameName.length === 1 ? sameName[0] : undefined);
     if (existing) {
       if (existing.data_tier === "tier_1_official") {
         skipped.push(r[key]);
         continue;
       }
-      Object.assign(existing, r, { source_type: r.source_type ?? "secondary_aggregator", data_tier: "pending_review", verified_date: null });
+      Object.assign(existing, r, { state: existing.state, source_type: r.source_type ?? "secondary_aggregator", data_tier: "pending_review", verified_date: null });
       updated++;
     } else {
       // The nightly routine can't verify its own rows: a new row starts as
