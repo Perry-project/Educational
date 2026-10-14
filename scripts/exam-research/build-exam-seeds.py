@@ -1279,6 +1279,107 @@ cutoffs(TS, "TGPSC Group 3", 2023, src, "2026-10-13", [
     ("SC / ST / PH", "30% in the written exam", "Minimum to qualify"),
 ])
 
+# ---------- AP Judicial Service: Civil Judge (Junior Division), Notification 118/2026 ----------
+src = "High Court of Andhra Pradesh Notification No.118/2026-RC dated 25.09.2026, Civil Judge (Junior Division), under the A.P. State Judicial (Service & Cadre) Rules, 2026 (linked from aphc.gov.in; PDF at g03.tcsion.com/per/g03/pub/726/EForms/image/ImageDocUpload/71161/7/3301224270.pdf), and the application portal's key dates (cdn3.digialm.com/EForms/configuredHtml/2381/102127/Index.html)"
+AP_CJ = "AP Judicial Service (Civil Judge) Exam"
+verify(AP, AP_CJ, "2026-10-14", src,
+    scope=AP, stage="jobs", category="Law & judiciary", body_type="Government",
+    conducting_body="High Court of Andhra Pradesh", official_website="aphc.gov.in",
+    full_form_body="Direct recruitment and recruitment by transfer to Civil Judge (Junior Division) in the Andhra Pradesh State Judicial Service, conducted by the High Court of Andhra Pradesh",
+    eligibility="Direct recruitment: a law degree obtained at least one year before the notification date (no years-of-practice condition in 2026, citing the Supreme Court's judgment of 21.08.2026 in Bhumika Trust v. Union of India, W.P.(C) 1110/2025). Must not have completed 35 years on 01.09.2026; 5 years' relaxation for SC/ST/BC/EWS, 10 years for persons with benchmark disabilities. Recruitment by transfer: law degree, a confirmed member or approved probationer in the listed High Court / district judiciary / prosecution / Law Department posts, under 48 on 01.09.2026",
+    application_window="Notification 118/2026: 119 posts (96 direct recruitment, 23 by transfer). Online 01.10.2026 - 26.10.2026 (11:59 PM) on aphc.gov.in. Fee Rs 1,500 for OC/EWS/BC, Rs 750 for SC/ST/persons with benchmark disabilities",
+    exam_date="Screening test (computer based): date to be notified; hall tickets one week before it",
+    admits_into="Civil Judge (Junior Division), A.P. State Judicial Service, pay scale Rs 77,840 - 1,36,520. Selected candidates are Trainee Judicial Officers: one year at the Judicial Academy, then one year of law clerkship, before regular posting",
+    exam_pattern="Screening test (CBT): 100 objective questions, 100 marks, 2 hours; 40% needed, shortlisted 1:10, marks not counted in the final merit. Written exam: Paper I Civil Laws, Paper II Criminal Laws, Paper III English (translation English<->Telugu 40 marks + essay on legal subjects 60 marks), 100 marks and 3 hours each, answered in English; Paper III is qualifying (40% in each part). Viva voce 50 marks, called 1:3. Merit on Papers I and II plus viva voce.",
+)
+subjects(AP, AP_CJ, src, "2026-10-14", [
+    ("Civil Laws (screening test and Paper I)", "Code of Civil Procedure 1908; Indian Contract Act 1872; Hindu Marriage Act 1955; Hindu Succession Act 1956; Indian Easements Act 1882; Specific Relief Act 1963; Limitation Act 1963; Transfer of Property Act 1882; Civil Rules of Practice; Registration Act 1908 and Indian Stamp Act 1899; A.P. Land Encroachment Act 1905; Indian Evidence Act 1872; Bharatiya Sakshya Adhiniyam 2023"),
+    ("Criminal Laws (screening test and Paper II)", "Code of Criminal Procedure 1973; Indian Evidence Act 1872; Indian Penal Code 1860; Bharatiya Nagarik Suraksha Sanhita 2023; Bharatiya Sakshya Adhiniyam 2023; Bharatiya Nyaya Sanhita 2023; Negotiable Instruments Act 1881; Protection of Women from Domestic Violence Act 2005; Criminal Rules of Practice; A.P. Excise Act 1968; A.P. Gaming Act 1974; Juvenile Justice Act 2015; Food Safety and Standards Act 2006; Information Technology Act 2000; POCSO Act 2012; A.P. Forest Act 1967"),
+    ("Paper III: English (qualifying)", "Part I (40 marks): translate a passage English to Telugu and Telugu to English. Part II (60 marks): essay writing on legal subjects"),
+])
+cutoffs(AP, AP_CJ, 2026, src, "2026-10-14", [
+    ("All (screening test)", "40% of 100", "To be shortlisted (1:10) for the written exam"),
+    ("OC / EWS", "55% in Paper I and Paper II each, 60% aggregate", "Written exam, to be called for viva voce"),
+    ("BC", "50% in Paper I and Paper II each, 55% aggregate", "Written exam, to be called for viva voce"),
+    ("SC / ST / PwBD", "45% in Paper I and Paper II each, 50% aggregate", "Written exam, to be called for viva voce"),
+    ("OC / EWS (final)", "60% aggregate of written exam and viva voce", "Needed for selection"),
+    ("BC (final)", "55% aggregate of written exam and viva voce", "Needed for selection"),
+    ("SC / ST / PwBD (final)", "50% aggregate of written exam and viva voce", "Needed for selection"),
+])
+
+# ---------- Telangana Judicial Service: Civil Judge (Junior Division), Notification 45/2025 ----------
+src = "High Court for the State of Telangana Notification No.45/2025-RC dated 01.12.2025, Civil Judge (Junior Division), under the Telangana State Judicial (Service and Cadre) Rules, 2023 (PDF at g03.tcsion.com/per/g03/pub/726/EForms/image/ImageDocUpload/71161/2/9501106140.pdf, via cdn3.digialm.com/EForms/configuredHtml/2775/96831/Index.html); tshc.gov.in home page notice of viva-voce call letters for the 94 posts, seen 14 Oct 2026. Latest Civil Judge notification as of 14 Oct 2026"
+TS_CJ = "Telangana State Judicial Service (Civil Judge) Exam"
+verify(TS, TS_CJ, "2026-10-14", src,
+    scope=TS, stage="jobs", category="Law & judiciary", body_type="Government",
+    conducting_body="High Court for the State of Telangana", official_website="tshc.gov.in",
+    full_form_body="Direct recruitment and recruitment by transfer to Civil Judge (Junior Division) in the Telangana State Judicial Service, conducted by the High Court for the State of Telangana",
+    eligibility="As in Notification 45/2025 (direct recruitment): a law degree, enrolled as an advocate, and at least 3 years' practice before the Telangana High Court or courts under it on the notification date (law clerk / research assistant service counts). Age 23 to 35 (40 for EWS, SC, ST and BC) on the notification date; +10 years for differently-abled persons. Must read, speak and write Telugu fluently. The next notification may change these: Andhra Pradesh's 2026 notification dropped its practice condition after a Supreme Court judgment of 21.08.2026",
+    application_window="Last notification 45/2025: 94 posts (66 direct recruitment, 28 by transfer). Online 08.12.2025 - 29.12.2025 (closed; viva-voce call letters issued). Fee Rs 1,250 for OC/BC, Rs 600 for EWS/PwD/SC/ST. No newer notification on tshc.gov.in as of 14 Oct 2026",
+    exam_date="2025 cycle at the viva-voce stage. Not announced for the next cycle; watch tshc.gov.in",
+    admits_into="Civil Judge (Junior Division), Telangana State Judicial Service, pay scale Rs 77,840 - 1,36,520; one year's training at the Telangana State Judicial Academy, two years' probation",
+    exam_pattern="Screening test (CBT): 100 objective questions, 100 marks, 2 hours; 40% needed, shortlisted 1:10, marks not counted. Written exam: Paper I Civil Laws, Paper II Criminal Laws, Paper III English (Part I translation English<->Telugu 30 marks, Part II essay on legal subjects, grammar and vocabulary 70 marks; qualifying, 50% in each part), 100 marks and 3 hours each. Viva voce 30 marks, called 1:3. Final selection on Papers I and II plus viva voce.",
+)
+subjects(TS, TS_CJ, src, "2026-10-14", [
+    ("Civil Laws (screening test and Paper I)", "Code of Civil Procedure 1908 with Civil Rules of Practice 1990; Indian Contract Act 1872 and Sale of Goods Act; Indian Evidence Act 1872; Hindu Succession Act 1956; Hindu Marriage Act 1955; Specific Relief Act 1963; Indian Easements Act 1882; Limitation Act 1963; Transfer of Property Act 1882; Indian Stamp Act 1899 and Registration Act 1908; Commercial Courts Act 2015; Indian Succession Act 1925; laws on Hindu adoption, guardianship and maintenance; Legal Services Authorities Act 1987; Telangana Land Encroachment Act 1905; Telangana Buildings (Lease, Rent & Eviction) Control Act 1960"),
+    ("Criminal Laws (screening test and Paper II)", "Code of Criminal Procedure 1973; Indian Evidence Act 1872; Indian Penal Code 1860; Negotiable Instruments Act 1881 (sections 138-148A); Telangana Prohibition Act 1995; Telangana Excise Act 1968; Juvenile Justice Act 2015; Protection of Women from Domestic Violence Act 2005; forest laws in Telangana and Wild Life Protection Act 1972; POCSO Act 2012; Mental Health Care Act 2017; Immoral Traffic Prevention Act 1956; Criminal Rules of Practice 1990; Telangana Gaming Act 1974; Unlawful Activities (Prevention) Act 1967; Bharatiya Nyaya Sanhita; Bharatiya Nagarik Suraksha Sanhita; Bharatiya Sakshya Adhiniyam"),
+    ("Paper III: English (qualifying)", "Part I (30 marks): translation English to Telugu and Telugu to English. Part II (70 marks): essay on legal subjects, grammar and vocabulary"),
+])
+cutoffs(TS, TS_CJ, 2025, src, "2026-10-14", [
+    ("All (screening test)", "40% of 100", "To be shortlisted (1:10) for the written exam"),
+    ("OC / EWS", "60% in Paper I and Paper II each", "Written exam, to be called for viva voce"),
+    ("BC", "55% in Paper I and Paper II each", "Written exam, to be called for viva voce"),
+    ("SC / ST / PwD", "50% in Paper I and Paper II each", "Written exam, to be called for viva voce"),
+    ("SC / ST / PwD (viva voce)", "40% of 30", "Needed to be recommended"),
+    ("Others (viva voce)", "50% of 30", "Needed to be recommended"),
+])
+
+# ---------- CTET 22nd edition (Sept 2026, moved to Dec 2026) ----------
+src = "CBSE CTET Information Bulletin, September 2026 (22nd edition) and public notices dated 08.05.2026, 25.08.2026 (applications reopened) and 14.09.2026 (exam on 12-13 Dec 2026): ctet.nic.in"
+CTET = "CTET (Central Teacher Eligibility Test)"
+verify(AP, CTET, "2026-10-14", src,
+    scope="National", stage="jobs", category="Teaching jobs", body_type="Government",
+    conducting_body="Central Board of Secondary Education (CBSE)", official_website="ctet.nic.in",
+    full_form_body="Central Teacher Eligibility Test, conducted by CBSE: Paper I for teachers of Classes I-V, Paper II for Classes VI-VIII. Separate from the state AP TET / TS TET",
+    eligibility="The minimum qualifications notified by NCTE (see ncte.gov.in) and the recruitment rules of the appropriate government / KVS / NVS; reserved categories get up to 5% relaxation in the qualifying marks of the minimum educational qualification. The candidate checks their own eligibility; the recruiter verifies it finally",
+    application_window="22nd edition: online 11.05.2026 - 10.06.2026, reopened 25.08.2026 - 01.09.2026 after a Supreme Court judgment (closed). Fee: General/OBC(NCL) Rs 1,000 for one paper, Rs 1,200 for both; SC/ST/differently abled Rs 500 / Rs 600",
+    exam_date="12 and 13 December 2026 (moved from 6 Sep 2026 by CBSE notice of 14.09.2026). Exam city and date shown on the portal 15 days before; admit card 2 days before",
+    admits_into="Eligibility (not a rank) for teaching posts in central government schools (KVS, NVS, Central Tibetan Schools, etc.); unaided private schools may also accept it. Certificate valid for life; no limit on attempts",
+    exam_pattern="Offline OMR, 2½ hours per paper, 150 MCQs of 1 mark each, no negative marking, bilingual (Hindi/English). Paper I: Child Development & Pedagogy, Mathematics, Environmental Studies, Language I, Language II (30 each). Paper II: Child Development & Pedagogy 30, Mathematics & Science or Social Studies 60, Language I 30, Language II 30.",
+)
+subjects(AP, CTET, src, "2026-10-14", [
+    ("Paper I (Classes I-V): Child Development and Pedagogy, 30 marks", "Educational psychology of teaching and learning for ages 6-11: characteristics and needs of diverse learners, interaction with learners, qualities of a good facilitator of learning"),
+    ("Paper I: Mathematics and Environmental Studies, 30 marks each", "Concepts, problem solving and pedagogy, spread over the NCERT Classes I-V syllabus, with difficulty up to the secondary stage"),
+    ("Paper I and II: Language I and Language II, 30 marks each", "Language I: proficiency in the medium of instruction. Language II (a different language): elements of language, communication and comprehension. 20 languages offered, including Telugu, English and Urdu"),
+    ("Paper II (Classes VI-VIII): Child Development and Pedagogy, 30 marks", "Educational psychology of teaching and learning for ages 11-14"),
+    ("Paper II: Mathematics & Science or Social Studies, 60 marks", "Maths and Science teachers take Mathematics and Science; Social Studies teachers take Social Studies / Social Science; any other teacher takes either. Based on the NCERT Classes VI-VIII syllabus, difficulty up to senior secondary"),
+])
+cutoffs(AP, CTET, 2026, src, "2026-10-14", [
+    ("All", "60% (90 of 150)", "TET pass, per NCTE notification of 11.02.2011; school managements may give concessions to SC/ST/OBC/differently abled per their reservation policy"),
+])
+
+# ---------- UGC NET December 2026 ----------
+src = "NTA Information Bulletin, UGC-NET December 2026, and public notice dated 08.10.2026 opening registration: ugcnet.nta.nic.in"
+NET = "UGC NET (National Eligibility Test)"
+verify(AP, NET, "2026-10-14", src,
+    scope="National", stage="after_degree", category="Research & teaching (PG)", body_type="Government",
+    conducting_body="National Testing Agency (NTA) for the University Grants Commission", official_website="ugcnet.nta.nic.in",
+    full_form_body="UGC National Eligibility Test, conducted by NTA in 87 subjects: decides eligibility for Junior Research Fellowship, Assistant Professor and Ph.D. admission in Indian universities and colleges",
+    eligibility="A Master's degree or equivalent with at least 55% (50% for OBC-NCL, SC, ST, PwD/PwBD and third gender), no rounding off; final-year Master's students may apply provisionally. Age: JRF not more than 30 on 01.12.2026 (up to 5 years' relaxation for OBC-NCL, SC, ST, PwD, third gender, women, research experience and armed forces service; 3 years for LL.M.; at most 5 in total). No upper age limit for Assistant Professor or Ph.D. admission",
+    application_window="December 2026: online 08.10.2026 - 28.10.2026 (11:50 PM); with Rs 500 late fee 29-31.10.2026; corrections 02-04.11.2026. Fee: General Rs 1,150, General-EWS/OBC-NCL Rs 600, SC/ST/PwD/third gender Rs 325",
+    exam_date="14 - 19 December 2026 (CBT); city slip and admit card dates to be announced",
+    admits_into="JRF with Assistant Professor eligibility, Assistant Professor eligibility with Ph.D. admission, or Ph.D. admission only. Held twice a year (June and December)",
+    exam_pattern="CBT, 3 hours with no break. Paper 1 (teaching and research aptitude: reasoning, reading comprehension, divergent thinking, general awareness): 50 questions, 100 marks. Paper 2 (your subject): 100 questions, 200 marks. 2 marks per correct answer, no negative marking.",
+)
+subjects(AP, NET, src, "2026-10-14", [
+    ("Paper 1: Teaching and Research Aptitude (50 questions, 100 marks)", "Compulsory for all: teaching and research aptitude, reasoning ability, reading comprehension, divergent thinking and general awareness"),
+    ("Paper 2: your chosen subject (100 questions, 200 marks)", "One of 87 subjects at post-graduation level; each subject's syllabus is on ugcnetonline.in/syllabus-new.php"),
+])
+cutoffs(AP, NET, 2026, src, "2026-10-14", [
+    ("General / General-EWS", "40% aggregate of both papers", "Minimum to be considered; only the top 6% of candidates who appeared are declared qualified for Assistant Professor"),
+    ("OBC-NCL / SC / ST / PwD / third gender", "35% aggregate of both papers", "Minimum to be considered; qualified numbers are split by category and subject"),
+])
+
 
 def src_of(state, exam):
     """The verified row's own source: the subjects come from the same document."""
