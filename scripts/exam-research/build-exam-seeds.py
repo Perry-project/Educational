@@ -1380,6 +1380,238 @@ cutoffs(AP, NET, 2026, src, "2026-10-14", [
     ("OBC-NCL / SC / ST / PwD / third gender", "35% aggregate of both papers", "Minimum to be considered; qualified numbers are split by category and subject"),
 ])
 
+# =====================================================================
+# Batch 2026-10-20: exams from the 10-16..10-19 deltas, each checked
+# against its own official document (the deltas cited aggregators only).
+# =====================================================================
+
+# ---------- AP DSC-2026 (APTRT-2026), brief notification ----------
+src = "School Education Department, AP: Brief Notification No. 1/DSC-2026 / APTRT-2026 dated 13.10.2026 (G.O.Ms.No.28, School Education (Services-I), 13.10.2026) and press release of 13.10.2026: tet2dsc.apcfss.in/DSC2026/notifications/DSC-2026 General notification (1).pdf, .../DSC2026/DSC-2026 Press Note English.pdf"
+verify(AP, "AP DSC", "2026-10-20", src,
+    conducting_body="Director of School Education, Andhra Pradesh", official_website="tet2dsc.apcfss.in",
+    full_form_body="DSC-2026 / Andhra Pradesh Teacher Recruitment Test (APTRT-2026), conducted by the Director of School Education, Andhra Pradesh",
+    eligibility="Not yet available: qualifications, age limits and eligibility conditions will be in the Detailed Notification, due on tet2dsc.apcfss.in on or before 03.11.2026",
+    application_window="Brief notification issued 13.10.2026. Online applications only, through tet2dsc.apcfss.in, during the period given in the Detailed Notification (due on or before 03.11.2026). Fee not yet announced",
+    exam_date="Computer Based Test (objective). Date not yet announced: it will be in the Detailed Notification",
+    admits_into="2,721 tentative teacher posts: 906 School Assistant and 1,205 SGT in Govt/ZP/MPP/Municipal schools; 150 SA and 200 SGT (Special Education); 260 in societies and other managements (30 Principal, 81 PGT, 113 TGT, 2 Physical Director, 34 PET in APSWREIS, APTWREIS, MJPAPBCWREIS, APREIS, AP Model Schools and the WDA, TG & SC Dept.). Vacancies are tentative; final ones with rosters come in the Detailed Notification",
+    exam_pattern="Computer Based Test (objective type). Syllabus already published on tet2dsc.apcfss.in (DSC_2026 Suggestive Syllabus). Full scheme in the Detailed Notification",
+)
+
+# ---------- RMS CET 2026 (Rashtriya Military Schools, Class VI & IX for 2027-28) ----------
+src = "NTA Information Bulletin, RMS CET-2026 (Oct 2026), chapters 2-3; RMS Common Prospectus 2027-28; NTA FAQs 18.10.2026: exams.nta.nic.in/rmscet/ (cdnbbsr.s3waas.gov.in/s388a839f2f6f1427879fc33ee4acf4f66/uploads/2026/10/20261015369621797.pdf)"
+verify(AP, "RMS CET (Rashtriya Military Schools)", "2026-10-20", src,
+    conducting_body="National Testing Agency (NTA), for the Ministry of Defence (Army)", official_website="exams.nta.nic.in/rmscet",
+    full_form_body="Rashtriya Military Schools Common Entrance Test for Class VI and Class IX at the five RMSs (Chail, Ajmer, Dholpur, Belgaum, Bengaluru), conducted by NTA (Stage-I written exam); medical exam and interview by the RMSs. There is no RMS in Andhra Pradesh or Telangana",
+    eligibility="Boys and girls. Class VI: aged 10-13 on 31.03.2027 (born 01.04.2014 - 31.03.2017), passed or studying in Class V. Class IX: aged 13-16 on 31.03.2027 (born 01.04.2011 - 31.03.2014), passed Class VIII from a recognised school. Six months' upper-age relaxation for wards of personnel killed in action. Seats: 70% wards of JCOs/OR, 20% wards of officers, 10% civilians; OBC-NCL 27%, SC 15%, ST 7.5% within each; girls 10% (Class VI capped at 30 seats)",
+    application_window="Online 23.09.2026 - 20.10.2026 (5 PM; fee by 11:50 PM). Late window with Rs 500 late fee 21.10.2026 - 25.10.2026. Corrections 27-28.10.2026. Fee Rs 1,000 General/OBC, Rs 750 SC/ST and wards of personnel killed in action",
+    exam_date="Stage-I written exam: 13 December 2026 (Sunday), 2 hours 30 minutes, OMR. City slip last week of November; admit card 5-7 days before. Result January 2027; medical and interview February-March 2027; joining by April 2027",
+    admits_into="Class VI or IX at a Rashtriya Military School (English-medium, co-ed, boarding only, CBSE; Science stream only after Class 10), run by the Ministry of Defence to prepare cadets for the Defence Services",
+    exam_pattern="Class VI (Class V standard, bilingual): English 50 (qualifying, 35%, not counted in merit), Intelligence 50, Mathematics 50, General Knowledge & Current Affairs 50 (40% each to qualify); interview 20. Class IX (Class VIII standard, English only): Paper 1 English 50 + Hindi 20 + Social Science 30 = 100; Paper 2 Mathematics 50 + Science 50 = 100 (50% in each paper to qualify); interview 50. Ties broken on Mathematics marks first",
+)
+cutoffs(AP, "RMS CET (Rashtriya Military Schools)", 2026, src, "2026-10-20", [
+    ("All (Class VI, English)", "35%", "Qualifying only, not counted in the merit list"),
+    ("All (Class VI, Intelligence / Mathematics / GK)", "40% in each", "Minimum to qualify"),
+    ("All (Class IX, Paper 1 and Paper 2)", "50% in each", "Minimum to qualify"),
+])
+
+# ---------- INI-CET January 2027 session ----------
+src = "AIIMS New Delhi, Tentative Schedule of Entrance Examinations 2026: aiimsexams.ac.in/landingpage/key-dates (seen 20 Oct 2026)"
+verify(AP, "INI-CET (Institute of National Importance Combined Entrance Test)", "2026-10-20", src,
+    scope="National", stage="after_degree", category="Medical (PG)", body_type="Government",
+    conducting_body="All India Institute of Medical Sciences (AIIMS), New Delhi", official_website="aiimsexams.ac.in",
+    full_form_body="Institute of National Importance Combined Entrance Test for PG medical courses (MD/MS/MDS, 6-year M.Ch/DM), conducted by AIIMS New Delhi for AIIMS campuses, JIPMER, NIMHANS, PGIMER and SCTIMST",
+    eligibility="As set out in the INI-CET prospectus on aiimsexams.ac.in (MBBS / BDS route); not transcribed here",
+    application_window="January 2027 session: registration has closed. The next (July 2027) session's dates will be announced on aiimsexams.ac.in",
+    exam_date="January 2027 session: 1 November 2026 (Sunday); result 7 November 2026 (Saturday). Counselling dates to be declared. The July 2026 session was held on 16 May 2026",
+    admits_into="MD, MS, MDS, 6-year M.Ch and DM seats at AIIMS (all campuses), JIPMER Puducherry, NIMHANS Bengaluru, PGIMER Chandigarh and SCTIMST Trivandrum; separate from NEET-PG. Held twice a year (January and July sessions)",
+)
+
+# ---------- ACET December 2026 ----------
+src = "Institute of Actuaries of India, 'ACET December 2026 - Registration Announcement (Home based Online Exam)' dated 23.07.2026: actuariesindia.org/sites/default/files/2026-07/Registration Announcement_ACET December 2026.pdf"
+verify(AP, "ACET (Actuarial Common Entrance Test)", "2026-10-20", src,
+    scope="National", stage="after_12", category="Actuarial science", body_type="Government",
+    conducting_body="Institute of Actuaries of India (IAI), a statutory body", official_website="actuariesindia.org",
+    full_form_body="Actuarial Common Entrance Test, conducted by the Institute of Actuaries of India: the entry test for IAI student membership",
+    eligibility="Anyone who has passed 10+2 or a higher course, is studying a higher course, or has appeared for 10+2 and awaits results",
+    application_window="December 2026 session (ACET37): registration 28 July 2026 (3 PM) - 4 November 2026 (3 PM) on actuariesindia.org. Fee Rs 500",
+    exam_date="5 December 2026, 10 AM - 1 PM, online from home (licensed Windows 10+ laptop/desktop with webcam and microphone, Chrome, 5 Mbps wired/wifi; no tablets, phones, macOS or Linux, no mobile hotspot). Results 16 December 2026",
+    admits_into="Student membership of the Institute of Actuaries of India, the start of the actuarial exams leading to Associate and Fellow; a non-ACET route also exists for some candidates",
+)
+
+# ---------- CLAT 2027 PG (LL.M.) ----------
+src = "Consortium of NLUs, CLAT 2027 press release of 22.07.2026 (consortiumofnlus.ac.in/clat-2027/notifications/Press_Release_CLAT_2027.pdf) and CLAT 2027 PG pages pg-eligibility.html, pg-question-format.html (checked 20 Oct 2026)"
+verify(AP, "CLAT-PG (LLM)", "2026-10-20", src,
+    scope="National", stage="after_degree", category="Law (PG)", body_type="Government",
+    conducting_body="Consortium of National Law Universities", official_website="consortiumofnlus.ac.in",
+    full_form_body="Common Law Admission Test 2027, postgraduate paper, conducted by the Consortium of National Law Universities for LL.M. admission at the member NLUs",
+    eligibility="LL.B. or equivalent with at least 50% marks (45% for SC/ST/PwD). Those appearing for the qualifying exam in 2027 may apply but must show proof of passing at admission. No upper age limit",
+    application_window="Online 3 August 2026 - 31 October 2026 on consortiumofnlus.ac.in",
+    exam_date="6 December 2026 (Sunday), 2 PM - 4 PM",
+    admits_into="One-year LL.M. at the National Law Universities in the CLAT Consortium",
+    exam_pattern="120 multiple-choice questions of 1 mark, 2 hours, 0.25 deducted per wrong answer. Constitutional Law, and other areas: Jurisprudence, Administrative Law, Contract, Torts, Family Law, Criminal Law, Property Law, Company Law, Public International Law, Tax Law, Environmental Law, Labour & Industrial Law",
+)
+
+# ---------- AILET 2027 ----------
+src = "National Law University Delhi, Notification dated 23.07.2026 (nationallawuniversitydelhi.in/notification/AILET_2027.pdf) and Admission Announcement 2027-28 dated 07.08.2026 (.../notification/Admision Notice_AILET 2027.pdf)"
+verify(AP, "AILET (All India Law Entrance Test)", "2026-10-20", src,
+    scope="National", stage="after_12", category="Law", body_type="Government",
+    conducting_body="National Law University Delhi", official_website="nationallawuniversitydelhi.in",
+    full_form_body="All India Law Entrance Test 2027, conducted by National Law University Delhi for its own B.A.LL.B. (Hons.) and LL.M. (NLU Delhi does not take CLAT scores)",
+    eligibility="B.A.LL.B.: 10+2 or equivalent with 45% (42% OBC, 40% SC/ST); Class 12 candidates of 2027 may apply. LL.M.: LL.B. with 50% (45% SC/ST/PwD); final-year LL.B. students of 2027 may apply",
+    application_window="Online from 7 August 2026 to 10 November 2026 on nationallawuniversitydelhi.in. Fee Rs 3,000; Rs 1,000 for SC/ST/PwD; SC/ST and women candidates below the poverty line exempt",
+    exam_date="13 December 2026 (Sunday), 2 PM - 4 PM. Test cities include Hyderabad and Visakhapatnam",
+    admits_into="NLU Delhi only: Five-year B.A.LL.B. (Hons.), 110 seats on AILET merit (+5 foreign nationals, +5 OCI/PIO); one-year LL.M., 70 seats (+10). Ph.D. and other PG programmes use a separate test (AIET, 2 May 2027)",
+)
+
+# ---------- XAT 2027 ----------
+src = "XLRI, XAT 2027 Bulletin (xatonline.in/assets/pdf/xat-bulletin-2027.pdf) and XAT 2027 FAQs (xatonline.in/faq), checked 20 Oct 2026"
+verify(AP, "XAT (Xavier Aptitude Test)", "2026-10-20", src,
+    scope="National", stage="after_degree", category="Management", body_type="Private",
+    conducting_body="XLRI - Xavier School of Management, Jamshedpur (for XAMI)", official_website="xatonline.in",
+    full_form_body="Xavier Aptitude Test 2027, conducted by XLRI Jamshedpur on behalf of the Xavier Association of Management Institutes",
+    eligibility="A recognised Bachelor's degree of at least three years (or equivalent) in any discipline; final-year students finishing by 11 June 2027 may apply",
+    application_window="XAT and XLRI registration 15 July - 6 December 2026 on xatonline.in. Fee Rs 2,300, plus Rs 200 for each XLRI programme",
+    exam_date="3 January 2027 (Sunday), 2 PM - 5 PM. Admit card from 20 December 2026 (tentative). Result last week of January 2027; score card downloadable 31 January - 30 June 2027",
+    admits_into="MBA/PGDM at XLRI and the XAMI member and associate institutes; the XAT score is accepted by over 250 institutes",
+    exam_pattern="Computer-based, 3 hours, overall time limit only (no sectional timers); sections can be attempted in any order; on-screen scientific calculator available",
+)
+
+# ---------- SNAP 2026 (admissions 2027) ----------
+src = "Symbiosis International (Deemed University), SNAP 2026 official pages: snaptest.org/snap-important-dates, /eligibility, /test-structure (checked 20 Oct 2026)"
+verify(AP, "SNAP (Symbiosis National Aptitude Test)", "2026-10-20", src,
+    scope="National", stage="after_degree", category="Management", body_type="Private",
+    conducting_body="Symbiosis International (Deemed University)", official_website="snaptest.org",
+    full_form_body="Symbiosis National Aptitude Test 2026, for M.B.A. admission (2027 intake) at 17 Symbiosis institutes",
+    eligibility="Graduate from a recognised university / Institution of National Importance with at least 50% (45% for SC/ST); some programmes add their own conditions (see snaptest.org/eligibility)",
+    application_window="SNAP 2026 registration and payment close 25 November 2026 (snaptest.org)",
+    exam_date="Up to three attempts, best score counts: SNAP 01 on 13 Dec 2026, SNAP 02 on 19 Dec 2026, SNAP 03 on 26 Dec 2026 (admit cards 7, 11 and 18 Dec). Result 12 January 2027",
+    admits_into="32 M.B.A. programmes at 17 Symbiosis institutes in Pune, Nashik, Nagpur, Hyderabad, Noida and Bengaluru, followed by each institute's own selection process",
+    exam_pattern="Computer-based, 60 minutes, 60 questions of 1 mark: General English 10, Analytical & Logical Reasoning 20, Quantitative / Data Interpretation / Data Sufficiency 20, Ethics, Morality and Values 10. 25% negative marking",
+)
+
+# ---------- RRB JE: CEN 04/2026 ----------
+src = "Railway Recruitment Boards, Detailed Centralised Employment Notice CEN No. 04/2026 (JE & DMS): rrbsecunderabad.gov.in/wp-content/uploads/2026/08/CEN-04-2026JE_English.pdf"
+verify(AP, "RRB JE (Railway Recruitment Board - Junior Engineer)", "2026-10-20", src,
+    scope="National", stage="jobs", category="Railway jobs", body_type="Government",
+    conducting_body="Railway Recruitment Boards (RRBs)", official_website="rrbsecunderabad.gov.in",
+    full_form_body="Recruitment of Junior Engineers and Depot Material Superintendents in Indian Railways through the Railway Recruitment Boards (CEN 04/2026)",
+    eligibility="Three-year Diploma in Engineering, or B.E./B.Tech, in the branch mapped to each post (some JE posts also accept a 3-year B.Sc in Civil Engineering; DMS takes a diploma in any engineering branch). Must hold the qualification by 13.09.2026; those awaiting results could not apply. Age 18-33 on 01.01.2027, with category relaxations",
+    application_window="CEN 04/2026: online 14.08.2026 - 13.09.2026 (closed). Fee Rs 500 (Rs 400 refunded on taking CBT-1); Rs 250 for SC, ST, ex-servicemen, PwBD, women, transgender, minorities and EBC (fully refunded on taking CBT-1)",
+    exam_date="CBT, document verification and medical exam dates to be announced on the RRB websites",
+    admits_into="3,993 posts of Junior Engineer and Depot Material Superintendent across Indian Railways; Pay Level 6, initial pay Rs 35,400",
+    exam_pattern="CBT-1 (screening): 100 questions, 90 minutes: Mathematics 30, General Intelligence & Reasoning 25, General Awareness 15, General Science 30 (up to Class 10). CBT-2 (15x vacancies called): 150 questions, 120 minutes: General Awareness 15, Physics & Chemistry 15, Basics of Computers 10, Environment & Pollution Control 10, Technical Abilities 100 (by exam group: Civil, Electrical, Electronics, Mechanical and allied). 1/3 mark deducted per wrong answer. Then document verification and medical exam",
+)
+cutoffs(AP, "RRB JE (Railway Recruitment Board - Junior Engineer)", 2026, src, "2026-10-20", [
+    ("UR / EWS", "40%", "Minimum in each CBT to be eligible"),
+    ("OBC (NCL) / SC", "30%", "Minimum in each CBT to be eligible"),
+    ("ST", "25%", "Minimum in each CBT to be eligible; PwBD may get 2 marks' relaxation if short of candidates"),
+])
+
+# ---------- IBPS CRP RRBs XV ----------
+src = "IBPS Detailed Notification CRP RRBs XV dated 01.09.2026 (ibps.in/wp-content/uploads/CRP-RRBs-XV-notification_Revised.pdf), extension corrigendum 21.09.2026, Annexure I vacancies as on 25.09.2026 (from ibps.in/index.php/rural-bank-xv/)"
+verify(AP, "IBPS RRB (Regional Rural Banks - CRP RRB)", "2026-10-20", src,
+    scope="National", stage="jobs", category="Banking jobs", body_type="Government",
+    conducting_body="Institute of Banking Personnel Selection (IBPS)", official_website="ibps.in",
+    full_form_body="Common Recruitment Process for Officers (Scale I, II, III) and Office Assistants (Multipurpose) in Regional Rural Banks, CRP RRBs XV",
+    eligibility="Office Assistant and Officer Scale I: a Bachelor's degree in any discipline, plus proficiency in the local language of the RRB; computer knowledge desirable (Scale I prefers agriculture, horticulture, veterinary, fisheries and related degrees). Age on 01.09.2026: Office Assistant 18-28, Officer Scale I 18-30, Scale II 21-32, Scale III 21-40; relaxation SC/ST 5 years, OBC-NCL 3, PwBD 10",
+    application_window="Online 01.09.2026 - 27.09.2026 (extended from 21.09.2026; closed). Fee Rs 850, or Rs 175 for SC/ST/PwBD (and ESM/DESM for Office Assistant)",
+    exam_date="Tentative: preliminary exam (Officer Scale I and Office Assistant) November/December 2026; main / single exam December 2026 / January 2027; Officer interviews January/February 2027. Exact dates on the call letters",
+    admits_into="Office Assistant (Multipurpose) and Officer Scale I/II/III posts in Regional Rural Banks. Indicative vacancies (25.09.2026): Andhra Pradesh Grameena Bank 900 Office Assistant and 400 Officer Scale I; Telangana Grameena Bank 750 Office Assistant and 160 Officer Scale I",
+    exam_pattern="Officer Scale I and Office Assistant: online preliminary, then main exam; Scale I also has an interview. Officer Scale II and III: a single online exam, then interview. Office Assistants are selected on the main exam alone",
+)
+
+# ---------- SSC CPO 2026 ----------
+src = "Staff Selection Commission, Notice: Sub-Inspector in Delhi Police and Central Armed Police Forces Examination, 2026 (F. E/37/2026-C-2, uploaded 10.09.2026): ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_capf_2026.pdf"
+verify(AP, "SSC CPO (Central Police Organisation - Sub Inspector)", "2026-10-20", src,
+    scope="National", stage="jobs", category="Police", body_type="Government",
+    conducting_body="Staff Selection Commission (SSC)", official_website="ssc.gov.in",
+    full_form_body="Sub-Inspector in Delhi Police and Central Armed Police Forces Examination, 2026 (SSC CPO), conducted by the Staff Selection Commission",
+    eligibility="Bachelor's degree (SI in Delhi Police and SI (GD) in CAPFs); SI (Fire) in CISF needs a B.Sc with Physics, Chemistry and Maths, or Class 10 plus a 3-year engineering diploma in listed branches. Age on 01.08.2026: 20-25 (born 02.08.2001 - 01.08.2006); SI (Fire) 18-30. Male SI in Delhi Police must hold an LMV (motorcycle and car) driving licence by the PE&MT, otherwise CAPFs only",
+    application_window="Online 10.09.2026 - 30.09.2026 (closed); corrections 08-10.10.2026. Fee Rs 100; women, SC, ST and eligible ex-servicemen exempt",
+    exam_date="Paper-I (computer based): schedule to be notified by SSC",
+    admits_into="1,871 tentative posts at Pay Level 6 (Rs 35,400-1,12,400): SI (Executive) Delhi Police 205 male + 112 female; SI (GD) in CAPFs (CRPF, BSF, ITBP, CISF, SSB) 1,320; SI (Fire) CISF 234. Liable to serve anywhere in India",
+    exam_pattern="Paper-I (100 questions, 100 marks: Reasoning, General Knowledge, Quantitative Aptitude, English, 25 each), then PST/PET, Paper-II, and detailed medical exam; all stages compulsory. 0.25 deducted per wrong answer in Paper-I, 0.50 in Paper-II. Exam centres in AP include Guntur, Kurnool, Rajahmundry, Tirupati, Visakhapatnam, Vijayawada and Kakinada",
+)
+
+# ---------- FMGE October 2026 ----------
+src = "NBEMS Information Bulletin, FMGE October 2026 v2.2 (nbe.edu.in/IB/FMGE october 2026 information bulletin v2.2.pdf) and NBEMS notice dated 19.10.2026 on test city allocation and deficient documents (natboard.edu.in, Public Notices)"
+verify(AP, "FMGE (Foreign Medical Graduate Examination)", "2026-10-20", src,
+    official_website="natboard.edu.in",
+    full_form_body="Foreign Medical Graduate Examination, the screening test under the Screening Test Regulations, 2002, conducted by the National Board of Examinations in Medical Sciences (NBEMS); now held three times a year",
+    eligibility="Indian citizens / OCI holding a primary medical qualification from a medical institution outside India, with the documents the bulletin lists (Primary Medical Qualification certificate attested or apostilled, Eligibility Certificate or admission letter, proof of citizenship). Only candidates with both the Eligibility Certificate (if applicable) and the pass / degree certificate may appear",
+    application_window="October 2026 session: online 11.09.2026 - 25.09.2026 (closed). Deficient documents and images can be fixed until 21.10.2026, 11:55 PM. Fee Rs 4,650 (Rs 3,940.68 + 18% GST)",
+    exam_date="31 October 2026; test city shown in applicant login from 20.10.2026; admit cards 27.10.2026. The previous session was on 28.06.2026",
+    admits_into="Eligibility for provisional or permanent registration with the National Medical Commission or a State Medical Council, needed to practise medicine in India with a foreign medical degree. It is a pass/fail licensing test, not an admission test",
+    exam_pattern="One computer-based paper of 300 multiple-choice questions in two parts of 150 questions (150 minutes each) on the same day, English only. Pass: at least 150 of 300. Part-wise marks are not published; no re-totalling, re-evaluation or grace marks",
+)
+cutoffs(AP, "FMGE (Foreign Medical Graduate Examination)", 2026, src, "2026-10-20", [
+    ("All", "150 of 300", "Minimum to pass"),
+])
+
+# ---------- NEET-PG (2026 cycle; 2027 not yet notified) ----------
+src = "NBEMS Information Bulletin, NEET-PG 2026 (linked from natboard.edu.in NEET-PG page); NBEMS notices: result declared 24.09.2026, scorecard 01.10.2026. No NEET-PG 2027 bulletin on natboard.edu.in as of 20 Oct 2026"
+verify(AP, "NEET-PG (National Eligibility cum Entrance Test - Postgraduate)", "2026-10-20", src,
+    official_website="natboard.edu.in",
+    full_form_body="National Eligibility cum Entrance Test for postgraduate medical courses (MD/MS/PG Diploma, DNB), conducted by the National Board of Examinations in Medical Sciences (NBEMS)",
+    eligibility="As in NEET-PG 2026: an MBBS degree or provisional pass certificate recognised under the NMC Act, permanent or provisional MBBS registration with the NMC / a State Medical Council, and one year's internship completed by the cut-off date (30.09.2026 for the 2026 cycle)",
+    application_window="NEET-PG 2027: not yet notified (no bulletin on natboard.edu.in as of 20 Oct 2026). The 2026 cycle's window was 01.07.2026 - 21.07.2026; fee Rs 3,500 General/OBC/EWS, Rs 2,500 SC/ST/PwBD",
+    exam_date="NEET-PG 2027: not yet announced. NEET-PG 2026 was held on 30.08.2026; result declared 24.09.2026",
+    admits_into="MD, MS, PG Diploma and DNB seats across India (all-India and state quota counselling). AIIMS, JIPMER, PGIMER, NIMHANS and SCTIMST admit through INI-CET instead",
+    exam_pattern="NEET-PG 2026: computer-based, 180 MCQs, 3 hours 30 minutes, five time-bound sections (A-E) of 36 questions and 42 minutes each; +4 for a correct answer, -1 for a wrong one, English only",
+)
+cutoffs(AP, "NEET-PG (National Eligibility cum Entrance Test - Postgraduate)", 2026, src, "2026-10-20", [
+    ("General / EWS", "50th percentile", "Minimum qualifying percentile, as notified in the bulletin (may be lowered later by the government)"),
+    ("UR PwBD", "45th percentile", "Minimum qualifying percentile"),
+    ("SC / ST / OBC (incl. their PwBD)", "40th percentile", "Minimum qualifying percentile"),
+], kind="qualifying_percentile")
+
+# ---------- NEET-SS (2025 cycle is the latest; 2026 not yet notified) ----------
+src = "NBEMS Information Bulletin, NEET-SS 2025 (nbe.edu.in/IB/NEET-SS 2025 information bulletin.pdf); NBEMS notice of 22.09.2026 reducing the NEET-SS 2025 qualifying percentile. No NEET-SS 2026 bulletin on natboard.edu.in as of 20 Oct 2026"
+verify(AP, "NEET-SS (NEET Super Specialty)", "2026-10-20", src,
+    official_website="natboard.edu.in",
+    full_form_body="National Eligibility cum Entrance Test - Super Specialty, conducted by NBEMS for DM, MCh and DrNB super-specialty courses",
+    eligibility="As in NEET-SS 2025: a recognised MD / MS / DNB (or provisional pass certificate) in the eligible feeder specialty for the chosen question-paper group, held by the cut-off date (31.01.2026 for the 2025 cycle)",
+    application_window="NEET-SS 2026: not yet notified (no bulletin on natboard.edu.in as of 20 Oct 2026). The 2025 cycle's window was 05.11.2025 - 25.11.2025; fee Rs 3,500 per question-paper group",
+    exam_date="NEET-SS 2026: not yet announced. NEET-SS 2025 was held on 26-27.12.2025, result by 28.01.2026; its counselling was still running in Sept 2026",
+    admits_into="DM / MCh seats in all medical colleges (including private and armed forces) and DrNB super-specialty seats. Not used by AIIMS, PGIMER, JIPMER, NIMHANS or SCTIMST (they run INI-SS)",
+)
+
+# ---------- GPAT (2026 cycle; 2027 not yet notified) ----------
+src = "NBEMS Information Bulletin, GPAT 2026 (nbe.edu.in/IB/Information bulletin GPAT 2026.pdf). No GPAT 2027 bulletin on natboard.edu.in as of 20 Oct 2026"
+verify(AP, "GPAT (Graduate Pharmacy Aptitude Test)", "2026-10-20", src,
+    official_website="natboard.edu.in",
+    full_form_body="Graduate Pharmacy Aptitude Test, conducted by the National Board of Examinations in Medical Sciences (NBEMS) for M.Pharm admission",
+    eligibility="As in GPAT 2026: a B.Pharm degree (including lateral entry) from a recognised institution. Final-year (4th year) B.Pharm students may appear; 3rd-year students may also appear, for 2027-28 admission",
+    application_window="GPAT 2027: not yet notified (no bulletin on natboard.edu.in as of 20 Oct 2026). GPAT 2026 fee: Rs 3,500 General/OBC/EWS, Rs 2,500 SC/ST/PwD",
+    exam_date="GPAT 2027: not yet announced. GPAT 2026 was held on 07.03.2026, result by 07.04.2026",
+    admits_into="M.Pharm (and some PhD) admissions at AICTE-approved institutions; the score is valid for three years",
+    exam_pattern="GPAT 2026: computer-based, 125 MCQs, 500 marks, 3 hours, five timed sections of 25 questions (36 minutes each); +4 / -1. Pharmaceutical Chemistry 38 questions, Pharmaceutics 38, Pharmacognosy 10, Pharmacology 28, other B.Pharm subjects 11",
+)
+
+# ---------- CMAT (2026 cycle; 2027 not yet notified) ----------
+src = "NTA Information Bulletin, CMAT-2026 (cdnbbsr.s3waas.gov.in/s3a381c2c35c9157f6b67fd07d5a200ae1/uploads/2025/10/202510171049586023.pdf) and NTA admit card notice 21.01.2026; cmat.nta.nic.in shows no CMAT-2027 notice as of 20 Oct 2026"
+verify(AP, "CMAT (Common Management Admission Test)", "2026-10-20", src,
+    official_website="cmat.nta.nic.in",
+    full_form_body="Common Management Admission Test, conducted by the National Testing Agency (NTA) for admission to AICTE-approved management programmes",
+    eligibility="A Bachelor's degree in any discipline (final-year students whose result comes before admission may apply); Indian citizens; no age limit",
+    application_window="CMAT 2027: not yet notified on cmat.nta.nic.in (as of 20 Oct 2026). Last cycle: 17.10.2025 - 17.11.2025. Fee (2026): Rs 2,500 General male; Rs 1,250 for women, Gen-EWS, SC, ST, PwD, OBC-NCL and third gender",
+    exam_date="CMAT 2027: not yet announced. CMAT 2026 was held on 25.01.2026 (CBT, 9 AM - 12 noon)",
+    admits_into="MBA/PGDM at AICTE-approved institutions, university departments and affiliated colleges that accept CMAT; each sets its own cut-off, followed by GD/PI",
+    exam_pattern="Computer-based, 180 minutes, English only, 100 questions, 400 marks: Quantitative Techniques & Data Interpretation, Logical Reasoning, Language Comprehension, General Awareness, Innovation & Entrepreneurship (20 questions, 80 marks each)",
+)
+
+# ---------- NMAT by GMAC 2026 ----------
+src = "GMAC, NMAT by GMAC exam page: mba.com/exams/nmat (checked 20 Oct 2026)"
+verify(AP, "NMAT by GMAC", "2026-10-20", src,
+    official_website="mba.com/exams/nmat",
+    full_form_body="NMAT by GMAC, a computer-adaptive management entrance test owned and run by the Graduate Management Admission Council (GMAC)",
+    eligibility="Not stated on the official exam page; check the criteria of each NMAT-accepting school",
+    application_window="Current testing year: registration and scheduling 20 August - 25 October 2026 on mba.com",
+    exam_date="Flexible testing window 2 November - 20 December 2026 at test centres in 70+ Indian cities; up to 3 attempts, best score sent. Unofficial score shown instantly; scorecard within 48 hours",
+    admits_into="MBA and management programmes at 58+ NMAT-accepting B-schools (including NMIMS)",
+    exam_pattern="Computer-adaptive, no negative marking, equal weight for all sections, candidate chooses the section order",
+)
+
 
 def src_of(state, exam):
     """The verified row's own source: the subjects come from the same document."""
