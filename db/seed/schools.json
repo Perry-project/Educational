@@ -446,5 +446,22 @@
     "next_step": "Continue at KGBV into Intermediate where upgraded, or transition to Intermediate (MPC/BiPC/MEC/CEC/HEC)/AP POLYCET/ITI like other Class 10 completers",
     "approx_fee": "Free education, hostel accommodation, textbooks, uniforms and meals for admitted girls (govt-funded residential scheme)",
     "source": "apkgbv.apcfss.in; education.sakshi.com KGBV admissions 2025/2026 notices; samagra.education.gov.in KGBV scheme page (national scheme, AP implementation via AP Samagra Shiksha); eligibility: girls aged 10-18 from SC/ST/OBC/Minority/BPL families, minimum 75% seats reserved for SC/ST/OBC/Minority, in Educationally Backward Blocks"
+  },
+  {
+    "state": "Telangana",
+    "school_type": "Telangana Minorities Residential Educational Institutions Society (TMREIS) Schools",
+    "board_authority": "Telangana Board of Secondary Education (SSC) / Telangana Board of Intermediate Education, administered by TMREIS under the Telangana Minority Welfare Department",
+    "ownership": "Government (state-run residential welfare institution for minority-community students, with a non-minority SC/ST/BC/OC quota)",
+    "classes_covered": "Classes 5 to 12 - residential schools cover Classes 5-10; most schools have an attached Minorities Residential Junior College (Classes 11-12), and a subset are Centres of Excellence (COE) Junior Colleges offering English-medium MPC/BiPC",
+    "medium_of_instruction": "English reported at the COE junior colleges; medium at the general ~204-205 schools not independently confirmed this session - unverified",
+    "key_exam": "TMREIS CET / TGMRS CET (school entry, Classes 5-9) for school admission; TGMRJC CET or TGMRCOE CET for Intermediate 1st-year admission into the attached or Centre-of-Excellence junior colleges",
+    "exam_window": "2026 cycle (lapsed), per one secondary source only: registration from 11 Mar 2026, applications closed 20 Apr 2026, exams 15 May 2026 (Class 5) and 22 May 2026 (Classes 6-8), results 23 May 2026 - unverified, not confirmed against an official source",
+    "passing_criteria": "Entrance-test based selection; one secondary source cites a family-income ceiling for TMRS CET eligibility of Rs 1.5 lakh/year (rural) or Rs 2 lakh/year (urban) - unverified, needs confirmation on the official site",
+    "next_step": "On completing Class 10, students continue into the attached TMREIS Junior College or apply via TGMRJC CET/TGMRCOE CET to a different TMREIS junior college for Intermediate (Classes 11-12); the Society also runs 23 Centres of Excellence providing coaching for national/state-level competitive exams per a Telangana minister's public statement",
+    "approx_fee": "unverified - needs follow-up; state-run residential welfare institution, fee structure for minority/non-minority quota students not independently confirmed this session",
+    "source": "unverified - needs follow-up; official site tgmreistelangana.cgg.gov.in (About Us page, per search snippet: society established 2016, headquartered Hyderabad, ~204-205 schools/junior colleges across 33 districts) could not be independently fetched this session (DNS resolution failure on tmreis.telangana.gov.in, tgmreistelangana.cgg.gov.in and cet.cgg.gov.in, consistent with prior nights' pattern for similar domains); secondary sources only: teachersbadi.in (TMREIS/TGMRS/TGMRJC/TGMRCOE CET admission-process articles), Deccan Chronicle ('Education Key to Minority Welfare, Says Minister'), Siasat ('41 TMREIS colleges achieve 100pc pass rate'), The South First (feature on TMREIS schools)",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
   }
 ]

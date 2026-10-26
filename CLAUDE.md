@@ -14,12 +14,32 @@ learns what already exists from `AP Career Database - INDEX - YYYY-MM-DD.txt`, w
 project publishes. Older `AP Career Database - YYYY-MM-DD` Sheets/.xlsx files are the
 legacy format and are already imported.
 
-At the start of a session in this folder:
+At the start of a session in this folder, before anything else the user asks (even a
+plain "hi" or "go"), run this daily routine. The SessionStart hook in
+`.claude/settings.json` has already run `scripts/check-new-deltas.mjs`; its
+`[Perry delta check]` output is in context and lists the new delta files with row counts.
+Confirm it against Drive with step 1 (Drive for desktop can lag), then:
+
+0. **Report first:** tell the user in a short list what new data arrived: per routine and
+   date, the new and updated rows by name (e.g. new exams, which courses got topics),
+   any Second Chance proposals, and any dates in `not_found` falling within the next
+   14 days. Also mention open items from the pending-tasks memory.
 1. Search Google Drive for deltas from all three routines, newest by `createdTime`: `title contains 'AP Career Database' and title contains 'delta'`, `title contains 'Course Grip' and title contains 'delta'` and `title contains 'Second Chance' and title contains 'delta'`.
 2. Check the local `import_log` table (`SELECT * FROM import_log ORDER BY snapshot_date DESC LIMIT 1`) to see which have already been imported.
 3. For each not-yet-imported delta date (oldest first; if a date has several checkpoints, only its newest): get the exact file from the Google Drive for desktop folder `G:/My Drive/<title>` (or `download_file_content` and base64-decode it), run `npm run db:merge-delta -- --file <path>`, then `npm run db:import -- --file-id <driveFileId> --snapshot-date <YYYY-MM-DD> --title "<file title>"`. Review anything the merge reports as skipped tier_1 rows. A Second Chance delta is not merged into the seed: the merge saves its proposals to `db/review/second-chance-<date>.json`; check each against its cited official document, then add it to `scripts/second-chance-research/build-second-chance.py` (`route()`/`verify()`) and rebuild.
 4. After importing (or after any other seed change, e.g. manual verification), run `npm run db:index` to publish a fresh INDEX to `G:/My Drive` so the next nightly run sees the current state.
-5. If nothing new exists, say so briefly and move on — don't re-run the import needlessly.
+5. **Verify:** for each new or changed `pending_review` row, look for the primary
+   official document (notification PDF or official portal; curl works from this PC).
+   Promote it to `tier_1_official` only when that document confirms it, with `source`
+   pointing to it; otherwise leave it `pending_review` and list it as still unverified.
+   After verifying, re-run `db:import` and `db:index`.
+6. **Update the live flowchart:** `/flowchart`, `/exams` and `/second-chance` read from
+   the database, so the live site changes once Neon has the data. Commit the seed
+   changes, push to `main` (Perry account only), and re-run `npm run db:import` against
+   Neon (`DATABASE_URL` set to `NEON_DATABASE_URL` from `.env.neon`). The Neon import and
+   push are outward-facing: ask the user once per session ("Push today's data live?")
+   and run them on a yes. Redeploy only if code under `src/` changed.
+7. If nothing new exists, say so briefly and move on — don't re-run the import needlessly.
 
 Do not import files from `Desktop/Perry`, `Desktop/Project`, or `perry-site.zip` into
 this project. This is a fresh build — those are reference-only, not a source to port from.

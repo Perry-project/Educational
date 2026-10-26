@@ -2194,5 +2194,53 @@
     "source": "NBEMS Information Bulletin, NEET-PG 2026 (linked from natboard.edu.in NEET-PG page); NBEMS notices: result declared 24.09.2026, scorecard 01.10.2026. No NEET-PG 2027 bulletin on natboard.edu.in as of 20 Oct 2026",
     "source_type": "government_notification",
     "verified_date": "2026-10-20"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "ICSI CSEET (Company Secretary Executive Entrance Test)",
+    "year": 2027,
+    "category": "All",
+    "kind": "qualifying_marks",
+    "value": "40% in each paper, 50% aggregate",
+    "note": "In one sitting; no exemptions or carry-forward of marks",
+    "source": "ICSI: 'Restructured CSEET' page (icsi.edu/restructured-cseet, updated 21.10.2026: registration for February 2027 session, last date 31.10.2026); Time Table for CSEET February 2027 (cms_uploads/cseet-time-table-february2027-07551067.pdf, dated 07.10.2026); Announcement on restructuring of CSEET effective June 2026 and CSEET FAQs (both dated 08.09.2026)",
+    "source_type": "government_notification",
+    "verified_date": "2026-10-26"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Forest Range Officer",
+    "year": 2026,
+    "category": "OC / EWS / Sportspersons / Ex-Servicemen",
+    "kind": "qualifying_marks",
+    "value": "40%",
+    "note": "Minimum aggregate to be considered for selection",
+    "source": "APPSC Notification No. 16/2026 dated 16.10.2026, Forest Range Officer in A.P. Forest Service (psc.ap.gov.in/Documents/NotificationDocuments/FRODetailedNotification_162026.pdf) and web note of 16.10.2026",
+    "source_type": "government_notification",
+    "verified_date": "2026-10-26"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Forest Range Officer",
+    "year": 2026,
+    "category": "BC",
+    "kind": "qualifying_marks",
+    "value": "35%",
+    "note": "Minimum aggregate to be considered for selection",
+    "source": "APPSC Notification No. 16/2026 dated 16.10.2026, Forest Range Officer in A.P. Forest Service (psc.ap.gov.in/Documents/NotificationDocuments/FRODetailedNotification_162026.pdf) and web note of 16.10.2026",
+    "source_type": "government_notification",
+    "verified_date": "2026-10-26"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "exam_name": "APPSC Forest Range Officer",
+    "year": 2026,
+    "category": "SC / ST",
+    "kind": "qualifying_marks",
+    "value": "30%",
+    "note": "Minimum aggregate to be considered for selection",
+    "source": "APPSC Notification No. 16/2026 dated 16.10.2026, Forest Range Officer in A.P. Forest Service (psc.ap.gov.in/Documents/NotificationDocuments/FRODetailedNotification_162026.pdf) and web note of 16.10.2026",
+    "source_type": "government_notification",
+    "verified_date": "2026-10-26"
   }
 ]

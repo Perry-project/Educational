@@ -1186,13 +1186,13 @@ PATTERNS = {
     (AP, "AFCAT"): "Online, 2 hours, 100 objective questions, 300 marks, English only. +3 for each correct answer, -1 for each wrong answer, 0 for unattempted. Numerical Ability at Class 10 level; other sections at graduation level.",
 }
 
-# ---------- APPSC Group 2 (Notification 11/2023) ----------
-src = "APPSC Notification No.11/2023 dated 07/12/2023, Group-II Services, with Scheme and Syllabus (psc.ap.gov.in/Documents/NotificationDocuments/Notfn_ Group-II_2023 with Syllabus_112023_07122023.pdf) and detailed notification dated 20/12/2023 (Details for Group-II Notfn_No_11_2023_20122023.pdf); selection web note dated 27/01/2026 (Webnote_112023_28012026.pdf). No newer Group-II notification on portal-psc.ap.gov.in as of 12 Oct 2026"
-verify(AP, "APPSC Group 2", "2026-10-12", src,
-    eligibility="A Bachelor's degree from a recognised university (some posts need a specific degree, e.g. Law for ASO in the Law Department). Age 18-42 for most posts (20-42 for Sub-Registrar Gr-II), reckoned on 01.07.2023 for this notification; relaxations as per rules",
-    application_window="Last notification 11/2023 (897 posts): online 21 Dec 2023 - 17 Jan 2024 (closed; selection list declared 27 Jan 2026). No newer Group-II notification as of 12 Oct 2026. Fee: Rs 250 processing + Rs 80 exam (exam fee waived for exempted categories)",
-    exam_date="Not announced; watch psc.ap.gov.in for the next Group-II notification",
-    admits_into="AP state posts such as Deputy Tahsildar, Sub-Registrar Gr-II, Municipal Commissioner Gr-III, Assistant Section Officer (Secretariat), Senior Auditor, Senior Accountant, Extension Officer, Prohibition & Excise Sub-Inspector",
+# ---------- APPSC Group 2 (Brief Notification 37/2026) ----------
+src = "APPSC Brief Notification No. 37/2026 dated 13/10/2026, Group-II Services, with scheme and syllabus (psc.ap.gov.in/Documents/NotificationDocuments/Group_II_372026.pdf). Previous cycle: Notification 11/2023 (897 posts, selection list 27/01/2026)"
+verify(AP, "APPSC Group 2", "2026-10-26", src,
+    eligibility="A Bachelor's degree from a recognised university for most posts; ASO (Finance) needs a degree in Mathematics, Economics or Commerce; ASO (Law) needs a Law degree; Senior and Junior Accountant need a degree (Commerce/Economics/Mathematics preferred) plus an SBTET computer certificate course or a computer degree (BCA, B.Sc/B.Com/B.A. Computers, B.Tech CS/IT). Age limits and other conditions will be in the Detailed Notification, due on or before 10/11/2026",
+    application_window="Notification 37/2026 (686 provisional posts): online 10/11/2026 - 30/11/2026 (11:59 PM) on psc.ap.gov.in. Fee in the Detailed Notification",
+    exam_date="Screening test (offline, OMR) date to be announced in the Detailed Notification",
+    admits_into="686 AP state posts: Deputy Tahsildar 200, Deputy MPDO 176, Senior Accountant 90, ASO (GAD) 71, Junior Accountant 48, GST Officer 40, Prohibition & Excise Sub-Inspector 29, Assistant Registrar of Cooperative Societies 10, Sub-Registrar Gr-II 7, Municipal Commissioner Gr-III 6, ASO (Finance) 5, ASO (Law) 4",
 )
 PATTERNS[(AP, "APPSC Group 2")] = "Screening test: General Studies & Mental Ability, 150 objective questions, 150 marks, 150 minutes (degree standard). Main exam: two objective papers of 150 questions, 150 marks, 150 minutes each (Paper I: social and cultural history of AP and the Indian Constitution; Paper II: Indian and AP economy, science and technology). 1/3 mark deducted for each wrong answer. Then a Computer Proficiency Test (qualifying)."
 
@@ -1610,6 +1610,118 @@ verify(AP, "NMAT by GMAC", "2026-10-20", src,
     exam_date="Flexible testing window 2 November - 20 December 2026 at test centres in 70+ Indian cities; up to 3 attempts, best score sent. Unofficial score shown instantly; scorecard within 48 hours",
     admits_into="MBA and management programmes at 58+ NMAT-accepting B-schools (including NMIMS)",
     exam_pattern="Computer-adaptive, no negative marking, equal weight for all sections, candidate chooses the section order",
+)
+
+
+# =====================================================================
+# Batch 2026-10-26: exams from the 10-20..10-25 deltas, each checked
+# against its own official document (the deltas cited aggregators only).
+# =====================================================================
+
+# ---------- Joint CSIR-UGC NET December 2026 ----------
+src = "NTA Information Bulletin, Joint CSIR-UGC NET December 2026 (cdnbbsr.s3waas.gov.in/s3efdf562ce2fb0ad460fd8e9d33e57f57/uploads/2026/10/202610071407707951.pdf) and public notice of 07.10.2026 inviting applications, both on csirnet.nta.nic.in"
+verify(AP, "CSIR NET (CSIR-UGC NET for Science)", "2026-10-26", src,
+    scope="National", stage="after_degree", category="Research & teaching (PG)", body_type="Government",
+    conducting_body="National Testing Agency (NTA), for CSIR and UGC", official_website="csirnet.nta.nic.in",
+    full_form_body="Joint CSIR-UGC National Eligibility Test, conducted by NTA, for Junior Research Fellowship (JRF), appointment as Assistant Professor and Ph.D. admission in five science subjects: Chemical Sciences; Earth, Atmospheric, Ocean and Planetary Sciences; Life Sciences and Biotechnology; Mathematical Sciences; Physical Sciences",
+    eligibility="Master's degree or equivalent with at least 55% (50% for OBC-NCL, SC, ST, PwBD and third gender), no rounding off; final-year Master's students may apply provisionally. JRF: not more than 30 years as on 1 December 2026, relaxable up to 5 years for OBC-NCL, SC, ST, PwBD, third gender and women. No upper age limit for Assistant Professor or Ph.D. admission",
+    application_window="December 2026: online 07.10.2026 - 05.11.2026 (11:50 PM) on csirnet.nta.nic.in. With Rs 500 late fee: 06.11.2026 - 09.11.2026. Corrections 10-12.11.2026. Fee Rs 1,150 General; Rs 600 General-EWS/OBC-NCL; Rs 325 SC/ST/PwBD/third gender",
+    exam_date="19, 22 and 27 December 2026, Computer Based Test, 3 hours; shift 1 9 AM - 12 noon, shift 2 3 PM - 6 PM. City slip and admit card dates to be announced",
+    admits_into="Junior Research Fellowship (with eligibility for Assistant Professor and Ph.D.), Assistant Professor eligibility with Ph.D. admission, or Ph.D. admission only, depending on the category you qualify in",
+    exam_pattern="One objective paper in your subject with Parts A (general aptitude), B and C (subject). Each paper has a set number of questions to answer per part (e.g. Chemical, Earth, Life and Physical Sciences: 15, 35 and 25). Negative marking of 25% in most parts; none in Part C of Mathematical Sciences, where all correct options must be marked",
+)
+
+# ---------- ICSI CSEET February 2027 ----------
+src = "ICSI: 'Restructured CSEET' page (icsi.edu/restructured-cseet, updated 21.10.2026: registration for February 2027 session, last date 31.10.2026); Time Table for CSEET February 2027 (cms_uploads/cseet-time-table-february2027-07551067.pdf, dated 07.10.2026); Announcement on restructuring of CSEET effective June 2026 and CSEET FAQs (both dated 08.09.2026)"
+verify(AP, "ICSI CSEET (Company Secretary Executive Entrance Test)", "2026-10-26", src,
+    conducting_body="The Institute of Company Secretaries of India (ICSI)", official_website="icsi.edu/cseet",
+    full_form_body="Company Secretary Executive Entrance Test, conducted by the Institute of Company Secretaries of India: the entry test for the CS course (restructured from June 2026, held at exam centres three times a year: February, June and October)",
+    eligibility="Indian nationals who have passed or are appearing in Class 12 (10+2) or equivalent. Exempted (can register straight for CS Executive): graduates and post-graduates, final-year UG students (provisional), CS Foundation passed, CA Intermediate passed, CMA Final passed, and 5-year integrated programme students who have passed or are in the 6th semester. Completing the Student Induction Programme is required before exam enrolment",
+    application_window="February 2027 session: registration 1 July - 31 October 2026 on icsi.edu (smash.icsi.edu). Registrations from 1 November count for the June session. Fee Rs 7,500 at registration (includes Student Induction Programme and online classes) plus Rs 1,500 exam fee per session; 50% concession for SC/ST and PwD",
+    exam_date="February 2027 session, at exam centres, 2 PM onwards (15 minutes' reading time): 1 Feb 2027 Business Communication; 2 Feb Fundamentals of Accounting; 3 Feb Economic and Business Environment; 4 Feb Business Laws and Management (OMR)",
+    admits_into="Registration for the CS Executive Programme (within one year of the CSEET result), the next stage towards becoming a Company Secretary",
+    exam_pattern="Four papers of 100 marks each: Business Communication, Fundamentals of Accounting, Economic and Business Environment (3 hours each, subjective) and Business Laws and Management (2 hours, OMR: Business Laws 60 + Business Management 40). Pass: at least 40% in each paper and 50% aggregate in one sitting",
+)
+cutoffs(AP, "ICSI CSEET (Company Secretary Executive Entrance Test)", 2027, src, "2026-10-26", [
+    ("All", "40% in each paper, 50% aggregate", "In one sitting; no exemptions or carry-forward of marks"),
+])
+
+# ---------- IIT JAM 2027 ----------
+src = "JAM 2027 website, IIT Kharagpur (organising institute): jam.iitkgp.ac.in home page (important dates), test-schedule.html and exam-eligibilityreq.html, checked 26 Oct 2026"
+verify(AP, "IIT JAM (Joint Admission Test for M.Sc.)", "2026-10-26", src,
+    scope="National", stage="after_degree", category="University PG admissions", body_type="Government",
+    conducting_body="IIT Kharagpur (organising institute for JAM 2027)", official_website="jam.iitkgp.ac.in",
+    full_form_body="Joint Admission Test for Masters (JAM) 2027, organised by IIT Kharagpur, for M.Sc. and other postgraduate science programmes at the IITs and other participating institutes",
+    eligibility="Anyone who has completed an undergraduate degree, or is appearing for the final exam of the qualifying degree in 2027. The degree must be completed before admission, and each admitting institute sets its own minimum-marks requirement",
+    application_window="JAM 2027: online application opened 11 September 2026 and closed 24 October 2026 (extended last date). Applications are now closed",
+    exam_date="14 February 2027 (Sunday), computer based. Forenoon 9:30 AM - 12:30 PM: Chemistry, Geology, Mathematics. Afternoon 2:30 PM - 5:30 PM: Biotechnology, Economics, Mathematical Statistics, Physics. You can take one paper, or two if they are in different sessions. Results 18 March 2027. No exam centres outside India",
+    admits_into="M.Sc., joint M.Sc.-Ph.D., M.Sc.-Ph.D. dual degree and similar postgraduate science programmes at the IITs and other institutes that admit through JAM",
+)
+
+# ---------- UPSC CAPF (Assistant Commandants) 2026 ----------
+src = "UPSC Examination Notice No. 08/2026-CAPF dated 20.02.2026 (upsc.gov.in/sites/default/files/ExamNotifi_CAPF_AC_Exam_2026_Eng_20022026.pdf), press note 10.07.2026, time-table, notice 08.09.2026 (PST/PET document window) and UPSC Annual Calendar 2027 (Calendar-Year-2027-Engl-200526.pdf)"
+verify(AP, "UPSC CAPF (AC) Exam", "2026-10-26", src,
+    scope="National", stage="jobs", category="Police", body_type="Government",
+    conducting_body="Union Public Service Commission (UPSC)", official_website="upsc.gov.in",
+    full_form_body="Central Armed Police Forces (Assistant Commandants) Examination, conducted by UPSC, for Group 'A' Assistant Commandant posts in BSF, CRPF, CISF, ITBP and SSB",
+    eligibility="A Bachelor's degree (final-year students may apply). Age 20-25 on 1 August of the exam year (2026 exam: born 02.08.2001 - 01.08.2006); relaxations as per rules. Physical and medical standards apply",
+    application_window="2026 exam: online until 12 March 2026 (closed). Fee Rs 200; women, SC and ST exempt. 2027 exam: per the UPSC calendar, exam on 4 July 2027; notification and application dates will be in the 2027 notice on upsc.gov.in",
+    exam_date="2026 written exam held 19 July 2026 (written result 25 August 2026); qualified candidates are now in the Physical Standards / Physical Efficiency Test stage, followed by interview (150 marks) and medical. Next written exam: 4 July 2027 (UPSC calendar)",
+    admits_into="Assistant Commandant (Group A) in the Central Armed Police Forces. 2026 vacancies: BSF 108, CRPF 106, CISF 70, SSB 53, ITBP 12 (349, tentative)",
+    exam_pattern="Paper I: General Ability and Intelligence, 250 marks, objective, 10 AM - 12 noon. Paper II: General Studies, Essay and Comprehension, 200 marks, conventional, 2 PM - 5 PM. Then Physical Standards / Physical Efficiency Tests (qualifying), interview / personality test (150 marks) and medical standards tests",
+)
+
+# ---------- Indian Forest Service Examination ----------
+src = "UPSC Examination Notice No. 06/2026-IFoSE dated 04.02.2026 (upsc.gov.in/sites/default/files/Notif-IFSP-2026-Engl-060226Rev.pdf), IFoS (Main) 2026 time-table (TT-IFSM-26-Engl-170926.pdf) and UPSC Annual Calendar 2027 (Calendar-Year-2027-Engl-200526.pdf)"
+verify(AP, "IFoS (Indian Forest Service Examination)", "2026-10-26", src,
+    conducting_body="Union Public Service Commission (UPSC)", official_website="upsc.gov.in",
+    full_form_body="Indian Forest Service Examination, conducted by UPSC: the preliminary stage is the Civil Services (Preliminary) Examination, followed by a separate IFoS Main exam and interview",
+    eligibility="A Bachelor's degree with at least one of Animal Husbandry & Veterinary Science, Botany, Chemistry, Geology, Mathematics, Physics, Statistics or Zoology, or a Bachelor's degree in Agriculture, Forestry or Engineering. Age 21-32 on 1 August of the exam year (2026: born 02.08.1994 - 01.08.2005); relaxations as per rules. Six attempts (nine for OBC; no limit for SC/ST)",
+    application_window="2027 exam (UPSC calendar): notification 13 January 2027, apply by 2 February 2027 on upsc.gov.in. 2026 exam: applied by 24 February 2026, fee Rs 100 (women, SC, ST and PwBD exempt)",
+    exam_date="2027: Preliminary (through the Civil Services Prelims) 23 May 2027; Main from 21 November 2027 (7 days). 2026 Main exam is on 22-29 November 2026",
+    admits_into="Indian Forest Service (IFS), an All India Service managing forests and wildlife; about 80 vacancies in 2026",
+)
+
+# ---------- APPSC Forest Range Officer (Notification 16/2026) ----------
+src = "APPSC Notification No. 16/2026 dated 16.10.2026, Forest Range Officer in A.P. Forest Service (psc.ap.gov.in/Documents/NotificationDocuments/FRODetailedNotification_162026.pdf) and web note of 16.10.2026"
+verify(AP, "APPSC Forest Range Officer", "2026-10-26", src,
+    conducting_body="Andhra Pradesh Public Service Commission (APPSC)", official_website="psc.ap.gov.in",
+    full_form_body="Direct recruitment to the post of Forest Range Officer in the A.P. Forest Service, conducted by APPSC",
+    eligibility="A Bachelor's degree in Agriculture, Botany, Chemistry, Computer Applications/Computer Science, Engineering (Agriculture, Chemical, Civil, Computer, Electrical, Electronics or Mechanical), Environmental Science, Forestry, Geology, Horticulture, Mathematics, Physics, Statistics, Veterinary Science or Zoology. Age 18-30 on 01.07.2026; relaxations as per rules. Physical standards: men at least 163 cm, chest 79 cm, walk 25 km in 4 hours; women at least 150 cm, chest 74 cm, walk 16 km in 4 hours",
+    application_window="Online 16.10.2026 - 05.11.2026 (11:59 PM) on psc.ap.gov.in (OTPR registration needed). Fee Rs 250 processing + Rs 120 exam fee; exam fee waived for SC, ST, BC, ex-servicemen and white-card families of AP",
+    exam_date="Computer based test; date to be announced by APPSC",
+    admits_into="Forest Range Officer, A.P. Forest Service: 5 posts (including 1 carried forward), pay Rs 48,440 - 1,37,220",
+    exam_pattern="Degree-standard objective exam: qualifying test in General English (50) and General Telugu (50); then Paper I General Studies & Mental Ability, Paper II Mathematics (SSC standard), Paper III General Forestry I, Paper IV General Forestry II, 150 marks each (600 total). 1/3 mark deducted for each wrong answer. Then a walking test and medical exam by the Forest Department",
+)
+cutoffs(AP, "APPSC Forest Range Officer", 2026, src, "2026-10-26", [
+    ("OC / EWS / Sportspersons / Ex-Servicemen", "40%", "Minimum aggregate to be considered for selection"),
+    ("BC", "35%", "Minimum aggregate to be considered for selection"),
+    ("SC / ST", "30%", "Minimum aggregate to be considered for selection"),
+])
+
+# ---------- IBPS SO (CRP SPL-XVI) ----------
+src = "IBPS Detailed Notification CRP SPL-XVI dated 30.06.2026 (ibps.in/wp-content/uploads/Detailed-Notification-CRP-SPL-XVI_Final_V1_30.06.2026.pdf), corrigendum of 20.07.2026 (updated vacancies), combined schedule for CRP PO/MT-XVI and SPL-XVI, and the CRP SPL-XVI page on ibps.in (prelim scores and main call letters out), checked 26 Oct 2026"
+verify(AP, "IBPS SO (Specialist Officer, CRP SPL)", "2026-10-26", src,
+    scope="National", stage="jobs", category="Banking jobs", body_type="Government",
+    conducting_body="Institute of Banking Personnel Selection (IBPS)", official_website="ibps.in",
+    full_form_body="Common Recruitment Process for Specialist Officers (CRP SPL-XVI, vacancies of 2027-28) in participating public sector banks, conducted by IBPS",
+    eligibility="Age 20-30 on 01.07.2026 (born 02.07.1996 - 01.07.2006); relaxations as per rules. Qualification by post: IT Officer (4-year B.E./B.Tech in CS/IT/electronics branches, or a related PG degree), Agricultural Field Officer (4-year degree in agriculture and allied fields), Rajbhasha Adhikari (PG in Hindi with English, or the reverse), Law Officer (LL.B. and enrolled with the Bar Council), HR/Personnel Officer and Marketing Officer (graduate plus a 2-year full-time PG in the field)",
+    application_window="CRP SPL-XVI: online 01.07.2026 - 21.07.2026 (closed). Fee Rs 850; Rs 175 for SC/ST/PwBD",
+    exam_date="Preliminary exam held (scores published); Online Main exam call letters issued. Interviews November/December 2026; provisional allotment January 2027 (IBPS tentative schedule)",
+    admits_into="Scale-I specialist officer posts in public sector banks: IT Officer, Agricultural Field Officer, Rajbhasha Adhikari, Law Officer, HR/Personnel Officer, Marketing Officer. Indicative vacancies in Annexure-I (updated 20.07.2026)",
+    exam_pattern="Online Preliminary (100 questions, 125 marks): English, Reasoning and Quantitative Aptitude (General Awareness on Banking instead of Quant for Law Officer and Rajbhasha Adhikari). Online Main: professional knowledge test of the post (Rajbhasha Adhikari: objective plus descriptive). Then interview",
+)
+
+# ---------- CUET (PG) ----------
+src = "NTA CUET (PG) page exams.nta.nic.in/cuet-pg (notices for CUET (PG)-2026; no CUET (PG)-2027 notice as of 26 Oct 2026)"
+verify(AP, "CUET-PG (Common University Entrance Test - Postgraduate)", "2026-10-26", src,
+    scope="National", stage="after_degree", category="University PG admissions", body_type="Government",
+    conducting_body="National Testing Agency (NTA)", official_website="exams.nta.nic.in/cuet-pg",
+    full_form_body="Common University Entrance Test for Postgraduate Programmes, conducted by NTA for admission to PG programmes at central and other participating universities",
+    eligibility="Set by each participating university for each PG programme (usually a relevant Bachelor's degree); not yet available for the 2027 cycle",
+    application_window="CUET (PG)-2027 not yet notified as of 26 Oct 2026; watch exams.nta.nic.in/cuet-pg",
+    exam_date="Not yet announced for 2027. CUET (PG)-2026 was held on 6-27 March 2026 (computer based)",
+    admits_into="Master's programmes at central universities (such as University of Hyderabad and Central University of Andhra Pradesh) and other participating universities",
 )
 
 
