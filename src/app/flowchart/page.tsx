@@ -1,5 +1,5 @@
 import { SYSTEM_FONT } from "@/lib/fonts";
-import MetroFlow from "@/components/metro-flow";
+import FlowChart from "@/components/flow-chart";
 import { getFlowchartData } from "@/lib/flowchart-db";
 import { stateOf } from "@/lib/class10-flow-data";
 import { cached } from "@/lib/cache";
@@ -31,7 +31,7 @@ export default async function FlowPage({
   const initial = { career: param(sp.career), stop: param(sp.stop), via: param(sp.via), step: param(sp.step), field: param(sp.field) };
   // Keyed by state so switching states starts the chart afresh.
   return (
-    <MetroFlow
+    <FlowChart
       key={data.state}
       data={data}
       initial={initial}
