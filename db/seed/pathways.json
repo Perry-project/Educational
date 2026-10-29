@@ -188,5 +188,18 @@
     "duration": "Minimum 1 year, up to 5 years to complete (credit accumulation system), same as NIOS Secondary Course structure",
     "leads_to": "Recognized Class 12 equivalent certificate; eligible for CUET-UG, state entrance exams, and undergraduate admission same as regular Intermediate pass",
     "source": "nios.ac.in (national NIOS structure, applies uniformly across states including Telangana)"
+  },
+  {
+    "state": "Telangana",
+    "pathway_name": "Continuation at a Telangana state residential school/society (TSWREIS/TTWREIS/MJPTBCWREIS/TREIS, EMRS, TMS, TMREIS) into Class 11-12 (Intermediate)",
+    "eligibility": "Must have passed Class 10/SSC; typically drawn from (but not limited to) students already enrolled in the corresponding welfare society's own school network, subject to that society's caste/tribe/BC/minority-category eligibility (or EMRS's ST-focused criteria); residential junior colleges commonly set an age-limit (around 17 years as of 31 August of the admission year) and a parental-income ceiling (commonly around Rs. 2,00,000/year) - exact figures vary by society and year",
+    "admission_route": "Conflicting/evolving picture across sources: a Dec-2024 Telangana Today report said TGSWREIS decided to admit its own Class X pass-outs into Intermediate 1st year WITHOUT an entrance exam starting the following year, allotting seats by SSC GPA so seats would not sit vacant; however a dedicated Common Entrance Test (TGSWRJC CET for TSWREIS, TGTWRJC CET for TTWREIS, TGMRJC CET/TGMRCOE CET for TMREIS, or the general TGRJC CET for Centre-of-Excellence junior colleges) was still conducted for the 2026-27 cycle (TGSWRJC CET held 15-May-2026, with a district-level spot-counselling round on 6-Jul-2026 for leftover seats). The no-CET/GPA-based route and the CET route therefore appear to coexist as of the 2026-27 cycle - possibly applying to different seat categories (e.g. the society's own Class-X pass-outs vs external applicants) rather than one having replaced the other - unverified - needs follow-up directly against tgswreis.telangana.gov.in (not reached via search) to confirm which mechanism governs which seats.",
+    "application_window": "Typically March-July for the following academic year's Intermediate 1st-year intake (e.g. TGSWRJC CET 2026 held 15-May-2026, spot counselling 6-Jul-2026); exact dates vary by society and year - confirm via each society's own site for the current cycle",
+    "duration": "2 years (Intermediate 1st and 2nd year, Classes 11-12)",
+    "leads_to": "TG EAPCET and other entrance exams for engineering/medical/other professional degree admission, or direct employment-oriented pathways, same as any other Intermediate-pass student in Telangana",
+    "source": "Telangana Today, 'TSWREIS junior colleges' tag page incl. Dec-2024 no-entrance-exam/SSC-GPA report; collegeadmission.in TGSWRJC CET 2026 notice; Deccan Chronicle, 'TGSWREIS to Conduct Spot Counselling For Inter First-Year Vacant Seats' (2026) - unverified - needs follow-up on which seat category each admission route governs",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
   }
 ]
