@@ -1,10 +1,8 @@
-import { Figtree, Sora } from "next/font/google";
+import { SYSTEM_FONT } from "@/lib/fonts";
 import SecondChance from "@/components/second-chance";
 import { getSecondChanceRoutes } from "@/lib/second-chance-db";
 import { cached } from "@/lib/cache";
 
-const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
-const sora = Sora({ subsets: ["latin"], weight: ["600", "700", "800"] });
 
 export const metadata = {
   title: "Second Chance — Perry",
@@ -27,5 +25,5 @@ export default async function SecondChancePage({
   const routes = await getCachedRoutes();
   // ?from=intermediate&state=ts&route=12 opens a shared view.
   const initial = { from: param(sp.from), state: param(sp.state), route: param(sp.route) };
-  return <SecondChance routes={routes} initial={initial} bodyFont={figtree.style.fontFamily} displayFont={sora.style.fontFamily} />;
+  return <SecondChance routes={routes} initial={initial} bodyFont={SYSTEM_FONT} displayFont={SYSTEM_FONT} />;
 }

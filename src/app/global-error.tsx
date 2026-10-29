@@ -5,7 +5,7 @@
 export default function GlobalError({ retry }: { error: Error & { digest?: string }; retry: () => void }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, minHeight: "100vh", display: "grid", placeItems: "center", background: "#111827", color: "#f3f4f6", fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif", textAlign: "center", padding: 16 }}>
+      <body style={{ margin: 0, minHeight: "100vh", display: "grid", placeItems: "center", background: "#6bb4ee", color: "#0e1822", fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif", textAlign: "center", padding: 16 }}>
         <title>Something went wrong — Perry</title>
         <div>
           <h1 style={{ fontSize: 24, margin: 0 }}>Something went wrong</h1>

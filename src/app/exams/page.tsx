@@ -1,10 +1,8 @@
-import { Figtree, Sora } from "next/font/google";
+import { SYSTEM_FONT } from "@/lib/fonts";
 import ExamsBrowser from "@/components/exams-browser";
 import { getExams } from "@/lib/exams-db";
 import { cached } from "@/lib/cache";
 
-const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
-const sora = Sora({ subsets: ["latin"], weight: ["600", "700", "800"] });
 
 export const metadata = {
   title: "Exams — Perry",
@@ -27,5 +25,5 @@ export default async function ExamsPage({
   const exams = await getCachedExams();
   // ?exam=12&state=ts&stage=jobs&type=Private opens a shared view.
   const initial = { exam: param(sp.exam), state: param(sp.state), stage: param(sp.stage), type: param(sp.type) };
-  return <ExamsBrowser exams={exams} initial={initial} bodyFont={figtree.style.fontFamily} displayFont={sora.style.fontFamily} />;
+  return <ExamsBrowser exams={exams} initial={initial} bodyFont={SYSTEM_FONT} displayFont={SYSTEM_FONT} />;
 }

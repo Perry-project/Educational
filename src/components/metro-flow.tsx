@@ -9,7 +9,9 @@ import { alternativesAt, careerCluster, CLUSTER_COLOR, fmtYears, pickRoute, rout
 import { GOVT_GROUPS, isComputing, STEP_MENUS } from "@/lib/flow-menus";
 import FlowMenuBar, { type BarMenu } from "./flow-menu-bar";
 import FlowchartSearch, { type SearchItem } from "./flowchart-search";
-import { ICON, PointList, PointSection, SubjectList } from "./fact-points";
+import { Fold, ICON, PointList, PointSection, SubjectList } from "./fact-points";
+import PageHead from "./page-head";
+import Icon from "./icon";
 
 // The "metro" flowchart (/flowchart), from the Claude Design canvas "Perry
 // Flowchart Mobile Redesign", option B. Every career is a line from Class
@@ -29,7 +31,7 @@ import { ICON, PointList, PointSection, SubjectList } from "./fact-points";
 // state switch is a plain link (a full load): every detail changes anyway.
 
 const KIND: Record<number, string> = { 1: "Starting point", 2: "After Class 10", 3: "Entrance exam", 4: "Course" };
-const STOP_COLOR: Record<number, string> = { 1: "#e1e5eb", 2: "#75aef5", 3: "#f29676", 4: "#68c4b8" };
+const STOP_COLOR: Record<number, string> = { 1: "#475569", 2: "#2563eb", 3: "#c2410c", 4: "#0f766e" };
 
 // Lines offered first, by careers.career_name, with the everyday name shown.
 const FEATURED: [string, string][] = [
@@ -44,7 +46,6 @@ const FEATURED: [string, string][] = [
 // Career label: the database name without its trailing "(...)" details.
 const shortName = (name: string) => name.replace(/(\s*\([^)]*\))+\s*$/, "") || name;
 const NOT_ANNOUNCED = /not yet (?:announced|released|open|notified)|not announced/i;
-const display = "var(--metro-display), var(--metro-body), system-ui, sans-serif";
 
 type Career = { id: string; name: string; label: string; cl: string; color: string };
 
@@ -110,7 +111,7 @@ export default function MetroFlow({
   // Featured careers go by their everyday name ("Software engineer").
   const chipOf = useMemo(() => Object.fromEntries(featured.map((c) => [c.id, c.chip])), [featured]);
   const nameOf = (id: string) => nodeById[id]?.label ?? chipOf[id] ?? careerById[id]?.label ?? id;
-  const lineColor = active?.color ?? "#5b9cf0";
+  const lineColor = active?.color ?? "#4f46e5";
 
   // When each stop happens: years worked out from the Duration rows, while
   // every duration so far is one clear number.
@@ -265,7 +266,7 @@ export default function MetroFlow({
           href={stateSwitch(k)}
           aria-current={state === k ? "page" : undefined}
           className="metro-chip inline-flex h-11 items-center rounded-full px-4 text-sm font-semibold no-underline"
-          style={{ background: state === k ? "var(--surface)" : "transparent", color: state === k ? "var(--ink)" : "var(--muted)" }}
+          style={{ background: state === k ? "var(--chip-on)" : "var(--surface)", color: state === k ? "var(--chip-on-ink)" : "var(--ink)" }}
         >
           {STATES[k].name}
         </a>
@@ -274,42 +275,20 @@ export default function MetroFlow({
   );
 
 
-  const changeLink = (s: string) => {
-    const alts = route ? alternativesAt(routes, route, s, 2) : [];
-    if (!alts.length || s === "start" || careerById[s]) return null;
-    return (
-      <span className="flex flex-col items-start gap-0">
-        {alts.map((a) => (
-          <button
-            key={a}
-            onClick={() => changeTo(a)}
-            className="inline-flex min-h-10 cursor-pointer items-center gap-2 border-0 bg-transparent p-0 text-left text-sm font-semibold"
-            style={{ color: STOP_COLOR[col(a)], fontFamily: "inherit" }}
-          >
-            <span className="h-3 w-3 shrink-0 rounded-full" style={{ border: `3px solid ${STOP_COLOR[col(a)]}` }} />
-            Change: {nameOf(a)}
-          </button>
-        ))}
-      </span>
-    );
-  };
-
   const subOf = (s: string) => nodeById[s]?.sub ?? (careerById[s] ? clusterName(careerById[s].cl) : "");
 
   const lineHeader = active && (
     <div className="flex flex-col gap-3">
-      <span
-        className="self-start rounded-md px-3 py-1 text-[13px] font-extrabold tracking-wide uppercase"
-        style={{ background: lineColor, color: "#0b1324" }}
-      >
-        {clusterName(active.cl)} line
+      <span className="flex items-center gap-2 self-start text-[14px] font-medium" style={{ color: lineColor }}>
+        <Icon name={active.cl} size={18} />
+        {clusterName(active.cl)}
       </span>
-      <h1 className="m-0 text-[32px] leading-[1.08] font-extrabold tracking-tight lg:text-[44px]" style={{ fontFamily: display, textWrap: "balance" }}>
+      <h1 className="m-0 text-[28px] leading-tight font-bold tracking-tight lg:text-[38px]" style={{ textWrap: "balance" }}>
         Class 10 to {nameOf(active.id)}
       </h1>
-      <p className="m-0 text-base lg:text-lg" style={{ color: "var(--muted)" }}>{meta}</p>
+      <p className="m-0 text-[15px]" style={{ color: "var(--muted)" }}>{meta}</p>
       {!route && (
-        <p className="m-0 max-w-2xl text-[15px] leading-relaxed" style={{ color: "#c9d0dc" }}>
+        <p className="m-0 max-w-2xl text-[15px] leading-relaxed" style={{ color: "var(--soft)" }}>
           No single course on this chart leads here. The details below explain the route.
         </p>
       )}
@@ -318,7 +297,7 @@ export default function MetroFlow({
 
   const otherRoutesList = otherRoutes.length > 0 && (
     <section className="flex flex-col gap-4">
-      <h2 className="m-0 text-xs font-bold tracking-widest uppercase" style={{ color: "var(--muted)" }}>Other ways to get here</h2>
+      <h2 className="m-0 text-[20px] font-bold">Other ways to get here</h2>
       <div className="grid gap-x-10 gap-y-5 lg:grid-cols-2">
         {otherRoutes.map((r) => {
           const mid = r.stops.filter((s) => s !== "start" && !careerById[s]);
@@ -326,10 +305,10 @@ export default function MetroFlow({
             <button
               key={r.stops.join(">")}
               onClick={() => { setVia(mid.find((s) => !route?.stops.includes(s)) ?? null); setStop(null); }}
-              className="metro-row flex cursor-pointer flex-col gap-3 rounded-2xl border-0 bg-transparent p-3 text-left"
-              style={{ color: "var(--ink)", fontFamily: "inherit" }}
+              className="metro-row flex cursor-pointer flex-col gap-3 rounded-xl border-0 p-4 text-left"
+              style={{ background: "var(--panel)", boxShadow: "inset 0 0 0 1px var(--line)", color: "var(--ink)", fontFamily: "inherit" }}
             >
-              <span className="text-base font-bold">Through {mid.map(nameOf).join(", then ")}</span>
+              <span className="text-[15px] font-semibold">Through {mid.map(nameOf).join(", then ")}</span>
               <MiniLine stops={r.stops.filter((s) => !careerById[s])} color={lineColor} nameOf={nameOf} />
             </button>
           );
@@ -369,22 +348,20 @@ export default function MetroFlow({
   }, [field]);
 
   const start = (
-    <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-8 px-6 pt-8 pb-12 lg:px-12 lg:pt-12">
+    <>
+    <PageHead title="Career map">
+      Every career is a line from Class 10. Pick a field, then a line to see its stops.
+    </PageHead>
+    <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-8 px-5 pt-8 pb-12 lg:px-12">
       <div className="hidden lg:block">
         <FlowMenuBar menus={menus} current={new Set()} onChoose={(id) => (careerById[id] ? openLine(id) : openStep(id))} />
       </div>
-      <div className="flex flex-col gap-3">
-        <h1 className="m-0 text-[38px] leading-[1.05] font-extrabold tracking-tight lg:text-[52px]" style={{ fontFamily: display }}>Pick your line.</h1>
-        <p className="m-0 max-w-[320px] text-base leading-relaxed lg:max-w-xl lg:text-lg" style={{ color: "var(--muted)" }}>
-          Every career is a line from Class 10. Pick a field, then follow a line to see its stops.
-        </p>
-      </div>
-      {stateMenu}
-      <div className="flex">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+        {stateMenu}
         <FlowchartSearch items={searchIndex} onChoose={openLine} />
       </div>
       <section aria-labelledby="field-q" className="flex flex-col gap-4">
-        <h2 id="field-q" className="m-0 text-xl font-extrabold lg:text-2xl" style={{ fontFamily: display }}>Which field interests you?</h2>
+        <h2 id="field-q" className="m-0 text-[20px] font-bold lg:text-[22px]">Which field interests you?</h2>
         <div role="group" aria-labelledby="field-q" className="grid grid-cols-2 gap-2 lg:grid-cols-3">
           {fields.map((f, i) => {
             const on = f.id === field;
@@ -395,12 +372,15 @@ export default function MetroFlow({
                 onClick={() => chooseField(f.id)}
                 aria-pressed={on}
                 aria-controls="field-lines"
-                className={`metro-row flex min-h-[92px] cursor-pointer flex-col items-start gap-2 rounded-2xl px-4 py-3.5 text-left ${lone ? "col-span-2 lg:col-span-1" : ""}`}
-                style={{ background: on ? "var(--surface)" : "transparent", color: "var(--ink)", border: `1px solid ${on ? f.color : "var(--line)"}`, fontFamily: "inherit" }}
+                className={`metro-step flex min-h-[104px] cursor-pointer flex-col items-start gap-2 rounded-xl border-0 p-4 text-left ${lone ? "col-span-2 lg:col-span-1" : ""}`}
+                style={{
+                  background: on ? "var(--accent-soft)" : "var(--panel)", color: "var(--ink)", fontFamily: "inherit",
+                  boxShadow: `inset 0 0 0 ${on ? 2 : 1}px ${on ? "var(--accent)" : "var(--line)"}`,
+                }}
               >
-                <span className="h-1.5 w-8 rounded-full" style={{ background: f.color }} />
-                <span className="text-[15px] leading-snug font-bold lg:text-base">{f.name}</span>
-                <span className="text-[13px]" style={{ color: "var(--muted)" }}>
+                <span style={{ color: f.color }}><Icon name={f.id} size={22} /></span>
+                <span className="text-[16px] leading-snug font-semibold">{f.name}</span>
+                <span className="text-[14px]" style={{ color: "var(--muted)" }}>
                   {f.list.length} {f.list.length === 1 ? "career" : "careers"}
                 </span>
               </button>
@@ -411,10 +391,10 @@ export default function MetroFlow({
       {shownField && (
         <section id="field-lines" aria-labelledby="field-h" className="flex flex-col gap-3" style={{ scrollMarginTop: "calc(var(--nav-h) + 16px)" }}>
           <div className="flex flex-col gap-1">
-            <span className="text-xs font-bold tracking-widest uppercase" style={{ color: shownField.color }}>{shownField.list.length} lines</span>
-            <h2 id="field-h" className="m-0 text-2xl font-extrabold lg:text-[28px]" style={{ fontFamily: display }}>{shownField.name}</h2>
+            <h2 id="field-h" className="m-0 text-[20px] font-bold lg:text-[22px]">{shownField.name}</h2>
+            <span className="text-[16px]" style={{ color: "var(--muted)" }}>{shownField.list.length} lines. Tap one to see its stops.</span>
           </div>
-          <nav aria-label={`${shownField.name} careers`} className="-mx-2 grid gap-1 lg:grid-cols-2 lg:gap-2 xl:grid-cols-3">
+          <nav aria-label={`${shownField.name} careers`} className="grid gap-2 lg:grid-cols-2 xl:grid-cols-3">
             {shownField.list.map((c) => {
               const r = routesOf[c.id]?.[0];
               const mid = r ? r.stops.filter((s) => s !== "start" && !careerById[s]).map(nameOf) : [];
@@ -422,16 +402,16 @@ export default function MetroFlow({
                 <button
                   key={c.id}
                   onClick={() => openLine(c.id)}
-                  className="metro-row flex min-h-16 cursor-pointer items-center gap-4 rounded-2xl border-0 bg-transparent px-2 py-1.5 text-left"
-                  style={{ color: "var(--ink)", fontFamily: "inherit" }}
+                  className="metro-step flex min-h-16 cursor-pointer items-center gap-3 rounded-xl border-0 px-4 py-3 text-left"
+                  style={{ background: "var(--panel)", boxShadow: "inset 0 0 0 1px var(--line)", color: "var(--ink)", fontFamily: "inherit" }}
                 >
-                  <span className="h-11 w-2 shrink-0 rounded" style={{ background: c.color }} />
-                  <span className="flex min-w-0 flex-col gap-0.5">
-                    <span className="text-lg leading-snug font-bold">{chipOf[c.id] ?? c.label}</span>
+                  <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+                    <span className="text-[16px] leading-snug font-semibold">{chipOf[c.id] ?? c.label}</span>
                     <span className="text-sm leading-snug" style={{ color: "var(--muted)" }}>
-                      {mid.length ? mid.join(" · ") : "Straight from Class 10"}
+                      {mid.length ? mid.join(" → ") : "Straight from Class 10"}
                     </span>
                   </span>
+                  <span className="shrink-0" style={{ color: "var(--muted)" }}><Icon name="chevronRight" size={18} /></span>
                 </button>
               );
             })}
@@ -439,42 +419,78 @@ export default function MetroFlow({
         </section>
       )}
     </div>
+    </>
   );
 
+  // ---------- phone: a vertical timeline of expandable step cards ----------
+
   const phoneRoute = active && (
-    <div className="flex flex-col gap-8 px-6 pt-3 pb-12 lg:hidden">
+    <div className="flex flex-col gap-7 px-4 pt-4 pb-10 lg:hidden">
       <button
         onClick={() => { setCareerId(null); setVia(null); setStop(null); }}
-        aria-label="Back to all lines"
-        className="-ml-3 grid h-11 w-11 cursor-pointer place-items-center rounded-full border-0 bg-transparent"
-        style={{ color: "var(--ink)" }}
+        className="inline-flex min-h-11 cursor-pointer items-center gap-1.5 self-start border-0 bg-transparent p-0 text-[15px] font-medium"
+        style={{ color: "var(--accent)", fontFamily: "inherit" }}
       >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+        <Icon name="arrowLeft" size={18} /> All careers
       </button>
       {lineHeader}
-      <ol aria-label="Stops" className="m-0 flex list-none flex-col p-0">
+      <ol aria-label="Steps" className="m-0 flex list-none flex-col p-0">
         {stops.map((s, i) => {
           const last = i === stops.length - 1;
-          const isSel = s === selected;
+          const open = stop === s;
+          const alts = route && s !== "start" && !careerById[s] ? alternativesAt(routes, route, s, 3) : [];
           return (
-            <li key={s} className="grid grid-cols-[64px_36px_minmax(0,1fr)] gap-x-3">
-              <span className="pt-0.5 text-right text-[13px] font-semibold" style={{ color: isSel ? "var(--ink)" : "var(--muted)" }}>{timeline.labels[i]}</span>
+            <li key={s} className="grid grid-cols-[32px_minmax(0,1fr)] gap-x-3">
               <span className="relative flex justify-center">
-                {/* The line runs from this station down to the next one. */}
-                {!last && <span className="absolute bottom-0 w-2" style={{ top: i === 0 ? 12 : 0, background: lineColor }} />}
-                {last && <span className="absolute top-0 h-3.5 w-2" style={{ background: lineColor }} />}
-                <Station last={last} selected={isSel} color={lineColor} />
-              </span>
-              <div className={`flex flex-col items-start gap-1.5 ${last ? "" : "pb-8"}`}>
-                <button
-                  onClick={() => pickStop(s, true)}
-                  className="cursor-pointer border-0 bg-transparent p-0 text-left text-[19px] font-bold"
-                  style={{ color: "var(--ink)", fontFamily: display }}
+                {!last && <span aria-hidden className="absolute top-8 bottom-0 w-0.5" style={{ background: "var(--line)" }} />}
+                <span
+                  aria-hidden
+                  className="relative mt-3 grid h-8 w-8 place-items-center rounded-full text-[13px] font-semibold"
+                  style={last
+                    ? { background: "var(--ok)", color: "#fff" }
+                    : open ? { background: "var(--accent)", color: "#fff" } : { background: "var(--panel)", color: "var(--ink)", boxShadow: "inset 0 0 0 1px var(--line)" }}
                 >
-                  {nameOf(s)}
-                </button>
-                <span className="text-sm leading-snug" style={{ color: "var(--muted)" }}>{subOf(s)}</span>
-                {changeLink(s)}
+                  {last ? <Icon name="check" size={16} /> : i + 1}
+                </span>
+              </span>
+              <div className={last ? "" : "pb-3"}>
+                <div className="overflow-hidden rounded-xl" style={{ background: "var(--panel)", boxShadow: `inset 0 0 0 ${open ? 2 : 1}px ${open ? "var(--accent)" : "var(--line)"}` }}>
+                  <button
+                    onClick={() => setStop(open ? null : s)}
+                    aria-expanded={open}
+                    aria-controls={`step-${s}`}
+                    className="flex min-h-14 w-full cursor-pointer items-center gap-3 border-0 bg-transparent px-4 py-3 text-left"
+                    style={{ color: "var(--ink)", fontFamily: "inherit" }}
+                  >
+                    <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+                      <span className="text-[13px]" style={{ color: "var(--muted)" }}>{timeline.labels[i]} · {careerById[s] ? "Career" : KIND[col(s)]}</span>
+                      <span className="text-[17px] leading-snug font-semibold">{nameOf(s)}</span>
+                      {subOf(s) && <span className="text-[14px] leading-snug" style={{ color: "var(--muted)" }}>{subOf(s)}</span>}
+                    </span>
+                    <span className="shrink-0 transition-transform duration-200" style={{ transform: open ? "rotate(180deg)" : undefined, color: "var(--muted)" }}>
+                      <Icon name="chevronDown" size={20} />
+                    </span>
+                  </button>
+                  {open && (
+                    <div id={`step-${s}`} className="flex flex-col gap-6 px-4 pt-2 pb-5" style={{ borderTop: "1px solid var(--line)" }}>
+                      <StopDetails
+                        node={nodeById[s]} detail={data.details[s]} title={nameOf(s)}
+                        careerKind={careerById[s] ? `Career · ${clusterName(careerById[s].cl)}` : null}
+                        stopNo={i + 1} region={STATES[state].short} lineColor={lineColor} compact
+                      />
+                    </div>
+                  )}
+                </div>
+                {alts.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-1 pt-2 text-[14px]">
+                    <span style={{ color: "var(--muted)" }}>Or instead:</span>
+                    {alts.map((a) => (
+                      <button key={a} onClick={() => changeTo(a)} className="inline-flex min-h-9 cursor-pointer items-center gap-1 border-0 bg-transparent p-0 font-medium" style={{ color: "var(--accent)", fontFamily: "inherit" }}>
+                        {nameOf(a)} <Icon name="arrowRight" size={14} />
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </li>
           );
@@ -484,41 +500,17 @@ export default function MetroFlow({
     </div>
   );
 
-  const phoneSheet = sheetOpen && selected && (
-    <div className="fixed inset-0 z-[120] lg:hidden">
-      <button aria-label="Close details" onClick={() => setSheetOpen(false)} className="absolute inset-0 cursor-default border-0" style={{ background: "rgba(5,8,15,0.6)" }} />
-      <section
-        role="dialog"
-        aria-modal="true"
-        aria-label={`${nameOf(selected)} details`}
-        className="metro-sheet absolute inset-x-0 bottom-0 flex max-h-[85vh] flex-col overflow-auto rounded-t-3xl"
-        style={{ background: "#121829", paddingBottom: "env(safe-area-inset-bottom)" }}
-      >
-        <div className="flex justify-center pt-2.5"><span className="h-1.5 w-11 rounded-full" style={{ background: "#2f384d" }} /></div>
-        <div className="flex flex-col gap-6 px-6 pt-4 pb-8">
-          <StopDetails
-            key={selected} node={nodeById[selected]} detail={detail} title={nameOf(selected)}
-            careerKind={careerById[selected] ? `Career · ${clusterName(careerById[selected].cl)}` : null}
-            stopNo={stops.indexOf(selected) + 1} region={STATES[state].short} lineColor={lineColor}
-            onClose={() => setSheetOpen(false)}
-          />
-        </div>
-      </section>
-    </div>
-  );
-
-  // ---------- desktop ----------
+  // ---------- desktop: steps as columns, left to right, details below ----------
 
   const desktop = active && (
-    <div className="mx-auto hidden max-w-[1440px] flex-col gap-8 px-12 pt-4 pb-16 lg:flex">
-      <nav aria-label="Flowchart menus" className="flex flex-wrap items-center gap-x-6 gap-y-3 pb-5" style={{ borderBottom: "1px solid #1f2738" }}>
+    <div className="mx-auto hidden max-w-[1280px] flex-col gap-8 px-8 pt-4 pb-14 lg:flex">
+      <nav aria-label="Career map menus" className="flex flex-wrap items-center gap-x-5 gap-y-3 pb-4" style={{ borderBottom: "1px solid var(--line)" }}>
         <button
           onClick={() => { setCareerId(null); setVia(null); setStop(null); }}
-          className="metro-chip inline-flex h-10 cursor-pointer items-center gap-2 rounded-full border-0 bg-transparent px-3 text-sm font-semibold"
-          style={{ color: "var(--muted)", fontFamily: "inherit" }}
+          className="metro-chip inline-flex h-10 cursor-pointer items-center gap-1.5 rounded-lg border-0 bg-transparent px-3 text-[14px] font-medium"
+          style={{ color: "var(--accent)", fontFamily: "inherit" }}
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
-          All lines
+          <Icon name="arrowLeft" size={16} /> All careers
         </button>
         <FlowMenuBar menus={menus} current={new Set(stops)} onChoose={(id) => (careerById[id] ? openLine(id) : openStep(id))} />
         <FlowchartSearch items={searchIndex} onChoose={openLine} />
@@ -529,115 +521,73 @@ export default function MetroFlow({
         {stateMenu}
       </section>
 
-      {/* The line runs down the left and stays in view; the selected stop's
-          full details fill the right. */}
-      <div className="grid grid-cols-[440px_minmax(0,1fr)] items-start gap-10 xl:grid-cols-[480px_minmax(0,1fr)]">
-        <aside className="metro-scroll sticky flex max-h-[calc(100vh-var(--nav-h)-48px)] flex-col gap-8 overflow-y-auto pr-1" style={{ top: "calc(var(--nav-h) + 24px)" }}>
-          <ol aria-label="Stops" className="m-0 flex list-none flex-col p-0">
-            {stops.map((s, i) => {
-              const last = i === stops.length - 1;
-              const isSel = s === selected;
-              const alts = route && s !== "start" && !careerById[s] ? alternativesAt(routes, route, s, 3) : [];
-              return (
-                <li key={s} className="grid grid-cols-[96px_36px_minmax(0,1fr)] gap-x-3">
-                  <span className="pt-3 text-right text-[13px] font-semibold" style={{ color: isSel ? "var(--ink)" : "var(--muted)" }}>{timeline.labels[i]}</span>
-                  <span className="relative flex justify-center pt-2.5">
-                    {/* The line runs from this station down to the next one. */}
-                    {!last && <span className="absolute bottom-0 w-2" style={{ top: i === 0 ? 22 : 0, background: lineColor }} />}
-                    {last && <span className="absolute top-0 h-6 w-2" style={{ background: lineColor }} />}
-                    <Station last={last} selected={isSel} color={lineColor} />
+      <ol aria-label="Steps" className="m-0 flex list-none items-stretch gap-0 overflow-x-auto p-0 pb-1">
+        {stops.map((s, i) => {
+          const last = i === stops.length - 1;
+          const isSel = s === selected;
+          const alts = route && s !== "start" && !careerById[s] ? alternativesAt(routes, route, s, 3) : [];
+          return (
+            <li key={s} className="flex min-w-[190px] flex-1 items-stretch">
+              <div className="flex min-w-0 flex-1 flex-col gap-2">
+                <button
+                  onClick={() => pickStop(s, false)}
+                  aria-pressed={isSel}
+                  className="metro-step flex min-h-[132px] w-full cursor-pointer flex-col items-start gap-1.5 rounded-xl border-0 p-4 text-left"
+                  style={{
+                    background: isSel ? "var(--accent-soft)" : "var(--panel)", color: "var(--ink)", fontFamily: "inherit",
+                    boxShadow: `inset 0 0 0 ${isSel ? 2 : 1}px ${isSel ? "var(--accent)" : "var(--line)"}`,
+                  }}
+                >
+                  <span className="flex w-full items-center justify-between gap-2 text-[13px]" style={{ color: "var(--muted)" }}>
+                    <span>Step {i + 1} · {careerById[s] ? "Career" : KIND[col(s)]}</span>
+                    {last && <span style={{ color: "var(--ok)" }}><Icon name="check" size={16} /></span>}
                   </span>
-                  <div className={`flex min-w-0 flex-col items-stretch gap-2 ${last ? "" : "pb-5"}`}>
-                    <button
-                      onClick={() => pickStop(s, false)}
-                      aria-pressed={isSel}
-                      className="metro-row flex cursor-pointer flex-col items-start gap-0.5 rounded-xl border-0 px-3 py-2 text-left"
-                      style={{ background: isSel ? "var(--surface)" : "transparent", color: "var(--ink)", fontFamily: "inherit" }}
-                    >
-                      <span className="text-[19px] font-bold" style={{ fontFamily: display }}>{nameOf(s)}</span>
-                      <span className="text-sm leading-snug" style={{ color: "var(--muted)" }}>{subOf(s)}</span>
-                    </button>
-                    {alts.length > 0 && (
-                      <div className="flex flex-col items-start gap-1.5 pl-3">
-                        <span className="text-xs font-semibold" style={{ color: "var(--muted)" }}>Or instead of {nameOf(s)}:</span>
-                        <div className="flex flex-wrap gap-1.5">
-                          {alts.map((a) => (
-                            <button
-                              key={a}
-                              onClick={() => changeTo(a)}
-                              title={`Switch the route to go through ${nameOf(a)}`}
-                              className="metro-alt inline-flex min-h-9 cursor-pointer items-center gap-1.5 rounded-full bg-transparent px-3 text-[13px] font-semibold"
-                              style={{ border: `1px dashed ${STOP_COLOR[col(a)]}`, color: STOP_COLOR[col(a)], fontFamily: "inherit" }}
-                            >
-                              {nameOf(a)}
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                  <span className="text-[17px] leading-snug font-semibold">{nameOf(s)}</span>
+                  {subOf(s) && <span className="text-[14px] leading-snug" style={{ color: "var(--muted)" }}>{subOf(s)}</span>}
+                  <span className="mt-auto pt-2 text-[13px] font-medium" style={{ color: "var(--soft)" }}>{timeline.labels[i]}</span>
+                </button>
+                {alts.length > 0 && (
+                  <div className="flex flex-col items-start gap-0.5 px-1 text-[13px]">
+                    <span style={{ color: "var(--muted)" }}>Or instead:</span>
+                    {alts.map((a) => (
+                      <button key={a} onClick={() => changeTo(a)} title={`Switch the route to go through ${nameOf(a)}`} className="inline-flex min-h-8 cursor-pointer items-center gap-1 border-0 bg-transparent p-0 text-left font-medium" style={{ color: "var(--accent)", fontFamily: "inherit" }}>
+                        {nameOf(a)} <Icon name="arrowRight" size={13} />
+                      </button>
+                    ))}
                   </div>
-                </li>
-              );
-            })}
-          </ol>
+                )}
+              </div>
+              {!last && (
+                <span aria-hidden className="flex w-9 shrink-0 items-start justify-center pt-[54px]" style={{ color: "var(--muted)" }}>
+                  <Icon name="chevronRight" size={22} />
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ol>
 
-          {otherRoutes.length > 0 && (
-            <section className="flex flex-col gap-2 pl-[120px]">
-              <h2 className="m-0 px-3 text-xs font-bold tracking-widest uppercase" style={{ color: "var(--muted)" }}>Other ways to get here</h2>
-              {otherRoutes.map((r) => {
-                const mid = r.stops.filter((s) => s !== "start" && !careerById[s]);
-                return (
-                  <button
-                    key={r.stops.join(">")}
-                    onClick={() => { setVia(mid.find((s) => !route?.stops.includes(s)) ?? null); setStop(null); }}
-                    className="metro-row cursor-pointer rounded-xl border-0 bg-transparent px-3 py-2 text-left text-sm leading-snug"
-                    style={{ color: "#c9d0dc", fontFamily: "inherit" }}
-                  >
-                    {mid.map(nameOf).join(" → ")}
-                  </button>
-                );
-              })}
-            </section>
-          )}
-        </aside>
+      {selected && (
+        <section ref={panelRef} aria-label={`${nameOf(selected)} details`} className="flex min-w-0 flex-col gap-8 rounded-2xl p-8" style={{ background: "var(--panel)", boxShadow: "inset 0 0 0 1px var(--line)", scrollMarginTop: "calc(var(--nav-h) + 16px)" }}>
+          <StopDetails
+            key={selected} node={nodeById[selected]} detail={detail} title={nameOf(selected)}
+            careerKind={careerById[selected] ? `Career · ${clusterName(careerById[selected].cl)}` : null}
+            stopNo={stops.indexOf(selected) + 1} region={STATES[state].short} lineColor={lineColor} wide
+          />
+        </section>
+      )}
 
-        {selected && (
-          <section ref={panelRef} aria-label={`${nameOf(selected)} details`} className="flex min-w-0 flex-col gap-8 rounded-[28px] px-10 py-9" style={{ background: "var(--panel)" }}>
-            <StopDetails
-              key={selected} node={nodeById[selected]} detail={detail} title={nameOf(selected)}
-              careerKind={careerById[selected] ? `Career · ${clusterName(careerById[selected].cl)}` : null}
-              stopNo={stops.indexOf(selected) + 1} region={STATES[state].short} lineColor={lineColor} wide
-            />
-          </section>
-        )}
-      </div>
+      {otherRoutesList}
     </div>
   );
 
   return (
     <div className="metro min-h-[calc(100vh-var(--nav-h))]" style={rootStyle}>
       {careerId ? <>{phoneRoute}{desktop}</> : start}
-      {phoneSheet}
-      <p className={`mx-auto px-6 pb-10 text-[13px] leading-relaxed lg:px-12 ${careerId ? "max-w-[1440px]" : "max-w-[1100px]"}`} style={{ color: "var(--muted)" }}>
-        Dates are from the most recent official notices. Always check the current notification before applying.
+      <p className={`mx-auto px-4 pb-10 text-[14px] leading-relaxed lg:px-8 ${careerId ? "max-w-[1280px]" : "max-w-[1100px]"}`} style={{ color: "var(--muted)" }}>
+        Always check the current official notification before applying.
       </p>
     </div>
-  );
-}
-
-function Station({ last, selected, color, big }: { last: boolean; selected: boolean; color: string; big?: boolean }) {
-  const size = (selected ? 36 : last ? 32 : 26) + (big ? 4 : 0);
-  return (
-    <span
-      className="relative block shrink-0 rounded-full"
-      style={{
-        width: size, height: size, boxSizing: "border-box",
-        border: selected || last ? "5px solid var(--ink)" : `6px solid ${color}`,
-        background: selected || last ? color : "var(--bg)",
-        marginTop: selected ? -4 : last ? -2 : 0,
-      }}
-    />
   );
 }
 
@@ -646,7 +596,7 @@ function MiniLine({ stops, color, nameOf }: { stops: string[]; color: string; na
     <span className="relative grid" style={{ gridTemplateColumns: `repeat(${stops.length}, minmax(0, 1fr))` }}>
       <span className="absolute top-[7px] h-1.5 rounded" style={{ left: 10, right: `calc(${100 / stops.length}% - 10px)`, background: color }} />
       {stops.map((s) => (
-        <span key={s} className="relative flex flex-col gap-2 pr-2 text-xs leading-tight font-semibold" style={{ color: "#c9d0dc", overflowWrap: "anywhere" }}>
+        <span key={s} className="relative flex flex-col gap-2 pr-2 text-xs leading-tight font-semibold" style={{ color: "var(--soft)", overflowWrap: "anywhere" }}>
           <span className="h-5 w-5 rounded-full" style={{ border: `5px solid ${color}`, background: "var(--bg)", boxSizing: "border-box" }} />
           {s === "start" ? "Class 10" : nameOf(s)}
         </span>
@@ -700,10 +650,10 @@ const SECTION: Record<string, { title: string; icon: React.ReactNode }> = {
 };
 
 function StopDetails({
-  node, detail, title, careerKind, stopNo, region, lineColor, wide, onClose,
+  node, detail, title, careerKind, stopNo, region, lineColor, wide, compact,
 }: {
   node?: FlowNode; detail?: NodeDetail; title: string; careerKind: string | null;
-  stopNo: number; region: string; lineColor: string; wide?: boolean; onClose?: () => void;
+  stopNo: number; region: string; lineColor: string; wide?: boolean; compact?: boolean;
 }) {
   const kind = careerKind ?? (node ? KIND[node.col] : "");
   const rows = (detail?.rows ?? []).filter(([k, v]) => !(k === "Full name" && v === title));
@@ -716,23 +666,18 @@ function StopDetails({
     .sort((a, b) => (SECTION_ORDER.indexOf(a[0]) + 99) % 99 - (SECTION_ORDER.indexOf(b[0]) + 99) % 99);
   const intro = (
     <div className="flex flex-col gap-3">
-      <div className="flex items-start gap-3">
-        <div className="flex flex-1 flex-col gap-1.5">
-          <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "var(--muted)" }}>Stop {stopNo} · {kind}</span>
-          <h2 className="m-0 text-[26px] leading-tight font-extrabold lg:text-[32px]" style={{ fontFamily: display }}>{title}</h2>
+      {!compact && (
+        <div className="flex flex-col gap-1">
+          <span className="text-[13px]" style={{ color: "var(--muted)" }}>Step {stopNo} · {kind}</span>
+          <h2 className="m-0 text-[26px] leading-tight font-bold tracking-tight">{title}</h2>
         </div>
-        {onClose && (
-          <button onClick={onClose} aria-label="Close details" className="grid h-11 w-11 shrink-0 cursor-pointer place-items-center rounded-full bg-transparent" style={{ border: "1px solid var(--line)", color: "var(--ink)" }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden><path d="M6 6l12 12M18 6L6 18" /></svg>
-          </button>
-        )}
-      </div>
-      {node?.full && <p className="m-0 text-base leading-relaxed" style={{ color: "#c9d0dc" }}>{node.full}</p>}
-      {detail?.note && <p className="m-0 rounded-xl px-4 py-3 text-sm leading-relaxed" style={{ background: "#2b2412", color: "#f0d9a0" }}>{detail.note}</p>}
+      )}
+      {node?.full && node.full.length < 160 && <p className="m-0 text-[16px] leading-snug" style={{ color: "var(--soft)" }}>{node.full}</p>}
+      {detail?.note && <p className="m-0 rounded-lg px-4 py-3 text-[14px] leading-relaxed" style={{ background: "var(--warn-bg)", color: "var(--warn-ink)", boxShadow: "inset 0 0 0 1px var(--warn-line)" }}>{detail.note}</p>}
       {!detail && <p className="m-0 text-sm" style={{ color: "var(--muted)" }}>Details for this stop haven’t been added yet.</p>}
       {node && (
-        <Link href={`/second-chance?from=${stoppedAtOf(node)}`} className="inline-flex items-center gap-1.5 self-start text-[15px] font-semibold no-underline" style={{ color: "var(--accent)" }}>
-          If you stop here: ways back →
+        <Link href={`/second-chance?from=${stoppedAtOf(node)}`} className="link inline-flex items-center gap-1.5 self-start text-[15px]">
+          If you stop here: ways back <Icon name="arrowRight" size={15} />
         </Link>
       )}
     </div>
@@ -743,83 +688,86 @@ function StopDetails({
     </p>
   );
 
+  // The first four sections show; everything longer folds away until tapped.
+  const main = sections.slice(0, 4);
+  const more = sections.slice(4);
   const body = (
     <div className="flex min-w-0 flex-col gap-8">
       {tiles.length > 0 && (
-        <dl className="m-0 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+        <dl className="m-0 grid grid-cols-2 gap-2 sm:grid-cols-3">
           {tiles.map(([k, v]) => (
             <div key={k} className="flex flex-col gap-1 rounded-2xl px-4 py-3" style={{ background: "var(--surface)" }}>
-              <dt className="text-[12px] font-bold tracking-wider uppercase" style={{ color: "var(--muted)" }}>{SECTION[k]?.title ?? k}</dt>
-              <dd className="m-0 text-[15px] leading-snug font-semibold" style={{ color: "var(--ink)" }}>{v}</dd>
+              <dt className="text-[14px] font-semibold" style={{ color: "var(--muted)" }}>{SECTION[k]?.title ?? k}</dt>
+              <dd className="m-0 text-[17px] leading-snug font-semibold" style={{ color: "var(--ink)" }}>{v}</dd>
             </div>
           ))}
         </dl>
       )}
-      {sections.length > 0 && (
+      {main.length > 0 && (
         <div className={`grid gap-x-10 gap-y-7 ${wide ? "xl:grid-cols-2" : ""}`}>
-          {sections.map(([k, v]) => {
+          {main.map(([k, v]) => {
             const s = SECTION[k] ?? { title: k, icon: ICON.info };
             return (
               <PointSection
                 key={k} title={s.title} icon={s.icon} color={lineColor} text={v}
-                badge={(k === "Applications" || k === "Exam dates") && NOT_ANNOUNCED.test(v) ? "Next dates not announced" : null}
+                badge={(k === "Applications" || k === "Exam dates") && NOT_ANNOUNCED.test(v) ? "Not announced yet" : null}
               />
             );
           })}
         </div>
       )}
-      {detail?.jobs && (
-        <PointSection title="Jobs you can do" icon={ICON.briefcase} color={lineColor}>
-          <PointList text={detail.jobs} color={lineColor} limit={6} />
-          <span className="text-xs" style={{ color: "var(--muted)" }}>Job list is AI-assisted guidance, not an official list.</span>
-        </PointSection>
-      )}
-      {node?.col === 3 && detail && (
-        <PointSection title="Subjects & what to focus on" icon={ICON.book} color={lineColor}>
-          <SubjectList subjects={detail.subjects ?? []} color={lineColor} empty="The syllabus for this exam hasn’t been added yet." />
-        </PointSection>
-      )}
-      {isCourse && (
-        <section className="flex flex-col gap-3">
-          <h3 className="m-0 text-xs font-bold tracking-widest uppercase" style={{ color: "var(--muted)" }}>
-            Colleges in {region}{detail?.colleges?.length ? ` · ${detail.colleges.length}` : ""}
-          </h3>
-          {detail?.colleges?.length ? (
-            <ul className="m-0 grid list-none gap-x-8 gap-y-2 p-0 sm:grid-cols-2">
-              {detail.colleges.map((c) => (
-                <li key={c.name} className="flex flex-col text-[15px]">
-                  {c.name}
-                  {c.ownership && <span className="text-xs" style={{ color: "var(--muted)" }}>{c.ownership}</span>}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="m-0 text-sm" style={{ color: "var(--muted)" }}>No {region} colleges listed for this course yet.</p>
-          )}
-        </section>
-      )}
-      {isCourse && (
-        <section className="flex flex-col gap-3">
-          <h3 className="m-0 text-xs font-bold tracking-widest uppercase" style={{ color: "var(--muted)" }}>
-            What you’ll study{detail?.topics?.length ? ` · ${detail.topics.length} topics` : ""}
-          </h3>
-          {detail?.topics?.length ? (
-            <>
-              <ol className="m-0 flex list-none flex-col gap-2 p-0">
-                {detail.topics.map((t, i) => (
-                  <li key={t.name} className="flex gap-3 text-[15px]">
-                    <span className="w-5 shrink-0 font-extrabold" style={{ color: lineColor }}>{i + 1}</span>
-                    {t.name}
+      <div className="flex flex-col gap-2">
+        {more.map(([k, v]) => (
+          <Fold key={k} title={SECTION[k]?.title ?? k}>
+            <PointList text={v} color={lineColor} full />
+          </Fold>
+        ))}
+        {detail?.jobs && (
+          <Fold title="Jobs you can do" meta="AI-assisted list">
+            <PointList text={detail.jobs} color={lineColor} full />
+          </Fold>
+        )}
+        {node?.col === 3 && detail && (
+          <Fold title="Syllabus" meta={detail.subjects?.length ? `${detail.subjects.length} subjects` : "not added yet"}>
+            <SubjectList subjects={detail.subjects ?? []} color={lineColor} empty="The syllabus for this exam hasn’t been added yet." />
+          </Fold>
+        )}
+        {isCourse && (
+          <Fold title={`Colleges in ${region}`} meta={detail?.colleges?.length ? `${detail.colleges.length} listed` : "none listed yet"}>
+            {detail?.colleges?.length ? (
+              <ul className="m-0 grid list-none gap-x-8 gap-y-2 p-0 sm:grid-cols-2">
+                {detail.colleges.map((c) => (
+                  <li key={c.name} className="flex flex-col text-[16px]">
+                    {c.name}
+                    {c.ownership && <span className="text-[14px]" style={{ color: "var(--muted)" }}>{c.ownership}</span>}
                   </li>
                 ))}
-              </ol>
-              <span className="text-xs" style={{ color: "var(--muted)" }}>Topic guide is AI-assisted. Check your college’s syllabus.</span>
-            </>
-          ) : (
-            <p className="m-0 text-sm" style={{ color: "var(--muted)" }}>Study topics for this course are being added.</p>
-          )}
-        </section>
-      )}
+              </ul>
+            ) : (
+              <p className="m-0 text-[16px]" style={{ color: "var(--muted)" }}>No {region} colleges listed for this course yet.</p>
+            )}
+          </Fold>
+        )}
+        {isCourse && (
+          <Fold title="What you’ll study" meta={detail?.topics?.length ? `${detail.topics.length} topics, AI-assisted` : "being added"}>
+            {detail?.topics?.length ? (
+              <>
+                <ol className="m-0 flex list-none flex-col gap-2 p-0">
+                  {detail.topics.map((t, i) => (
+                    <li key={t.name} className="flex gap-3 text-[16px]">
+                      <span className="w-5 shrink-0 font-bold" style={{ color: lineColor }}>{i + 1}</span>
+                      {t.name}
+                    </li>
+                  ))}
+                </ol>
+                <span className="text-[14px]" style={{ color: "var(--muted)" }}>Topic guide is AI-assisted. Check your college’s syllabus.</span>
+              </>
+            ) : (
+              <p className="m-0 text-[16px]" style={{ color: "var(--muted)" }}>Study topics for this course are being added.</p>
+            )}
+          </Fold>
+        )}
+      </div>
       {source}
     </div>
   );

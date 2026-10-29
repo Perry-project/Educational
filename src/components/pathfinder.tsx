@@ -8,6 +8,8 @@ import { ADVISORY_QUIZ, pathsToCareer, scoreQuiz } from "@/lib/decision-logic";
 import type { CollegeMatch } from "@/lib/decision-data";
 import { CLUSTER_COLOR, careerCluster } from "@/lib/metro-routes";
 import { forStudents } from "@/lib/student-text";
+import PageHead from "./page-head";
+import Icon from "./icon";
 
 // The /pathfinder page, in the flowchart's Metro style. A student either
 // picks a career or answers three questions for a few suggestions (AI-
@@ -18,8 +20,10 @@ type Mode = "choose" | "quiz" | "pick";
 
 const OFFICIAL_SOURCES = "cets.apsche.ap.gov.in (entrance tests) and cap.apcfss.in (counselling and seat allotment)";
 const display = "var(--metro-display), var(--metro-body), system-ui, sans-serif";
-const soft = "#c9d0dc";
+const soft = "var(--soft)";
 const checked = (n: { tier?: FlowNode["tier"] }) => n.tier?.dataTier === "tier_1_official";
+// Careers students ask about most, offered as one-tap shortcuts.
+const POPULAR = [/software|information technology/i, /medicine|mbbs/i, /teach/i, /chartered/i, /civil services/i, /nurs/i, /law/i, /defence/i];
 
 export default function Pathfinder({
   graph, collegesByCourse, bodyFont, displayFont,
@@ -57,7 +61,7 @@ export default function Pathfinder({
   const rootStyle = { "--metro-body": bodyFont, "--metro-display": displayFont, fontFamily: bodyFont } as CSSProperties;
   const quiet = "inline-flex min-h-10 cursor-pointer items-center border-0 bg-transparent p-0 text-[15px] font-semibold";
   const ai = (text: string) => (
-    <span className="self-start rounded-full px-3 py-1 text-[12px] font-bold" style={{ background: "#1c2a44", color: "#9cc4ff" }}>{text}</span>
+    <span className="self-start rounded-full px-3 py-1 text-[12px] font-bold" style={{ background: "var(--info-bg)", color: "var(--info-ink)" }}>{text}</span>
   );
 
   let body;
@@ -66,8 +70,7 @@ export default function Pathfinder({
     body = (
       <section className="flex flex-col gap-8" aria-labelledby="career-h">
         <div className="flex flex-col gap-2">
-          <span className="text-xs font-bold tracking-widest uppercase" style={{ color }}>Your target</span>
-          <h2 id="career-h" className="m-0 text-[28px] leading-tight font-extrabold lg:text-[34px]" style={{ fontFamily: display }}>{career.label}</h2>
+          <h2 id="career-h" className="m-0 text-[28px] leading-tight font-bold tracking-tight lg:text-[34px]">{career.label}</h2>
           <div className="flex flex-wrap gap-x-6 gap-y-2 pt-1">
             {career.dbId && (
               <Link href={`/flowchart?career=${career.dbId}`} className="text-[15px] font-semibold no-underline" style={{ color: "var(--accent)" }}>
@@ -96,10 +99,10 @@ export default function Pathfinder({
               { kind: "Career", title: career.label },
             ];
             return (
-              <article key={course.id} className="flex flex-col gap-5 rounded-3xl p-5 sm:p-7" style={{ background: "var(--panel)", border: "1px solid var(--rule)" }}>
-                <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "var(--muted)" }}>
-                  Route {i + 1}{paths.length > 1 ? ` of ${paths.length}` : ""} · via {course.label}
-                </span>
+              <article key={course.id} className="flex flex-col gap-5 rounded-3xl p-5 sm:p-7" style={{ background: "var(--panel)" }}>
+                <h3 className="m-0 text-[22px] font-bold" style={{ fontFamily: display }}>
+                  {paths.length > 1 ? `Route ${i + 1} of ${paths.length}: ` : ""}via {course.label}
+                </h3>
                 <ol className="m-0 flex list-none flex-col p-0">
                   {stations.map((s, j) => {
                     const first = j === 0, last = j === stations.length - 1;
@@ -110,7 +113,7 @@ export default function Pathfinder({
                           <span className="relative mt-0.5 block h-6 w-6 shrink-0 rounded-full" style={{ boxSizing: "border-box", border: `5px solid ${color}`, background: last ? color : "var(--bg)" }} />
                         </span>
                         <div className={`flex min-w-0 flex-col gap-0.5 ${last ? "" : "pb-6"}`}>
-                          <span className="text-[12px] font-bold tracking-wider uppercase" style={{ color: "var(--muted)" }}>{s.kind}</span>
+                          <span className="text-[14px] font-semibold" style={{ color: "var(--muted)" }}>{s.kind}</span>
                           <span className="text-[18px] leading-snug font-bold" style={{ fontFamily: display }}>{s.title}</span>
                           {s.detail && <span className="line-clamp-2 max-w-[70ch] text-[14px] leading-snug" style={{ color: soft }}>{s.detail}</span>}
                           {s.note && <span className="text-[13px] font-semibold" style={{ color: "var(--muted)" }}>{s.note}</span>}
@@ -151,8 +154,7 @@ export default function Pathfinder({
                 <div className="flex flex-col gap-2 rounded-2xl px-4 py-4" style={{ background: "var(--surface)" }}>
                   <h3 className="m-0 text-[15px] font-extrabold" style={{ fontFamily: display }}>Which college can I get into?</h3>
                   <p className="m-0 text-[14px] leading-relaxed" style={{ color: soft }}>
-                    Not yet available. Category-wise closing ranks (OC, BC, SC, ST, EWS) aren’t on Perry yet, and we won’t
-                    guess them. Until then, check {OFFICIAL_SOURCES} for last year’s closing ranks.
+                    Not on Perry yet, and we won’t guess. Check {OFFICIAL_SOURCES} for last year’s closing ranks.
                   </p>
                 </div>
               </article>
@@ -175,7 +177,7 @@ export default function Pathfinder({
               <button
                 onClick={() => setCareerId(c.id)}
                 className="metro-row flex h-full w-full cursor-pointer items-start gap-3 rounded-2xl px-4 py-3.5 text-left"
-                style={{ background: "transparent", color: "var(--ink)", border: "1px solid var(--line)", fontFamily: "inherit" }}
+                style={{ background: "var(--surface)", color: "var(--ink)", border: 0, fontFamily: "inherit" }}
               >
                 <span className="mt-1.5 h-3 w-3 shrink-0 rounded-full" style={{ background: lineColor(c) }} />
                 <span className="flex min-w-0 flex-col gap-0.5">
@@ -224,8 +226,8 @@ export default function Pathfinder({
           <button
             disabled={!done}
             onClick={() => setSuggested(scoreQuiz(answers, ADVISORY_QUIZ).filter((id) => byId.has(id)))}
-            className="cursor-pointer rounded-full border-0 px-6 py-3 text-[15px] font-bold disabled:cursor-not-allowed disabled:opacity-35"
-            style={{ background: "var(--accent)", color: "var(--bg)", fontFamily: "inherit" }}
+            className="btn cursor-pointer border-0 disabled:cursor-not-allowed disabled:opacity-40"
+            style={{ fontFamily: "inherit" }}
           >
             See suggestions
           </button>
@@ -235,39 +237,56 @@ export default function Pathfinder({
     );
   } else {
     const choices = [
-      { id: "pick" as const, title: "I know what I’m aiming for", text: "Pick a career and see the exams, course and colleges between here and there.", color: "#5b9cf0" },
-      { id: "quiz" as const, title: "Help me figure it out", text: "Answer three quick questions for a few directions to explore.", color: "#c39cf5" },
+      { id: "pick" as const, title: "I know what I’m aiming for", text: "Pick a career. See the exams, course and colleges on the way.", color: "#2563eb" },
+      { id: "quiz" as const, title: "Help me figure it out", text: "Answer three quick questions. Get a few careers to explore.", color: "#7c3aed" },
     ];
+    const popular = POPULAR.flatMap((re) => careers.find((c) => re.test(c.label)) ?? []);
     body = (
+      <div className="flex flex-col gap-12">
       <div className="grid gap-3 sm:grid-cols-2">
         {choices.map((c) => (
           <button
             key={c.id}
             onClick={() => setMode(c.id)}
-            className="metro-row flex cursor-pointer flex-col items-start gap-2 rounded-2xl px-5 py-5 text-left"
-            style={{ background: "transparent", color: "var(--ink)", border: "1px solid var(--line)", fontFamily: "inherit" }}
+            className="metro-step flex min-h-[148px] cursor-pointer flex-col items-start gap-3 rounded-xl border-0 p-5 text-left"
+            style={{ background: "var(--panel)", boxShadow: "inset 0 0 0 1px var(--line)", color: "var(--ink)", fontFamily: "inherit" }}
           >
-            <span className="h-3.5 w-3.5 rounded-full" style={{ border: `4px solid ${c.color}` }} />
-            <span className="text-[19px] font-bold" style={{ fontFamily: display }}>{c.title}</span>
-            <span className="text-[15px] leading-relaxed" style={{ color: "var(--muted)" }}>{c.text}</span>
+            <span className="grid h-10 w-10 place-items-center rounded-lg" style={{ background: "var(--accent-soft)", color: "var(--accent)" }}><Icon name={c.id === "pick" ? "map" : "compass"} size={20} /></span>
+            <span className="text-[18px] leading-tight font-semibold">{c.title}</span>
+            <span className="text-[15px] leading-snug" style={{ color: "var(--muted)" }}>{c.text}</span>
+            <span className="mt-auto flex items-center gap-1 text-[14px] font-semibold" style={{ color: "var(--accent)" }}>Start <Icon name="arrowRight" size={15} /></span>
           </button>
         ))}
+      </div>
+      {popular.length > 0 && (
+        <section aria-labelledby="popular-h" className="flex flex-col gap-4">
+          <h2 id="popular-h" className="m-0 text-[18px] font-bold">Or jump straight to a career</h2>
+          <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+            {popular.map((c) => (
+              <li key={c.id}>
+                <button
+                  onClick={() => setCareerId(c.id)}
+                  className="metro-chip inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border-0 px-4 text-[15px] font-medium"
+                  style={{ background: "var(--panel)", boxShadow: "inset 0 0 0 1px var(--line)", color: "var(--ink)", fontFamily: "inherit" }}
+                >
+                  <span aria-hidden className="h-3 w-3 rounded-full" style={{ background: lineColor(c) }} />
+                  {c.label.replace(/\s*\([^)]*\)\s*$/, "")}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       </div>
     );
   }
 
   return (
     <div className="metro min-h-[calc(100vh-var(--nav-h))]" style={rootStyle}>
-      <div className="mx-auto flex max-w-[1100px] flex-col gap-9 px-5 pt-8 pb-16 lg:px-12">
-        <header className="flex flex-col gap-3">
-          <h1 className="m-0 text-[34px] leading-[1.08] font-extrabold tracking-tight lg:text-[44px]" style={{ fontFamily: display }}>
-            Find your path
-          </h1>
-          <p className="m-0 max-w-2xl text-base leading-relaxed lg:text-lg" style={{ color: "var(--muted)" }}>
-            Tell Perry what you’re aiming for, or answer a few questions if you’re not sure yet, and see the exams,
-            course and colleges between here and there.
-          </p>
-        </header>
+      <PageHead title="Find my path">
+        Know the career you want? See the route to it. Not sure yet? Answer three questions.
+      </PageHead>
+      <div className="mx-auto flex max-w-[1100px] flex-col gap-9 px-5 pt-9 pb-16 lg:px-12">
         {body}
       </div>
     </div>

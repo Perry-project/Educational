@@ -1,11 +1,9 @@
-import { Figtree, Sora } from "next/font/google";
+import { SYSTEM_FONT } from "@/lib/fonts";
 import MetroFlow from "@/components/metro-flow";
 import { getFlowchartData } from "@/lib/flowchart-db";
 import { stateOf } from "@/lib/class10-flow-data";
 import { cached } from "@/lib/cache";
 
-const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
-const sora = Sora({ subsets: ["latin"], weight: ["600", "700", "800"] });
 
 export const metadata = {
   title: "Class 10 to Career — Perry",
@@ -37,8 +35,8 @@ export default async function FlowPage({
       key={data.state}
       data={data}
       initial={initial}
-      bodyFont={figtree.style.fontFamily}
-      displayFont={sora.style.fontFamily}
+      bodyFont={SYSTEM_FONT}
+      displayFont={SYSTEM_FONT}
     />
   );
 }

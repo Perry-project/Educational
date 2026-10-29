@@ -103,24 +103,41 @@ export const ICON = {
 // One heading-with-icon section of points: the details panels on the
 // flowchart, /exams and /second-chance all use it.
 export function PointSection({
-  title, icon, color, text, badge, children,
+  title, icon, color, text, badge, limit = 2, children,
 }: {
-  title: string; icon: ReactNode; color: string; text?: string; badge?: string | null; children?: ReactNode;
+  title: string; icon: ReactNode; color: string; text?: string; badge?: string | null; limit?: number; children?: ReactNode;
 }) {
   return (
     <section className="flex min-w-0 flex-col gap-3">
-      <h3 className="m-0 flex flex-wrap items-center gap-2.5 text-[16px] font-bold" style={{ fontFamily: "var(--metro-display), var(--metro-body), system-ui, sans-serif" }}>
-        <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full" style={{ background: "var(--surface)", color }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{icon}</svg>
+      <h3 className="m-0 flex flex-wrap items-center gap-2.5 text-[20px] font-bold" style={{ fontFamily: "var(--metro-display), var(--metro-body), system-ui, sans-serif" }}>
+        <span aria-hidden className="grid shrink-0 place-items-center" style={{ color }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{icon}</svg>
         </span>
         {title}
         {badge && (
-          <span className="rounded-full px-2.5 py-0.5 text-xs font-bold" style={{ background: "#2b2412", color: "#f0c870", fontFamily: "inherit" }}>{badge}</span>
+          <span className="rounded-full px-2.5 py-0.5 text-[13px] font-bold" style={{ background: "var(--warn-bg)", color: "var(--warn-ink)", fontFamily: "inherit" }}>{badge}</span>
         )}
       </h3>
-      {text && <PointList text={text} color={color} />}
+      {text && <PointList text={text} color={color} limit={limit} />}
       {children}
     </section>
+  );
+}
+
+// A section that stays folded until tapped, for the long parts of a
+// details panel (syllabus, marks, colleges): the panel opens short.
+export function Fold({ title, meta, children }: { title: string; meta?: string | null; children: ReactNode }) {
+  return (
+    <details className="fold rounded-2xl" style={{ background: "var(--panel)" }}>
+      <summary className="metro-row flex min-h-14 items-center gap-3 rounded-2xl px-4 py-3">
+        <span className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-2.5">
+          <span className="text-[19px] font-bold" style={{ fontFamily: "var(--metro-display), var(--metro-body), system-ui, sans-serif" }}>{title}</span>
+          {meta && <span className="text-[14px]" style={{ color: "var(--muted)" }}>{meta}</span>}
+        </span>
+        <svg className="fold-chev shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden><path d="M6 9l6 6 6-6" /></svg>
+      </summary>
+      <div className="flex flex-col gap-4 px-4 pt-1 pb-5">{children}</div>
+    </details>
   );
 }
 
@@ -153,14 +170,14 @@ export function Highlight({ text }: { text: string }) {
 }
 
 // The points of one field, with the first few shown and "Show N more" for the rest.
-export function PointList({ text, color, limit = 4, full }: { text: string; color: string; limit?: number; full?: boolean }) {
+export function PointList({ text, color, limit = 2, full }: { text: string; color: string; limit?: number; full?: boolean }) {
   const [open, setOpen] = useState(false);
   const chips = toChips(text);
   if (chips) {
     return (
       <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
         {chips.map((c) => (
-          <li key={c} className="rounded-full px-3 py-1.5 text-[14px] leading-snug" style={{ background: "var(--surface)", color: "#dfe4ec" }}>{c}</li>
+          <li key={c} className="rounded-full px-3 py-1.5 text-[14px] leading-snug" style={{ background: "var(--surface)", color: "var(--soft)" }}>{c}</li>
         ))}
       </ul>
     );
@@ -171,7 +188,7 @@ export function PointList({ text, color, limit = 4, full }: { text: string; colo
     <div className="flex flex-col gap-2">
       <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
         {shown.map((p, i) => (
-          <li key={i} className="grid grid-cols-[14px_minmax(0,1fr)] gap-x-2.5 text-[15px] leading-relaxed" style={{ color: "#c9d0dc" }}>
+          <li key={i} className="grid grid-cols-[14px_minmax(0,1fr)] gap-x-2.5 text-[15px] leading-relaxed" style={{ color: "var(--soft)" }}>
             <span aria-hidden className="mt-[9px] h-1.5 w-1.5 rounded-full" style={{ background: color }} />
             <span style={{ overflowWrap: "anywhere" }}>
               {p.label && <span className="mr-1.5 font-bold" style={{ color: "var(--ink)" }}>{p.label}:</span>}
@@ -205,10 +222,10 @@ export function SubjectList({
       {subjects.map((sub) => (
         <div key={sub.subject} className="flex flex-col gap-3 rounded-2xl px-4 py-3.5" style={{ background: "var(--surface)" }}>
           <span className="text-[15px] font-bold">{sub.subject}</span>
-          {sub.topics && <PointList text={sub.topics} color={color} limit={3} />}
+          {sub.topics && <PointList text={sub.topics} color={color} limit={2} />}
           {sub.focus.length > 0 && (
             <div className="flex flex-col gap-2 border-t pt-3" style={{ borderColor: "var(--line)" }}>
-              <span className="flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase" style={{ color }}>
+              <span className="flex items-center gap-1.5 text-[14px] font-bold" style={{ color }}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>{ICON.target}</svg>
                 Concentrate on
               </span>
@@ -218,7 +235,7 @@ export function SubjectList({
                     <span className="font-extrabold" style={{ color }}>{i + 1}</span>
                     <span style={{ overflowWrap: "anywhere" }}>
                       <span className="font-semibold" style={{ color: "var(--ink)" }}>{f.topic}</span>
-                      {f.why && <span className="block text-[14px]" style={{ color: "#aeb6c4" }}>{f.why}</span>}
+                      {f.why && <span className="block text-[14px]" style={{ color: "var(--soft)" }}>{f.why}</span>}
                     </span>
                   </li>
                 ))}

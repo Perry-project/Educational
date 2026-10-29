@@ -58,7 +58,7 @@ export default function FlowMenuBar({
           aria-label={menu.label}
           className="metro-scroll absolute top-[calc(100%+10px)] left-0 z-50 max-h-[calc(100vh-var(--nav-h)-120px)] max-w-[calc(100vw-96px)] overflow-y-auto rounded-3xl p-6"
           style={{
-            background: "#141b2c", border: "1px solid var(--line)", boxShadow: "0 24px 60px rgba(0,0,0,.45)",
+            background: "var(--panel)", border: "1px solid var(--line)", boxShadow: "0 24px 60px rgba(0,0,0,.45)",
             width: Math.min(menu.groups.length, 4) * 250 + 48,
           }}
         >
@@ -66,7 +66,7 @@ export default function FlowMenuBar({
           <div className="gap-x-6" style={{ columnCount: Math.min(menu.groups.length, 4) }}>
           {menu.groups.map((g) => (
             <section key={g.title} className="mb-5 flex break-inside-avoid flex-col gap-0.5">
-              <h3 className="m-0 mb-1 flex items-center gap-2 text-xs font-bold tracking-widest uppercase" style={{ color: "var(--muted)" }}>
+              <h3 className="m-0 mb-1 flex items-center gap-2 text-[14px] font-bold" style={{ color: "var(--muted)" }}>
                 {g.color && <span className="h-2.5 w-2.5 rounded-full" style={{ background: g.color }} />}
                 {g.title}
               </h3>
