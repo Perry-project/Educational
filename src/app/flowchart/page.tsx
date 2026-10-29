@@ -28,7 +28,7 @@ export default async function FlowPage({
   // ?career=12&stop=eapcet&via=jeemain opens a shared route, ?field=cl_med a
   // field on the start screen; ?step= links
   // from the old chart still open the matching line.
-  const initial = { career: param(sp.career), stop: param(sp.stop), via: param(sp.via), step: param(sp.step), field: param(sp.field) };
+  const initial = { career: param(sp.career), stop: param(sp.stop), via: param(sp.via), step: param(sp.step), field: param(sp.field), path: param(sp.path) };
   // Keyed by state so switching states starts the chart afresh.
   return (
     <FlowChart
