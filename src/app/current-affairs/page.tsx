@@ -1,7 +1,9 @@
-import { SYSTEM_FONT } from "@/lib/fonts";
+import { Figtree, Sora } from "next/font/google";
 import CurrentAffairs from "@/components/current-affairs";
 import { getNews } from "@/lib/current-affairs-db";
 
+const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
+const sora = Sora({ subsets: ["latin"], weight: ["600", "700", "800"] });
 
 export const metadata = {
   title: "Current Affairs — Perry",
@@ -25,7 +27,7 @@ export default async function CurrentAffairsPage({
     <CurrentAffairs
       items={items} updatedAt={updatedAt} today={today}
       initial={{ day: param(sp.day), topic: param(sp.topic) }}
-      bodyFont={SYSTEM_FONT} displayFont={SYSTEM_FONT}
+      bodyFont={figtree.style.fontFamily} displayFont={sora.style.fontFamily}
     />
   );
 }

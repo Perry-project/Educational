@@ -14,15 +14,15 @@ type Link = { f: string; t: string; dash: boolean; only?: string[] };
 
 // Each career is drawn in its field's colour.
 export const CLUSTER_COLOR: Record<string, string> = {
-  cl_eng: "#2563eb",
-  cl_med: "#dc2626",
-  cl_com: "#b45309",
-  cl_gov: "#7c3aed",
-  cl_def: "#047857",
-  cl_des: "#0e7490",
-  cl_sci: "#4d7c0f",
-  cl_skl: "#c2410c",
-  cl_oth: "#475569",
+  cl_eng: "#5b9cf0",
+  cl_med: "#ef6f8e",
+  cl_com: "#f0b44c",
+  cl_gov: "#a78bfa",
+  cl_def: "#4fc3a1",
+  cl_des: "#67d4e8",
+  cl_sci: "#9bd36a",
+  cl_skl: "#e8875a",
+  cl_oth: "#9aa3b2",
 };
 
 export const careerCluster = (name: string) => CAREER_LINKS[name]?.cl ?? "cl_oth";

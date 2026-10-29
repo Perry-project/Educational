@@ -2,92 +2,106 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Icon from "./icon";
-
-// Desktop: one white bar with the logo, the main pages and one action.
-// Phones: the logo on top and a tab bar at the bottom, within thumb reach.
+import { useEffect, useState } from "react";
 
 const LINKS = [
-  { href: "/flowchart", label: "Career map", short: "Map", icon: "map" },
-  { href: "/exams", label: "Exams", short: "Exams", icon: "file" },
-  { href: "/second-chance", label: "Second chance", short: "Way back", icon: "rotate" },
-  { href: "/pathfinder", label: "Find my path", short: "My path", icon: "compass" },
-  { href: "/current-affairs", label: "News", short: "News", icon: "news" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
+  { href: "/flowchart", label: "Flowchart" },
+  { href: "/exams", label: "Exams" },
+  { href: "/second-chance", label: "Second Chance" },
+  { href: "/current-affairs", label: "Current Affairs" },
+  { href: "/pathfinder", label: "Pathfinder" },
 ];
 
-const isActive = (pathname: string, href: string) => pathname === href || pathname.startsWith(href + "/");
-
-export function Logo() {
-  return (
-    <span className="flex items-center gap-2">
-      <span aria-hidden className="grid h-7 w-7 place-items-center rounded-lg text-white" style={{ background: "var(--indigo)" }}>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="6" cy="6" r="2.2" /><circle cx="18" cy="18" r="2.2" /><path d="M8.2 6H14a4 4 0 0 1 0 8h-4a4 4 0 0 0 0 8h5.8" />
-        </svg>
-      </span>
-      <span className="text-[19px] font-bold tracking-tight" style={{ color: "var(--ink)" }}>Perry</span>
-    </span>
-  );
-}
+const isActive = (pathname: string, href: string) =>
+  href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
 
 export default function SiteNav() {
   const pathname = usePathname();
+  // The phone menu is open only on the page it was opened from, so it closes
+  // by itself after navigating. Escape closes it too.
+  const [openOn, setOpenOn] = useState<string | null>(null);
+  const open = openOn === pathname;
+  const setOpen = (o: boolean | ((o: boolean) => boolean)) =>
+    setOpenOn((prev) => ((typeof o === "function" ? o(prev === pathname) : o) ? pathname : null));
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenOn(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
-    <>
-      <header className="sticky top-0 z-[100]" style={{ background: "rgba(255,255,255,0.97)", borderBottom: "1px solid var(--border)" }}>
-        <nav aria-label="Main" className="wrap flex h-[var(--nav-h)] items-center justify-between gap-6">
-          <Link href="/" aria-label="Perry home" className="flex min-h-11 items-center no-underline">
-            <Logo />
-          </Link>
+    <nav className="sticky top-0 z-[100] border-b border-gray-800 bg-gray-900/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="group flex min-h-10 items-center gap-2" aria-label="Perry home">
+          <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-blue-400 to-violet-400 text-sm font-extrabold text-gray-900 transition-transform duration-200 group-hover:scale-110">
+            P
+          </span>
+          <span className="brand-gradient text-xl font-bold tracking-wide">PERRY</span>
+        </Link>
 
-          <ul className="m-0 hidden list-none items-center gap-1 p-0 lg:flex">
-            {[...LINKS.filter((l) => l.href !== "/pathfinder"), { href: "/about", label: "About" }].map(({ href, label }) => {
-              const active = isActive(pathname, href);
-              return (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    aria-current={active ? "page" : undefined}
-                    className="inline-flex min-h-10 items-center rounded-md px-3 text-[15px] font-medium no-underline transition-colors hover:bg-[var(--subtle)]"
-                    style={{ color: active ? "var(--ink)" : "var(--soft)", background: active ? "var(--subtle)" : undefined }}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-
-          <Link href="/pathfinder" className="btn hidden lg:inline-flex">Find my path</Link>
-          <Link href="/about" className="inline-flex min-h-11 items-center text-[15px] font-medium no-underline lg:hidden" style={{ color: "var(--soft)" }}>About</Link>
-        </nav>
-      </header>
-
-      <nav
-        aria-label="Main"
-        className="fixed inset-x-0 bottom-0 z-[110] lg:hidden"
-        style={{ background: "#fff", borderTop: "1px solid var(--border)", paddingBottom: "env(safe-area-inset-bottom)" }}
-      >
-        <ul className="m-0 grid list-none grid-cols-5 p-0">
-          {LINKS.map(({ href, short, icon }) => {
+        <ul className="hidden items-center gap-1 lg:flex">
+          {LINKS.map(({ href, label }) => {
             const active = isActive(pathname, href);
             return (
               <li key={href}>
                 <Link
                   href={href}
                   aria-current={active ? "page" : undefined}
-                  className="flex h-[60px] flex-col items-center justify-center gap-1 text-[12px] font-medium no-underline active:opacity-70"
-                  style={{ color: active ? "var(--indigo)" : "var(--muted)" }}
+                  className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors xl:px-4 ${
+                    active ? "bg-white text-gray-900" : "text-gray-300 hover:bg-white/10 hover:text-white"
+                  }`}
                 >
-                  <Icon name={icon} size={22} strokeWidth={active ? 2.2 : 1.8} />
-                  {short}
+                  {label}
                 </Link>
               </li>
             );
           })}
         </ul>
-      </nav>
-    </>
+
+        <Link
+          href="/flowchart"
+          className="hidden whitespace-nowrap rounded-lg bg-gradient-to-r from-blue-500 to-violet-500 px-4 py-2 text-sm font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-violet-600 lg:inline-flex"
+        >
+          Explore paths
+        </Link>
+
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-controls="site-nav-menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          className="grid h-10 w-10 place-items-center rounded-lg text-white hover:bg-white/10 lg:hidden"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+          </svg>
+        </button>
+      </div>
+
+      {open && (
+        <ul id="site-nav-menu" className="flex flex-col gap-1 border-t border-gray-800 px-4 py-3 lg:hidden">
+          {LINKS.map(({ href, label }) => {
+            const active = isActive(pathname, href);
+            return (
+              <li key={href}>
+                <Link
+                  href={href}
+                  aria-current={active ? "page" : undefined}
+                  className={`block rounded-lg px-4 py-3 text-base font-medium ${
+                    active ? "bg-white text-gray-900" : "text-gray-200 hover:bg-white/10"
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </nav>
   );
 }

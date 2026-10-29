@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import "./metro-flow.css";
-import PageHead from "./page-head";
 import { TOPICS, type TopicId } from "@/lib/current-affairs-feeds";
 import type { NewsItem } from "@/lib/current-affairs-db";
 
@@ -14,15 +13,15 @@ import type { NewsItem } from "@/lib/current-affairs-db";
 // The URL keeps ?day= and ?topic= so a view can be shared.
 
 const COLOR: Record<TopicId, string> = {
-  exams: "#2563eb",
-  jobs: "#0f766e",
-  states: "#b45309",
-  india: "#c2410c",
-  economy: "#7c3aed",
-  environment: "#047857",
-  science: "#0e7490",
-  world: "#be185d",
-  sports: "#a16207",
+  exams: "#75aef5",
+  jobs: "#68c4b8",
+  states: "#f0b44c",
+  india: "#f29676",
+  economy: "#c39cf5",
+  environment: "#7fcf86",
+  science: "#5fc8e8",
+  world: "#e88fb8",
+  sports: "#d9c769",
 };
 const LABEL = Object.fromEntries(TOPICS.map((t) => [t.id, t.label])) as Record<TopicId, string>;
 const PER_TOPIC = 5; // stories per topic in the "All topics" view
@@ -90,23 +89,26 @@ export default function CurrentAffairs({
 
   const rootStyle = { "--metro-body": bodyFont, "--metro-display": displayFont, fontFamily: bodyFont } as CSSProperties;
   const chip = (on: boolean): CSSProperties => ({
-    background: on ? "var(--chip-on)" : "var(--surface)", color: on ? "var(--chip-on-ink)" : "var(--ink)", fontFamily: "inherit",
+    background: on ? "var(--surface)" : "transparent", color: on ? "var(--ink)" : "var(--muted)", fontFamily: "inherit",
   });
   const topicList = topic ? onDay.filter((i) => i.topic === topic) : [];
 
   return (
     <div className="metro min-h-[calc(100vh-var(--nav-h))]" style={rootStyle}>
-      <PageHead
-        title="News"
-        extra={updatedAt && (
-          <p className="m-0 text-[15px]">
-            Updated {dayLabel(dayKey(updatedAt), today).replace(/^(Today|Yesterday)$/, (d) => d.toLowerCase())}, {time(updatedAt)} IST
-          </p>
-        )}
-      >
-        This week’s news for exam preparation, sorted by topic. Updated every night and morning.
-      </PageHead>
       <div className="mx-auto flex max-w-[1100px] flex-col gap-8 px-5 pt-8 pb-16 lg:px-12">
+        <header className="flex flex-col gap-3">
+          <h1 className="m-0 text-[34px] leading-[1.08] font-extrabold tracking-tight lg:text-[44px]" style={{ fontFamily: display }}>
+            Current Affairs
+          </h1>
+          <p className="m-0 max-w-2xl text-base leading-relaxed lg:text-lg" style={{ color: "var(--muted)" }}>
+            The day’s news for exam preparation, sorted by topic: exams, jobs, Andhra Pradesh and Telangana, India, the economy, environment, science, world and sports. Refreshed every night and morning.
+          </p>
+          {updatedAt && (
+            <p className="m-0 text-[13px]" style={{ color: "var(--muted)" }}>
+              Last updated {dayLabel(dayKey(updatedAt), today).replace(/^(Today|Yesterday)$/, (d) => d.toLowerCase())}, {time(updatedAt)} IST
+            </p>
+          )}
+        </header>
 
         <section className="flex flex-col gap-4" aria-label="Choose news">
           <input
@@ -214,11 +216,11 @@ function StoryList({ items, today, compact, showDay, showTopic }: { items: NewsI
             className="metro-row -mx-3 flex flex-col gap-1 rounded-xl px-3 py-3 no-underline" style={{ color: "var(--ink)" }}>
             <span className={`${compact ? "text-[15px]" : "text-[16px]"} leading-snug font-bold`}>{i.title}</span>
             {!compact && i.summary && (
-              <span className="text-[14px] leading-relaxed" style={{ color: "var(--soft)" }}>{i.summary}</span>
+              <span className="text-[14px] leading-relaxed" style={{ color: "#c9d0dc" }}>{i.summary}</span>
             )}
             <span className="flex flex-wrap items-center gap-x-2 text-[12.5px]" style={{ color: "var(--muted)" }}>
               {i.official ? (
-                <span className="rounded px-1.5 py-px font-semibold" style={{ background: "var(--ok-bg)", color: "var(--ok-ink)" }}>Official · {i.source}</span>
+                <span className="rounded px-1.5 py-px font-semibold" style={{ background: "#1f3a2c", color: "#8fe0a8" }}>Official · {i.source}</span>
               ) : (
                 <span>Reported by {i.source}</span>
               )}

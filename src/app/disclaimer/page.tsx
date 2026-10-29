@@ -6,7 +6,7 @@ export const metadata = {
   description: "How to use the information on Perry, and why to confirm it with the official source before you apply.",
 };
 
-const link = "link";
+const link = "font-medium text-blue-400 hover:text-blue-300";
 
 export default function Disclaimer() {
   return (

@@ -1,9 +1,11 @@
-import { SYSTEM_FONT } from "@/lib/fonts";
+import { Figtree, Sora } from "next/font/google";
 import Pathfinder from "@/components/pathfinder";
 import { getFlowGraph } from "@/lib/flow-data";
 import { getCollegesForCourse, type CollegeMatch } from "@/lib/decision-data";
 import { cached } from "@/lib/cache";
 
+const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
+const sora = Sora({ subsets: ["latin"], weight: ["600", "700", "800"] });
 
 export const metadata = {
   title: "Pathfinder — Perry",
@@ -32,8 +34,8 @@ export default async function PathfinderPage() {
     <Pathfinder
       graph={graph}
       collegesByCourse={collegesByCourse}
-      bodyFont={SYSTEM_FONT}
-      displayFont={SYSTEM_FONT}
+      bodyFont={figtree.style.fontFamily}
+      displayFont={sora.style.fontFamily}
     />
   );
 }

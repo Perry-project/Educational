@@ -1,9 +1,11 @@
-import { SYSTEM_FONT } from "@/lib/fonts";
-import FlowChart from "@/components/flow-chart";
+import { Figtree, Sora } from "next/font/google";
+import MetroFlow from "@/components/metro-flow";
 import { getFlowchartData } from "@/lib/flowchart-db";
 import { stateOf } from "@/lib/class10-flow-data";
 import { cached } from "@/lib/cache";
 
+const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
+const sora = Sora({ subsets: ["latin"], weight: ["600", "700", "800"] });
 
 export const metadata = {
   title: "Class 10 to Career — Perry",
@@ -28,15 +30,15 @@ export default async function FlowPage({
   // ?career=12&stop=eapcet&via=jeemain opens a shared route, ?field=cl_med a
   // field on the start screen; ?step= links
   // from the old chart still open the matching line.
-  const initial = { career: param(sp.career), stop: param(sp.stop), via: param(sp.via), step: param(sp.step), field: param(sp.field), path: param(sp.path) };
+  const initial = { career: param(sp.career), stop: param(sp.stop), via: param(sp.via), step: param(sp.step), field: param(sp.field) };
   // Keyed by state so switching states starts the chart afresh.
   return (
-    <FlowChart
+    <MetroFlow
       key={data.state}
       data={data}
       initial={initial}
-      bodyFont={SYSTEM_FONT}
-      displayFont={SYSTEM_FONT}
+      bodyFont={figtree.style.fontFamily}
+      displayFont={sora.style.fontFamily}
     />
   );
 }
