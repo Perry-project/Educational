@@ -379,6 +379,44 @@ verify(TS, "Real Estate / RERA-Registered Agent - Telangana (TG-RERA)", TV,
 )
 
 
+# ---------- AP careers resting on verified exam rows, 2026-10-31 ----------
+verify(AP, "Forestry / Forest Range Officer", TV,
+    "APPSC Notification No.16/2026 dated 16.10.2026, Forest Range Officer in A.P. Forest Service (psc.ap.gov.in/Documents/NotificationDocuments/FRODetailedNotification_162026.pdf) and web note of 16.10.2026",
+    entry_point="A Bachelor's degree in one of the notified science / engineering subjects, then APPSC direct recruitment to the A.P. Forest Service",
+    required_exams="APPSC Forest Range Officer recruitment (computer-based test; date to be announced by APPSC). Applications online 16.10.2026 - 05.11.2026 on psc.ap.gov.in (OTPR registration needed) - open now",
+    eligibility="Bachelor's degree in Agriculture, Botany, Chemistry, Computer Applications / Computer Science, Engineering (Agriculture, Chemical, Civil, Computer, Electrical, Electronics or Mechanical), Environmental Science, Forestry, Geology, Horticulture, Mathematics, Physics, Statistics, Veterinary Science or Zoology. Age 18-30 on 01.07.2026, relaxations as per rules. Physical standards: men at least 163 cm, chest 79 cm, walk 25 km in 4 hours; women at least 150 cm, chest 74 cm, walk 16 km in 4 hours. Fee Rs 250 + Rs 120 exam fee (exam fee waived for SC, ST, BC, ex-servicemen and white-card families of AP)",
+    govt_private_options="Government only: A.P. Forest Department through APPSC. 2026 notification: 5 posts (including 1 carried forward)",
+    next_step="Forest Range Officer, pay Rs 48,440 - 1,37,220, with promotion in the forest service",
+)
+
+verify(AP, "Fashion Design & Styling", TV,
+    "NIFTEE-2026 Information Bulletin (NTA for NIFT): cdnbbsr.s3waas.gov.in/s388a839f2f6f1427879fc33ee4acf4f66/uploads/2025/12/202512081380584374.pdf; NID Admissions 2027-28 portal (admissions.nid.edu/NIDA2027)",
+    entry_point="After Class 12: B.Des / B.F.Tech at NIFT (20 campuses including NIFT Hyderabad) through the NIFT Entrance Exam; design programmes at NID through NID DAT; private institutes admit through their own processes",
+    required_exams="NIFT Entrance Exam (NIFTEE, conducted by NTA): Stage 1 GAT (computer based) and CAT (on paper), Stage 2 Situation Test for B.Des. NIFTEE 2026 was held 08-02-2026 (Stage 2 on 26-04-2026); NIFTEE 2027 not yet announced. AP exam centres included Rajahmundry, Tirupati, Vijayawada and Visakhapatnam",
+    eligibility="NIFT B.Des: Class 12 in any stream (or NIOS with five subjects, or a 3/4-year diploma after Class 10); B.F.Tech: Class 12 with Mathematics or a 3/4-year engineering diploma. Under 24 years on 1 August of the admission year (5 years' relaxation for SC/ST/PwD). NIFTEE fee Rs 2,000 (Open/EWS/OBC-NCL), Rs 500 (SC/ST/PwD)",
+    govt_private_options="Government: NIFT (B.Des in Fashion, Accessory, Knitwear, Leather, Textile Design, Fashion Communication, Fashion Interiors; B.F.Tech) and NID. Private: private design institutes and universities with their own admission tests",
+    next_step="Design, styling, merchandising and production roles in apparel and fashion brands, or M.Des / MFM / M.F.Tech",
+)
+
+verify(AP, "Culinary Arts (Chef / Bakery & Confectionery)", TV,
+    "NCHM JEE-2026 Information Bulletin (NTA for NCHMCT): cdnbbsr.s3waas.gov.in/s388a839f2f6f1427879fc33ee4acf4f66/uploads/2025/12/20260102470139941.pdf (from exams.nta.nic.in/NCHM/)",
+    entry_point="After Class 12: B.Sc Hospitality and Hotel Administration at NCHMCT-affiliated Institutes of Hotel Management through NCHM JEE; shorter craft / certificate courses in food production and bakery are admitted by each institute separately",
+    required_exams="NCHM JEE (computer based, conducted by NTA) for the B.Sc HHA. 2026: applications 26-12-2025 to 25-01-2026, exam on 25-04-2026; the 2027 bulletin is not yet out",
+    eligibility="NCHM JEE: passed or appearing in 10+2 (or equivalent) with English as a subject; no age limit; physical fitness certificate at admission. Fee Rs 1,000 (General/OBC-NCL), Rs 700 (EWS), Rs 450 (SC/ST/PwD/third gender). Eligibility for other culinary courses is set by each institute",
+    govt_private_options="NCHMCT-affiliated central, state, PSU, PPP and private Institutes of Hotel Management (B.Sc HHA through NCHM JEE); private culinary institutes with their own admissions",
+    next_step="Kitchen roles in hotels, restaurants, airlines and cruise lines, rising with experience; or entrepreneurship (own bakery, restaurant or cloud kitchen, which needs FSSAI registration / licence)",
+)
+
+verify(AP, "Company Secretary (CS)", TV,
+    "ICSI 'Restructured CSEET' page (icsi.edu/restructured-cseet, updated 21.10.2026), Time Table for CSEET February 2027 (dated 07.10.2026), CSEET restructuring announcement and FAQs (08.09.2026)",
+    entry_point="After Class 12 through the CS Executive Entrance Test (CSEET); graduates and certain other qualified candidates register directly for the CS Executive Programme",
+    required_exams="ICSI CSEET, then the CS Executive and CS Professional programmes and practical training under ICSI regulations, leading to ICSI membership. CSEET February 2027 session: registration 01-07-2026 to 31-10-2026 (registrations from 1 November count for the June 2027 session); exams 1-4 February 2027",
+    eligibility="CSEET: Indian national who has passed or is appearing in Class 12 or equivalent. Exempt from CSEET (register straight for CS Executive): graduates and post-graduates, final-year UG students (provisional), CS Foundation passed, CA Intermediate passed, CMA Final passed, and some 5-year integrated programme students. The Student Induction Programme must be completed before exam enrolment. Fee Rs 7,500 at registration plus Rs 1,500 exam fee per session; 50% concession for SC/ST and PwD",
+    govt_private_options="A professional qualification regulated by the Institute of Company Secretaries of India (ICSI), a statutory body; practical training under a practising Company Secretary or a company's secretarial department",
+    next_step="Register for the CS Executive Programme within one year of passing CSEET; after CS Professional and training, become an ICSI member working in corporate compliance and governance or in practice",
+)
+
+
 # ---------- apply ----------
 path = os.path.join(os.path.dirname(__file__), "..", "..", "db", "seed", "careers.json")
 rows = json.load(open(path, encoding="utf-8"))
