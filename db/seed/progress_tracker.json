@@ -1,8 +1,58 @@
 [
-  {"phase":1,"topic":"AP School Stage (Classes 1-10)","scope":"Government (BSEAP) + CBSE/ICSE private + Central Govt residential (JNV/Sainik/RMS) + AP state residential (Gurukulam/EMRS) + NIOS open schooling, in AP","status":"Done","last_updated":"2026-09-26","notes":"No change tonight (AP closed)."},
-  {"phase":2,"topic":"AP Post-10th Pathways","scope":"Intermediate (MPC/BiPC/CEC/MEC/HEC) + AP POLYCET diploma + ITI + NIOS Senior Secondary + residential continuation routes","status":"Done","last_updated":"2026-08-29","notes":"No change tonight (AP closed). Tonight's pathways work is on Karnataka, under Phase 6."},
-  {"phase":3,"topic":"AP Post-Intermediate Entrance Exams","scope":"AP EAPCET, NEET, CLAT, CA Foundation, NDA, CUET, and related recruitment/competitive exams relevant to AP and Telangana students","status":"Done","last_updated":"2026-10-24","notes":"No change tonight (closed 2026-10-24)."},
-  {"phase":4,"topic":"Career Pipelines - Major (~30-40)","scope":"Engineering, Medicine, Law, Civil Services, Teaching, Defence, Commerce/CA, Science/Research, Design, etc.","status":"Done","last_updated":"2026-09-14","notes":"No change tonight (AP-scope, outside tonight's chosen work item). Open item carried forward: AP's Yoga & Naturopathy (BNYS) registering body remains unresolved - left for a future session that explicitly revisits this phase."},
-  {"phase":5,"topic":"Career Pipelines - Niche/Smaller","scope":"Merchant Navy, Culinary Arts, Animation/VFX, Sports Science, Aviation, Fashion, Journalism, etc.","status":"Done","last_updated":"2026-09-23","notes":"No change tonight (AP-scope, outside tonight's chosen work item)."},
-  {"phase":6,"topic":"Expand Beyond Andhra Pradesh","scope":"Telangana next (now reasonably complete), then Karnataka, then other states","status":"In Progress","last_updated":"2026-10-30","notes":"CHECKPOINT 2 (tonight, 2026-10-30, final for tonight). Checkpoint 1 notes (10 new Karnataka pathways rows: PUC Science PCMB/PCMC, PUC Commerce EBAC/EBAS, PUC Arts/Humanities, Karnataka Polytechnic Diploma, ITI Engineering/Non-Engineering Trades, NIOS Senior Secondary, and the residential-continuation row) still apply - see this phase's checkpoint-1 delta for full detail. This checkpoint acts on NEXT item (ii) from checkpoint 1: added 2 new Karnataka entrance_exams rows. (1) KCET (Karnataka Common Entrance Test / UGCET): conducted by the Karnataka Examinations Authority (KEA), Karnataka's equivalent of AP/Telangana's EAPCET, admitting into Engineering/Pharmacy/Agriculture/Veterinary degree programmes on 2nd PUC marks plus KCET rank; architecture admission additionally needs a NATA score per one source (not independently confirmed as the complete rule). The 2026 cycle's exam date is GENUINELY CONFLICTING across secondary sources - most report 23-24 Apr 2026 (plus a 22-Apr Kannada test), but one Careers360 report says KEA revised this to 25-26 May 2026 after removing the original dates from its own site, and another lists 18 Apr 2026 - all three flagged, none independently resolved. (2) DCET (Diploma Common Entrance Test): also KEA-conducted, but - IMPORTANT, distinguishing it from AP/Telangana's POLYCET - DCET is NOT a direct-diploma-entry exam; it is solely for lateral entry of existing Diploma holders into 2nd-year B.E./B.Tech (and reportedly 1st-year Architecture under a Lateral Entry Scheme). 2026 exam date (23-May-2026) was consistent across two sources, but the application closing date (3 vs 4 vs 10 Apr 2026) and counselling-round dates (three mutually inconsistent reports) could not be reconciled - flagged unverified. GENERAL CAVEAT (carried from checkpoint 1): cetonline.karnataka.gov.in / kseab.karnataka.gov.in / dtek.karnataka.gov.in could not be reached directly this session - all Karnataka entrance-exam and pathway details rely on named secondary/aggregator sources and should be re-verified against KEA's own site when reachable. Per the task's own rule, no data_tier was set on these new rows - they are plain additions, not yet hand-verified tier_1. NEXT: (i) re-attempt fetching cetonline.karnataka.gov.in directly (may be an environment-specific access restriction, not permanent) to resolve the KCET/DCET date conflicts; (ii) Karnataka's Kannada-medium primary-schooling policy (flagged 2026-10-29 Phase-1 NEXT item ii) is still unchecked; (iii) the Karnataka HC 3-Jul-2026 RTE hearing outcome (2026-10-29 NEXT item iii) should still be rechecked once more recent reporting exists; (iv) Karnataka Phase 3 (remaining entrance exams - e.g. a Karnataka-specific CET/PGCET-equivalent for postgraduate admission) and Phase 4-5 (career-pipeline state-governing-body checks, mirroring the AP/Telangana gap-scan) remain open for a future session."}
+  {
+    "phase": 1,
+    "topic": "AP School Stage (Classes 1-10)",
+    "scope": "Government (BSEAP) + CBSE/ICSE private + Central Govt residential (JNV/Sainik/RMS) + AP state residential (Gurukulam/EMRS) + NIOS open schooling, in AP",
+    "status": "Done",
+    "last_updated": "2026-09-26",
+    "notes": "No change tonight (AP closed)."
+  },
+  {
+    "phase": 2,
+    "topic": "AP Post-10th Pathways",
+    "scope": "Intermediate (MPC/BiPC/CEC/MEC/HEC) + AP POLYCET diploma + ITI + NIOS Senior Secondary + residential continuation routes",
+    "status": "Done",
+    "last_updated": "2026-08-29",
+    "notes": "No change tonight (AP closed). Tonight's pathways work is on Karnataka, under Phase 6."
+  },
+  {
+    "phase": 3,
+    "topic": "AP Post-Intermediate Entrance Exams",
+    "scope": "AP EAPCET, NEET, CLAT, CA Foundation, NDA, CUET, and related recruitment/competitive exams relevant to AP and Telangana students",
+    "status": "Done",
+    "last_updated": "2026-10-24",
+    "notes": "No change tonight (closed 2026-10-24)."
+  },
+  {
+    "phase": 4,
+    "topic": "Career Pipelines - Major (~30-40)",
+    "scope": "Engineering, Medicine, Law, Civil Services, Teaching, Defence, Commerce/CA, Science/Research, Design, etc.",
+    "status": "Done",
+    "last_updated": "2026-09-14",
+    "notes": "No change tonight (AP-scope, outside tonight's chosen work item). Open item carried forward: AP's Yoga & Naturopathy (BNYS) registering body remains unresolved - left for a future session that explicitly revisits this phase."
+  },
+  {
+    "phase": 5,
+    "topic": "Career Pipelines - Niche/Smaller",
+    "scope": "Merchant Navy, Culinary Arts, Animation/VFX, Sports Science, Aviation, Fashion, Journalism, etc.",
+    "status": "Done",
+    "last_updated": "2026-09-23",
+    "notes": "No change tonight (AP-scope, outside tonight's chosen work item)."
+  },
+  {
+    "phase": 6,
+    "topic": "Telangana at the same depth as AP",
+    "scope": "Telangana schools, post-10th pathways, TS entrance exams and careers. Other states (Karnataka etc.) paused by user 2026-10-31 - AP and Telangana foundation first",
+    "status": "In Progress",
+    "last_updated": "2026-10-31",
+    "notes": "2026-10-31: user decided to build the AP + Telangana foundation before any other state. Karnataka work PAUSED (rows already collected stay in the database: 10 schools, 10 pathways, KCET, DCET). Continue Telangana to AP depth, then phase 7."
+  },
+  {
+    "phase": 7,
+    "topic": "Deepen AP and Telangana",
+    "scope": "Fill unverified fields in AP/TS rows from official sources, refresh 2027-cycle dates, add missing AP/TS options",
+    "status": "Not Started",
+    "last_updated": "2026-10-31",
+    "notes": "Ongoing phase once Telangana reaches AP depth. Never move to another state without the user."
+  }
 ]
