@@ -1724,6 +1724,38 @@ verify(AP, "CUET-PG (Common University Entrance Test - Postgraduate)", "2026-10-
     admits_into="Master's programmes at central universities (such as University of Hyderabad and Central University of Andhra Pradesh) and other participating universities",
 )
 
+# ---------- Karnataka KCET (UGCET) 2026 ----------
+KA = "Karnataka"
+src = ("KEA UGCET-2026 Information Bulletin-1 dated 17-01-2026 (cetonline.karnataka.gov.in/keawebentry456/ugcet2026/"
+       "information_bulletin_1_ugcet_2026_17012026english.pdf: calendar of events, time table, eligibility Rule 3, NATA chapter) "
+       "and KEA press notes ED/KEA/Press Note/2026 dated 13-02-2026 and 21-02-2026 (application date extensions), "
+       "all on cetonline.karnataka.gov.in/kea/ugcet2026")
+verify(KA, "KCET (Karnataka Common Entrance Test / UGCET)", "2026-10-31", src,
+    scope="Karnataka", stage="after_12", category="Engineering, agriculture & pharmacy", body_type="Government",
+    conducting_body="Karnataka Examinations Authority (KEA), Bengaluru", official_website="cetonline.karnataka.gov.in/kea",
+    full_form_body="Karnataka Common Entrance Test (CET / UGCET), conducted by the Karnataka Examinations Authority (KEA) for admission of Karnataka candidates to professional UG courses in Karnataka",
+    eligibility="Passed or appearing in 2nd PUC / 12th Std / equivalent with English as a language. Engineering (B.E./B.Tech): Physics and Mathematics compulsory plus Chemistry / Bio-Technology / Biology / Electronics / Computer Science, with at least 45% aggregate in these subjects (40% for SC, ST, Cat-1, 2A, 2B, 3A, 3B). Farm Science (B.Sc Agri etc.): PCMB. B.V.Sc & A.H.: 50% in Physics, Chemistry, Biology and English (40% reserved). B.Pharm: PCM or PCB with 45% (40% reserved), or a D.Pharm with 45%. Government seats only for citizens of India who satisfy a Rule 5 eligibility clause (mostly Karnataka study/residence); OCI/PIO candidates only for general seats. The reserved-category relaxation applies only to Karnataka candidates. Architecture needs NATA, not CET. Medical, Dental and AYUSH go by NEET-UG, but candidates must still register with KEA",
+    application_window="2026 cycle (closed): registration opened 17-01-2026. The last date of 16-02-2026 was extended to 22-02-2026 and finally to 27-02-2026 (11:59 PM), with fees payable until 03-03-2026 (5:30 PM). The 2027 cycle has not been notified yet; watch cetonline.karnataka.gov.in/kea",
+    exam_date="2026: 23-04-2026 (Physics 10:30-11:50 AM, Chemistry 2:30-3:50 PM) and 24-04-2026 (Mathematics 10:30-11:50 AM, Biology 2:30-3:50 PM). Kannada language test for Horanadu/Gadinadu Kannadiga candidates on 22-04-2026. Admission tickets from 10-04-2026. 2027 dates not yet announced",
+    admits_into="First-year Engineering/Technology, Farm Science (B.Sc Agriculture, Horticulture, Sericulture, Forestry, B.Tech Agri Engg / Food Tech / Dairy Tech, B.F.Sc etc.), B.V.Sc & A.H., B.Pharm, Pharm-D, B.Sc Nursing, BPT, Allied Health Sciences and Naturopathy & Yoga, at Government, aided and private colleges in Karnataka, through KEA's online counselling. Architecture (by NATA score) and Medical/Dental/AYUSH (by NEET-UG rank) also go through KEA counselling",
+    exam_pattern="Pen-and-paper (OMR) multiple-choice papers of 60 questions / 60 marks each in Physics, Chemistry, Mathematics and Biology, 80 minutes each. No negative marking. Engineering rank: CET and 2nd PUC PCM marks in equal proportions; Farm Science: PCMB in equal proportions; B.V.Sc, B.Pharm and Nursing ranks use CET marks only",
+)
+
+# ---------- Karnataka DCET 2026 ----------
+src = ("KEA DCET-2026 Information Bulletin-1 dated 16-03-2026 (cetonline.karnataka.gov.in/keawebentry456/dcet2026/"
+       "info_bulletin_diploma_2026_17032026english.pdf: calendar of events, important instructions, DCET time table) "
+       "and KEA press note ED/KEA/DCET/CR-01/2026-27 dated 02-04-2026 (application date extension), on cetonline.karnataka.gov.in/kea/dcet2026")
+verify(KA, "DCET (Diploma Common Entrance Test)", "2026-10-31", src,
+    scope="Karnataka", stage="after_12", category="Engineering (lateral entry after a diploma)", body_type="Government",
+    conducting_body="Karnataka Examinations Authority (KEA), Bengaluru", official_website="cetonline.karnataka.gov.in/kea",
+    full_form_body="Diploma Common Entrance Test, conducted by the Karnataka Examinations Authority (KEA) for diploma holders seeking lateral entry to B.E. courses and first-year Architecture in Karnataka",
+    eligibility="Engineering diploma holders (or final-year students awaiting results) with at least 45% aggregate in all subjects of the final year (5th and 6th semester) of the diploma; 40% for SC, ST and Backward Classes. Government seats need one of the eligibility clauses in the bulletin. Diploma working professionals must also take DCET. Eligible diploma holders may choose any engineering branch (GO ED 88 DTE, 14-07-2022). DCET does not admit students into a diploma; Karnataka's diploma admission is a separate merit-based process",
+    application_window="2026 cycle (closed): applications opened 17-03-2026 (12 noon); the last date of 03-04-2026 was extended once to 10-04-2026 (11:59 PM), with no further extension. 2027 cycle not yet notified",
+    exam_date="2026: 23-05-2026, 2:00-5:00 PM (3 hours). Kannada language test for Horanadu/Gadinadu Kannadiga candidates on 23-05-2026, 10:30-11:30 AM, in Bengaluru only. 2027 date not yet announced",
+    admits_into="2nd year / 3rd semester B.E. (lateral entry) at day engineering colleges, working-professional B.E. programmes, and first-year B.Arch for diploma holders, at Government, aided and private colleges in Karnataka, through KEA counselling",
+    exam_pattern="One 3-hour paper common to all engineering diplomas: Engineering Mathematics, Statistics & Analytics, IT Skills, Fundamentals of Electrical and Electronics Engineering, and Project Management Skills. No negative marking. Merit list: DCET marks and final-year (5th + 6th semester) diploma marks with equal weight",
+)
+
 
 def src_of(state, exam):
     """The verified row's own source: the subjects come from the same document."""
