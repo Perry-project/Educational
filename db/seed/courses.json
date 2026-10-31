@@ -72,12 +72,12 @@
   {
     "course_name": "Agriculture & Veterinary Sciences (BVSc & AH)",
     "category": "Agriculture",
-    "typical_duration": "5.5 years (4.5 years academic + 1-year mandatory internship, per Veterinary Council of India norms)",
-    "entry_via": "AP EAPCET (Agriculture stream)",
-    "source": "kvasu.ac.in / shiksha.com BVSc & AH duration guides (verified Sept 2026 - corrected from an approximate '4-5 years' figure)",
-    "source_type": "secondary_aggregator",
-    "data_tier": "pending_review",
-    "verified_date": null
+    "typical_duration": "5.5 years: five professional years, the fourth lasting 1.5 years, and the fifth a one-year internship (VCI Minimum Standards of Veterinary Education 2016)",
+    "entry_via": "AP EAPCET (Agriculture stream) for Sri Venkateswara Veterinary University seats in AP (TG EAPCET for PVNRTVU in Telangana); All India Quota through the Veterinary Council of India",
+    "source": "SVVU Information brochure for B.V.Sc & A.H admissions 2026-27 (apsvvu-ugadmissions.aptonline.in/SVVU) and PVNRTVU Prospectus 2026-27 (pvnrtvu.tgonline.in/Files/Prospectus_Updated.pdf)",
+    "source_type": "government_notification",
+    "data_tier": "tier_1_official",
+    "verified_date": "2026-10-31"
   },
   {
     "course_name": "B.Com / BBA",
@@ -102,12 +102,12 @@
   {
     "course_name": "Law (BA/BBA/B.Com LLB)",
     "category": "Law",
-    "typical_duration": "5 years (integrated)",
-    "entry_via": "CLAT",
-    "source": "Derived from AP Career Database Phase 2/3",
-    "source_type": "unverified",
-    "data_tier": "pending_review",
-    "verified_date": null
+    "typical_duration": "5 years (integrated LL.B. after Intermediate); a 3-year LL.B. is available after a degree",
+    "entry_via": "AP LAWCET for law colleges of Andhra Pradesh universities (5-year LL.B.: Intermediate with 45%, 42% BC, 40% SC/ST); CLAT for national law universities such as DSNLU Visakhapatnam",
+    "source": "AP LAWCET & PGLCET-2026 Instruction Booklet V2 (cets.apsche.ap.gov.in/LAWCET/PDF/APLAWCET2026_IntructionsBooklet_V2.pdf) and Consortium of NLUs CLAT 2027 participating universities and press release (consortiumofnlus.ac.in)",
+    "source_type": "government_notification",
+    "data_tier": "tier_1_official",
+    "verified_date": "2026-10-31"
   },
   {
     "course_name": "BA Humanities",
@@ -153,11 +153,11 @@
     "course_name": "B.Arch (Architecture)",
     "category": "Architecture",
     "typical_duration": "5 years",
-    "entry_via": "NATA (or JEE Main Paper 2 at some institutes)",
-    "source": "pw.live / shapeverse.in B.Arch admission guides (verified Sept 2026) - added to close a gap: the careers table already lists an Architecture career with no course node to feed it",
-    "source_type": "secondary_aggregator",
-    "data_tier": "pending_review",
-    "verified_date": null
+    "entry_via": "NATA (Council of Architecture) for most colleges; JEE Main Paper 2 through JoSAA / CSAB at central institutes such as SPA Vijayawada",
+    "source": "Council of Architecture NATA site (nata.in) and SPA Vijayawada Admissions page (spav.ac.in/spavadmissions.php), read 2026-10-31",
+    "source_type": "government_notification",
+    "data_tier": "tier_1_official",
+    "verified_date": "2026-10-31"
   },
   {
     "course_name": "B.Sc (Basic Sciences)",
