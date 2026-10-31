@@ -299,6 +299,86 @@ verify(AP, "Real Estate / RERA-Registered Agent", D,
 )
 
 
+# ---------- Telangana careers, verified 2026-10-31 ----------
+# Still pending_review (no primary document reached): School Teaching (the only
+# live TGTET is the special in-service teachers' test, CBT 16-21 Nov 2026; no
+# general TET/DSC 2026 notification), Forest Range / Beat Officer (no current
+# TGPSC notification), Court Interpreter / Translator, Pharmacy council,
+# Paramedical Board, Nursing council, SATS sports coaching, BPT, OT,
+# Psychology (SMHA), BNYS, Journalism accreditation.
+TS = "Telangana"
+TV = "2026-10-31"
+
+verify(TS, "State Civil Services (Telangana Group services via TSPSC) (major)", TV,
+    "TGPSC (formerly TSPSC, websitenew.tgpsc.gov.in) notifications: Group-I Services Notification No.02/2024 dated 19-02-2024, "
+    "Group-II Services Notification No.28/2022, Group-IV Services Notification No.19/2022 (Notifications page, read 2026-10-31)",
+    entry_point="A Bachelor's degree from a recognised university, then the Telangana State Public Service Commission (now TGPSC) Group I, II, III or IV recruitment",
+    required_exams="Group I: Preliminary Test (objective, OMR) and Main Examination (descriptive, 900 marks). Groups II, III and IV: written examinations as per each notification. The latest notifications are Group-I No.02/2024 (563 posts) and Group-II No.28/2022 (783 posts), Group-III No.29/2022, Group-IV No.19/2022; no new Group notification had been issued as of 31-10-2026 - watch websitenew.tgpsc.gov.in",
+    eligibility="A degree from a recognised university (some posts need a specific degree, e.g. B.Com for Junior Accountant). Age: Group I (2024) 18-46 for non-uniformed posts; Group II and Group IV (2022) 18-44 (G.O.Ms.No.42, 2022 raised the limit from 34 to 44), except the Prohibition & Excise Sub-Inspector post (21-30). Relaxations for reserved categories as per rules; local-area reservation under the Presidential Order",
+    govt_private_options="Government only. Group I includes posts such as Deputy Collector and DSP; Group II includes posts such as Assistant Commercial Tax Officer and Prohibition & Excise SI; Group IV includes Junior Assistant and similar posts",
+    next_step="Clear the written stage(s) (and, for Group I, the Main exam) to be appointed to the notified Telangana state post; check each new notification for posts, age and dates",
+)
+
+verify(TS, "Government Group-D/Constable-Level Jobs - Telangana (TS Police Constable via TSLPRB, TSPSC Group-4) (major)", TV,
+    "TGPRB (tgprb.in) Police Recruitment 2026: PC (Civil) et al Notification Rc No.189/Rect./Rect-2/2026 dated 29-07-2026, Supplementary Notifications "
+    "dated 15-08-2026 (G.O.Ms.No.122) and 10-09-2026 (G.O.Ms.No.129), and the TGPRB home page (vacancies, tentative test dates, selection stages); "
+    "TGPSC Group-IV Notification No.19/2022 for Group-IV eligibility",
+    entry_point="Intermediate (10+2) for police constable-level posts (SCT PC Civil / AR / SAR CPL, TGSP Constable, Fire Fighter, Warder); a degree for TGPSC Group-IV civil posts",
+    required_exams="Police: Preliminary Written Test, then Physical Measurement and Physical Efficiency Tests, then Final Written Examination. 2026 recruitment: 7,437 posts notified in all, 7,112 at constable level (PC Civil 3,697, PC AR 1,052, TGSP Constable 1,380, Fire Fighter 751, Warders 208, SAR CPL 24); constable-level Preliminary Written Test tentatively on 20-12-2026 (SI level on 29-11-2026). Group-IV: one written exam per TGPSC notification",
+    eligibility="Police constable-level: Intermediate or equivalent; age 18 to under 22 on 01-07-2026 under the notification, raised by a total of 10 years by G.O.Ms.No.87 (18-05-2026), No.122 (14-08-2026) and No.129 (09-09-2026), plus category relaxations - check the notification for your post. Group-IV: degree, age 18-44 (2022 notification)",
+    govt_private_options="Government only: Telangana State Level Police Recruitment Board for police, fire and prisons posts; TGPSC for Group-IV civil posts",
+    next_step="Clear the preliminary test, physical tests and final written exam to be appointed as a Stipendiary Cadet Trainee constable (pay scale Rs.24,280-72,850), with departmental promotions after",
+)
+
+verify(TS, "Court Stenography / Interpreter - Telangana (Telangana High Court) (niche)", TV,
+    "High Court for the State of Telangana (tshc.gov.in > Recruitment > District Judiciary): Notification No.1/2026 dated 19-01-2026 for direct recruitment "
+    "to Stenographer Grade-III in the Telangana Judicial Ministerial Service, and the later skill-test, certificate-verification and provisional-selection notices",
+    entry_point="Direct recruitment notified by the High Court for the State of Telangana for posts in the district courts (Telangana Judicial Ministerial and Subordinate Service Rules, 2018), applied for online at tshc.gov.in",
+    required_exams="Skill test (English stenography) and certificate verification as per each notification. 2026 cycle: applications 24-01-2026 to 13-02-2026; skill test and certificate verification held; provisional selection list published",
+    eligibility="A degree from a recognised university; Telangana Government Technical Examination in English Typewriting Higher Grade (45 wpm) and English Shorthand Higher Grade (120 wpm) or equivalent (Lower Grade considered if Higher Grade candidates are not available); computer knowledge; knowledge of the district's language(s). Age 18-46 on 01-07-2026, with relaxations under G.O.Ms.No.30 (2024)",
+    govt_private_options="Government (Telangana district judiciary); private legal transcription work exists outside this pipeline",
+    next_step="Stenographer Grade-III, pay scale Rs.32,810-96,890, with promotion within the judicial ministerial service. Watch tshc.gov.in for the next notification",
+)
+
+verify(TS, "Veterinary Assistant / Livestock Inspector - Telangana (PVNRTVU Diploma route) (niche)", TV,
+    "SBTET Telangana POLYCET-2026 Instruction Booklet (polycet.sbtet.telangana.gov.in/Downloads/polycet2026.pdf: notes 4, 6 and 8, section 2.2 PVNRTVU diploma, section 3.2 eligibility for PVNRTVU)",
+    entry_point="Two-year Animal Husbandry Polytechnic diploma of P.V. Narsimha Rao Telangana Veterinary University (PVNRTVU), admitted on POLYCET rank through PVNRTVU's own separate counselling",
+    required_exams="TS POLYCET (conducted by SBTET); PVNRTVU fills its diploma seats from POLYCET ranks through a separate admission notification on pvnrtvu.ac.in",
+    eligibility="Indian national belonging to Telangana (local / non-local rules); SSC or equivalent with Science and at least 35% (NIOS/TOSS/CBSE/ICSE candidates must pass every subject incl. Maths, Biology, Physics, Chemistry with 35% each); at least 4 years of schooling between Classes 1 and 10 in non-municipal (rural) areas, certified by the head of institution; age 15 to 22 as on 31-12-2026",
+    govt_private_options="Jobs in government departments and private organisations in dairy, poultry, pet animal care and animal feed",
+    next_step="The booklet calls it a terminal course and says it is not equal to Intermediate: for further studies the student should pursue the Intermediate course",
+)
+
+verify(TS, "Agriculture & Veterinary Sciences - Telangana (PJTSAU / PVNRTVU via TG EAPCET)", TV,
+    "PJTAU Prospectus for admission into UG courses 2026-27 under Bi.P.C stream (pjtau.edu.in/wp-content/uploads/2026/06/BiPC-UG_Prospectus-2026-27.pdf) and "
+    "PVNRTVU Prospectus for state quota admission into B.V.Sc & A.H and B.F.Sc 2026-27 (pvnrtvu.tgonline.in/Files/Prospectus_Updated.pdf)",
+    entry_point="Intermediate with Physical and Biological Sciences (BiPC), then admission on TG EAPCET (Agriculture stream) rank to Professor Jayashankar Telangana Agricultural University (PJTAU, formerly PJTSAU) or P.V. Narsimha Rao Telangana Veterinary University (PVNRTVU)",
+    required_exams="TG EAPCET (Agriculture & Pharmacy stream); each university runs its own online application and counselling (2026-27: PJTAU applications 28-06-2026 to 25-07-2026; PVNRTVU 01-07-2026 to 31-08-2026, three counselling rounds)",
+    eligibility="PJTAU: pass in Intermediate (BIE Telangana or equivalent) with Physical and Biological Sciences; age 17 to 22 (25 for SC/ST, 27 for PwD) on 31 December of the admission year. PVNRTVU B.V.Sc & A.H: pass in English, Physics, Chemistry and Biology with 50% aggregate (47.5% for SC/ST/PwD); at least 17 years old on 31-12-2026. 85% of seats for local candidates",
+    govt_private_options="PJTAU 2026-27: B.Sc (Hons) Agriculture 855 seats + 500 special-quota seats across 10 colleges, B.Sc (Hons) Horticulture 30 (Aswaraopet), B.Tech Food Technology 25 + 4 (Rudrur); 25% Farmers' and 15% Agriculture Labourers' quota. PVNRTVU: B.V.Sc & A.H 185 state-quota seats at Rajendranagar, Korutla and Mamnoor, plus 20 NRI / self-finance seats filled separately",
+    next_step="Apply on the university portal after TG EAPCET results, attend counselling and accept the allotted seat; B.V.Sc & A.H runs 5.5 years including internship (VCI MSVE 2016), B.Sc (Hons) Agriculture 4 years",
+)
+
+verify(TS, "Dairy & Fisheries Science - Telangana (PVNRTVU via TG EAPCET)", TV,
+    "PVNRTVU Prospectus for state quota admission into B.V.Sc & A.H and B.F.Sc under Bi.P.C stream 2026-27 (pvnrtvu.tgonline.in/Files/Prospectus_Updated.pdf) and "
+    "PVNRTVU cut-off ranks for UG admission 2026-27, Round 3 (pvnrtvu.ac.in)",
+    entry_point="Intermediate with Physics, Chemistry, Biology and English, then admission on TG EAPCET (Agriculture stream) rank to the B.F.Sc at the College of Fishery Science, Pebbair (Wanaparthy), run by PVNRTVU",
+    required_exams="TG EAPCET (Agriculture & Pharmacy stream); PVNRTVU online application (2026-27: 01-07-2026 to 31-08-2026) and counselling",
+    eligibility="Pass in Intermediate (BIE Telangana or equivalent) with Physics, Chemistry, Biology and English; at least 17 years old on 31 December of the admission year; 85% of seats for local candidates. (The 50% aggregate rule in the prospectus is stated for B.V.Sc & A.H.)",
+    govt_private_options="Government: B.F.Sc (4 years, ICAR curriculum) at College of Fishery Science, Pebbair - 28 state-quota seats including EWS",
+    next_step="Apply on pvnrtvu.tgonline.in after TG EAPCET results and attend counselling; graduates go on to fisheries department, aquaculture and seafood industry roles or postgraduate study",
+)
+
+verify(TS, "Real Estate / RERA-Registered Agent - Telangana (TG-RERA)", TV,
+    "Telangana Real Estate Regulatory Authority website (rera.telangana.gov.in: home page, 'Guidelines for Real Estate Agent', Agent Corner) and registration portal rerait.telangana.gov.in, read 2026-10-31",
+    entry_point="Under the Real Estate (Regulation and Development) Act, 2016, every real estate agent must register with TG-RERA before facilitating any sale in a registered project",
+    required_exams="TG-RERA's website has an 'Agent Training and Certification' section alongside agent registration; registration and renewal are online at rerait.telangana.gov.in. The current fee and training requirement were not confirmed from a primary document",
+    eligibility="Any individual, firm or company acting as an agent registers with TG-RERA; documents as per the TG-RERA agent registration form",
+    govt_private_options="Registration with the Telangana Real Estate Regulatory Authority (5,340 registered agents listed on 31-10-2026); the work itself is private or self-employed",
+    next_step="Register (and renew) on rerait.telangana.gov.in and quote the registration number in all dealings; check the 'Guidelines for Real Estate Agent' page for current rules",
+)
+
+
 # ---------- apply ----------
 path = os.path.join(os.path.dirname(__file__), "..", "..", "db", "seed", "careers.json")
 rows = json.load(open(path, encoding="utf-8"))
