@@ -2637,5 +2637,31 @@
     "stage": "after_10",
     "category": "Intermediate admission",
     "body_type": "Government"
+  },
+  {
+    "state": "Karnataka",
+    "exam_name": "KCET (Karnataka Common Entrance Test / UGCET)",
+    "full_form_body": "Karnataka Common Entrance Test, conducted by the Karnataka Examinations Authority (KEA)",
+    "eligibility": "Must have passed or be appearing in Karnataka 2nd PUC (or an equivalent exam) with the required subject combination - Engineering generally requires Physics, Chemistry and Mathematics; Pharmacy requires Physics and Chemistry with either Biology or Mathematics; similar subject-specific rules apply for Agriculture and Veterinary Science (per secondary sources, not independently confirmed against KEA's own eligibility notification). Architecture admission reportedly also requires a separate NATA score, not KCET alone - flagged unverified, needs confirmation directly from KEA. One source states only Indian citizens are eligible - unverified",
+    "application_window": "unverified - needs follow-up; 2026-cycle sources conflict. One report says registration opened 17-Jan-2026 with a closing date of 27-Feb-2026; a Careers360 live-updates report says KEA revised the originally published 2026 schedule and removed dates from its own site before re-notifying - exact current window not independently resolved",
+    "exam_date": "GENUINELY CONFLICTING across secondary sources for the 2026 cycle: most report 23 & 24-Apr-2026 (plus a Kannada-language test on 22-Apr-2026); a Careers360 report says KEA revised this to 25 & 26-May-2026; another source lists 18-Apr-2026. Results reportedly expected on/after 1-Jun-2026. None of these could be independently reconciled against an official KEA notification this session - flagged unverified; the 2027 cycle has not yet been checked",
+    "admits_into": "UG degree admission (via centralised counselling on KCET rank) to Engineering (B.E./B.Tech), Pharmacy (B.Pharm), Agriculture, Veterinary Science and other allied-science programmes at Karnataka colleges - functionally Karnataka's equivalent of AP EAPCET / TG EAPCET",
+    "source": "allen.in, 'KCET 2026: Registration, Exam Dates, Syllabus'; news.careers360.com, 'KCET 2026 Registration LIVE: KEA UGCET dates revised again'; careerindia.com, 'KCET 2026 Registration Begins January 17; Exam Scheduled on April 23 & 24'; collegedekho.com, 'KCET 2026 Registration Link' - sources explicitly conflict on the exam date, flagged unverified; official cetonline.karnataka.gov.in not independently reached this session (same access issue noted for other Karnataka official sites in this and prior nights' notes)",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
+  },
+  {
+    "state": "Karnataka",
+    "exam_name": "DCET (Diploma Common Entrance Test)",
+    "full_form_body": "Diploma Common Entrance Test, conducted by the Karnataka Examinations Authority (KEA)",
+    "eligibility": "Open to existing Diploma (Polytechnic) holders seeking LATERAL entry into the 2nd year of Engineering (B.E./B.Tech) degree programmes, and reportedly 1st-year Architecture under a Lateral Entry Scheme, in Karnataka. IMPORTANT DISTINCTION: DCET is NOT a route into Diploma itself - unlike AP/Telangana's POLYCET, which is the direct post-SSLC diploma-entry exam (Karnataka's direct diploma admission is merit-based on SSLC marks instead, see the pathways table). Detailed academic eligibility (e.g. minimum Diploma marks required) was not independently found; the official notice (ED/KEA/DCET/CR-01/2026, dated 16-Mar-2026, per drait.edu.in) reportedly directs candidates to the KEA website for this detail",
+    "application_window": "2026 cycle: application opened 17-Mar-2026 per multiple sources; the closing date is reported inconsistently as 3-Apr-2026, 4-Apr-2026, or 10-Apr-2026 across different sources - not independently reconciled, flagged unverified",
+    "exam_date": "23-May-2026 (reported consistently by two sources: a post-exam Careers360 report and a notification-based tracker). Counselling Round-1 dates are reported inconsistently: option-entry 21-24-Jul-2026 per one source, a last date of 17-Aug-2026 under a 'revised schedule' per another, and a final seat-allotment result dated 27-Jul-2026 per a third - these three could not be reconciled this session, flagged unverified",
+    "admits_into": "Lateral-entry (2nd-year) admission into B.E./B.Tech Engineering degree programmes, and reportedly 1st-year Architecture under the Lateral Entry Scheme, at Karnataka engineering colleges",
+    "source": "engineering.careers360.com, 'DCET' exam page; news.careers360.com, 'KEA announces DCET 2026 round 1 option entry dates for lateral engineering admission'; collegedekho.com, 'Karnataka DCET 2026 Exam Date' / 'Registration' / 'Answer Key and Result Date Prediction' pages; drait.edu.in, 'DCET_Notifi_2025-english.pdf' (used only to confirm the exam's lateral-entry purpose and official notification numbering convention, not for 2026 dates) - multiple date conflicts noted above, flagged unverified; official cetonline.karnataka.gov.in not independently reached this session",
+    "source_type": "secondary_aggregator",
+    "data_tier": "pending_review",
+    "verified_date": null
   }
 ]
